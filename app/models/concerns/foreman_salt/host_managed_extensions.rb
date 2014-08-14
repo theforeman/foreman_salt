@@ -5,11 +5,22 @@ module ForemanSalt
     included do
       belongs_to :salt_proxy, :class_name => "SmartProxy"
       alias_method_chain :smart_proxy_ids, :salt_proxy
+      alias_method_chain :params, :salt_proxy
     end
 
     def handle_salt
       return true unless salt?
       salt_autosign_create
+    end
+
+    def params_with_salt_proxy
+      params = params_without_salt_proxy
+      params["salt_master"] = salt_master unless salt_master.blank?
+      params
+    end
+
+    def salt_master
+      salt_proxy.to_s
     end
 
     def saltrun!
