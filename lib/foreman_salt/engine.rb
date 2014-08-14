@@ -18,9 +18,8 @@ module ForemanSalt
       Foreman::Plugin.register :foreman_salt do
         requires_foreman '>= 1.5'
 
-
-        security_block :foreman_salt do |map|
-          permission :saltrun_hosts, {:hosts => [:saltrun]}
+        security_block :hosts do |map|
+          permission :saltrun_hosts, {:hosts => [:saltrun]}, :resource_type => 'Host'
         end
 
         role "Salt admin", [:saltrun_hosts]
