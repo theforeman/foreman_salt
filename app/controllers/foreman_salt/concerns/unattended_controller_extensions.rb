@@ -4,7 +4,7 @@ module ForemanSalt
       extend ActiveSupport::Concern
 
       included do
-        before_filter :handle_salt, :only => [:provision, :finish, :built]
+        before_filter :handle_salt, :only => [:provision]
       end
 
       private
