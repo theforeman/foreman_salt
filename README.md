@@ -11,11 +11,9 @@ This plug-in adds support for Salt to Foreman.
   - Provide a Salt External Node Classifier
   - ???
 
-## Installation
+## Documentation
 
-See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
-for how to install Foreman plugins
-
+More info is available in the Wiki https://github.com/theforeman/foreman_salt/wiki
 
 ## Contributing
 
