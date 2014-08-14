@@ -19,8 +19,16 @@ module ::ProxyAPI
       raise ProxyException.new(url, e, N_("Unable to delete Salt autosign for %s"), name)
     end
 
+    def key_delete name
+      parse(delete("key/#{name}"))
+    rescue RestClient::ResourceNotFound
+      true
+    rescue => e
+      raise ProxyException.new(url, e, N_("Unable to delete Salt key for %s"), name)
+    end
+
     def highstate name
-      parse(get("highstate/#{name}"))
+      parse(post("", "highstate/#{name}"))
     rescue => e
       raise ProxyException.new(url, e, N_("Unable to run Salt state.highstate for %s"), name)
     end

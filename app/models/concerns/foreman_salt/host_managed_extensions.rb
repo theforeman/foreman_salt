@@ -8,8 +8,8 @@ module ForemanSalt
     end
 
     def handle_salt
-      return unless salt?
-      salt_autosign_create name
+      return true unless salt?
+      salt_autosign_create
     end
 
     def saltrun!
