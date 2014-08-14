@@ -4,8 +4,9 @@ module ForemanSalt
 
     included do
       belongs_to :salt_proxy, :class_name => "SmartProxy"
-      alias_method_chain :smart_proxy_ids, :salt_proxy
       alias_method_chain :params, :salt_proxy
+      alias_method_chain :set_hostgroup_defaults, :salt_proxy
+      alias_method_chain :smart_proxy_ids, :salt_proxy
     end
 
     def handle_salt
@@ -33,6 +34,11 @@ module ForemanSalt
     rescue => e
       errors.add(:base, _("failed to execute puppetrun: %s") % e)
       false
+    end
+
+    def set_hostgroup_defaults_with_salt_proxy
+       assign_hostgroup_attributes(%w{salt_proxy_id})
+       set_hostgroup_defaults_without_salt_proxy
     end
 
     def smart_proxy_ids_with_salt_proxy
