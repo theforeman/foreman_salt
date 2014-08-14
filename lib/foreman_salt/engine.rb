@@ -17,11 +17,21 @@ module ForemanSalt
     initializer 'foreman_salt.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_salt do
         requires_foreman '>= 1.5'
+
+
+        security_block :foreman_salt do |map|
+          permission :saltrun_hosts, {:hosts => [:saltrun]}
+        end
+
+        role "Salt admin", [:saltrun_hosts]
       end
     end
 
     config.to_prepare do
       begin
+        # Helper Extensions
+        HostsHelper.send(:include, ForemanSalt::HostsHelperExtensions)
+
         # Model Extensions
         ::Host::Managed.send :include, ForemanSalt::Concerns::HostManagedExtensions
         ::Host::Managed.send :include, ForemanSalt::Orchestration::Salt
@@ -29,6 +39,7 @@ module ForemanSalt
 
         # Controller Extensions
         ::UnattendedController.send :include, ForemanSalt::Concerns::UnattendedControllerExtensions
+        ::HostsController.send      :include, ForemanSalt::Concerns::HostsControllerExtensions
       rescue => e
         puts "ForemanSalt: skipping engine hook (#{e.to_s})"
       end

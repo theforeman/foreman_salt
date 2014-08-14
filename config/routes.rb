@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
-  match 'new_action', :to => 'foreman_salt/hosts#new_action'
+  constraints(:id => /[^\/]+/) do
+    resources :hosts do
+      member do
+        get 'saltrun'
+      end
+    end
+  end
 
 end

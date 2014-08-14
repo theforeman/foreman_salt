@@ -12,6 +12,18 @@ module ForemanSalt
       salt_autosign_create name
     end
 
+    def saltrun!
+      unless salt_proxy.present?
+        errors.add(:base, _("No Salt master defined - can't continue"))
+        logger.warn "unable to execute salt run, no salt proxies defined"
+        return false
+      end
+      ProxyAPI::Salt.new({:url => salt_proxy.url}).highstate name
+    rescue => e
+      errors.add(:base, _("failed to execute puppetrun: %s") % e)
+      false
+    end
+
     def smart_proxy_ids_with_salt_proxy
       ids = smart_proxy_ids_without_salt_proxy
       [salt_proxy, hostgroup.try(:salt_proxy)].compact.each do |s|
