@@ -34,11 +34,15 @@ module ForemanSalt
         # Model Extensions
         ::Host::Managed.send :include, ForemanSalt::Concerns::HostManagedExtensions
         ::Host::Managed.send :include, ForemanSalt::Orchestration::Salt
-        ::Hostgroup.send     :include, ForemanSalt::Concerns::HostgroupExtensions
+        ::Hostgroup.send :include, ForemanSalt::Concerns::HostgroupExtensions
 
         # Controller Extensions
         ::UnattendedController.send :include, ForemanSalt::Concerns::UnattendedControllerExtensions
-        ::HostsController.send      :include, ForemanSalt::Concerns::HostsControllerExtensions
+        ::HostsController.send  :include, ForemanSalt::Concerns::HostsControllerExtensions
+
+        # API Extensions
+        ::Api::V2::HostsController.send :include, ForemanSalt::Concerns::SmartProxyAuthExtensions
+        ::Api::V2::ReportsController.send :include, ForemanSalt::Concerns::SmartProxyAuthExtensions
       rescue => e
         puts "ForemanSalt: skipping engine hook (#{e.to_s})"
       end
