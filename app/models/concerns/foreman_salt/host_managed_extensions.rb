@@ -37,6 +37,7 @@ module ForemanSalt
     end
 
     def set_hostgroup_defaults_with_salt_proxy
+       return unless hostgroup
        assign_hostgroup_attributes(%w{salt_proxy_id})
        set_hostgroup_defaults_without_salt_proxy
     end
