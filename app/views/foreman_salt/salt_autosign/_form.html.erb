@@ -1,0 +1,8 @@
+<%= form_tag url_for(:controller => 'foreman_salt/salt_autosign', :smart_proxy_id => @proxy, :action => 'index') do |f| %>
+  <div class="clearfix">
+    <div class="input">
+    <%= label_tag(_("Name")) %> <%= text_field_tag(:id, "", :size => 60) %> <%= submit_tag _('Save'), :class => "btn btn-success" %>
+    </div>
+  </div>
+<% end %>
+
