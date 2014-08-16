@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.licenses    = ['GPL-3']
   s.authors     = ["Stephen Benjamin"]
   s.email       = ["stephen@redhat.com"]
-  s.homepage    = "http://github.com/stbenjam/foreman_salt"
+  s.homepage    = "http://github.com/theforeman/foreman_salt"
   s.summary     = "Foreman Plug-in for Salt"
   s.description = "Foreman Plug-in for Salt"
 
