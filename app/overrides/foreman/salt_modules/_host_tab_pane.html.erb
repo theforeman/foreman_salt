@@ -1,0 +1,4 @@
+<div class="tab-pane" id="salt_modules">
+   <%= multiple_selects f, :salt_module, ::ForemanSalt::SaltModule, @salt_modules.try(:map, &:id), :label => _("Salt modules") %>
+</div>
+

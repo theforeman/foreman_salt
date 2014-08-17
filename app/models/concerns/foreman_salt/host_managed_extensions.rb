@@ -3,6 +3,7 @@ module ForemanSalt
     extend ActiveSupport::Concern
 
     included do
+      has_and_belongs_to_many :salt_modules, :class_name => "ForemanSalt::SaltModule", :join_table => "hosts_salt_modules", :foreign_key => "host_id"
       belongs_to :salt_proxy, :class_name => "SmartProxy"
       alias_method_chain :params, :salt_proxy
       alias_method_chain :set_hostgroup_defaults, :salt_proxy

@@ -1,0 +1,23 @@
+<% title _("Salt modules") %>
+
+<% title_actions button_group(display_link_if_authorized(_("New Salt module"), hash_for_new_salt_module_path)) %>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th><%= sort :name, :as => s_("SaltModule|Name") %></th>
+    <th></th>
+  </tr>
+  <% for salt_module in @salt_modules %>
+    <tr>
+      <td><%=link_to_if_authorized h(salt_module.name), hash_for_edit_salt_module_path(:id => salt_module).merge(:auth_object => salt_module, :authorizer => authorizer) %></td>
+      <td>
+        <%= action_buttons(display_delete_if_authorized hash_for_salt_module_path(:id => salt_module).merge(:auth_object => salt_module, :authorizer => authorizer),
+                            :confirm => _("Delete %s?") % salt_module.name) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= page_entries_info @salt_modules %>
+<%= will_paginate @salt_modules %>
+
