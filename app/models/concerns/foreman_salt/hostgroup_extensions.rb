@@ -13,7 +13,7 @@ module ForemanSalt
 
     def inherited_salt_proxy_id
       if ancestry.present?
-        self[:inherited_salt_proxy_id] || self.class.sort_by_ancestry(ancestors.where("salt_proxy_id is not NULL")).last.try(:salt_proxy_id)
+        read_attribute(:salt_proxy_id) || self.class.sort_by_ancestry(ancestors.where("salt_proxy_id is not NULL")).last.try(:salt_proxy_id)
       else
         self.salt_proxy_id
       end
