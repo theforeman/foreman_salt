@@ -39,9 +39,7 @@ module ForemanSalt
           permission :destroy_salt_modules, {:'foreman_salt/salt_modules' => [:destroy]},      :resource_type => "ForemanSalt::SaltModule"
         end
 
-        role "Salt admin", [:saltrun_hosts,:view_smart_proxies_salt_keys, :destroy_smart_proxies_salt_keys, :edit_smart_proxies_salt_keys,
-                            :view_smart_proxies_salt_autosign, :destroy_smart_proxies_salt_keys, :create_smart_proxies_salt_keys, 
-                            :create_salt_modules, :view_salt_modules, :edit_salt_modules, :destroy_salt_modules]
+        role "Salt admin", [:saltrun_hosts, :create_salt_modules, :view_salt_modules, :edit_salt_modules, :destroy_salt_modules]
 
       end
     end
