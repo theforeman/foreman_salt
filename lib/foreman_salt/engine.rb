@@ -59,6 +59,7 @@ module ForemanSalt
         # Controller Extensions
         ::UnattendedController.send :include, ForemanSalt::Concerns::UnattendedControllerExtensions
         ::HostsController.send  :include, ForemanSalt::Concerns::HostsControllerExtensions
+        ::HostsController.send :include, ForemanSalt::Concerns::SmartProxyAuthExtensions
 
         # API Extensions
         ::Api::V2::HostsController.send :include, ForemanSalt::Concerns::SmartProxyAuthExtensions

@@ -45,8 +45,8 @@ module ForemanSalt
 
     def smart_proxy_ids_with_salt_proxy
       ids = smart_proxy_ids_without_salt_proxy
-      [salt_proxy, hostgroup.try(:salt_proxy)].compact.each do |s|
-        ids << s
+      [salt_proxy, hostgroup.try(:salt_proxy)].compact.each do |proxy|
+        ids << proxy.id
       end
       ids
     end

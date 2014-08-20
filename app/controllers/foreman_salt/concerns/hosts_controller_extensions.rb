@@ -8,7 +8,6 @@ module ForemanSalt
         before_filter :find_by_name_salt, :only => [:saltrun]
         alias_method_chain :action_permission, :salt_run
         alias_method_chain :load_vars_for_ajax, :salt_modules
-        add_puppetmaster_filters [:salt_external_node]
       end
 
       def saltrun
@@ -22,7 +21,7 @@ module ForemanSalt
 
       def salt_external_node
         begin
-          @host ||= resource_base.find_by_name(params[:name])
+          @host = resource_base.find_by_name(params[:name])
           enc = {}
           enc["classes"] = @host.salt_modules.any? ? @host.salt_modules.map(&:name) : []
           enc["parameters"] = @host.info["parameters"]
@@ -51,7 +50,6 @@ module ForemanSalt
 
       def load_vars_for_ajax_with_salt_modules
         @salt_modules = @host.salt_modules
-        logger.info("Salt modules for this host: #{@salt_modules.inspect}")
         load_vars_for_ajax_without_salt_modules
       end
     end
