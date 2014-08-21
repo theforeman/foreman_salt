@@ -36,7 +36,7 @@ module ForemanSalt
         security_block :salt_modules do |map|
           permission :create_salt_modules,  {:'foreman_salt/salt_modules' => [:new, :create]}, :resource_type => "ForemanSalt::SaltModule"
           permission :view_salt_modules,    {:'foreman_salt/salt_modules' => [:index, :show]}, :resource_type => "ForemanSalt::SaltModule"
-          permission :edit_salt_modules,    {:'foreman_salt/salt_modules' => [:update]},       :resource_type => "ForemanSalt::SaltModule"
+          permission :edit_salt_modules,    {:'foreman_salt/salt_modules' => [:update, :edit]},       :resource_type => "ForemanSalt::SaltModule"
           permission :destroy_salt_modules, {:'foreman_salt/salt_modules' => [:destroy]},      :resource_type => "ForemanSalt::SaltModule"
         end
 
