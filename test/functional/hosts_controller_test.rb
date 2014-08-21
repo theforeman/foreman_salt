@@ -1,4 +1,3 @@
-require 'pry'
 require 'test_plugin_helper'
 
 class HostsControllerTest < ActionController::TestCase
@@ -12,7 +11,6 @@ class HostsControllerTest < ActionController::TestCase
     Resolv.any_instance.stubs(:getnames).returns([proxy.to_s])
 
     host = FactoryGirl.create :host
-    #binding.pry
     get :salt_external_node, {:name => host.name, :format => "yml"}
     assert_response :success
   end

@@ -1,18 +1,8 @@
 require 'test_plugin_helper'
 
-class HostRelatedTest < ActiveSupport::TestCase
+class HostgroupExtensionsTest < ActiveSupport::TestCase
   setup do
     User.current = User.find_by_login "admin"
-  end
-
-  test "host has a salt smart proxy" do
-    host = FactoryGirl.create :host, :with_salt_proxy
-    assert host.salt_proxy.features.map(&:name).include? 'Salt'
-  end
-
-  test "smart_proxy_ids returns salt smart proxy" do
-    host = FactoryGirl.create :host, :with_salt_proxy
-    assert host.smart_proxy_ids.include? host.salt_proxy_id
   end
 
   test "host group has a salt smart proxy" do
