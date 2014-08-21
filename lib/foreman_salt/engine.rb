@@ -30,6 +30,7 @@ module ForemanSalt
 
         security_block :hosts do |map|
           permission :saltrun_hosts, {:hosts => [:saltrun]}, :resource_type => 'Host'
+          permission :view_hosts, {:hosts => [:salt_external_node]}, :resource_type => 'Host'
         end
 
         security_block :salt_modules do |map|
