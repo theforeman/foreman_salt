@@ -12,16 +12,16 @@ module ForemanSalt
       ::FactImporter.stubs(:importer_for).returns(ForemanSalt::FactImporter)
 
       grains = JSON.parse(File.read(File.join(Engine.root, "test", "unit", "grains_centos.json")))
-      @host  = grains["name"] 
+      @host  = grains["name"]
       @facts = grains["facts"]
     end
 
     test "importing salt grains creates a host" do
-      refute Host.find_by_name(@host) 
+      refute Host.find_by_name(@host)
       ::Host::Managed.import_host_and_facts @host, @facts
-      assert Host.find_by_name(@host) 
+      assert Host.find_by_name(@host)
     end
-    
+
     test "grains are successfully imported for a host" do
       (host, state) = ::Host::Managed.import_host_and_facts @host, @facts
       assert_equal 'CentOS', host.facts_hash['operatingsystem']
