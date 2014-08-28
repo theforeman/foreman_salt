@@ -7,6 +7,7 @@ module ForemanSalt
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/overrides"]
+    config.autoload_paths += Dir["#{config.root}/app/services"]
     config.autoload_paths += Dir["#{config.root}/app/lib"]
 
     # Add any db migrations
@@ -30,18 +31,30 @@ module ForemanSalt
 
         security_block :hosts do |map|
           permission :saltrun_hosts, {:hosts => [:saltrun]}, :resource_type => 'Host'
-          permission :view_hosts, {:hosts => [:salt_external_node]}, :resource_type => 'Host'
         end
 
         security_block :salt_modules do |map|
           permission :create_salt_modules,  {:'foreman_salt/salt_modules' => [:new, :create]}, :resource_type => "ForemanSalt::SaltModule"
           permission :view_salt_modules,    {:'foreman_salt/salt_modules' => [:index, :show]}, :resource_type => "ForemanSalt::SaltModule"
-          permission :edit_salt_modules,    {:'foreman_salt/salt_modules' => [:update, :edit]},       :resource_type => "ForemanSalt::SaltModule"
+          permission :edit_salt_modules,    {:'foreman_salt/salt_modules' => [:update]},       :resource_type => "ForemanSalt::SaltModule"
           permission :destroy_salt_modules, {:'foreman_salt/salt_modules' => [:destroy]},      :resource_type => "ForemanSalt::SaltModule"
         end
 
-        role "Salt admin", [:saltrun_hosts, :create_salt_modules, :view_salt_modules, :edit_salt_modules, :destroy_salt_modules]
+        security_block :salt_keys do |map|
+          permission :view_smart_proxies_salt_keys,    {:'foreman_salt/salt_keys' => [:index]},            :resource_type => "SmartProxy"
+          permission :destroy_smart_proxies_salt_keys, {:'foreman_salt/salt_keys' => [:destroy]},          :resource_type => "SmartProxy"
+          permission :edit_smart_proxies_salt_keys,    {:'foreman_salt/salt_keys' => [:accept, :reject]},  :resource_type => "SmartProxy"
+        end
 
+        security_block :salt_autosign do |map|
+          permission :destroy_smart_proxies_salt_autosign, {:'foreman_salt/salt_autosign' => [:destroy]},      :resource_type => "SmartProxy"
+          permission :create_smart_proxies_salt_autosign,  {:'foreman_salt/salt_autosign' => [:new, :create]}, :resource_type => "SmartProxy"
+          permission :view_smart_proxies_salt_autosign,    {:'foreman_salt/salt_autosign' => [:index]},        :resource_type => "SmartProxy"
+        end
+
+        role "Salt admin", [:saltrun_hosts, :create_salt_modules, :view_salt_modules, :edit_salt_modules, :destroy_salt_modules,
+                            :view_smart_proxies_salt_keys, :destroy_smart_proxies_salt_keys, :edit_smart_proxies_salt_keys, 
+                            :create_smart_proxies_salt_autosign, :view_smart_proxies_salt_autosign, :destroy_smart_proxies_salt_autosign]
       end
     end
 
@@ -50,7 +63,8 @@ module ForemanSalt
         ::FactImporter.register_fact_importer(:foreman_salt, ForemanSalt::FactImporter)
 
         # Helper Extensions
-        HostsHelper.send(:include, ForemanSalt::HostsHelperExtensions)
+        ::HostsHelper.send :include, ForemanSalt::HostsHelperExtensions
+        ::SmartProxiesHelper.send :include, ForemanSalt::SmartProxiesHelperExtensions
 
         # Model Extensions
         ::Host::Managed.send :include, ForemanSalt::Concerns::HostManagedExtensions
@@ -60,7 +74,6 @@ module ForemanSalt
         # Controller Extensions
         ::UnattendedController.send :include, ForemanSalt::Concerns::UnattendedControllerExtensions
         ::HostsController.send  :include, ForemanSalt::Concerns::HostsControllerExtensions
-        ::HostsController.send :include, ForemanSalt::Concerns::SmartProxyAuthExtensions
 
         # API Extensions
         ::Api::V2::HostsController.send :include, ForemanSalt::Concerns::SmartProxyAuthExtensions

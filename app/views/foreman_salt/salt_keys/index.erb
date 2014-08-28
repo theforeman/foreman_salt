@@ -1,0 +1,34 @@
+<% title _("Salt Keys on %s") % @proxy.name %>
+<% search_bar _("Filter %s") % salt_keys_state_filter %>
+
+<% title_actions display_link_if_authorized(_("Autosign"), hash_for_smart_proxy_salt_autosign_index_path) %>
+
+<table class='table table-bordered table-striped table-condensed'>
+  <tr>
+    <th><%= _("Key Name") %></th>
+    <th><%= _("State") %></th>
+    <th><%= _("Fingerprint") %></th>
+    <th></th>
+  </tr>
+  <% @keys.each do |key| %>
+      <tr>
+        <td><%= key.name %> </td>
+        <td><%= _(key.state.humanize) %></td>
+        <td><%= key.fingerprint %></td>
+        <td>
+          <%= action_buttons(
+                  if key.state == "unaccepted"
+                    [display_link_if_authorized(_("Accept"), hash_for_smart_proxy_salt_key_accept_path.merge(:state => params[:state], :salt_key_id => key)),
+                    display_link_if_authorized(_("Reject"), hash_for_smart_proxy_salt_key_reject_path.merge(:state => params[:state], :salt_key_id => key))]
+                  end,
+                  display_delete_if_authorized(hash_for_smart_proxy_salt_key_path(:smart_proxy_id => @proxy, :id => key, :state => params[:state], :class => 'delete'))
+                  )
+          %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= page_entries_info @keys  %>
+<%= will_paginate @keys %>
+

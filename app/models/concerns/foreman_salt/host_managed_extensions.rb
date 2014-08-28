@@ -28,12 +28,12 @@ module ForemanSalt
     def saltrun!
       unless salt_proxy.present?
         errors.add(:base, _("No Salt master defined - can't continue"))
-        logger.warn "unable to execute salt run, no salt proxies defined"
+        logger.warn "Unable to execute salt run, no salt proxies defined"
         return false
       end
       ProxyAPI::Salt.new({:url => salt_proxy.url}).highstate name
     rescue => e
-      errors.add(:base, _("failed to execute puppetrun: %s") % e)
+      errors.add(:base, _("Failed to execute state.highstate: %s") % e)
       false
     end
 
