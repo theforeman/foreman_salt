@@ -3,15 +3,20 @@ module ForemanSalt
     include Taxonomix
     include Authorizable
 
+    before_destroy EnsureNotUsedBy.new(:hosts, :hostgroups)
     has_and_belongs_to_many :hosts, :class_name => "::Host::Managed", :join_table => "hosts_salt_modules",
                             :association_foreign_key => 'host_id'
+
+    has_and_belongs_to_many :hostgroups, :class_name => "::Hostgroup", :join_table => "hostgroups_salt_modules"
+
     validates :name, :uniqueness => true, :presence => true, :format => { :with => /\A[\w\d]+\z/, :message => N_("is alphanumeric and cannot contain spaces") }
 
     default_scope lambda {
-      with_taxonomy_scope do
-        order("salt_modules.name")
-      end
+      order("salt_modules.name")
     }
 
+    scoped_search :on => :name, :complete_value => true
+    scoped_search :in => :hostgroups, :on => :name, :complete_value => true, :rename => :hostgroup
+    scoped_search :in => :hosts, :on => :name, :complete_value => true, :rename => :host
   end
 end

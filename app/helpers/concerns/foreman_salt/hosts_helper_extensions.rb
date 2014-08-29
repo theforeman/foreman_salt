@@ -4,6 +4,13 @@ module ForemanSalt
 
     included do
       alias_method_chain :host_title_actions, :salt_run
+      alias_method_chain :show_appropriate_host_buttons, :salt
+    end
+
+    def show_appropriate_host_buttons_with_salt(host)
+      (show_appropriate_host_buttons_without_salt(host) +
+         [(link_to_if_authorized(_("Salt ENC"), {:controller => :hosts, :action => :salt_external_node, :name => host},
+         :title => _("Salt external nodes YAML dump"), :class => 'btn btn-default') unless host.salt_master.blank?)]).flatten.compact
     end
 
     def host_title_actions_with_salt_run(host)

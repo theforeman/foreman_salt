@@ -21,6 +21,16 @@ module ForemanSalt
       params
     end
 
+    def salt_modules
+      return super unless hostgroup
+      [super + hostgroup.salt_modules].flatten
+    end
+
+    def salt_module_ids
+      return super unless hostgroup
+      [super + hostgroup.salt_module_ids].flatten
+    end
+
     def salt_master
       salt_proxy.to_s
     end

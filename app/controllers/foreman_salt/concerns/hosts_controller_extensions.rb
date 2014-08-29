@@ -8,6 +8,7 @@ module ForemanSalt
         before_filter :find_by_name_salt, :only => [:saltrun]
         alias_method_chain :action_permission, :salt_run
         alias_method_chain :load_vars_for_ajax, :salt_modules
+        alias_method_chain :process_hostgroup, :salt_modules
       end
 
       def saltrun
@@ -26,13 +27,22 @@ module ForemanSalt
           enc["classes"] = @host.salt_modules.any? ? @host.salt_modules.map(&:name) : []
           enc["parameters"] = @host.info["parameters"]
           respond_to do |format|
-            format.html { render :text => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" }
+            format.html { render :text => enc.to_yaml }
             format.yml  { render :text => enc.to_yaml }
           end
         rescue
           logger.warn "Failed to generate external nodes for #{@host} with #{$!}"
           render :text => _('Unable to generate output, Check log files\n'), :status => 412 and return
         end
+      end
+
+      def process_hostgroup_with_salt_modules
+        @hostgroup = Hostgroup.find(params[:host][:hostgroup_id]) if params[:host][:hostgroup_id].to_i > 0
+        return head(:not_found) unless @hostgroup
+
+        @salt_modules           = @host.salt_modules if @host 
+        @inherited_salt_modules = @hostgroup.salt_modules
+        process_hostgroup_without_salt_modules
       end
 
       private
@@ -49,7 +59,9 @@ module ForemanSalt
       end
 
       def load_vars_for_ajax_with_salt_modules
-        @salt_modules = @host.salt_modules
+        return unless @host
+        @salt_modules           = @host.salt_modules 
+        @inherited_salt_modules = @host.hostgroup.salt_modules if @host.hostgroup
         load_vars_for_ajax_without_salt_modules
       end
     end

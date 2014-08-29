@@ -27,8 +27,8 @@ module ForemanSalt
 
     def update
       if @salt_module.update_attributes(params[:foreman_salt_salt_module])
-        notice _("Successfully updated %s." % @psalt_module.to_s)
-        redirect_back_or_default(url_for_salt_module)
+        notice _("Successfully updated %s." % @salt_module.to_s)
+        redirect_to salt_modules_path
       else
         process_error
       end

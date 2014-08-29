@@ -3,7 +3,30 @@ module ForemanSalt
     extend ActiveSupport::Concern
 
     included do
+      has_and_belongs_to_many :salt_modules, :class_name => "ForemanSalt::SaltModule"
       belongs_to :salt_proxy, :class_name => "SmartProxy"
+    end
+
+    def salt_modules
+      return super unless ancestry.present?
+      ([super] + [inherited_salt_modules]).flatten.uniq.compact
+    end
+
+    def salt_module_ids
+      return super unless ancestry.present?
+      ([super] + [inherited_salt_module_ids]).flatten.uniq.compact
+    end
+
+    def inherited_salt_modules
+      ForemanSalt::SaltModule.where(:id => inherited_salt_module_ids)
+    end
+
+    def inherited_salt_module_ids
+      if ancestry.present?
+        self.class.sort_by_ancestry(ancestors.reject { |ancestor| ancestor.salt_module_ids.empty? }).last.try(:salt_modules)
+      else
+        []
+      end
     end
 
     def salt_proxy
