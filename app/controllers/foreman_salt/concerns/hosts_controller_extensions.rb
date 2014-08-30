@@ -27,7 +27,7 @@ module ForemanSalt
           enc["classes"] = @host.salt_modules.any? ? @host.salt_modules.map(&:name) : []
           enc["parameters"] = @host.info["parameters"]
           respond_to do |format|
-            format.html { render :text => enc.to_yaml }
+            format.html { render :text => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" } 
             format.yml  { render :text => enc.to_yaml }
           end
         rescue
