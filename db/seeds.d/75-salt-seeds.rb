@@ -25,5 +25,7 @@ end
 viewer = Role.find_by_name('Viewer')
 
 if viewer
-  viewer.add_permissions!([:view_smart_proxies_salt_keys, :view_smart_proxies_salt_autosign, :view_salt_modules])
+  [:view_smart_proxies_salt_keys, :view_smart_proxies_salt_autosign, :view_salt_modules].each do |permission|
+    viewer.add_permissions!([permission]) unless viewer.permissions.include? Permission.find_by_name(permission)
+  end
 end
