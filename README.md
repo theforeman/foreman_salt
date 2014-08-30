@@ -2,15 +2,6 @@
 
 This plug-in adds support for Salt to Foreman. 
 
-## To Do
-
-  - ~~Manage auto-sign for salt-keys~~
-  - ~~"Run salt" button on hosts~~
-  - Import Salt grains as facts 
-  - Accept reports for Salt highstate runs
-  - Provide a Salt External Node Classifier
-  - ???
-
 ## Documentation
 
 More info is available in the Wiki https://github.com/theforeman/foreman_salt/wiki
