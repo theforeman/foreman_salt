@@ -57,7 +57,6 @@ module ForemanSalt
                             :view_smart_proxies_salt_keys, :destroy_smart_proxies_salt_keys, :edit_smart_proxies_salt_keys, 
                             :create_smart_proxies_salt_autosign, :view_smart_proxies_salt_autosign, :destroy_smart_proxies_salt_autosign]
         
-        Role.find_by_name('Viewer').add_permissions!([:view_smart_proxies_salt_keys, :view_smart_proxies_salt_autosign, :view_salt_modules])
       end
     end
 
