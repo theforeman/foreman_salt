@@ -5,11 +5,11 @@ module ForemanSalt
 
     test "index page" do
       FactoryGirl.create_list :salt_module, 50
-      assert_index_page(salt_modules_path, "Salt modules", "New Salt module")
+      assert_index_page(salt_modules_path, "Salt State", "New Salt State")
     end
 
     test "create new page" do
-      assert_new_button(salt_modules_path, "New Salt module", new_salt_module_path)
+      assert_new_button(salt_modules_path, "New Salt State", new_salt_module_path)
       fill_in "foreman_salt_salt_module_name", :with => "common"
       assert_submit_button(salt_modules_path)
       assert page.has_link? 'common'

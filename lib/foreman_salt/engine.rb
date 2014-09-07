@@ -21,7 +21,7 @@ module ForemanSalt
 
         menu :top_menu, :salt,
           :url_hash => {:controller => :'foreman_salt/salt_modules', :action => :index },
-          :caption  => 'Modules',
+          :caption  => 'States',
           :parent   => :configure_menu,
           :after    => :common_parameters
 

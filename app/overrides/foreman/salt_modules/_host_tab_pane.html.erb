@@ -2,7 +2,7 @@
 <div class="tab-pane" id="salt_modules">
   <div class="row">
     <div class="col-md-4">
-       <h3>Inherited Modules</h3>
+       <h3>Inherited States</h3>
        <ul>
        <% @inherited_salt_modules.sort.each do |salt_module| -%>
          <li title="Inherited from hostgroup"><%= salt_module.name -%></li>
@@ -10,7 +10,7 @@
        </ul>
      </div>
      <div class="col-md-8">
-       <h3>Salt Modules</h3>
+       <h3>Salt States</h3>
        <% if @inherited_salt_modules.blank? -%>
          <%= multiple_selects f, :salt_module, ::ForemanSalt::SaltModule, @salt_modules.try(:map, &:id), :label => "" %>
        <% else -%>

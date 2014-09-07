@@ -1,7 +1,7 @@
 <%= form_for @salt_module, :url => (@salt_module.new_record? ? salt_modules_path : salt_module_path(:id => @salt_module.id)) do |f| %>
   <%= base_errors_for @salt_module %>
   <ul class="nav nav-tabs" data-tabs="tabs">
-    <li class="active"><a href="#primary" data-toggle="tab"><%= _('Salt Modules') %></a></li>
+    <li class="active"><a href="#primary" data-toggle="tab"><%= _('Salt States') %></a></li>
   </ul>
 
   <div class="tab-content">
