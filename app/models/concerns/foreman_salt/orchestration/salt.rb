@@ -34,6 +34,7 @@ module ForemanSalt
       end
 
       def queue_salt_destroy
+        return unless salt? && errors.empty?
         queue.create(:name => _("Remove autosign entry for %s") % self, :priority => 50, :action => [self, :salt_autosign_remove])
         queue.create(:name => _("Delete existing salt key for %s") % self, :priority => 50, :action => [self, :salt_key_delete])
       end
@@ -49,7 +50,7 @@ module ForemanSalt
         salt_key_delete # if there's already an existing key
         @salt_api.autosign_create name
       rescue => e
-        failure _("Failed to create %{name}'s Salt autosign entry: %{e}") % { :name => name, :e => proxy_error(e) }
+        failure _("Failed to create %{name}'s Salt autosign entry: %{e}") % { :name => name, :e => e }
       end
 
       def salt_autosign_remove
@@ -57,7 +58,7 @@ module ForemanSalt
         initialize_salt
         @salt_api.autosign_remove name
       rescue => e
-        failure _("Failed to remove %{name}'s Salt autosign entry: %{e}") % { :name => name, :e => proxy_error(e) }
+        failure _("Failed to remove %{name}'s Salt autosign entry: %{e}") % { :name => name, :e => e }
       end
 
       def salt_key_delete
@@ -65,7 +66,7 @@ module ForemanSalt
         initialize_salt
         @salt_api.key_delete name
       rescue => e
-        failure _("Failed to delete %{name}'s Salt key: %{e}") % { :name => name, :e => proxy_error(e) }
+        failure _("Failed to delete %{name}'s Salt key: %{e}") % { :name => name, :e => e }
       end
     end
   end
