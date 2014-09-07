@@ -9,7 +9,7 @@ module ForemanSalt
 
     has_and_belongs_to_many :hostgroups, :class_name => "::Hostgroup", :join_table => "hostgroups_salt_modules"
 
-    validates :name, :uniqueness => true, :presence => true, :format => { :with => /\A[\w\d]+\z/, :message => N_("is alphanumeric and cannot contain spaces") }
+    validates :name, :uniqueness => true, :presence => true, :format => { :with => /\A[\w\d\.]+\z/, :message => N_("is alphanumeric and cannot contain spaces") }
 
     default_scope lambda {
       order("salt_modules.name")
