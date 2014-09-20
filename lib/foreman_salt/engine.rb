@@ -19,7 +19,13 @@ module ForemanSalt
       Foreman::Plugin.register :foreman_salt do
         requires_foreman '>= 1.6'
 
-        menu :top_menu, :salt,
+        menu :top_menu, :salt_environments,
+          :url_hash => {:controller => :'foreman_salt/salt_environments', :action => :index },
+          :caption  => 'Environments',
+          :parent   => :configure_menu,
+          :after    => :common_parameters
+
+        menu :top_menu, :salt_modules,
           :url_hash => {:controller => :'foreman_salt/salt_modules', :action => :index },
           :caption  => 'States',
           :parent   => :configure_menu,
@@ -32,6 +38,13 @@ module ForemanSalt
         security_block :hosts do |map|
           permission :saltrun_hosts, {:hosts => [:saltrun]}, :resource_type => 'Host'
           permission :view_hosts, {:hosts => [:salt_external_node]}, :resource_type => 'Host'
+        end
+
+        security_block :salt_environments do |map|
+          permission :create_salt_environments, {:'foreman_salt/salt_environments' => [:new, :create]}, :resource_type => "ForemanSalt::SaltEnvironment"
+          permission :view_salt_environments, {:'foreman_salt/salt_environments' => [:index, :show, :auto_complete_search]}, :resource_type => "ForemanSalt::SaltEnvironment"
+          permission :edit_salt_environments, {:'foreman_salt/salt_environments' => [:update, :edit]},:resource_type => "ForemanSalt::SaltEnvironment"
+          permission :destroy_salt_environments, {:'foreman_salt/salt_environments' => [:destroy]}, :resource_type => "ForemanSalt::SaltEnvironment"
         end
 
         security_block :salt_modules do |map|
@@ -54,9 +67,10 @@ module ForemanSalt
         end
 
         role "Salt admin", [:saltrun_hosts, :create_salt_modules, :view_salt_modules, :edit_salt_modules, :destroy_salt_modules,
-                            :view_smart_proxies_salt_keys, :destroy_smart_proxies_salt_keys, :edit_smart_proxies_salt_keys, 
-                            :create_smart_proxies_salt_autosign, :view_smart_proxies_salt_autosign, :destroy_smart_proxies_salt_autosign]
-        
+                            :view_smart_proxies_salt_keys, :destroy_smart_proxies_salt_keys, :edit_smart_proxies_salt_keys,
+                            :create_smart_proxies_salt_autosign, :view_smart_proxies_salt_autosign, :destroy_smart_proxies_salt_autosign,
+                            :create_salt_environments, :view_salt_environments, :edit_salt_environments, :destroy_salt_environments]
+
       end
     end
 

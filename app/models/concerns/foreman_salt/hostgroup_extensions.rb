@@ -5,6 +5,7 @@ module ForemanSalt
     included do
       has_and_belongs_to_many :salt_modules, :class_name => "ForemanSalt::SaltModule"
       belongs_to :salt_proxy, :class_name => "SmartProxy"
+      belongs_to :salt_environment, :class_name => "ForemanSalt::SaltEnvironment"
     end
 
     def salt_modules
@@ -39,6 +40,19 @@ module ForemanSalt
         read_attribute(:salt_proxy_id) || self.class.sort_by_ancestry(ancestors.where("salt_proxy_id is not NULL")).last.try(:salt_proxy_id)
       else
         self.salt_proxy_id
+      end
+    end
+
+    def salt_environment
+      return super unless ancestry.present?
+      ForemanSalt::SaltEnvironment.find_by_id(inherited_salt_environment_id)
+    end
+
+    def inherited_salt_environment_id
+      if ancestry.present?
+        read_attribute(:salt_environment_id) || self.class.sort_by_ancestry(ancestors.where("salt_environment_id is not NULL")).last.try(:salt_environment_id)
+      else
+        self.salt_environment_id
       end
     end
 

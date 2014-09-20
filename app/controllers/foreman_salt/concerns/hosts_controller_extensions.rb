@@ -24,9 +24,10 @@ module ForemanSalt
         begin
           @host = resource_base.find_by_name(params[:name])
           enc = {}
+          env = @host.salt_environment.blank? ? 'base' : @host.salt_environment
           enc["classes"] = @host.salt_modules.any? ? @host.salt_modules.map(&:name) : []
-          enc["environment"] = @host.info["parameters"].fetch("foreman_env", "base")
           enc["parameters"] = @host.info["parameters"]
+          enc["environment"] = env
           respond_to do |format|
             format.html { render :text => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" }
             format.yml  { render :text => enc.to_yaml }

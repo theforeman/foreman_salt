@@ -5,6 +5,7 @@ module ForemanSalt
     included do
       has_and_belongs_to_many :salt_modules, :class_name => "ForemanSalt::SaltModule", :join_table => "hosts_salt_modules", :foreign_key => "host_id"
       belongs_to :salt_proxy, :class_name => "SmartProxy"
+      belongs_to :salt_environment, :class_name => "ForemanSalt::SaltEnvironment"
       alias_method_chain :params, :salt_proxy
       alias_method_chain :set_hostgroup_defaults, :salt_proxy
       alias_method_chain :smart_proxy_ids, :salt_proxy
