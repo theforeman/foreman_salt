@@ -25,9 +25,10 @@ module ForemanSalt
           @host = resource_base.find_by_name(params[:name])
           enc = {}
           enc["classes"] = @host.salt_modules.any? ? @host.salt_modules.map(&:name) : []
+          enc["environment"] = @host.info["parameters"].fetch("foreman_env", "base")
           enc["parameters"] = @host.info["parameters"]
           respond_to do |format|
-            format.html { render :text => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" } 
+            format.html { render :text => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" }
             format.yml  { render :text => enc.to_yaml }
           end
         rescue
@@ -40,7 +41,7 @@ module ForemanSalt
         @hostgroup = Hostgroup.find(params[:host][:hostgroup_id]) if params[:host][:hostgroup_id].to_i > 0
         return head(:not_found) unless @hostgroup
 
-        @salt_modules           = @host.salt_modules if @host 
+        @salt_modules           = @host.salt_modules if @host
         @inherited_salt_modules = @hostgroup.salt_modules
         process_hostgroup_without_salt_modules
       end
@@ -60,7 +61,7 @@ module ForemanSalt
 
       def load_vars_for_ajax_with_salt_modules
         return unless @host
-        @salt_modules           = @host.salt_modules 
+        @salt_modules           = @host.salt_modules
         @inherited_salt_modules = @host.hostgroup.salt_modules if @host.hostgroup
         load_vars_for_ajax_without_salt_modules
       end
