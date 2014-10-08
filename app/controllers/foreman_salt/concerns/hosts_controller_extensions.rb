@@ -24,7 +24,7 @@ module ForemanSalt
         begin
           @host = resource_base.find_by_name(params[:name])
           enc = {}
-          env = @host.salt_environment.blank? ? 'base' : @host.salt_environment
+          env = @host.salt_environment.blank? ? 'base' : @host.salt_environment.name
           enc["classes"] = @host.salt_modules.any? ? @host.salt_modules.map(&:name) : []
           enc["parameters"] = @host.info["parameters"]
           enc["environment"] = env
