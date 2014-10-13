@@ -6,7 +6,6 @@ class HostsControllerTest < ActionController::TestCase
     Setting[:restrict_registered_puppetmasters] = true
     Setting[:require_ssl_puppetmasters] = false
 
-
     proxy = FactoryGirl.create :smart_proxy, :with_salt_feature
     Resolv.any_instance.stubs(:getnames).returns([proxy.to_s])
 

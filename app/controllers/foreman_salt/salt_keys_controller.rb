@@ -1,5 +1,5 @@
 module ForemanSalt
-  class SaltKeysController < ::ApplicationController
+  class SaltKeysController < ApplicationController
 
     def index
       @proxy = find_proxy
