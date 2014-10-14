@@ -24,8 +24,6 @@ Rake::Task[:test].enhance do
 end
 
 load 'tasks/jenkins.rake'
-if Rake::Task.task_defined?(:'jenkins:test')
-  Rake::Task["jenkins:unit"].enhance do
-    Rake::Task['test:foreman_salt'].invoke
-  end
+Rake::Task["jenkins:unit"].enhance do
+  Rake::Task['test:foreman_salt'].invoke
 end
