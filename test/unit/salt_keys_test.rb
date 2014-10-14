@@ -4,6 +4,9 @@ class SaltKeysTest < ActiveSupport::TestCase
   setup do
     User.current = User.find_by_login "admin"
 
+    # Fix for 1.8.7 OpenStruct http://stackoverflow.com/questions/9079441/populate-select-tag-ruby-rails
+    OpenStruct.__send__(:define_method, :id) { @table[:id] }
+
     @proxy = OpenStruct.new(:id => 1, :url => 'http://dummy.example.com:9090')
 
     ProxyAPI::Salt.any_instance.stubs(:key_list).returns(
