@@ -4,8 +4,8 @@ module ForemanSalt
       extend ActiveSupport::Concern
 
       included do
-        alias_method :find_by_name_salt, :find_by_name
-        before_filter :find_by_name_salt, :only => [:saltrun]
+        alias_method :find_resource_salt, :find_resource
+        before_filter :find_resource_salt, :only => [:saltrun]
         alias_method_chain :action_permission, :salt_run
         alias_method_chain :load_vars_for_ajax, :salt_modules
         alias_method_chain :process_hostgroup, :salt_modules
@@ -22,7 +22,7 @@ module ForemanSalt
 
       def salt_external_node
         begin
-          @host = resource_base.find_by_name(params[:name])
+          @host = resource_base.find(params[:name])
           enc = {}
           env = @host.salt_environment.blank? ? 'base' : @host.salt_environment.name
           enc["classes"] = @host.salt_modules.any? ? @host.salt_modules.map(&:name) : []
