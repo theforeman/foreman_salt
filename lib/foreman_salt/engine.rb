@@ -84,7 +84,7 @@ module ForemanSalt
 
         # Model Extensions
         ::Host::Managed.send :include, ForemanSalt::Concerns::HostManagedExtensions
-        ::Host::Managed.send :include, ForemanSalt::Orchestration::Salt
+        ::Host::Managed.send :include, ForemanSalt::Concerns::Orchestration::Salt
         ::Hostgroup.send :include, ForemanSalt::Concerns::HostgroupExtensions
 
         # Controller Extensions
