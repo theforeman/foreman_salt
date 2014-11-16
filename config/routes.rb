@@ -14,6 +14,10 @@ Rails.application.routes.draw do
         get 'auto_complete_search'
       end
     end
+
+    scope :api, :defaults => {:format => 'json'}, :constraints => ApiConstraints.new(:version => 2) do
+      match 'api/v2/jobs/upload' => 'foreman_salt/api/v2/jobs#upload', :via => :post
+    end
   end
 
   constraints(:smart_proxy_id => /[^\/]+/) do

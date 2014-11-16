@@ -10,6 +10,12 @@ module ForemanSalt
     config.autoload_paths += Dir["#{config.root}/app/services"]
     config.autoload_paths += Dir["#{config.root}/app/lib"]
 
+    if defined? ForemanTasks
+      initializer "foreman_salt.require_dynflow", :before => "foreman_tasks.initialize_dynflow" do |app|
+        ForemanTasks.dynflow.require!
+      end
+    end
+
     # Add any db migrations
     initializer "foreman_salt.load_app_instance_data" do |app|
       app.config.paths['db/migrate'] += ForemanSalt::Engine.paths['db/migrate'].existent
@@ -64,6 +70,10 @@ module ForemanSalt
           permission :destroy_smart_proxies_salt_autosign, {:'foreman_salt/salt_autosign' => [:destroy]}, :resource_type => "SmartProxy"
           permission :create_smart_proxies_salt_autosign, {:'foreman_salt/salt_autosign' => [:new, :create]}, :resource_type => "SmartProxy"
           permission :view_smart_proxies_salt_autosign, {:'foreman_salt/salt_autosign' => [:index]}, :resource_type => "SmartProxy"
+        end
+
+        security_block :api do |map|
+          permission :create_reports, {:'foreman_salt/api/v2/jobs' => [:upload]}, :resource_type => "Report"
         end
 
         role "Salt admin", [:saltrun_hosts, :create_salt_modules, :view_salt_modules, :edit_salt_modules, :destroy_salt_modules,
