@@ -2,16 +2,9 @@
 
 This plug-in adds support for Salt to Foreman. 
 
-## Compatibility
-
-| Foreman Version | Plugin Version |
-| --------------- | --------------:|
-| >= 1.6          | ~> 0.0         |
-| >= 1.7          | ~> 1.0         |
-
 ## Documentation
 
-More info is available in the Wiki https://github.com/theforeman/foreman_salt/wiki
+Available in the Wiki https://github.com/theforeman/foreman_salt/wiki
 
 ## Contributing
 
