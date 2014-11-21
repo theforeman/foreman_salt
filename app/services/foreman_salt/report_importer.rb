@@ -57,22 +57,22 @@ module ForemanSalt
     def import_log_messages
       @raw.each do |resource, result|
         level = if result['changes'].blank? && result['result']
-          :info
-        elsif result['result'] == false
-          :err
-        else
-          :notice
-        end
+                  :info
+                elsif result['result'] == false
+                  :err
+                else
+                  :notice
+                end
 
         source = Source.find_or_create(resource)
 
         message = if result['changes']['diff']
-          result['changes']['diff']
-        elsif !result['comment'].blank?
-          result['comment']
-        else
-          'No message available'
-        end
+                    result['changes']['diff']
+                  elsif !result['comment'].blank?
+                    result['comment']
+                  else
+                    'No message available'
+                  end
 
         message = Message.find_or_create(message)
         Log.create(:message_id => message.id, :source_id => source.id, :report => @report, :level => level)

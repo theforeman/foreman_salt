@@ -32,7 +32,7 @@ module ForemanSalt
 
     test "second child inherits from parent" do
       parent = FactoryGirl.create :hostgroup, :with_salt_modules
-      child_one = FactoryGirl.create :hostgroup, :parent => parent 
+      child_one = FactoryGirl.create :hostgroup, :parent => parent
       child_two = FactoryGirl.create :hostgroup, :parent => child_one
       assert_equal [], parent.salt_modules - child_two.salt_modules
     end

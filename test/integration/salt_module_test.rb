@@ -18,7 +18,7 @@ module ForemanSalt
     test "edit page" do
       salt_module = FactoryGirl.create :salt_module
       visit salt_modules_path
-      click_link salt_module.name 
+      click_link salt_module.name
       fill_in "foreman_salt_salt_module_name", :with => "some_other_name"
       assert_submit_button(salt_modules_path)
       assert page.has_link? 'some_other_name'
