@@ -11,7 +11,7 @@ module ForemanSalt
     end
 
     test "smart proxy page has autosign link" do
-      assert_row_button(smart_proxies_path, @proxy.name, 'Salt Autosign', dropdown = true)
+      assert_row_button(smart_proxies_path, @proxy.name, 'Salt Autosign', true)
     end
 
     test "index page" do

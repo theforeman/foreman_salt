@@ -14,7 +14,7 @@ module ForemanSalt
     end
 
     def accept
-      @proxy = find_proxy(permission = :edit_smart_proxies_salt_keys)
+      @proxy = find_proxy(:edit_smart_proxies_salt_keys)
       key = SmartProxies::SaltKeys.find(@proxy, params[:salt_key_id])
       if key.accept
         process_success({:success_redirect => hash_for_smart_proxy_salt_keys_path(:state => params[:state], :expire_cache => true),
@@ -25,7 +25,7 @@ module ForemanSalt
     end
 
     def reject
-      @proxy = find_proxy(permission = :edit_smart_proxies_salt_keys)
+      @proxy = find_proxy(:edit_smart_proxies_salt_keys)
       key = SmartProxies::SaltKeys.find(@proxy, params[:salt_key_id])
       if key.reject
         process_success({:success_redirect => hash_for_smart_proxy_salt_keys_path(:state => params[:state], :expire_cache => true),
@@ -36,7 +36,7 @@ module ForemanSalt
     end
 
     def destroy
-      @proxy = find_proxy(permission = :destroy_smart_proxies_salt_keys)
+      @proxy = find_proxy(:destroy_smart_proxies_salt_keys)
       key = SmartProxies::SaltKeys.find(@proxy, params[:id])
       if key.delete
         process_success({:success_redirect => hash_for_smart_proxy_salt_keys_path(:state => params[:state], :expire_cache => true),

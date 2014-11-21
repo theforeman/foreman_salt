@@ -107,7 +107,7 @@ module ForemanSalt
         ::Api::V2::HostsController.send :include, ForemanSalt::Concerns::SmartProxyAuthExtensions
         ::Api::V2::ReportsController.send :include, ForemanSalt::Concerns::SmartProxyAuthExtensions
       rescue => e
-        puts "ForemanSalt: skipping engine hook (#{e.to_s})"
+        puts "ForemanSalt: skipping engine hook (#{e})"
       end
     end
   end

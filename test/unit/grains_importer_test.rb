@@ -23,12 +23,12 @@ module ForemanSalt
     end
 
     test "grains are successfully imported for a host" do
-      (host, state) = ::Host::Managed.import_host_and_facts @host, @facts
+      (host, _) = ::Host::Managed.import_host_and_facts @host, @facts
       assert_equal 'CentOS', host.facts_hash['operatingsystem']
     end
 
     test "nested facts have valid parents" do
-      (host, state) = ::Host::Managed.import_host_and_facts @host, @facts
+      (host, _) = ::Host::Managed.import_host_and_facts @host, @facts
       parent = ::FactName.find_by_name('cpu_flags')
       children = host.fact_values.with_fact_parent_id(parent)
       assert_not_empty children

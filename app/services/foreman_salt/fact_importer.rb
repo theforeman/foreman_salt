@@ -72,8 +72,8 @@ module ForemanSalt
         name_parts = fact_name.split(FactName::SEPARATOR)
 
         name_parts.inject([]) do |memo, name|
-          memo           = memo + [name]
-          key            = memo.join(FactName::SEPARATOR)
+          memo += [name]
+          key = memo.join(FactName::SEPARATOR)
           new_facts[key] ||= name_parts == memo ? value : nil
           memo
         end
@@ -85,7 +85,7 @@ module ForemanSalt
       hash.sort_by { |k, v| k.to_s }
     end
 
-    def sparse(hash, options={})
+    def sparse(hash, options = {})
       hash.map do |k, v|
         prefix = (options.fetch(:prefix, [])+[k])
         next Sparsify::sparse(v, options.merge(:prefix => prefix)) if v.is_a? Hash
@@ -93,7 +93,7 @@ module ForemanSalt
       end.reduce(:merge) || Hash.new
     end
 
-    def unsparse(hash, options={})
+    def unsparse(hash, options = {})
       ret = Hash.new
       sparse(hash).each do |k, v|
         current            = ret
@@ -101,7 +101,7 @@ module ForemanSalt
         current            = (current[key.shift] ||= Hash.new) until (key.size<=1)
         current[key.first] = v
       end
-      return ret
+      ret
     end
   end
 end
