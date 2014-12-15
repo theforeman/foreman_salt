@@ -4,7 +4,7 @@ module ForemanSalt
     def index
       @proxy = find_proxy
 
-      Rails.cache.delete("saltkeys_#{@proxy.id}") if params[:expire_cache] == "true"
+      Rails.cache.delete("saltkeys_#{@proxy.id}") if params[:expire_cache] == 'true'
       keys = if params[:state].blank?
                SmartProxies::SaltKeys.all @proxy
              else

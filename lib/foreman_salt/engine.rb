@@ -11,13 +11,13 @@ module ForemanSalt
     config.autoload_paths += Dir["#{config.root}/app/lib"]
 
     if defined? ForemanTasks
-      initializer "foreman_salt.require_dynflow", :before => "foreman_tasks.initialize_dynflow" do |app|
+      initializer 'foreman_salt.require_dynflow', :before => 'foreman_tasks.initialize_dynflow' do |app|
         ForemanTasks.dynflow.require!
       end
     end
 
     # Add any db migrations
-    initializer "foreman_salt.load_app_instance_data" do |app|
+    initializer 'foreman_salt.load_app_instance_data' do |app|
       app.config.paths['db/migrate'] += ForemanSalt::Engine.paths['db/migrate'].existent
     end
 
@@ -38,7 +38,7 @@ module ForemanSalt
           :after    => :common_parameters
 
         divider :top_menu, :parent => :configure_menu,
-          :caption => "Salt",
+          :caption => 'Salt',
           :after   => :common_parameters
 
         security_block :hosts do |map|
@@ -47,36 +47,36 @@ module ForemanSalt
         end
 
         security_block :salt_environments do |map|
-          permission :create_salt_environments, {:'foreman_salt/salt_environments' => [:new, :create]}, :resource_type => "ForemanSalt::SaltEnvironment"
-          permission :view_salt_environments, {:'foreman_salt/salt_environments' => [:index, :show, :auto_complete_search]}, :resource_type => "ForemanSalt::SaltEnvironment"
-          permission :edit_salt_environments, {:'foreman_salt/salt_environments' => [:update, :edit]},:resource_type => "ForemanSalt::SaltEnvironment"
-          permission :destroy_salt_environments, {:'foreman_salt/salt_environments' => [:destroy]}, :resource_type => "ForemanSalt::SaltEnvironment"
+          permission :create_salt_environments, {:'foreman_salt/salt_environments' => [:new, :create]}, :resource_type => 'ForemanSalt::SaltEnvironment'
+          permission :view_salt_environments, {:'foreman_salt/salt_environments' => [:index, :show, :auto_complete_search]}, :resource_type => 'ForemanSalt::SaltEnvironment'
+          permission :edit_salt_environments, {:'foreman_salt/salt_environments' => [:update, :edit]},:resource_type => 'ForemanSalt::SaltEnvironment'
+          permission :destroy_salt_environments, {:'foreman_salt/salt_environments' => [:destroy]}, :resource_type => 'ForemanSalt::SaltEnvironment'
         end
 
         security_block :salt_modules do |map|
-          permission :create_salt_modules, {:'foreman_salt/salt_modules' => [:new, :create]}, :resource_type => "ForemanSalt::SaltModule"
-          permission :view_salt_modules, {:'foreman_salt/salt_modules' => [:index, :show, :auto_complete_search]}, :resource_type => "ForemanSalt::SaltModule"
-          permission :edit_salt_modules, {:'foreman_salt/salt_modules' => [:update, :edit]},:resource_type => "ForemanSalt::SaltModule"
-          permission :destroy_salt_modules, {:'foreman_salt/salt_modules' => [:destroy]}, :resource_type => "ForemanSalt::SaltModule"
+          permission :create_salt_modules, {:'foreman_salt/salt_modules' => [:new, :create]}, :resource_type => 'ForemanSalt::SaltModule'
+          permission :view_salt_modules, {:'foreman_salt/salt_modules' => [:index, :show, :auto_complete_search]}, :resource_type => 'ForemanSalt::SaltModule'
+          permission :edit_salt_modules, {:'foreman_salt/salt_modules' => [:update, :edit]},:resource_type => 'ForemanSalt::SaltModule'
+          permission :destroy_salt_modules, {:'foreman_salt/salt_modules' => [:destroy]}, :resource_type => 'ForemanSalt::SaltModule'
         end
 
         security_block :salt_keys do |map|
-          permission :view_smart_proxies_salt_keys, {:'foreman_salt/salt_keys' => [:index]}, :resource_type => "SmartProxy"
-          permission :destroy_smart_proxies_salt_keys, {:'foreman_salt/salt_keys' => [:destroy]},:resource_type => "SmartProxy"
-          permission :edit_smart_proxies_salt_keys, {:'foreman_salt/salt_keys' => [:accept, :reject]}, :resource_type => "SmartProxy"
+          permission :view_smart_proxies_salt_keys, {:'foreman_salt/salt_keys' => [:index]}, :resource_type => 'SmartProxy'
+          permission :destroy_smart_proxies_salt_keys, {:'foreman_salt/salt_keys' => [:destroy]},:resource_type => 'SmartProxy'
+          permission :edit_smart_proxies_salt_keys, {:'foreman_salt/salt_keys' => [:accept, :reject]}, :resource_type => 'SmartProxy'
         end
 
         security_block :salt_autosign do |map|
-          permission :destroy_smart_proxies_salt_autosign, {:'foreman_salt/salt_autosign' => [:destroy]}, :resource_type => "SmartProxy"
-          permission :create_smart_proxies_salt_autosign, {:'foreman_salt/salt_autosign' => [:new, :create]}, :resource_type => "SmartProxy"
-          permission :view_smart_proxies_salt_autosign, {:'foreman_salt/salt_autosign' => [:index]}, :resource_type => "SmartProxy"
+          permission :destroy_smart_proxies_salt_autosign, {:'foreman_salt/salt_autosign' => [:destroy]}, :resource_type => 'SmartProxy'
+          permission :create_smart_proxies_salt_autosign, {:'foreman_salt/salt_autosign' => [:new, :create]}, :resource_type => 'SmartProxy'
+          permission :view_smart_proxies_salt_autosign, {:'foreman_salt/salt_autosign' => [:index]}, :resource_type => 'SmartProxy'
         end
 
         security_block :api do |map|
-          permission :create_reports, {:'foreman_salt/api/v2/jobs' => [:upload]}, :resource_type => "Report"
+          permission :create_reports, {:'foreman_salt/api/v2/jobs' => [:upload]}, :resource_type => 'Report'
         end
 
-        role "Salt admin", [:saltrun_hosts, :create_salt_modules, :view_salt_modules, :edit_salt_modules, :destroy_salt_modules,
+        role 'Salt admin', [:saltrun_hosts, :create_salt_modules, :view_salt_modules, :edit_salt_modules, :destroy_salt_modules,
                             :view_smart_proxies_salt_keys, :destroy_smart_proxies_salt_keys, :edit_smart_proxies_salt_keys,
                             :create_smart_proxies_salt_autosign, :view_smart_proxies_salt_autosign, :destroy_smart_proxies_salt_autosign,
                             :create_salt_environments, :view_salt_environments, :edit_salt_environments, :destroy_salt_environments]

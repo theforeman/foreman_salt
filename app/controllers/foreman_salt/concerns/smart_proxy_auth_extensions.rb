@@ -12,9 +12,9 @@ module ForemanSalt
       end
 
       def require_puppetmaster_or_login_with_salt
-        if auth_smart_proxy(::SmartProxy.with_features("Salt"), ::Setting[:require_ssl_puppetmasters])
+        if auth_smart_proxy(::SmartProxy.with_features('Salt'), ::Setting[:require_ssl_puppetmasters])
           set_admin_user
-          return true
+          true
         else
           require_puppetmaster_or_login_without_salt
         end

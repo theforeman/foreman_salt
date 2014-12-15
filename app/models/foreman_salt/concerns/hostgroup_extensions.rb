@@ -4,9 +4,9 @@ module ForemanSalt
       extend ActiveSupport::Concern
 
       included do
-        has_and_belongs_to_many :salt_modules, :class_name => "ForemanSalt::SaltModule"
-        belongs_to :salt_proxy, :class_name => "SmartProxy"
-        belongs_to :salt_environment, :class_name => "ForemanSalt::SaltEnvironment"
+        has_and_belongs_to_many :salt_modules, :class_name => 'ForemanSalt::SaltModule'
+        belongs_to :salt_proxy, :class_name => 'SmartProxy'
+        belongs_to :salt_environment, :class_name => 'ForemanSalt::SaltEnvironment'
       end
 
       def salt_modules
@@ -38,7 +38,7 @@ module ForemanSalt
 
       def inherited_salt_proxy_id
         if ancestry.present?
-          read_attribute(:salt_proxy_id) || self.class.sort_by_ancestry(ancestors.where("salt_proxy_id is not NULL")).last.try(:salt_proxy_id)
+          read_attribute(:salt_proxy_id) || self.class.sort_by_ancestry(ancestors.where('salt_proxy_id is not NULL')).last.try(:salt_proxy_id)
         else
           self.salt_proxy_id
         end
@@ -51,7 +51,7 @@ module ForemanSalt
 
       def inherited_salt_environment_id
         if ancestry.present?
-          read_attribute(:salt_environment_id) || self.class.sort_by_ancestry(ancestors.where("salt_environment_id is not NULL")).last.try(:salt_environment_id)
+          read_attribute(:salt_environment_id) || self.class.sort_by_ancestry(ancestors.where('salt_environment_id is not NULL')).last.try(:salt_environment_id)
         else
           self.salt_environment_id
         end

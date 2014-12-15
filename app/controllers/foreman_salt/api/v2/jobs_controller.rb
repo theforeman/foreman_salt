@@ -11,14 +11,14 @@ module ForemanSalt
         add_puppetmaster_filters :upload
 
         resource_description do
-          api_base_url "/salt/api"
+          api_base_url '/salt/api'
         end
 
         def_param_group :job do
           param :job, Hash, :required => true, :action_aware => true do
-            param :job_id, Integer, :required => true, :desc => N_("JID")
-            param :function, String, :required => true, :desc => N_("Function")
-            param :result, Hash, :required => true, :desc => N_("Result")
+            param :job_id, Integer, :required => true, :desc => N_('JID')
+            param :function, String, :required => true, :desc => N_('Function')
+            param :result, Hash, :required => true, :desc => N_('Result')
           end
         end
 
