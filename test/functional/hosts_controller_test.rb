@@ -10,7 +10,7 @@ class HostsControllerTest < ActionController::TestCase
     Resolv.any_instance.stubs(:getnames).returns([proxy.to_s])
 
     host = FactoryGirl.create :host
-    get :salt_external_node, {:name => host.name, :format => "yml"}
+    get :salt_external_node, {:name => host.name, :format => 'yml'}
     assert_response :success
   end
 end

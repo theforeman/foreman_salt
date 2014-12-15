@@ -13,7 +13,7 @@ module ForemanSalt
 
       def saltrun
         if @host.saltrun!
-          notice _("Successfully executed, check log files for more details")
+          notice _('Successfully executed, check log files for more details')
         else
           error @host.errors[:base].to_sentence
         end
@@ -25,9 +25,9 @@ module ForemanSalt
           @host = resource_base.find(params[:name])
           enc = {}
           env = @host.salt_environment.blank? ? 'base' : @host.salt_environment.name
-          enc["classes"] = @host.salt_modules.any? ? @host.salt_modules.map(&:name) : []
-          enc["parameters"] = @host.info["parameters"]
-          enc["environment"] = env
+          enc['classes'] = @host.salt_modules.any? ? @host.salt_modules.map(&:name) : []
+          enc['parameters'] = @host.info['parameters']
+          enc['environment'] = env
           respond_to do |format|
             format.html { render :text => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" }
             format.yml  { render :text => enc.to_yaml }

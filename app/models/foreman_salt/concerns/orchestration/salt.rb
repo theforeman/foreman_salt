@@ -30,19 +30,19 @@ module ForemanSalt
         def queue_salt_autosign_update
           # Host has been built --> remove auto sign
           if old.build? and !build?
-            queue.create(:name => _("Remove autosign entry for %s") % self, :priority => 50, :action => [self, :salt_autosign_remove])
+            queue.create(:name => _('Remove autosign entry for %s') % self, :priority => 50, :action => [self, :salt_autosign_remove])
           end
         end
 
         def queue_salt_destroy
           return unless salt? && errors.empty?
-          queue.create(:name => _("Remove autosign entry for %s") % self, :priority => 50, :action => [self, :salt_autosign_remove])
-          queue.create(:name => _("Delete existing salt key for %s") % self, :priority => 50, :action => [self, :salt_key_delete])
+          queue.create(:name => _('Remove autosign entry for %s') % self, :priority => 50, :action => [self, :salt_autosign_remove])
+          queue.create(:name => _('Delete existing salt key for %s') % self, :priority => 50, :action => [self, :salt_key_delete])
         end
 
         def queue_salt_autosign_remove
           return unless salt? && errors.empty?
-          queue.create(:name => _("Remove autosign entry for %s") % self, :priority => 50, :action => [self, :salt_autosign_remove])
+          queue.create(:name => _('Remove autosign entry for %s') % self, :priority => 50, :action => [self, :salt_autosign_remove])
         end
 
         def salt_autosign_create

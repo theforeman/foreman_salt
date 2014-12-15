@@ -1,10 +1,10 @@
-<% title _("Autosign entries for %s") % @proxy %>
+<% title _('Autosign entries for %s') % @proxy %>
 
-<% title_actions display_link_if_authorized(_("Keys"), hash_for_smart_proxy_salt_keys_path), display_link_if_authorized(_("New"), {:controller => 'foreman_salt/salt_autosign', :action => 'new', :smart_proxy_id => @proxy, :auth_object => @proxy, :permission => 'create_smart_proxies_salt_keys'}) %>
+<% title_actions display_link_if_authorized(_('Keys'), hash_for_smart_proxy_salt_keys_path), display_link_if_authorized(_('New'), {:controller => 'foreman_salt/salt_autosign', :action => 'new', :smart_proxy_id => @proxy, :auth_object => @proxy, :permission => 'create_smart_proxies_salt_keys'}) %>
 
 <table class='table table-bordered table-striped table-condensed'>
   <tr>
-    <th><%= _("Name") %></th>
+    <th><%= _('Name') %></th>
     <th></th>
   </tr>
   <% @autosign.each do |key| %>

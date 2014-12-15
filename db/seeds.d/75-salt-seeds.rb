@@ -1,5 +1,5 @@
 # Create feature for Smart Proxy
-Feature.find_or_create_by_name("Salt")
+Feature.find_or_create_by_name('Salt')
 
 # Add new viewing permissions to Viewer role
 viewer = Role.find_by_name('Viewer')

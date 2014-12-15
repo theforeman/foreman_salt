@@ -1,7 +1,7 @@
 class CreateSaltEnvironments < ActiveRecord::Migration
   def self.up
     create_table :salt_environments do |t|
-      t.string :name, :default => "", :null => false
+      t.string :name, :default => '', :null => false
       t.timestamps
     end
 

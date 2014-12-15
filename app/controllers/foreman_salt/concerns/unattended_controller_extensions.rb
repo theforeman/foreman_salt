@@ -11,7 +11,7 @@ module ForemanSalt
 
       def handle_salt
         return true if @spoof
-        render(:text => _("Failed to set autosign for host. Terminating the build!"), :status => 500) unless @host.respond_to?(:handle_salt) && @host.handle_salt
+        render(:text => _('Failed to set autosign for host. Terminating the build!'), :status => 500) unless @host.respond_to?(:handle_salt) && @host.handle_salt
       end
     end
   end

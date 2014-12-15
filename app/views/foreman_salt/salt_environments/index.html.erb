@@ -1,10 +1,10 @@
-<% title _("Salt Environments") %>
+<% title _('Salt Environments') %>
 
-<% title_actions button_group(display_link_if_authorized(_("New Salt Environment"), hash_for_new_salt_environment_path)) %>
+<% title_actions button_group(display_link_if_authorized(_('New Salt Environment'), hash_for_new_salt_environment_path)) %>
 
 <table class="table table-bordered table-striped">
   <tr>
-    <th><%= sort :name, :as => s_("SaltEnvironment|Name") %></th>
+    <th><%= sort :name, :as => s_('SaltEnvironment|Name') %></th>
     <th></th>
   </tr>
   <% for salt_environment in @salt_environments %>
@@ -12,7 +12,7 @@
       <td><%=link_to_if_authorized h(salt_environment.name), hash_for_edit_salt_environment_path(:id => salt_environment).merge(:auth_object => salt_environment, :authorizer => authorizer) %></td>
       <td>
         <%= action_buttons(display_delete_if_authorized hash_for_salt_environment_path(:id => salt_environment).merge(:auth_object => salt_environment, :authorizer => authorizer),
-                            :confirm => _("Delete %s?") % salt_environment.name) %>
+                            :confirm => _('Delete %s?') % salt_environment.name) %>
       </td>
     </tr>
   <% end %>

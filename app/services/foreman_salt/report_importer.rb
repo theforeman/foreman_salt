@@ -58,7 +58,7 @@ module ForemanSalt
       @raw.each do |resource, result|
         level = if result['changes'].blank? && result['result']
                   :info
-                elsif result['result'] == false
+                elsif !result['result']
                   :err
                 else
                   :notice
@@ -91,14 +91,14 @@ module ForemanSalt
       @raw.each do |resource, result|
         next unless result.is_a? Hash
 
-        if result['result'] == true
+        if result['result']
           success += 1
           if resource.match(/^service_/) && result['comment'].include?('restarted')
             restarted += 1
           elsif !result['changes'].blank?
             changed += 1
           end
-        elsif result['result'] == false
+        elsif !result['result']
           if resource.match(/^service_/) && result['comment'].include?('restarted')
             restarted_failed += 1
           else
