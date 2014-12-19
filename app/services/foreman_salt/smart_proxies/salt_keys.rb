@@ -3,16 +3,16 @@ module ForemanSalt
 
     attr_reader :name, :state, :fingerprint, :smart_proxy_id
 
-     def initialize opts
+     def initialize (opts)
        @name, @state, @fingerprint, @smart_proxy_id = opts.flatten
      end
 
        class << self
 
          def all(proxy)
-           raise ::Foreman::Exception.new(N_("Must specify a Smart Proxy to use")) if proxy.nil?
+           raise ::Foreman::Exception.new(N_('Must specify a Smart Proxy to use')) if proxy.nil?
 
-           unless (keys = Rails.cache.read("saltkeys_#{proxy.id}"))
+           unless keys == Rails.cache.read("saltkeys_#{proxy.id}")
              api = ProxyAPI::Salt.new({:url => proxy.url})
              keys = api.key_list.map do |name, properties|
                new([name.strip, properties['state'], properties['fingerprint'], proxy.id])
@@ -33,14 +33,14 @@ module ForemanSalt
        end
 
     def accept
-      raise ::Foreman::Exception.new(N_("unable to re-accept an accepted key")) unless state == "unaccepted"
+      raise ::Foreman::Exception.new(N_('unable to re-accept an accepted key')) unless state == 'unaccepted'
       proxy = SmartProxy.find(smart_proxy_id)
       Rails.cache.delete("saltkeys_#{proxy.id}") if Rails.env.production?
       ProxyAPI::Salt.new({:url => proxy.url}).key_accept name
     end
 
     def reject
-      raise ::Foreman::Exception.new(N_("unable to reject an accepted key")) unless state == "unaccepted"
+      raise ::Foreman::Exception.new(N_('unable to reject an accepted key')) unless state == 'unaccepted'
       proxy = SmartProxy.find(smart_proxy_id)
       Rails.cache.delete("saltkeys_#{proxy.id}") if Rails.env.production?
       ProxyAPI::Salt.new({:url => proxy.url}).key_reject name
@@ -61,7 +61,7 @@ module ForemanSalt
       name
     end
 
-    def <=> other
+    def <=> (other)
       self.name <=> other.name
     end
   end

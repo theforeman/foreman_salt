@@ -1,9 +1,9 @@
 FactoryGirl.define do
-  factory :salt_module, :class => "ForemanSalt::SaltModule" do
+  factory :salt_module, :class => 'ForemanSalt::SaltModule' do
     sequence(:name) { |n| "module#{n}" }
   end
 
-  factory :salt_environment, :class => "ForemanSalt::SaltEnvironment" do
+  factory :salt_environment, :class => 'ForemanSalt::SaltEnvironment' do
     sequence(:name) { |n| "module#{n}" }
   end
 end

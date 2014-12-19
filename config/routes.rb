@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   scope :salt, :path => '/salt' do
-    match "/node/:name" => 'hosts#salt_external_node', :constraints => { :name => /[^\.][\w\.-]+/ }
+    match '/node/:name' => 'hosts#salt_external_node', :constraints => { :name => /[^\.][\w\.-]+/ }
 
     resources :salt_environments, :controller => 'foreman_salt/salt_environments' do
       collection do

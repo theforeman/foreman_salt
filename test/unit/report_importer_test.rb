@@ -17,7 +17,7 @@ module ForemanSalt
       assert Host.find_by_name(@host)
     end
 
-    test "importing report updates host status" do
+    test 'importing report updates host status' do
       ForemanSalt::ReportImporter.import(@report)
       assert_equal Host.find_by_name(@host).host_status, 'Error'
     end

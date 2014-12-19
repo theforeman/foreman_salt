@@ -12,9 +12,9 @@
      <div class="col-md-8">
        <h3>Salt States</h3>
        <% if @inherited_salt_modules.blank? -%>
-         <%= multiple_selects f, :salt_module, ::ForemanSalt::SaltModule, @salt_modules.try(:map, &:id), :label => "" %>
+         <%= multiple_selects f, :salt_module, ::ForemanSalt::SaltModule, @salt_modules.try(:map, &:id), :label => '' %>
        <% else -%>
-         <%= multiple_selects f, :salt_module, ::ForemanSalt::SaltModule.where('id NOT IN (?)', @inherited_salt_modules.map(&:id)), @salt_modules.try(:map, &:id), :label => "" %>
+         <%= multiple_selects f, :salt_module, ::ForemanSalt::SaltModule.where('id NOT IN (?)', @inherited_salt_modules.map(&:id)), @salt_modules.try(:map, &:id), :label => '' %>
        <% end -%>
      </div>
    </div>

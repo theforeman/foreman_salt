@@ -1,7 +1,7 @@
 class CreateSaltModules < ActiveRecord::Migration
   def self.up
     create_table :salt_modules do |t|
-      t.string      :name, :default => "", :null => false
+      t.string      :name, :default => '', :null => false
       t.timestamps
     end
 
