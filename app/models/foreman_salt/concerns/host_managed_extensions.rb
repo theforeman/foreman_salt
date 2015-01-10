@@ -14,7 +14,7 @@ module ForemanSalt
 
       def handle_salt
         return true unless salt?
-        salt_autosign_create
+        set_salt_autosign
       end
 
       def params_with_salt_proxy
