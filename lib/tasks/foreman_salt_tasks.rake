@@ -8,7 +8,7 @@ namespace :foreman_salt do
                          "#{ForemanSalt::Engine.root}/test/**/*.rb"]
       end
     rescue
-      puts "Rubocop not loaded."
+      puts 'Rubocop not loaded.'
     end
 
     Rake::Task['rubocop_salt'].invoke
