@@ -9,7 +9,7 @@ module ForemanSalt
 
     def show_appropriate_host_buttons_with_salt(host)
       (show_appropriate_host_buttons_without_salt(host) +
-         [(link_to_if_authorized(_('Salt ENC'), {:controller => :hosts, :action => :salt_external_node, :name => host},
+         [(link_to_if_authorized(_('Salt ENC'), {:controller => :'foreman_salt/minions', :action => :node, :id => host},
          :title => _('Salt external nodes YAML dump'), :class => 'btn btn-default') unless host.salt_master.blank?)]).flatten.compact
     end
 
@@ -17,7 +17,7 @@ module ForemanSalt
         title_actions(
           button_group(
             if host.try(:salt_proxy)
-              link_to_if_authorized(_('Run Salt'), {:controller => :hosts, :action => :saltrun, :id => @host},
+              link_to_if_authorized(_('Run Salt'), {:controller => :'foreman_salt/minions', :action => :run, :id => host},
                                     :title => _('Trigger a state.highstate run on a node'))
             end
           )
