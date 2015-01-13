@@ -8,6 +8,10 @@ module ForemanSalt
       true
     end
 
+    def self.authorized_smart_proxy_features
+      'Salt'
+    end
+
     private
 
     attr_accessor :original_facts

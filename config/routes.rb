@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   scope :salt, :path => '/salt' do
-    match '/node/:name' => 'hosts#salt_external_node', :constraints => { :name => /[^\.][\w\.-]+/ }
+    constraints(:id => /[^\.][\w\.-]+/) do
+      match '/node/:id' => 'foreman_salt/minions#node'
+      match '/run/:id'  => 'foreman_salt/minions#run'
+    end
 
     resources :salt_environments, :controller => 'foreman_salt/salt_environments' do
       collection do
@@ -28,14 +31,6 @@ Rails.application.routes.draw do
           get :accept
           get :reject
         end
-      end
-    end
-  end
-
-  constraints(:id => /[^\/]+/) do
-    resources :hosts do
-      member do
-        get :saltrun
       end
     end
   end

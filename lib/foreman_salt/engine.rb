@@ -42,8 +42,8 @@ module ForemanSalt
           :after   => :common_parameters
 
         security_block :hosts do |map|
-          permission :saltrun_hosts, {:hosts => [:saltrun]}, :resource_type => 'Host'
-          permission :view_hosts, {:hosts => [:salt_external_node]}, :resource_type => 'Host'
+          permission :saltrun_hosts, {:'foreman_salt/minions' => [:run]}, :resource_type => 'Host'
+          permission :view_hosts, {:'foreman_salt/minions' => [:node]}, :resource_type => 'Host'
         end
 
         security_block :salt_environments do |map|
@@ -100,12 +100,7 @@ module ForemanSalt
         # Controller Extensions
         ::UnattendedController.send :include, ForemanSalt::Concerns::UnattendedControllerExtensions
         ::HostsController.send  :include, ForemanSalt::Concerns::HostsControllerExtensions
-        ::HostsController.send  :include, ForemanSalt::Concerns::SmartProxyAuthExtensions
         ::HostgroupsController.send  :include, ForemanSalt::Concerns::HostgroupsControllerExtensions
-
-        # API Extensions
-        ::Api::V2::HostsController.send :include, ForemanSalt::Concerns::SmartProxyAuthExtensions
-        ::Api::V2::ReportsController.send :include, ForemanSalt::Concerns::SmartProxyAuthExtensions
       rescue => e
         puts "ForemanSalt: skipping engine hook (#{e})"
       end

@@ -6,9 +6,8 @@ module ForemanSalt
       class JobsController < ::Api::V2::BaseController
         include ::Api::Version2
         include ::Foreman::Controller::SmartProxyAuth
-        include ForemanSalt::Concerns::SmartProxyAuthExtensions
 
-        add_puppetmaster_filters :upload
+        add_smart_proxy_filters :upload, :features => 'Salt'
 
         resource_description do
           api_base_url '/salt/api'
