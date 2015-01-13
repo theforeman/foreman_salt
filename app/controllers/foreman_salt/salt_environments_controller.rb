@@ -1,5 +1,5 @@
 module ForemanSalt
-  class SaltEnvironmentsController < ApplicationController
+  class SaltEnvironmentsController < ::ForemanSalt::ApplicationController
     include Foreman::Controller::AutoCompleteSearch
 
     before_filter :find_resource, :only => [:edit, :update, :destroy]

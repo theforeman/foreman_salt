@@ -1,5 +1,5 @@
 module ForemanSalt
-  class SaltAutosignController < ApplicationController
+  class SaltAutosignController < ::ForemanSalt::ApplicationController
 
     def index
       setup
