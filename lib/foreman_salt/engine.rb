@@ -23,7 +23,7 @@ module ForemanSalt
 
     initializer 'foreman_salt.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_salt do
-        requires_foreman '>= 1.7'
+        requires_foreman '>= 1.8'
 
         menu :top_menu, :salt_environments,
           :url_hash => {:controller => :'foreman_salt/salt_environments', :action => :index },
