@@ -16,7 +16,7 @@ module ForemanSalt
 
         def_param_group :state do
           param :state, Hash, :required => true, :action_aware => true do
-             param :name, String, :required => true
+            param :name, String, :required => true
           end
         end
 
@@ -44,4 +44,3 @@ module ForemanSalt
     end
   end
 end
-

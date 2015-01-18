@@ -10,12 +10,10 @@ class SaltKeysTest < ActiveSupport::TestCase
     @proxy = OpenStruct.new(:id => 1, :url => 'http://dummy.example.com:9090')
 
     ProxyAPI::Salt.any_instance.stubs(:key_list).returns(
-      {
-        'saltstack.example.com'    => {'state'=>'accepted',   'fingerprint'=>'98:c2:63:c1:57:59:bc:bd:f1:ef:5a:38:b2:e9:71:c0'},
-        'saltclient01.example.com' => {'state'=>'unaccepted', 'fingerprint'=>'98:c2:63:c1:57:59:bc:bd:f1:ef:5a:38:b2:e9:71:c1'},
-        'saltclient02.example.com' => {'state'=>'unaccepted', 'fingerprint'=>'98:c2:63:c1:57:59:bc:bd:f1:ef:5a:38:b2:e9:71:c2'},
-        'saltclient03.example.com' => {'state'=>'rejected',   'fingerprint'=>'98:c2:63:c1:57:59:bc:bd:f1:ef:5a:38:b2:e9:71:c3'}
-      }
+      'saltstack.example.com'    => { 'state' => 'accepted',   'fingerprint' => '98:c2:63:c1:57:59:bc:bd:f1:ef:5a:38:b2:e9:71:c0' },
+      'saltclient01.example.com' => { 'state' => 'unaccepted', 'fingerprint' => '98:c2:63:c1:57:59:bc:bd:f1:ef:5a:38:b2:e9:71:c1' },
+      'saltclient02.example.com' => { 'state' => 'unaccepted', 'fingerprint' => '98:c2:63:c1:57:59:bc:bd:f1:ef:5a:38:b2:e9:71:c2' },
+      'saltclient03.example.com' => { 'state' => 'rejected',   'fingerprint' => '98:c2:63:c1:57:59:bc:bd:f1:ef:5a:38:b2:e9:71:c3' }
     )
   end
 

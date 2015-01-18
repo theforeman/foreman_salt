@@ -6,20 +6,18 @@ module ForemanSalt
     add_smart_proxy_filters :node, :features => 'Salt'
 
     def node
-      begin
-        enc = {}
-        env = @minion.salt_environment.blank? ? 'base' : @minion.salt_environment.name
-        enc['classes'] = @minion.salt_modules.any? ? @minion.salt_modules.map(&:name) : []
-        enc['parameters'] = @minion.info['parameters']
-        enc['environment'] = env
-        respond_to do |format|
-          format.html { render :text => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" }
-          format.yml  { render :text => enc.to_yaml }
-        end
-      rescue
-        logger.warn "Failed to generate external nodes for #{@minion} with #{$!}"
-        render :text => _('Unable to generate output, Check log files\n'), :status => 412 and return
+      enc = {}
+      env = @minion.salt_environment.blank? ? 'base' : @minion.salt_environment.name
+      enc['classes'] = @minion.salt_modules.any? ? @minion.salt_modules.map(&:name) : []
+      enc['parameters'] = @minion.info['parameters']
+      enc['environment'] = env
+      respond_to do |format|
+        format.html { render :text => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" }
+        format.yml  { render :text => enc.to_yaml }
       end
+    rescue
+      logger.warn "Failed to generate external nodes for #{@minion} with #{$ERROR_INFO}"
+      render :text => _('Unable to generate output, Check log files\n'), :status => 412 and return
     end
 
     def run

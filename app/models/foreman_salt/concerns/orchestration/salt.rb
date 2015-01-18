@@ -7,7 +7,7 @@ module ForemanSalt
 
         included do
           after_validation :queue_salt_autosign
-          before_destroy   :queue_salt_destroy
+          before_destroy :queue_salt_destroy
         end
 
         def salt?

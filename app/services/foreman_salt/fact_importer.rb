@@ -86,27 +86,26 @@ module ForemanSalt
     end
 
     def sort_by_key(hash)
-      hash.sort_by { |k, v| k.to_s }
+      hash.sort_by { |k, _v| k.to_s }
     end
 
     def sparse(hash, options = {})
       hash.map do |k, v|
-        prefix = (options.fetch(:prefix, [])+[k])
-        next Sparsify::sparse(v, options.merge(:prefix => prefix)) if v.is_a? Hash
+        prefix = (options.fetch(:prefix, []) + [k])
+        next Sparsify.sparse(v, options.merge(:prefix => prefix)) if v.is_a? Hash
         { prefix.join(options.fetch(:separator, FactName::SEPARATOR)) => v }
-      end.reduce(:merge) || Hash.new
+      end.reduce(:merge) || {}
     end
 
     def unsparse(hash, options = {})
-      ret = Hash.new
+      ret = {}
       sparse(hash).each do |k, v|
         current            = ret
         key                = k.to_s.split(options.fetch(:separator, FactName::SEPARATOR))
-        current            = (current[key.shift] ||= Hash.new) until (key.size<=1)
+        current            = (current[key.shift] ||= Hash.new) until (key.size <= 1)
         current[key.first] = v
       end
       ret
     end
   end
 end
-

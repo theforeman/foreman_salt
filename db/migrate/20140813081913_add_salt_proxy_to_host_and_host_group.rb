@@ -8,5 +8,4 @@ class AddSaltProxyToHostAndHostGroup < ActiveRecord::Migration
     remove_column :hosts, :salt_proxy_id
     remove_column :hostgroups, :salt_proxy_id
   end
-
 end

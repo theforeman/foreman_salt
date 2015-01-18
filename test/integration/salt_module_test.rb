@@ -2,7 +2,6 @@ require 'test_plugin_helper'
 
 module ForemanSalt
   class SaltModuleTest < ActionDispatch::IntegrationTest
-
     test 'index page' do
       FactoryGirl.create_list :salt_module, 50
       assert_index_page(salt_modules_path, 'Salt State', 'New Salt State')

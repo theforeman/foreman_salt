@@ -25,16 +25,16 @@ module ForemanSalt
             # Dynflowize the action if we can, otherwise we'll do it live
             if defined? ForemanTasks
               task = ForemanTasks.async_task(::Actions::ForemanSalt::ReportImport, params[:job], detected_proxy.try(:id))
-              render :json => {:task_id => task.id}
+              render :json => { :task_id => task.id }
             else
               reports = ForemanSalt::ReportImporter.import(params[:job][:result], detected_proxy.try(:id))
-              render :json => {:message => "Imported #{reports.count} new reports."}
+              render :json => { :message => "Imported #{reports.count} new reports." }
             end
           else
-            render :json => {:message => 'Unsupported function'}, :status => :unprocessable_entity
+            render :json => { :message => 'Unsupported function' }, :status => :unprocessable_entity
           end
         rescue ::Foreman::Exception => e
-          render :json => {:message => e.to_s}, :status => :unprocessable_entity
+          render :json => { :message => e.to_s }, :status => :unprocessable_entity
         end
 
         def resource_class
@@ -48,11 +48,10 @@ module ForemanSalt
             when 'upload'
               :create
           else
-            super
+              super
           end
         end
       end
     end
   end
 end
-

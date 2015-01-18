@@ -32,7 +32,7 @@ module ::ProxyAPI
     end
 
     def key_accept(name)
-      parse(post('',"key/#{name}"))
+      parse(post('', "key/#{name}"))
     rescue => e
       raise ProxyException.new(url, e, N_('Unable to accept Salt key for %s'), name)
     end

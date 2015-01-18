@@ -18,8 +18,8 @@ Rails.application.routes.draw do
       end
     end
 
-    scope :api, :path => '/api', :defaults => {:format => 'json'} do
-      scope '(:apiv)', :defaults => {:apiv => 'v2'},
+    scope :api, :path => '/api', :defaults => { :format => 'json' } do
+      scope '(:apiv)', :defaults => { :apiv => 'v2' },
         :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
 
         match '/jobs/upload' => 'foreman_salt/api/v2/jobs#upload', :via => :post
