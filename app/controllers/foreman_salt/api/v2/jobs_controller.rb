@@ -3,15 +3,9 @@ require 'uri'
 module ForemanSalt
   module Api
     module V2
-      class JobsController < ::Api::V2::BaseController
-        include ::Api::Version2
+      class JobsController < ::ForemanSalt::Api::V2::BaseController
         include ::Foreman::Controller::SmartProxyAuth
-
         add_smart_proxy_filters :upload, :features => 'Salt'
-
-        resource_description do
-          api_base_url '/salt/api'
-        end
 
         def_param_group :job do
           param :job, Hash, :required => true, :action_aware => true do
@@ -21,7 +15,7 @@ module ForemanSalt
           end
         end
 
-        api :POST, '/upload/', N_('Upload a Job')
+        api :POST, '/upload', N_('Upload a Job')
         param_group :job, :as => :upload
 
         def upload

@@ -2,6 +2,8 @@ module ForemanSalt
   class SaltEnvironment < ActiveRecord::Base
     include Taxonomix
     include Authorizable
+    extend FriendlyId
+    friendly_id :name
 
     before_destroy EnsureNotUsedBy.new(:hosts, :hostgroups)
 
