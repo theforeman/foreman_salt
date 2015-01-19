@@ -24,8 +24,8 @@ module ForemanSalt
         param :smart_proxy_id, :identifier_dottable, :required => true
         param :record, String, :required => true, :desc => N_('Autosign record')
         def destroy
-           @api.autosign_remove params[:record]
-           render :json => { root_node_name => _('Record deleted.') }
+          @api.autosign_remove params[:record]
+          render :json => { root_node_name => _('Record deleted.') }
         end
 
         def metadata_total
@@ -47,7 +47,7 @@ module ForemanSalt
         private
 
         def all_autosign
-          @_autosigns ||= @api.autosign_list.map { |record| OpenStruct.new({ :record => record }) }
+          @_autosigns ||= @api.autosign_list.map { |record| OpenStruct.new(:record => record) }
         end
 
         def find_proxy

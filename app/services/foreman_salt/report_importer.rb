@@ -110,30 +110,29 @@ module ForemanSalt
       end
 
       time[:total] = time.values.inject(&:+)
-      events = {:total => changed + failed + restarted + restarted_failed, :success => success + restarted, :failure => failed + restarted_failed}
+      events = { :total => changed + failed + restarted + restarted_failed, :success => success + restarted, :failure => failed + restarted_failed }
 
-      changes = {:total => changed + restarted}
+      changes = { :total => changed + restarted }
 
-      resources = {'total' => @raw.size, 'applied' => changed, 'restarted' => restarted, 'failed' => failed,
-        'failed_restarts' => restarted_failed, 'skipped' => 0, 'scheduled' => 0}
+      resources = { 'total' => @raw.size, 'applied' => changed, 'restarted' => restarted, 'failed' => failed,
+        'failed_restarts' => restarted_failed, 'skipped' => 0, 'scheduled' => 0 }
 
-      {:events => events, :resources => resources, :changes => changes, :time => time}
+      { :events => events, :resources => resources, :changes => changes, :time => time }
     end
 
     def process_normal
-        metrics = calculate_metrics
-        status = ReportStatusCalculator.new(:counters => metrics[:resources].slice(*::Report::METRIC)).calculate
+      metrics = calculate_metrics
+      status = ReportStatusCalculator.new(:counters => metrics[:resources].slice(*::Report::METRIC)).calculate
 
-        @host.puppet_status = status
+      @host.puppet_status = status
 
-        @report = Report.new(:host => @host, :reported_at => start_time, :status => status, :metrics => metrics)
-        return @report unless @report.save
-        import_log_messages
+      @report = Report.new(:host => @host, :reported_at => start_time, :status => status, :metrics => metrics)
+      return @report unless @report.save
+      import_log_messages
     end
 
-
     def process_failures
-      status = ReportStatusCalculator.new({:counters => {'failed' => @raw.size}}).calculate
+      status = ReportStatusCalculator.new(:counters => { 'failed' => @raw.size }).calculate
       @report = Report.create(:host => @host, :reported_at => Time.now, :status => status, :metrics => {})
 
       @host.puppet_status = status

@@ -2,7 +2,6 @@ module Actions
   module ForemanSalt
     if defined? ForemanTasks
       class ReportImport < Actions::EntryAction
-
         def resource_locks
           :report_import
         end
@@ -15,7 +14,7 @@ module Actions
           ::User.as_anonymous_admin do
             reports = ::ForemanSalt::ReportImporter.import(input[:report], input[:proxy_id])
 
-            output[:state] = {:message => "Imported #{reports.count} new reports"}
+            output[:state] = { :message => "Imported #{reports.count} new reports" }
             output[:hosts] = reports.map { |report| report.host.name }
           end
         end

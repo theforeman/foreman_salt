@@ -43,16 +43,16 @@ module ForemanSalt
           logger.warn 'Unable to execute salt run, no salt proxies defined'
           return false
         end
-        ProxyAPI::Salt.new({:url => salt_proxy.url}).highstate name
+        ProxyAPI::Salt.new(:url => salt_proxy.url).highstate name
       rescue => e
         errors.add(:base, _('Failed to execute state.highstate: %s') % e)
         false
       end
 
       def set_hostgroup_defaults_with_salt_proxy
-         return unless hostgroup
-         assign_hostgroup_attributes(%w{salt_proxy_id salt_environment_id})
-         set_hostgroup_defaults_without_salt_proxy
+        return unless hostgroup
+        assign_hostgroup_attributes(%w(salt_proxy_id salt_environment_id))
+        set_hostgroup_defaults_without_salt_proxy
       end
 
       def smart_proxy_ids_with_salt_proxy

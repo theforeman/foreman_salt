@@ -40,7 +40,7 @@ module ForemanSalt
         if ancestry.present?
           read_attribute(:salt_proxy_id) || self.class.sort_by_ancestry(ancestors.where('salt_proxy_id is not NULL')).last.try(:salt_proxy_id)
         else
-          self.salt_proxy_id
+          salt_proxy_id
         end
       end
 
@@ -53,7 +53,7 @@ module ForemanSalt
         if ancestry.present?
           read_attribute(:salt_environment_id) || self.class.sort_by_ancestry(ancestors.where('salt_environment_id is not NULL')).last.try(:salt_environment_id)
         else
-          self.salt_environment_id
+          salt_environment_id
         end
       end
 
