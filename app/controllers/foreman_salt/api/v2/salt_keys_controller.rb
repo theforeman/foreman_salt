@@ -13,13 +13,13 @@ module ForemanSalt
 
         def_param_group :key do
           param :smart_proxy_id, :identifier_dottable, :required => true
-          param :name, String, :required => true
+          param :name, String, :required => true, :desc => N_('FQDN of host that key belongs to')
         end
 
         api :PUT, '/salt_keys/:smart_proxy_id/:name', N_('Update a Salt Key')
         param :name, :identifier_dottable, :required => true
         param :smart_proxy_id, :identifier_dottable, :required => true
-        param :state, String, :required => true
+        param :state, String, :required => true, :desc => N_('State can be "accepted" or "rejected"')
         def update
           case params[:key][:state]
           when 'accepted'
