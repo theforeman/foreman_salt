@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   scope :salt, :path => '/salt' do
     constraints(:id => /[\w\.-]+/) do
       match '/node/:id' => 'foreman_salt/minions#node'
@@ -20,8 +19,7 @@ Rails.application.routes.draw do
 
     scope :api, :path => '/api', :defaults => { :format => 'json' } do
       scope '(:apiv)', :defaults => { :apiv => 'v2' },
-        :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
-
+                       :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
         match '/jobs/upload' => 'foreman_salt/api/v2/jobs#upload', :via => :post
 
         constraints(:smart_proxy_id => /[\w\.-]+/, :name => /[\w\.-]+/, :record => /[^\/]+/) do
