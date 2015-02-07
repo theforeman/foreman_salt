@@ -9,7 +9,10 @@ module ForemanSalt
       enc = {}
       env = @minion.salt_environment.blank? ? 'base' : @minion.salt_environment.name
       enc['classes'] = @minion.salt_modules.any? ? @minion.salt_modules.map(&:name) : []
-      enc['parameters'] = @minion.info['parameters']
+
+      pillars = @minion.info['parameters']
+      enc['parameters'] = Setting[:salt_namespace_pillars] ? { 'foreman' => pillars } : pillars
+
       enc['environment'] = env
       respond_to do |format|
         format.html { render :text => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" }
