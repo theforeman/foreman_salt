@@ -7,7 +7,7 @@ module ForemanSalt
 
     before_destroy EnsureNotUsedBy.new(:hosts, :hostgroups)
     has_and_belongs_to_many :hosts, :class_name => '::Host::Managed', :join_table => 'hosts_salt_modules',
-                            :association_foreign_key => 'host_id'
+                                    :association_foreign_key => 'host_id'
 
     has_and_belongs_to_many :hostgroups, :class_name => '::Hostgroup', :join_table => 'hostgroups_salt_modules'
 

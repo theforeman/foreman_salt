@@ -47,7 +47,7 @@ module ForemanSalt
           case params[:action]
             when 'upload'
               :create
-          else
+            else
               super
           end
         end

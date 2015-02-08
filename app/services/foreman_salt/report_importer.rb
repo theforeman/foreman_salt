@@ -115,7 +115,7 @@ module ForemanSalt
       changes = { :total => changed + restarted }
 
       resources = { 'total' => @raw.size, 'applied' => changed, 'restarted' => restarted, 'failed' => failed,
-        'failed_restarts' => restarted_failed, 'skipped' => 0, 'scheduled' => 0 }
+                    'failed_restarts' => restarted_failed, 'skipped' => 0, 'scheduled' => 0 }
 
       { :events => events, :resources => resources, :changes => changes, :time => time }
     end

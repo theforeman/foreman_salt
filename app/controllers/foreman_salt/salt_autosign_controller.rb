@@ -15,7 +15,7 @@ module ForemanSalt
 
       if @api.autosign_create(params[:id])
         process_success(:success_redirect => hash_for_smart_proxy_salt_autosign_index_path, :success_msg => _("Autosign created for #{params[:id]}"),
-                         :object_name => params[:id])
+                        :object_name => params[:id])
       else
         process_error(:redirect => hash_for_smart_proxy_salt_autosign_index_path)
       end
@@ -26,7 +26,7 @@ module ForemanSalt
 
       if @api.autosign_remove(params[:id])
         process_success(:success_redirect => hash_for_smart_proxy_salt_autosign_index_path, :success_msg => _("Autosign deleted for #{params[:id]}"),
-                          :object_name => params[:id])
+                        :object_name => params[:id])
       else
         process_error(:redirect => hash_for_smart_proxy_salt_autosign_index_path)
       end

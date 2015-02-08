@@ -102,7 +102,10 @@
     "os_family": "RedHat",
     "operatingsystemrelease": "6.5",
     "gpus::0::vendor": "unknown",
-    "lsb_distrib_codename": "Final"
+    "lsb_distrib_codename": "Final",
+    "fqdn_ip4::0": "10.7.13.141",
+    "ip_interfaces::eth1::0": "1.2.3.4",
+    "hwaddr_interfaces::eth1": "DE:AD:BE:EF:07:13"
   },
   "name": "saltclient01.example.com"
 }
