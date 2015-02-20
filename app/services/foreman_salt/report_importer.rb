@@ -106,7 +106,11 @@ module ForemanSalt
           end
         end
 
-        time[resource] = result['duration'] if result['duration']
+        time[resource] = if result['duration'].is_a? String
+                           Float(result['duration'].delete(' ms')) rescue nil
+                         else
+                           result['duration']
+                         end
       end
 
       time[:total] = time.values.inject(&:+)
