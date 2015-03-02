@@ -24,13 +24,14 @@ module ForemanSalt
     end
 
     initializer 'foreman_salt.apipie' do
-      Apipie.configuration.api_controllers_matcher << "#{ForemanSalt::Engine.root}/app/controllers/foreman_salt/api/v2/*.rb"
       Apipie.configuration.checksum_path += ['/salt/api/']
     end
 
     initializer 'foreman_salt.register_plugin', :after => :finisher_hook do |_app|
       Foreman::Plugin.register :foreman_salt do
         requires_foreman '>= 1.8'
+
+        apipie_documented_controllers ["#{ForemanSalt::Engine.root}/app/controllers/foreman_salt/api/v2/*.rb"]
 
         ## Menus
         menu :top_menu, :salt_environments,
