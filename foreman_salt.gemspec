@@ -14,4 +14,5 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'deface', '< 1.0'
+  s.add_dependency "foreman-tasks", '~> 0.6.9'
 end
