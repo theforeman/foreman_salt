@@ -9,10 +9,8 @@ module ForemanSalt
     config.autoload_paths += Dir["#{config.root}/app/services"]
     config.autoload_paths += Dir["#{config.root}/app/lib"]
 
-    if defined? ForemanTasks
-      initializer 'foreman_salt.require_dynflow', :before => 'foreman_tasks.initialize_dynflow' do |_app|
-        ForemanTasks.dynflow.require!
-      end
+    initializer 'foreman_salt.require_dynflow', :before => 'foreman_tasks.initialize_dynflow' do |_app|
+      ForemanTasks.dynflow.require!
     end
 
     initializer 'foreman_salt.load_default_settings', :before => :load_config_initializers do

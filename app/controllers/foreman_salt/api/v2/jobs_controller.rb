@@ -22,14 +22,8 @@ module ForemanSalt
           Rails.logger.info("Processing job #{params[:job][:job_id]} from Salt.")
           case params[:job][:function]
           when 'state.highstate'
-            # Dynflowize the action if we can, otherwise we'll do it live
-            if defined? ForemanTasks
-              task = ForemanTasks.async_task(::Actions::ForemanSalt::ReportImport, params[:job], detected_proxy.try(:id))
-              render :json => { :task_id => task.id }
-            else
-              reports = ForemanSalt::ReportImporter.import(params[:job][:result], detected_proxy.try(:id))
-              render :json => { :message => "Imported #{reports.count} new reports." }
-            end
+            task = ForemanTasks.async_task(::Actions::ForemanSalt::ReportImport, params[:job], detected_proxy.try(:id))
+            render :json => { :task_id => task.id }
           else
             render :json => { :message => 'Unsupported function' }, :status => :unprocessable_entity
           end
