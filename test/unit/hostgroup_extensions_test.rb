@@ -14,7 +14,7 @@ module ForemanSalt
     test 'nested host group inherits salt modules from parent' do
       parent = FactoryGirl.create :hostgroup, :with_salt_modules
       child = FactoryGirl.create :hostgroup, :parent => parent
-      assert_equal [], parent.salt_modules - child.salt_modules
+      assert_equal [], parent.all_salt_modules - child.all_salt_modules
     end
 
     test 'child host group inherits salt proxy from child parent' do
@@ -34,7 +34,7 @@ module ForemanSalt
       parent = FactoryGirl.create :hostgroup, :with_salt_modules
       child_one = FactoryGirl.create :hostgroup, :parent => parent
       child_two = FactoryGirl.create :hostgroup, :parent => child_one
-      assert_equal [], parent.salt_modules - child_two.salt_modules
+      assert_equal [], parent.all_salt_modules - child_two.all_salt_modules
     end
   end
 end

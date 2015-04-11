@@ -25,6 +25,24 @@ module ::ProxyAPI
       raise ProxyException.new(url, e, N_('Unable to delete Salt autosign for %s'), name)
     end
 
+    def environments_list
+      parse(get('environments'))
+    rescue => e
+      raise ProxyException.new(url, e, N_('Unable to fetch Salt environments list'))
+    end
+
+    def states_list
+      states = {}
+
+      environments_list.each do |environment|
+        states[environment] = parse(get("environments/#{environment}"))
+      end
+
+      states
+    rescue => e
+      raise ProxyException.new(url, e, N_('Unable to fetch Salt states list'))
+    end
+
     def key_list
       parse(get('key'))
     rescue => e

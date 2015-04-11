@@ -1,1 +1,13 @@
+*~
+.bundle
+tmp/
+Gemfile.lock
+bundler.d/*.local.rb
+*.sw?
 .idea
+*.pyc
+.DS_Store
+.rbenv*
+.rvmrc*
+.ruby-version*
+.ruby-gemset*

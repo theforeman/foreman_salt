@@ -5,14 +5,20 @@
 <table class="table table-bordered table-striped">
   <tr>
     <th><%= sort :name, :as => s_('SaltEnvironment|Name') %></th>
+    <th><%= _('States') %></th>
+    <th><%= sort :host, :as => _('Hosts'), :default => 'DESC'  %></th>
+    <th><%= sort :hostgroup, :as => _('Host groups'), :default => 'DESC' %></th>
     <th></th>
   </tr>
   <% for salt_environment in @salt_environments %>
     <tr>
       <td><%=link_to_if_authorized h(salt_environment.name), hash_for_edit_salt_environment_path(:id => salt_environment).merge(:auth_object => salt_environment, :authorizer => authorizer) %></td>
+      <td><%= link_to_if_authorized(salt_environment.salt_modules.count, hash_for_salt_modules_path(:search => "environment = #{salt_environment}")) %></td>
+      <td><%= link_to_if_authorized(salt_environment.hosts.count, hash_for_hosts_path(:search => "salt_environment = #{salt_environment}")) %></td>
+      <td><%= link_to_if_authorized(salt_environment.hostgroups.count, hash_for_hostgroups_path(:search => "salt_environment = #{salt_environment}")) %></td>
       <td>
-        <%= action_buttons(display_delete_if_authorized hash_for_salt_environment_path(:id => salt_environment).merge(:auth_object => salt_environment, :authorizer => authorizer),
-                            :confirm => _('Delete %s?') % salt_environment.name) %>
+          <%= action_buttons(display_delete_if_authorized(hash_for_salt_environment_path(:id => salt_environment).merge(:auth_object => salt_environment, :authorizer => authorizer),
+                            :confirm => _('Delete %s?') % salt_environment.name)) %>
       </td>
     </tr>
   <% end %>

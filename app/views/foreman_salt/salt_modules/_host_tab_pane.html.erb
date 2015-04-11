@@ -1,0 +1,33 @@
+<%= javascript "foreman_salt/states" %>
+
+<%
+    object_name = @obj.kind_of?(Hostgroup) ? 'hostgroup' : 'host'
+    @salt_modules ||= []
+    @selected ||= []
+%>
+
+<div class="tab-pane" id="salt_modules">
+    <div id="state_selector" style="<%= @salt_environment.blank? ? 'display: none' : 'visibility: block' %>;">
+    <% @inherited_salt_modules = [] if @inherited_salt_modules.blank? %>
+    <div class="row">
+      <div class="col-md-4">
+         <h3>Inherited States</h3>
+         <ul id="inherited_states">
+         <% @inherited_salt_modules.sort.each do |salt_module| -%>
+           <li title="Inherited from hostgroup"><%= salt_module.name -%></li>
+         <% end -%>
+         </ul>
+       </div>
+       <div class="col-md-8">
+         <h3>Salt States</h3>
+         <%= fields_for "#{object_name}".to_sym do |states| %>
+             <%= states.collection_select(:salt_module_ids, @salt_modules, :id, :to_s, {:selected => @selected.map(&:id), :size => "col-md-10"},
+                                          :multiple => true) %>
+           <% end %>
+       </div>
+     </div>
+   </div>
+   <div id="no_env" style="visibility: <%= @salt_environment.blank? ? 'block' : 'hidden' %>;">
+     <div class="alert alert-block alert-warning"><%= _('Please select a Salt environment first') %></div>
+   </div>
+</div>

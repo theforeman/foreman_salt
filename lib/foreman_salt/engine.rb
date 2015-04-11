@@ -2,6 +2,8 @@ require 'deface'
 
 module ForemanSalt
   class Engine < ::Rails::Engine
+    engine_name 'foreman_salt'
+
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
@@ -19,6 +21,14 @@ module ForemanSalt
 
     initializer 'foreman_salt.load_app_instance_data' do |app|
       app.config.paths['db/migrate'] += ForemanSalt::Engine.paths['db/migrate'].existent
+    end
+
+    initializer "foreman_salt.assets.precompile" do |app|
+      app.config.assets.precompile += %w(foreman_salt/states.js)
+    end
+
+    initializer 'foreman_salt.configure_assets', :group => :assets do
+      SETTINGS[:foreman_salt] = {:assets => {:precompile => ['foreman_salt/states.js']}}
     end
 
     initializer 'foreman_salt.apipie' do
@@ -93,13 +103,18 @@ module ForemanSalt
                      :resource_type => 'Host'
 
           permission :edit_hosts,
-                     { :'foreman_salt/api/v2/salt_minions' => [:update] },
+                     { :'foreman_salt/api/v2/salt_minions' => [:update],
+                       :'foreman_salt/minions' => [:salt_environment_selected] },
                      :resource_type => 'Host'
 
           permission :view_hosts,
                      { :'foreman_salt/minions' => [:node],
                        :'foreman_salt/api/v2/salt_minions' => [:index, :show] },
                      :resource_type => 'Host'
+
+          permission :edit_hostgroups,
+                     { :hostgroups => [:salt_environment_selected] },
+                     :resource_type => 'Hostgroup'
 
           permission :view_smart_proxies_salt_keys,
                      { :'foreman_salt/salt_keys' => [:index],
@@ -119,6 +134,11 @@ module ForemanSalt
           permission :create_salt_modules,
                      { :'foreman_salt/salt_modules' => [:new, :create],
                        :'foreman_salt/api/v2/salt_states' => [:create] },
+                     :resource_type => 'ForemanSalt::SaltModule'
+
+          permission :import_salt_modules,
+                     { :'foreman_salt/salt_modules' => [:import, :apply_changes],
+                       :'foreman_salt/api/v2/salt_states' => [:import] },
                      :resource_type => 'ForemanSalt::SaltModule'
 
           permission :view_salt_modules,
