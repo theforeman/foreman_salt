@@ -1,0 +1,43 @@
+<% title _('Import from %s') % @proxy.name %>
+
+<%= form_tag apply_changes_salt_modules_path do %>
+
+<h4><%= _("Select the changes you want to realize in Foreman") %></h4>
+<br/>
+<h6>
+  <%= _("Toggle") %>:
+  <%= link_to_function(icon_text("check", _("Added")),
+                       "toggleCheckboxesBySelector('.state_check_add')",
+                       :title => _("Check/Uncheck Added")) %> |
+  <%= link_to_function(icon_text("check", _("Removed")),
+                       "toggleCheckboxesBySelector('.state_check_remove')",
+                       :title => _("Check/Uncheck Removed")) %>
+</h6>
+
+<table class="table table-bordered table-striped">
+    <tr>
+    <th class="ca"><%= link_to_function(icon_text("check"),
+                         "toggleCheckboxesBySelector('.state_check')",
+                         :title => _("Check/Uncheck All")) %></th>
+    <th><%= _('Environment') %></th>
+    <th><%= _('Operation')  %></th>
+    <th><%= _('States') %></th>
+  </tr>
+  <% @changes.each do |environment, changed| -%>
+    <% [:add, :remove].each do |operation| -%>
+        <% if changed[operation] %>
+          <tr>
+            <td class="ca"><%= check_box_tag "changed[#{environment}][#{operation}]", changed[operation].to_json, false, :class => "state_check state_check_#{operation}" %></td>
+            <td><%= environment %><%= '*' if @deletes.include? environment %></td>
+            <td><%= operation.to_s.titleize %></td>
+            <td><%= changed[operation].to_sentence -%></td>
+          </tr>
+        <% end -%>
+      <% end -%>
+  <% end -%>
+</table>
+<%= '<p>* Environment will contain no states, and will be deleted'.html_safe if @deletes.any? %>
+
+<p><%= link_to _("Cancel"), salt_modules_path, :class => "btn btn-default" %>
+<%= submit_tag _("Update"), :class => "btn btn-primary" %>
+<% end -%>

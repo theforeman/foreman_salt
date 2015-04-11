@@ -4,12 +4,20 @@ module ForemanSalt
       extend ActiveSupport::Concern
 
       included do
-        has_and_belongs_to_many :salt_modules, :class_name => 'ForemanSalt::SaltModule', :join_table => 'hosts_salt_modules', :foreign_key => 'host_id'
+        has_many :salt_modules, :through => :host_salt_modules, :class_name => '::ForemanSalt::SaltModule'
+        has_many :host_salt_modules, :foreign_key => :host_id, :class_name => '::ForemanSalt::HostSaltModule'
+
         belongs_to :salt_proxy, :class_name => 'SmartProxy'
         belongs_to :salt_environment, :class_name => 'ForemanSalt::SaltEnvironment'
+
         alias_method_chain :params, :salt_proxy
         alias_method_chain :set_hostgroup_defaults, :salt_proxy
         alias_method_chain :smart_proxy_ids, :salt_proxy
+
+        scoped_search :in => :salt_modules, :on => :name, :complete_value => true, :rename => :salt_state
+        scoped_search :in => :salt_environment, :on => :name, :complete_value => true, :rename => :salt_environment
+
+        validate :salt_modules_in_host_environment
       end
 
       def handle_salt
@@ -23,14 +31,11 @@ module ForemanSalt
         params
       end
 
-      def salt_modules
-        return super unless hostgroup
-        [super + hostgroup.salt_modules].flatten
-      end
+      def salt_modules_for_enc
+        return [] unless self.salt_environment
 
-      def salt_module_ids
-        return super unless hostgroup
-        [super + hostgroup.salt_module_ids].flatten
+        hostgroup_modules = self.hostgroup ? self.hostgroup.all_salt_modules : []
+        self.salt_environment.salt_modules.where(:id => self.salt_modules + hostgroup_modules).pluck(:name)
       end
 
       def salt_master
@@ -61,6 +66,16 @@ module ForemanSalt
           ids << proxy.id
         end
         ids
+      end
+
+      def salt_modules_in_host_environment
+        return unless self.salt_modules.any?
+
+        if self.salt_environment
+          errors.add(:base, _('Salt states must be in the environment of the host')) unless (self.salt_modules - self.salt_environment.salt_modules).empty?
+        else
+          errors.add(:base, _('Host must have an environment in order to set salt states'))
+        end
       end
     end
   end
