@@ -43,7 +43,7 @@ module ForemanSalt
     private
 
     def find_or_create_host(host)
-      @host ||= Host::Base.find_by_name(host)
+      @host ||= Host::Managed.find_by_name(host)
 
       unless @host
         new = Host::Managed.new(:name => host)
@@ -106,14 +106,16 @@ module ForemanSalt
           end
         end
 
-        time[resource] = if result['duration'].is_a? String
-                           Float(result['duration'].delete(' ms')) rescue nil
-                         else
-                           result['duration']
-                         end
+        duration = if result['duration'].is_a? String
+                     Float(result['duration'].delete(' ms')) rescue nil
+                   else
+                     result['duration']
+                   end
+
+        time[resource] = duration || 0
       end
 
-      time[:total] = time.values.inject(&:+)
+      time[:total] = time.values.compact.inject(&:+) || 0
       events = { :total => changed + failed + restarted + restarted_failed, :success => success + restarted, :failure => failed + restarted_failed }
 
       changes = { :total => changed + restarted }
