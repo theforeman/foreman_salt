@@ -102,7 +102,7 @@ module ForemanSalt
       sparse(hash).each do |k, v|
         current            = ret
         key                = k.to_s.split(options.fetch(:separator, FactName::SEPARATOR))
-        current            = (current[key.shift] ||= Hash.new) until (key.size <= 1)
+        current            = (current[key.shift] ||= {}) until (key.size <= 1)
         current[key.first] = v
       end
       ret

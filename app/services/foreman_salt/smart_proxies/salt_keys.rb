@@ -22,7 +22,7 @@ module ForemanSalt
       end
 
       def find(proxy, name)
-        all(proxy).select { |c| c.name == name }.first
+        all(proxy).find { |c| c.name == name }
       end
 
       def find_by_state(proxy, state)

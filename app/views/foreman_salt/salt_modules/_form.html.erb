@@ -2,14 +2,20 @@
   <%= base_errors_for @salt_module %>
   <ul class="nav nav-tabs" data-tabs="tabs">
     <li class="active"><a href="#primary" data-toggle="tab"><%= _('Salt States') %></a></li>
+    <li><a href="#environments" data-toggle="tab"><%= _('Environments') %></a></li>
   </ul>
 
   <div class="tab-content">
     <div class="tab-pane active" id="primary">
       <%= text_f f, :name %>
     </div>
+
+    <div class="tab-pane" id="environments">
+      <%= multiple_selects f, :salt_environment, ::ForemanSalt::SaltEnvironment, @salt_environments.try(:map, &:id), :label => _("Environments").html_safe %>
+    </div>
   </div>
 
-  <%= submit_or_cancel f %>
+<%= submit_or_cancel f %>
+
 <% end %>
 

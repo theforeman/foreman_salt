@@ -5,15 +5,27 @@ Rails.application.routes.draw do
       match '/run/:id'  => 'foreman_salt/minions#run'
     end
 
+    resources :minions, :controller => 'foreman_salt/minions', :only => [] do
+      collection do
+        constraints(:id => /[^\/]+/) do
+          post 'salt_environment_selected'
+        end
+      end
+    end
+
     resources :salt_environments, :controller => 'foreman_salt/salt_environments' do
       collection do
         get 'auto_complete_search'
       end
     end
 
-    resources :salt_modules, :controller => 'foreman_salt/salt_modules' do
-      collection do
-        get 'auto_complete_search'
+    constraints :id => /[\w\.-]+/ do
+      resources :salt_modules, :controller => 'foreman_salt/salt_modules' do
+        collection do
+          get 'import'
+          get 'auto_complete_search'
+          post 'apply_changes'
+        end
       end
     end
 
@@ -30,6 +42,8 @@ Rails.application.routes.draw do
           match '/salt_autosign/:smart_proxy_id' => 'foreman_salt/api/v2/salt_autosign#index', :via => :get
           match '/salt_autosign/:smart_proxy_id' => 'foreman_salt/api/v2/salt_autosign#create', :via => :post
           match '/salt_autosign/:smart_proxy_id/:record' => 'foreman_salt/api/v2/salt_autosign#destroy', :via => :delete
+
+          match '/salt_states/import/:smart_proxy_id' => 'foreman_salt/api/v2/salt_states#import', :via => :post
         end
 
         constraints(:id => /[\w\.-]+/) do
@@ -50,6 +64,12 @@ Rails.application.routes.draw do
           get :reject
         end
       end
+    end
+  end
+
+  resources :hostgroups do
+    collection do
+      post 'salt_environment_selected'
     end
   end
 end
