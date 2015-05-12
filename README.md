@@ -4,7 +4,7 @@ This plug-in adds support for Salt to Foreman.
 
 ## Documentation
 
-See the [foreman-salt section](http://theforeman.org/plugins/foreman_salt/2.0/) of the Foreman manual.
+See the [Foreman Salt manuals](http://theforeman.org/plugins/foreman_salt/) on the Foreman web site.
 
 ## Contributing
 
