@@ -5,6 +5,7 @@ module ForemanSalt
         before_filter :find_resource, :except => [:index, :create]
 
         api :GET, '/salt_environments', N_('List all Salt environments')
+        param_group :search_and_pagination, ::Api::V2::BaseController
         def index
           @salt_environments = resource_scope_for_index
         end

@@ -10,6 +10,7 @@ module ForemanSalt
 
         api :GET, '/salt_states', N_('List all Salt states')
         param :salt_environment_id, :identifier_dottable, :required => false, :desc => N_('Limit to a specific environment')
+        param_group :search_and_pagination, ::Api::V2::BaseController
         def index
           if @salt_environment
             @salt_states = resource_scope_for_index.joins(:salt_environments).where('salt_module_environments.salt_environment_id' => @salt_environment)
@@ -46,18 +47,19 @@ module ForemanSalt
 
         api :POST, '/salt_states/import/:smart_proxy_id', N_('Import states from a salt master')
         param :smart_proxy_id, :identifier_dottable, :required => true, :desc => N_('Salt Smart Proxy ID')
-        param :salt_environment_ids, Array, :required => false, :desc => N_('Limit to a specific environments')
+        param :salt_environments, Array, :required => false, :desc => N_('Limit to a specific environments')
         param :actions, Array, :required => false, :desc => N_('Limit to specific actions: i.e. add, remove')
         param :dryrun, :bool, :required => false, :desc => N_('Dryrun only')
         def import
-          states = fetch_states_from_proxy(@proxy, params[:salt_environment_ids])
+          states = fetch_states_from_proxy(@proxy, params[:salt_environments])
+
           unless params[:dryrun]
             states[:changes].each do |environment, state|
-              if state[:add].any? && (params[:actions].blank? || params[:actions].include?('add'))
+              if state[:add].present? && (params[:actions].blank? || params[:actions].include?('add'))
                 add_to_environment(state[:add], environment)
               end
 
-              if state[:remove].any? && (params[:actions].blank? || params[:actions].include?('remove'))
+              if state[:remove].present? && (params[:actions].blank? || params[:actions].include?('remove'))
                 remove_from_environment(state[:remove], environment)
               end
             end
