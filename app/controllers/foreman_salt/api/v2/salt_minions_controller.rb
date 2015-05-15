@@ -5,6 +5,7 @@ module ForemanSalt
         before_filter :find_resource, :except => [:index]
 
         api :GET, '/salt_minions', N_('List all Salt Minions')
+        param_group :search_and_pagination, ::Api::V2::BaseController
         def index
           @salt_minions = resource_scope_for_index
         end

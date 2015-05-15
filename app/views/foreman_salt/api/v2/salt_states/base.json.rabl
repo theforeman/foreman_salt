@@ -1,3 +1,3 @@
 object @salt_state
 
-attributes :id, :name
+attributes :id, :name, :salt_environment

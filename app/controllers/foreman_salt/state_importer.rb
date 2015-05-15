@@ -46,13 +46,17 @@ module ForemanSalt
     end
 
     def add_to_environment(states, environment)
+      environment = SaltEnvironment.find_or_create_by_name(environment)
+
       states.each do |state_name|
         state = SaltModule.find_or_create_by_name(state_name)
-        state.salt_environments << SaltEnvironment.find(environment)
+        state.salt_environments << environment unless state.salt_environments.include? environment
       end
     end
 
     def remove_from_environment(states, environment)
+      return unless (environment = SaltEnvironment.find(environment))
+
       states.each do |state_name|
         state = SaltModule.find(state_name)
         state.salt_environments.delete(environment) if state

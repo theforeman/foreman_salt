@@ -74,7 +74,6 @@ module ForemanSalt
       else
         params[:changed].each do |environment, states|
           next unless states[:add] || states[:remove]
-          environment = SaltEnvironment.find_or_create_by_name(environment)
 
           add_to_environment(JSON.load(states[:add]), environment) if states[:add]
           remove_from_environment(JSON.load(states[:remove]), environment) if states[:remove]
