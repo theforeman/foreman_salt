@@ -69,7 +69,7 @@ module ForemanSalt
       @minion = Host::Base.authorized(:view_hosts, Host).find_by_id(params[:host_id])
       if @minion
         unless @minion.is_a?(Host::Managed)
-          @minion      = @host.becomes(Host::Managed)
+          @minion      = @minion.becomes(Host::Managed)
           @minion.type = 'Host::Managed'
         end
         @minion.attributes = params[:host]
