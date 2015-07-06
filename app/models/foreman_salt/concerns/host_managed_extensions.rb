@@ -33,10 +33,9 @@ module ForemanSalt
       end
 
       def salt_modules_for_enc
-        return [] unless self.salt_environment
-
-        hostgroup_modules = self.hostgroup ? self.hostgroup.all_salt_modules : []
-        self.salt_environment.salt_modules.where(:id => self.salt_modules + hostgroup_modules).pluck(:name)
+        return [] unless salt_environment
+        modules = salt_modules + (hostgroup ? hostgroup.all_salt_modules : [])
+        ForemanSalt::SaltModule.in_environment(salt_environment).where(:id => modules).pluck(:name).uniq
       end
 
       def salt_master

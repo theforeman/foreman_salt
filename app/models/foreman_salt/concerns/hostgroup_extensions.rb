@@ -16,11 +16,7 @@ module ForemanSalt
       end
 
       def all_salt_modules
-        if ancestry.present?
-          (self.salt_modules + self.inherited_salt_modules).uniq
-        else
-          self.salt_modules
-        end
+        ForemanSalt::SaltModule.in_environment(salt_environment).where(:id => salt_module_ids + inherited_salt_module_ids)
       end
 
       def inherited_salt_modules
@@ -28,11 +24,7 @@ module ForemanSalt
       end
 
       def inherited_salt_module_ids
-        if ancestry.present?
-          self.class.sort_by_ancestry(ancestors.reject { |ancestor| ancestor.salt_module_ids.empty? }).map(&:salt_module_ids).inject(&:+).uniq
-        else
-          []
-        end
+        ancestors.map(&:salt_module_ids).flatten.uniq
       end
 
       def salt_proxy
