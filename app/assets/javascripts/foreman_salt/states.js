@@ -4,7 +4,7 @@ $(document).on( "ContentLoad", function() {
 
 function update_salt_states(element) {
   var host_id = $("form").data('id')
-  var env_id = $('*[id*=salt_environment_id]').val();
+  var env_id = $('select[name*=salt_environment_id]').val();
   var url = $(element).attr('data-url');
   var data = $("form").serialize().replace('method=put', 'method=post');
 
