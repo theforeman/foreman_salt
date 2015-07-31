@@ -29,12 +29,13 @@ module ForemanSalt
 
     def domain
       name = facts[:domain]
-      Domain.find_or_create_by_name name unless name.blank?
+      Domain.find_or_create_by_name(name)unless name.blank?
     end
 
     def ip
+      return @ip if @ip
       ip = facts.find { |fact, value| fact =~ /^fqdn_ip4/ && value && value != '127.0.0.1' }
-      ip[1] if ip
+      @ip = ip[1] if ip[1] =~ Net::Validations::IP_REGEXP
     end
 
     def primary_interface
@@ -44,7 +45,8 @@ module ForemanSalt
 
     def mac
       interface = interfaces.find { |_, value| value[:ipaddress] == ip }
-      interface[1][:macaddress] if interface
+      mac = interface[1][:macaddress] if interface
+      mac if Net::Validations.valid_mac?(mac)
     end
 
     def ipmi_interface
