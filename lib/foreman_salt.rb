@@ -1,10 +1,5 @@
 require 'foreman_salt/engine'
-
-begin
-  require 'foreman-tasks'
-rescue LoadError
-  puts 'ForemanTasks is not available, async tasks disabled.'
-end
+require 'foreman-tasks'
 
 module ForemanSalt
 end

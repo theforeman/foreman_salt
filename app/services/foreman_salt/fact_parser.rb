@@ -66,7 +66,7 @@ module ForemanSalt
                            "#{interface}.#{number}"
                          end
 
-        if !interface.blank? && interface != 'lo'
+        if !interface.blank? && interface != 'lo' && value =~ Net::Validations::IP_REGEXP
           interfaces[interface_name] = {} if interfaces[interface_name].blank?
           interfaces[interface_name].merge!(:ipaddress => value, :macaddress => macs[interface])
         end
@@ -93,7 +93,7 @@ module ForemanSalt
           next unless value && fact.to_s =~ /^hwaddr_interfaces/
           data = fact.split(FactName::SEPARATOR)
           interface = data[1]
-          macs[interface] = value
+          @macs[interface] = value if Net::Validations.valid_mac?(value)
         end
       end
       @macs
