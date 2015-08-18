@@ -1,6 +1,5 @@
 module ForemanSalt
   class SaltEnvironment < ActiveRecord::Base
-    include Taxonomix
     include Authorizable
     extend FriendlyId
     friendly_id :name
