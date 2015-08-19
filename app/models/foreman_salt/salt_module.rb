@@ -42,5 +42,9 @@ module ForemanSalt
     def self.humanize_class_name(_name = nil)
       _('Salt state')
     end
+
+    def self.permission_name(action)
+      "#{action}_salt_modules"
+    end
   end
 end
