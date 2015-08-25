@@ -5,9 +5,9 @@ selector_text = "<%= select_f f, :salt_proxy_id, SmartProxy.unscoped.with_featur
 Deface::Override.new(:virtual_path  => 'hosts/_form',
                      :name          => 'add_salt_proxy_to_host',
                      :insert_bottom => 'div#primary',
-                     :text          =>  selector_text)
+                     :text          => selector_text)
 
 Deface::Override.new(:virtual_path  => 'hostgroups/_form',
                      :name          => 'add_salt_proxy_to_hostgroup',
                      :insert_bottom => 'div#primary',
-                     :text          =>  selector_text)
+                     :text          => selector_text)

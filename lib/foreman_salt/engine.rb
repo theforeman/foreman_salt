@@ -25,7 +25,7 @@ module ForemanSalt
       app.config.paths['db/migrate'] += ForemanSalt::Engine.paths['db/migrate'].existent
     end
 
-    initializer "foreman_salt.assets.precompile" do |app|
+    initializer 'foreman_salt.assets.precompile' do |app|
       app.config.assets.precompile += %w(foreman_salt/states.js)
     end
 

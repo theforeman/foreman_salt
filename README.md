@@ -1,10 +1,11 @@
 [![Build Status](https://img.shields.io/jenkins/s/http/ci.theforeman.org/test_plugin_foreman_salt_master.svg)](http://ci.theforeman.org/job/test_plugin_foreman_salt_master)
+[![Gem Version](https://img.shields.io/gem/v/foreman_salt.svg)](https://rubygems.org/gems/foreman_salt)
 [![Code Climate](https://codeclimate.com/github/theforeman/foreman_salt/badges/gpa.svg)](https://codeclimate.com/github/theforeman/foreman_salt)
 [![GPL License](https://img.shields.io/github/license/theforeman/foreman_salt.svg)](https://github.com/theforeman/foreman_salt/blob/master/LICENSE)
 
 # Foreman Salt Plug-in
 
-This plug-in adds support for Salt to Foreman. 
+This plug-in adds support for Salt to Foreman.
 
 ## Documentation
 

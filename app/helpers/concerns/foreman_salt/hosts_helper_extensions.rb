@@ -29,8 +29,8 @@ module ForemanSalt
     def overview_fields_with_salt(host)
       fields = overview_fields_without_salt(host)
 
-      fields.insert(5, [_("Salt Master"), (link_to(host.salt_proxy, hosts_path(:search => "saltmaster = #{host.salt_proxy}")) if host.salt_proxy)])
-      fields.insert(6, [_("Salt Environment"), (link_to(host.salt_environment, hosts_path(:search => "salt_environment = #{host.salt_environment}")) if host.salt_environment)])
+      fields.insert(5, [_('Salt Master'), (link_to(host.salt_proxy, hosts_path(:search => "saltmaster = #{host.salt_proxy}")) if host.salt_proxy)])
+      fields.insert(6, [_('Salt Environment'), (link_to(host.salt_environment, hosts_path(:search => "salt_environment = #{host.salt_environment}")) if host.salt_environment)])
 
       fields
     end

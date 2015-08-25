@@ -8,7 +8,7 @@ module ForemanSalt
 
     class << self
       def all(proxy)
-        raise ::Foreman::Exception.new(N_('Must specify a Smart Proxy to use')) if proxy.nil?
+        fail ::Foreman::Exception.new(N_('Must specify a Smart Proxy to use')) if proxy.nil?
 
         unless (keys = Rails.cache.read("saltkeys_#{proxy.id}"))
           api = ProxyAPI::Salt.new(:url => proxy.url)
@@ -31,14 +31,14 @@ module ForemanSalt
     end
 
     def accept
-      raise ::Foreman::Exception.new(N_('unable to re-accept an accepted key')) unless state == 'unaccepted'
+      fail ::Foreman::Exception.new(N_('unable to re-accept an accepted key')) unless state == 'unaccepted'
       proxy = SmartProxy.find(smart_proxy_id)
       Rails.cache.delete("saltkeys_#{proxy.id}") if Rails.env.production?
       ProxyAPI::Salt.new(:url => proxy.url).key_accept name
     end
 
     def reject
-      raise ::Foreman::Exception.new(N_('unable to reject an accepted key')) unless state == 'unaccepted'
+      fail ::Foreman::Exception.new(N_('unable to reject an accepted key')) unless state == 'unaccepted'
       proxy = SmartProxy.find(smart_proxy_id)
       Rails.cache.delete("saltkeys_#{proxy.id}") if Rails.env.production?
       ProxyAPI::Salt.new(:url => proxy.url).key_reject name

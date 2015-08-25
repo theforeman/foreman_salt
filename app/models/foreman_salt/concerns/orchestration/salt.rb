@@ -29,7 +29,7 @@ module ForemanSalt
 
         def queue_update_salt_autosign
           # Host has been built --> remove auto sign
-          if old.build? and !build?
+          if old.build? && !build?
             queue.create(:name => _('Remove autosign entry for %s') % self, :priority => 50, :action => [self, :del_salt_autosign])
           end
         end

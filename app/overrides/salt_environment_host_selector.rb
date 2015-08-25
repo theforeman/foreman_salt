@@ -6,4 +6,4 @@ selector_text = "<%= select_f f, :salt_environment_id, ForemanSalt::SaltEnvironm
 Deface::Override.new(:virtual_path  => 'hosts/_form',
                      :name          => 'add_salt_environment_to_host',
                      :insert_bottom => 'div#primary',
-                     :text          =>  selector_text)
+                     :text          => selector_text)
