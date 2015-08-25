@@ -172,6 +172,7 @@ module ForemanSalt
         # Helper Extensions
         ::HostsHelper.send :include, ForemanSalt::HostsHelperExtensions
         ::SmartProxiesHelper.send :include, ForemanSalt::SmartProxiesHelperExtensions
+        ::LayoutHelper.send :include, ForemanSalt::LayoutHelperExtensions
 
         # Model Extensions
         ::Host::Managed.send :include, ForemanSalt::Concerns::HostManagedExtensions
