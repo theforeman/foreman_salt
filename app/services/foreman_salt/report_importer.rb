@@ -1,10 +1,10 @@
 module ForemanSalt
-  class ReportImporter
+  class ReportImporter # rubocop:disable Metrics/ClassLength
     delegate :logger, :to => :Rails
     attr_reader :report
 
     def self.import(raw, proxy_id = nil)
-      raise ::Foreman::Exception.new(_('Invalid report')) unless raw.is_a?(Hash)
+      fail ::Foreman::Exception.new(_('Invalid report')) unless raw.is_a?(Hash)
       raw.map do |host, report|
         importer = ForemanSalt::ReportImporter.new(host, report, proxy_id)
         importer.import
@@ -37,7 +37,7 @@ module ForemanSalt
       end
 
       @host.save(:validate => false)
-      logger.info("Imported report for #{@host} in #{(Time.now - start_time).round(2)} seconds")
+      logger.info("Imported report for #{@host} in #{(Time.zone.now - start_time).round(2)} seconds")
     end
 
     private
@@ -139,7 +139,7 @@ module ForemanSalt
 
     def process_failures
       status = ReportStatusCalculator.new(:counters => { 'failed' => @raw.size }).calculate
-      @report = Report.create(:host => @host, :reported_at => Time.now, :status => status, :metrics => {})
+      @report = Report.create(:host => @host, :reported_at => Time.zone.now, :status => status, :metrics => {})
 
       @host.puppet_status = status
 
@@ -151,7 +151,7 @@ module ForemanSalt
     end
 
     def start_time
-      @start_time ||= Time.now
+      @start_time ||= Time.zone.now
     end
   end
 end

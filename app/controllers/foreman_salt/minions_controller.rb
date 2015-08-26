@@ -20,7 +20,7 @@ module ForemanSalt
       end
     rescue
       logger.warn "Failed to generate external nodes for #{@minion} with #{$ERROR_INFO}"
-      render :text => _('Unable to generate output, Check log files\n'), :status => 412 and return
+      render(:text => _('Unable to generate output, Check log files\n'), :status => 412) && return
     end
 
     def run
@@ -44,14 +44,14 @@ module ForemanSalt
 
     def action_permission
       case params[:action]
-        when 'run'
-          :saltrun
-        when 'node'
-          :view
-        when 'salt_environment_selected'
-          :edit
-        else
-          super
+      when 'run'
+        :saltrun
+      when 'node'
+        :view
+      when 'salt_environment_selected'
+        :edit
+      else
+        super
       end
     end
 

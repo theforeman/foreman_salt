@@ -33,8 +33,8 @@ module ForemanSalt
     context 'importing' do
       setup do
         @proxy = FactoryGirl.create :smart_proxy, :with_salt_feature
-        @states = {'env1' => %w(state1 state2 state3),
-                   'env2' => %w(state1 state2)}
+        @states = { 'env1' => %w(state1 state2 state3),
+                    'env2' => %w(state1 state2) }
 
         ::ProxyAPI::Salt.any_instance.stubs(:states_list).returns(@states)
       end
@@ -73,7 +73,7 @@ module ForemanSalt
         assert_response :success
         refute ::ForemanSalt::SaltModule.where(:id => state).first
         refute ::ForemanSalt::SaltModule.where(:name => 'state1').first
-       end
+      end
 
       test 'dryrun should do nothing' do
         post :import, :smart_proxy_id => @proxy.id, :dryrun => true

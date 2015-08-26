@@ -39,10 +39,10 @@ module ForemanSalt
 
         def action_permission
           case params[:action]
-            when 'upload'
-              :create
-            else
-              super
+          when 'upload'
+            :create
+          else
+            super
           end
         end
       end

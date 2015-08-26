@@ -75,7 +75,7 @@ module ForemanSalt
       hash.each do |fact_name, value|
         name_parts = fact_name.split(FactName::SEPARATOR)
 
-        name_parts.inject([]) do |memo, name|
+        name_parts.inject([]) do |memo, name| # rubocop:disable Style/EachWithObject
           memo += [name]
           key = memo.join(FactName::SEPARATOR)
           new_facts[key] ||= name_parts == memo ? value : nil
