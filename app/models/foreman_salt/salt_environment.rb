@@ -20,8 +20,8 @@ module ForemanSalt
       _('Salt environment')
     end
 
-    def self.permission_name(action)
-      "#{action}_salt_environments"
+    def self.permission_name
+      'salt_environments'
     end
 
     private

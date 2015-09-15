@@ -9,6 +9,10 @@ module ForemanSalt
       state_list = { 'env1' => states, 'env2' => states }
 
       ::ProxyAPI::Salt.any_instance.stubs(:states_list).returns(state_list)
+
+      # FIXME #12143
+      FactoryGirl.create(:permission, :name => 'view_salt_environments',
+                         :resource_type => 'ForemanSalt::SaltEnvironment')
     end
 
     test 'index page' do
