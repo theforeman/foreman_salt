@@ -42,5 +42,14 @@ module ForemanSalt
       refute host.save
       assert host.errors.full_messages.include? 'Salt states must be in the environment of the host'
     end
+
+    test '#configuration? considers salt' do
+      host = FactoryGirl.build(:host)
+      proxy = FactoryGirl.build(:smart_proxy)
+
+      refute host.configuration?
+      host.salt_proxy = proxy
+      assert host.configuration?
+    end
   end
 end

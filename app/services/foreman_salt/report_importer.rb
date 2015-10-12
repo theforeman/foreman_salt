@@ -36,6 +36,8 @@ module ForemanSalt
         process_normal
       end
 
+      @host.refresh_statuses
+
       @host.save(:validate => false)
       logger.info("Imported report for #{@host} in #{(Time.zone.now - start_time).round(2)} seconds")
     end
@@ -130,8 +132,6 @@ module ForemanSalt
       metrics = calculate_metrics
       status = ReportStatusCalculator.new(:counters => metrics[:resources].slice(*::Report::METRIC)).calculate
 
-      @host.puppet_status = status
-
       @report = Report.new(:host => @host, :reported_at => start_time, :status => status, :metrics => metrics)
       return @report unless @report.save
       import_log_messages
@@ -140,8 +140,6 @@ module ForemanSalt
     def process_failures
       status = ReportStatusCalculator.new(:counters => { 'failed' => @raw.size }).calculate
       @report = Report.create(:host => @host, :reported_at => Time.zone.now, :status => status, :metrics => {})
-
-      @host.puppet_status = status
 
       source = Source.find_or_create('Salt')
       @raw.each do |failure|

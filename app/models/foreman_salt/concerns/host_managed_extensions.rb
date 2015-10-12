@@ -13,12 +13,17 @@ module ForemanSalt
         alias_method_chain :params, :salt_proxy
         alias_method_chain :set_hostgroup_defaults, :salt_proxy
         alias_method_chain :smart_proxy_ids, :salt_proxy
+        alias_method_chain :configuration?, :salt
 
         scoped_search :in => :salt_modules, :on => :name, :complete_value => true, :rename => :salt_state
         scoped_search :in => :salt_environment, :on => :name, :complete_value => true, :rename => :salt_environment
         scoped_search :in => :salt_proxy, :on => :name, :complete_value => true, :rename => :saltmaster
 
         validate :salt_modules_in_host_environment
+      end
+
+      def configuration_with_salt?
+        configuration_without_salt? || !!salt_proxy
       end
 
       def handle_salt

@@ -42,8 +42,8 @@ module ForemanSalt
       _('Salt state')
     end
 
-    def self.permission_name(action)
-      "#{action}_salt_modules"
+    def self.permission_name
+      'salt_modules'
     end
   end
 end
