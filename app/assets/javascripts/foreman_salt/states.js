@@ -8,6 +8,8 @@ function update_salt_states(element) {
   var url = $(element).attr('data-url');
   var data = $("form").serialize().replace('method=put', 'method=post');
 
+  if (url == undefined) return;
+
   if (url.match('hostgroups')) {
     data = data + '&hostgroup_id=' + host_id;
   } else {
@@ -18,9 +20,9 @@ function update_salt_states(element) {
     return;
   }
 
-  $(element).indicator_show();
+  foreman.tools.showSpinner();
   $.ajax({
-    type: 'post',
+    type: 'put',
     url:  url,
     data: data,
     success: function(request) {
@@ -29,7 +31,7 @@ function update_salt_states(element) {
       multiSelectOnLoad();
     },
     complete: function() {
-      $(element).indicator_hide();
+      foreman.tools.hideSpinner();
     }
   });
 }

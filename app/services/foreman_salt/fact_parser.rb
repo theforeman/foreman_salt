@@ -15,7 +15,7 @@ module ForemanSalt
     def architecture
       name = facts[:osarch]
       name = 'x86_64' if name == 'amd64'
-      Architecture.find_or_create_by_name name unless name.blank?
+      Architecture.where(:name => name).first_or_create unless name.blank?
     end
 
     def environment
@@ -24,12 +24,12 @@ module ForemanSalt
 
     def model
       name = facts[:productname]
-      Model.find_or_create_by_name(name.strip) unless name.blank?
+      Model.where(:name => name.strip).first_or_create unless name.blank?
     end
 
     def domain
       name = facts[:domain]
-      Domain.find_or_create_by_name name unless name.blank?
+      Domain.where(:name => name).first_or_create unless name.blank?
     end
 
     def ip

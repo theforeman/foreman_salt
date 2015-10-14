@@ -18,6 +18,7 @@ module ForemanSalt
     end
 
     test 'importing report updates host status' do
+      HostStatus::ConfigurationStatus.any_instance.stubs(:relevant?).returns(true)
       ForemanSalt::ReportImporter.import(@report)
       assert Host.find_by_name(@host).get_status(HostStatus::ConfigurationStatus).error?
     end

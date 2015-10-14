@@ -4,6 +4,8 @@ module ForemanSalt
     extend FriendlyId
     friendly_id :name
 
+    attr_accessible :name, :salt_modules, :salt_module_ids
+
     has_many :hosts, :class_name => '::Host::Managed'
     has_many :hostgroups, :class_name => '::Hostgroup'
 

@@ -22,7 +22,9 @@ module ForemanSalt
     end
 
     initializer 'foreman_salt.load_app_instance_data' do |app|
-      app.config.paths['db/migrate'] += ForemanSalt::Engine.paths['db/migrate'].existent
+      ForemanSalt::Engine.paths['db/migrate'].existent.each do |path|
+        app.config.paths['db/migrate'] << path
+      end
     end
 
     initializer 'foreman_salt.assets.precompile' do |app|

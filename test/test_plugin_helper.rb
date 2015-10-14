@@ -4,7 +4,7 @@ require 'test_helper'
 def assert_row_button(index_path, link_text, button_text, dropdown = false)
   visit index_path
   within(:xpath, "//tr[contains(.,'#{link_text}')]") do
-    find('i.caret').click if dropdown
+    find('span.caret').click if dropdown
     click_link(button_text)
   end
 end

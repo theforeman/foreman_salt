@@ -34,7 +34,7 @@ module ForemanSalt
 
     def salt_environment_selected
       if params[:host][:salt_environment_id].present?
-        @salt_environment = ::ForemanSalt::SaltEnvironment.find(params[:host][:salt_environment_id])
+        @salt_environment = ::ForemanSalt::SaltEnvironment.friendly.find(params[:host][:salt_environment_id])
         load_ajax_vars
         render :partial => 'foreman_salt/salt_modules/host_tab_pane'
       else

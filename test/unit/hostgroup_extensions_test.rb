@@ -43,7 +43,7 @@ module ForemanSalt
       parent = FactoryGirl.create :hostgroup, :with_salt_modules
       child_one = FactoryGirl.create :hostgroup, :parent => parent
       child_two = FactoryGirl.create :hostgroup, :parent => child_one
-      assert_blank parent.all_salt_modules - child_two.all_salt_modules
+      assert_empty parent.all_salt_modules - child_two.all_salt_modules
     end
 
     test 'inheritance when no parents have modules' do

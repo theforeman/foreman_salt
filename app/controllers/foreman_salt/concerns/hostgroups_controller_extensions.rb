@@ -11,7 +11,7 @@ module ForemanSalt
         @hostgroup = Hostgroup.authorized(:view_hostgroups, Hostgroup).find_by_id(params[:hostgroup_id]) || Hostgroup.new(params[:hostgroup])
 
         if params[:hostgroup][:salt_environment_id].present?
-          @salt_environment = ::ForemanSalt::SaltEnvironment.find(params[:hostgroup][:salt_environment_id])
+          @salt_environment = ::ForemanSalt::SaltEnvironment.friendly.find(params[:hostgroup][:salt_environment_id])
           load_vars_for_ajax
           render :partial => 'foreman_salt/salt_modules/host_tab_pane'
         else
