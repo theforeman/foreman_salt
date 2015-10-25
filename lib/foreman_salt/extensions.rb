@@ -8,11 +8,9 @@ begin
 
   # Model Extensions
   ::Host::Managed.send :include, ForemanSalt::Concerns::HostManagedExtensions
-  ::Host::Managed.send :include, ForemanSalt::Concerns::Orchestration::Salt
   ::Hostgroup.send :include, ForemanSalt::Concerns::HostgroupExtensions
 
   # Controller Extensions
-  ::UnattendedController.send :include, ForemanSalt::Concerns::UnattendedControllerExtensions
   ::HostsController.send :include, ForemanSalt::Concerns::HostsControllerExtensions
   ::HostgroupsController.send :include, ForemanSalt::Concerns::HostgroupsControllerExtensions
 rescue => e

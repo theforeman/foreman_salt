@@ -20,15 +20,14 @@ module ForemanSalt
         scoped_search :in => :salt_proxy, :on => :name, :complete_value => true, :rename => :saltmaster
 
         validate :salt_modules_in_host_environment
+
+        after_build      :delete_salt_key, :if => ->(host) { host.salt_proxy }
+        before_provision :accept_salt_key, :if => ->(host) { host.salt_proxy }
+        before_destroy   :delete_salt_key, :if => ->(host) { host.salt_proxy }
       end
 
       def configuration_with_salt?
         configuration_without_salt? || !!salt_proxy
-      end
-
-      def handle_salt
-        return true unless salt?
-        set_salt_autosign
       end
 
       def params_with_salt_proxy
@@ -80,6 +79,25 @@ module ForemanSalt
           errors.add(:base, _('Salt states must be in the environment of the host')) unless (self.salt_modules - self.salt_environment.salt_modules).empty?
         else
           errors.add(:base, _('Host must have an environment in order to set salt states'))
+        end
+      end
+
+      private
+
+      def accept_salt_key
+        begin
+          Rails.logger.info("Host #{fqdn} is built, accepting Salt key")
+          ForemanSalt::SmartProxies::SaltKeys.find(salt_proxy, fqdn).accept
+        rescue Foreman::Exception => e
+           Rails.logger.warn("Unable to accept key for #{fqdn}: #{e}")
+        end
+      end
+
+      def delete_salt_key
+        begin
+          ForemanSalt::SmartProxies::SaltKeys.find(salt_proxy, fqdn).delete
+        rescue Foreman::Exception => e
+         Rails.logger.warn("Unable to delete key for #{fqdn}: #{e}")
         end
       end
     end
