@@ -28,7 +28,7 @@ module ForemanSalt
         param :id, :identifier_dottable, :required => true
         param_group :minion
         def update
-          params[:minion][:salt_module_ids] = params[:minion].delete(:salt_state_ids)
+          params[:minion][:salt_module_ids] = params[:minion].delete(:salt_state_ids) if params[:minion]
           process_response @salt_minion.update_attributes(params[:minion])
         end
 
