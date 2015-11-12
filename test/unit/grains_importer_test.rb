@@ -12,6 +12,7 @@ module ForemanSalt
       host  = grains['name']
       facts = HashWithIndifferentAccess.new(grains['facts'])
 
+      @proxy = FactoryGirl.create(:smart_proxy, :with_salt_feature, :name => facts[:master], :url => "http://#{facts[:master]}:8443")
       (@imported_host, _) = ::Host::Managed.import_host_and_facts host, facts
     end
 
@@ -59,6 +60,10 @@ module ForemanSalt
       nic = @imported_host.interfaces.find_by_identifier('eth1')
       assert_equal nic.mac, 'de:ad:be:ef:07:13'
       assert_equal nic.ip, '1.2.3.4'
+    end
+
+    test 'imported host gets salt master updated' do
+      assert_equal @imported_host.salt_proxy, @proxy
     end
   end
 end

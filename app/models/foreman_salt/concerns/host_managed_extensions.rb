@@ -14,6 +14,7 @@ module ForemanSalt
         alias_method_chain :set_hostgroup_defaults, :salt_proxy
         alias_method_chain :smart_proxy_ids, :salt_proxy
         alias_method_chain :configuration?, :salt
+        alias_method_chain :attributes_to_import_from_facts, :salt
 
         scoped_search :in => :salt_modules, :on => :name, :complete_value => true, :rename => :salt_state
         scoped_search :in => :salt_environment, :on => :name, :complete_value => true, :rename => :salt_environment
@@ -24,6 +25,10 @@ module ForemanSalt
         after_build      :delete_salt_key, :if => ->(host) { host.salt_proxy }
         before_provision :accept_salt_key, :if => ->(host) { host.salt_proxy }
         before_destroy   :delete_salt_key, :if => ->(host) { host.salt_proxy }
+      end
+
+      def attributes_to_import_from_facts_with_salt
+        attributes_to_import_from_facts_without_salt + [:salt_proxy]
       end
 
       def configuration_with_salt?
