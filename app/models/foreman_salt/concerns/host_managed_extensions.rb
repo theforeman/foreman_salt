@@ -24,6 +24,9 @@ module ForemanSalt
         after_build      :delete_salt_key, :if => ->(host) { host.salt_proxy }
         before_provision :accept_salt_key, :if => ->(host) { host.salt_proxy }
         before_destroy   :delete_salt_key, :if => ->(host) { host.salt_proxy }
+
+        attr_accessible :salt_proxy_id, :salt_proxy_name, :salt_environment_id,
+          :salt_environment_name
       end
 
       def configuration_with_salt?
