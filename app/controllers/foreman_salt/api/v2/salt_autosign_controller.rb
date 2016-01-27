@@ -51,7 +51,7 @@ module ForemanSalt
         end
 
         def find_proxy
-          @proxy = ::SmartProxy.find(params[:smart_proxy_id])
+          @proxy = ::SmartProxy.friendly.find(params[:smart_proxy_id])
           not_found unless @proxy
         end
 

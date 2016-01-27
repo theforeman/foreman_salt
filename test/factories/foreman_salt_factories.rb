@@ -28,7 +28,7 @@ FactoryGirl.modify do
 
   factory :smart_proxy do
     trait :with_salt_feature do
-      features { [::Feature.find_or_create_by_name('Salt')] }
+      features { [::Feature.where(:name => 'Salt').first_or_create] }
     end
   end
 end

@@ -89,7 +89,7 @@ module ForemanSalt
 
         def find_environment
           if params[:salt_environment_id]
-            @salt_environment = ForemanSalt::SaltEnvironment.find(params[:salt_environment_id])
+            @salt_environment = ForemanSalt::SaltEnvironment.friendly.find(params[:salt_environment_id])
             fail _('Could not find salt environment with id %s') % params[:salt_environment_id] unless @salt_environment
           end
         end

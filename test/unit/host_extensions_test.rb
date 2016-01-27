@@ -56,11 +56,11 @@ module ForemanSalt
       before do
         @host = FactoryGirl.create(:host, :with_salt_proxy, :build => true)
         @key_stub = stub("key")
-        ForemanSalt::SmartProxies::SaltKeys.expects(:find).with(@host.salt_proxy, @host.fqdn).returns(@key_stub)
+        ForemanSalt::SmartProxies::SaltKeys.expects(:find).at_least_once.with(@host.salt_proxy, @host.fqdn).returns(@key_stub)
       end
 
       test 'host key is accepted when host is built' do
-        @key_stub.expects(:accept).returns(true)
+        @key_stub.expects(:accept).at_least_once.returns(true)
         assert @host.built
         @host.run_callbacks(:commit) # callbacks don't run with Foreman's transactional fixtures
       end

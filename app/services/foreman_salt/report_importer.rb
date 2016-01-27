@@ -24,7 +24,7 @@ module ForemanSalt
 
       if @host.new_record? && !Setting[:create_new_host_when_report_is_uploaded]
         logger.info("skipping report for #{@host} as its an unknown host and create_new_host_when_report_is_uploaded setting is disabled")
-        return Report.new
+        return ConfigReport.new
       end
 
       @host.salt_proxy_id ||= @proxy_id
@@ -36,9 +36,10 @@ module ForemanSalt
         process_normal
       end
 
+      @host.save(:validate => false)
+      @host.reload
       @host.refresh_statuses
 
-      @host.save(:validate => false)
       logger.info("Imported report for #{@host} in #{(Time.zone.now - start_time).round(2)} seconds")
     end
 
@@ -130,16 +131,16 @@ module ForemanSalt
 
     def process_normal
       metrics = calculate_metrics
-      status = ReportStatusCalculator.new(:counters => metrics[:resources].slice(*::Report::METRIC)).calculate
+      status = ConfigReportStatusCalculator.new(:counters => metrics[:resources].slice(*::ConfigReport::METRIC)).calculate
 
-      @report = Report.new(:host => @host, :reported_at => start_time, :status => status, :metrics => metrics)
+      @report = ConfigReport.new(:host => @host, :reported_at => start_time, :status => status, :metrics => metrics)
       return @report unless @report.save
       import_log_messages
     end
 
     def process_failures
-      status = ReportStatusCalculator.new(:counters => { 'failed' => @raw.size }).calculate
-      @report = Report.create(:host => @host, :reported_at => Time.zone.now, :status => status, :metrics => {})
+      status = ConfigReportStatusCalculator.new(:counters => { 'failed' => @raw.size }).calculate
+      @report = ConfigReport.create(:host => @host, :reported_at => Time.zone.now, :status => status, :metrics => {})
 
       source = Source.find_or_create('Salt')
       @raw.each do |failure|

@@ -4,6 +4,8 @@ module ForemanSalt
     extend FriendlyId
     friendly_id :name
 
+    attr_accessible :name, :salt_environments, :salt_environment_ids
+
     # before_destroy EnsureNotUsedBy.new(:hosts, :hostgroups)
 
     has_many :hosts, :through => :host_salt_modules, :class_name => '::Host::Managed'

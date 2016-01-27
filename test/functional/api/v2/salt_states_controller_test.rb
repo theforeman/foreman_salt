@@ -45,8 +45,8 @@ module ForemanSalt
         assert_response :success
 
         @states.each do |env, states|
-          environment = ::ForemanSalt::SaltEnvironment.find(env)
-          assert_blank environment.salt_modules.map(&:name) - states
+          environment = ::ForemanSalt::SaltEnvironment.find_by_name(env)
+          assert_empty environment.salt_modules.map(&:name) - states
         end
       end
 

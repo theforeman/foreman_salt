@@ -27,7 +27,7 @@ module ForemanSalt
         name_with_prefix = prefix.empty? ? name : prefix + FactName::SEPARATOR + name
 
         compose = value.is_a?(Hash)
-        if fact_names[name_with_prefix].present?
+        if fact_names.is_a?(Hash) && fact_names[name_with_prefix].present?
           fact_name_id = fact_names[name_with_prefix]
         else
           fact_name_id = fact_name_class.create!(:name      => name_with_prefix,
