@@ -114,6 +114,10 @@ module ForemanSalt
                    else
                      result['duration']
                    end
+        # Convert duration from milliseconds to seconds
+        if duration.is_a? Float
+          duration = duration / 1000
+        end
 
         time[resource] = duration || 0
       end
