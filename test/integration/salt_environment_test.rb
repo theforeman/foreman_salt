@@ -1,4 +1,5 @@
 require 'test_plugin_helper'
+require 'integration_test_helper'
 
 module ForemanSalt
   class SaltEnvironmentTest < ActionDispatch::IntegrationTest
