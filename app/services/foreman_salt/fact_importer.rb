@@ -57,7 +57,7 @@ module ForemanSalt
     end
 
     def fact_names
-      @fact_names ||= fact_name_class.maximum(:id, :group => 'name')
+      @fact_names ||= fact_name_class.group(:name).maximum(:id)
     end
 
     # if the host does not exists yet, we don't have an host_id to use the fact_values table.
