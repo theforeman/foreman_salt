@@ -77,6 +77,13 @@ module ForemanSalt
       true
     end
 
+    def salt_proxy
+      ::SmartProxy.with_features('Salt').select do |proxy|
+        uri = URI.parse(proxy.uri)
+        proxy if uri.host == facts[:master]
+      end
+    end
+
     private
 
     def os_hash
