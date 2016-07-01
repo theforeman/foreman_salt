@@ -1,5 +1,5 @@
 Foreman::Plugin.register :foreman_salt do
-  requires_foreman '>= 1.11'
+  requires_foreman '>= 1.12'
 
   apipie_documented_controllers ["#{ForemanSalt::Engine.root}/app/controllers/foreman_salt/api/v2/*.rb"]
 
