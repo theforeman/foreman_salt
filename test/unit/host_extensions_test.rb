@@ -54,7 +54,7 @@ module ForemanSalt
 
     context 'key handling' do
       before do
-        @host = FactoryGirl.create(:host, :with_salt_proxy, :build => true)
+        @host = FactoryGirl.create(:host, :with_salt_proxy, :managed, :build => true)
         @key_stub = stub("key")
         ForemanSalt::SmartProxies::SaltKeys.expects(:find).at_least_once.with(@host.salt_proxy, @host.fqdn).returns(@key_stub)
       end
