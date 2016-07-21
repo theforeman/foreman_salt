@@ -43,7 +43,7 @@ module ForemanSalt
       Apipie.configuration.checksum_path += ['/salt/api/']
     end
 
-    initializer 'foreman_salt.register_plugin', :after => :finisher_hook do
+    initializer 'foreman_salt.register_plugin', :before => :finisher_hook do
       require 'foreman_salt/plugin'
     end
 
