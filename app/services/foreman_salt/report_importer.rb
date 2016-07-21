@@ -1,5 +1,5 @@
 module ForemanSalt
-  class ReportImporter # rubocop:disable Metrics/ClassLength
+  class ReportImporter
     delegate :logger, :to => :Rails
     attr_reader :report
 
@@ -115,9 +115,7 @@ module ForemanSalt
                      result['duration']
                    end
         # Convert duration from milliseconds to seconds
-        if duration.is_a? Float
-          duration = duration / 1000
-        end
+        duration /= 1000 if duration.is_a? Float
 
         time[resource] = duration || 0
       end

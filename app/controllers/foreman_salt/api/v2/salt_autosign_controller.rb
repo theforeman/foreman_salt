@@ -4,7 +4,7 @@ module ForemanSalt
   module Api
     module V2
       class SaltAutosignController < ::ForemanSalt::Api::V2::BaseController
-        before_filter :find_proxy, :setup_proxy
+        before_action :find_proxy, :setup_proxy
 
         api :GET, '/salt_autosign/:smart_proxy_id', N_('List all autosign records')
         param :smart_proxy_id, :identifier_dottable, :required => true

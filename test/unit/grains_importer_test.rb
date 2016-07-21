@@ -12,7 +12,7 @@ module ForemanSalt
       host  = grains['name']
       facts = HashWithIndifferentAccess.new(grains['facts'])
 
-      (@imported_host, _) = ::Host::Managed.import_host_and_facts host, facts
+      @imported_host, = ::Host::Managed.import_host_and_facts host, facts
     end
 
     test 'importing salt grains creates a host' do

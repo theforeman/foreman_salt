@@ -2,7 +2,7 @@ module ForemanSalt
   module Api
     module V2
       class SaltMinionsController < ::ForemanSalt::Api::V2::BaseController
-        before_filter :find_resource, :except => [:index]
+        before_action :find_resource, :except => [:index]
 
         api :GET, '/salt_minions', N_('List all Salt Minions')
         param_group :search_and_pagination, ::Api::V2::BaseController

@@ -2,7 +2,7 @@ module ForemanSalt
   module Api
     module V2
       class SaltEnvironmentsController < ::ForemanSalt::Api::V2::BaseController
-        before_filter :find_resource, :except => [:index, :create]
+        before_action :find_resource, :except => [:index, :create]
 
         api :GET, '/salt_environments', N_('List all Salt environments')
         param_group :search_and_pagination, ::Api::V2::BaseController
