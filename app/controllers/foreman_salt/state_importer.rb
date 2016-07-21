@@ -18,7 +18,7 @@ module ForemanSalt
 
       environments ||= new.keys + old.keys
 
-      environments.each do |environment| # rubocop:disable Style/Next
+      environments.each do |environment|
         old_states = old[environment] || []
         new_states = new[environment] || []
 

@@ -1,69 +1,35 @@
+# TODO: remove this file by either moving cops here or fixing code
+inherit_from:
+  - .rubocop_todo.yml
+
 AllCops:
-  RunRailsCops: true # always run the rails cops
-
-Metrics/AbcSize:
-  Enabled: false
-
-Metrics/LineLength:
-  Max: 300
-
-Metrics/ClassLength:
+  Include:
+    - 'app/views/api/**/*.rabl'
   Exclude:
-   - 'test/**/*'
+    - 'db/schema.rb'
+    - 'vendor/**/*'
 
-Metrics/MethodLength:
-  Max: 50
+Rails:
+  Enabled: true
 
-Metrics/CyclomaticComplexity:
-  Enabled: false
-
-Metrics/PerceivedComplexity:
-  Enabled: false
-
-Rails/ActionFilter:
-  Enabled: false
-
-Rails/FindEach:
-  Enabled: false
-
-Rails/DefaultScope:
-  Enabled: false
-
-Rails/Output:
-  Exclude:
-   - 'lib/**/*'
-
-Style/ClassAndModuleChildren:
-  Enabled: false
-
+# Don't enforce documentation
 Style/Documentation:
   Enabled: false
 
-Style/FileName:
-  Exclude:
-   - 'db/seeds.d/*'
-
-Style/FormatString:
-  Enabled: false
-
-Style/GuardClause:
-  Enabled: false
-
+# Support both ruby19 and hash_rockets
 Style/HashSyntax:
-  EnforcedStyle: hash_rockets
-
-Style/RaiseArgs:
-  EnforcedStyle: compact
-
-Style/RedundantSelf:
   Enabled: false
+  SupportedStyles:
+    - ruby19
+    - hash_rockets
 
-Style/RegexpLiteral:
-  Enabled: false
+Metrics/ClassLength:
+  Exclude:
+    - 'test/**/*'
 
-Style/RescueModifier:
-  Enabled: false
+Performance/FixedSize:
+  Exclude:
+    - 'test/**/*'
 
-Style/TrailingUnderscoreVariable:
-  Enabled: false
-
+Style/AndOr:
+  EnforcedStyle: conditionals

@@ -3,8 +3,8 @@ module ForemanSalt
     include Foreman::Controller::AutoCompleteSearch
     include StateImporter
 
-    before_filter :find_resource, :only => [:edit, :update, :destroy]
-    before_filter :find_proxy, :only => :import
+    before_action :find_resource, :only => [:edit, :update, :destroy]
+    before_action :find_proxy, :only => :import
 
     def index
       @salt_modules = resource_base.search_for(params[:search], :order => params[:order]).includes(:salt_environments).paginate(:page => params[:page])
@@ -70,7 +70,6 @@ module ForemanSalt
     def apply_changes
       if params[:changed].blank?
         notice _('No changes found')
-        redirect_to salt_modules_path
       else
         params[:changed].each do |environment, states|
           next unless states[:add] || states[:remove]
@@ -81,8 +80,8 @@ module ForemanSalt
 
         clean_orphans
         notice _('Successfully imported')
-        redirect_to salt_modules_path
       end
+      redirect_to salt_modules_path
     end
   end
 end

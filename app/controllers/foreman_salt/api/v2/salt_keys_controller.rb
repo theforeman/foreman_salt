@@ -2,8 +2,8 @@ module ForemanSalt
   module Api
     module V2
       class SaltKeysController < ::ForemanSalt::Api::V2::BaseController
-        before_filter :find_proxy
-        before_filter :find_key, :only => [:update, :destroy]
+        before_action :find_proxy
+        before_action :find_key, :only => [:update, :destroy]
 
         api :GET, '/salt_keys/:smart_proxy_id', N_('List all Salt keys')
         param :smart_proxy_id, :identifier_dottable, :required => true

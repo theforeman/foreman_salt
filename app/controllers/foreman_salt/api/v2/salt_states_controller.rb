@@ -4,9 +4,9 @@ module ForemanSalt
       class SaltStatesController < ::ForemanSalt::Api::V2::BaseController
         include StateImporter
 
-        before_filter :find_resource, :except => [:index, :create, :import]
-        before_filter :find_proxy, :only => :import
-        before_filter :find_environment, :only => :index
+        before_action :find_resource, :except => [:index, :create, :import]
+        before_action :find_proxy, :only => :import
+        before_action :find_environment, :only => :index
 
         api :GET, '/salt_states', N_('List all Salt states')
         param :salt_environment_id, :identifier_dottable, :required => false, :desc => N_('Limit to a specific environment')
