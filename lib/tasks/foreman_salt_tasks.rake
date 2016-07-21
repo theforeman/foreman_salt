@@ -26,7 +26,7 @@ namespace :test do
   end
 end
 
-Rake::Task[:test].enhance ['test:foreman_salt']
+Rake::Task["test:plugins"].enhance ['test:foreman_salt']
 
 load 'tasks/jenkins.rake'
 if Rake::Task.task_defined?(:'jenkins:unit')
