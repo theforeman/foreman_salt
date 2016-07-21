@@ -9,10 +9,8 @@ module ForemanSalt
       Operatingsystem.where(:name => 'CentOS', :major => '6', :minor => '5').delete_all
 
       grains = JSON.parse(File.read(File.join(Engine.root, 'test', 'unit', 'grains_centos.json')))
-      host  = grains['name']
-      facts = HashWithIndifferentAccess.new(grains['facts'])
-
-      @imported_host, = ::Host::Managed.import_host_and_facts host, facts
+      @imported_host = ::Host::Managed.import_host grains['name'], 'salt'
+      @imported_host.import_facts grains['facts'].with_indifferent_access
     end
 
     test 'importing salt grains creates a host' do
