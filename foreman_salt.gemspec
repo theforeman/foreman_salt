@@ -3,7 +3,7 @@ require File.expand_path('../lib/foreman_salt/version', __FILE__)
 Gem::Specification.new do |s|
   s.name        = 'foreman_salt'
   s.version     = ForemanSalt::VERSION
-  s.licenses    = ['GPL-3']
+  s.licenses    = ['GPL-3.0']
   s.authors     = ['Stephen Benjamin']
   s.email       = ['stephen@redhat.com']
   s.homepage    = 'http://github.com/theforeman/foreman_salt'
