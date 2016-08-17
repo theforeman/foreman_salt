@@ -1,5 +1,5 @@
 Foreman::Plugin.register :foreman_salt do
-  requires_foreman '>= 1.12'
+  requires_foreman '>= 1.13'
 
   apipie_documented_controllers ["#{ForemanSalt::Engine.root}/app/controllers/foreman_salt/api/v2/*.rb"]
 
@@ -131,4 +131,12 @@ Foreman::Plugin.register :foreman_salt do
                       :create_salt_environments, :view_salt_environments,
                       :edit_salt_environments,
                       :destroy_salt_environments]
+
+
+  # Parameter filters
+  parameter_filter Hostgroup, :salt_proxy_id, :salt_proxy_name, :salt_environment_id,
+    :salt_environment_name, :salt_modules => [], :salt_module_ids => []
+  parameter_filter Host::Managed, :salt_proxy_id, :salt_proxy_name,
+    :salt_environment_id, :salt_environment_name, :salt_modules => [],
+    :salt_module_ids => []
 end

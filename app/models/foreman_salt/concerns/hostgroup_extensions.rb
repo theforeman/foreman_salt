@@ -13,9 +13,6 @@ module ForemanSalt
         scoped_search :in => :salt_modules, :on => :name, :complete_value => true, :rename => :salt_state
         scoped_search :in => :salt_environment, :on => :name, :complete_value => true, :rename => :salt_environment
         scoped_search :in => :salt_proxy, :on => :name, :complete_value => true, :rename => :saltmaster
-
-        attr_accessible :salt_proxy_id, :salt_proxy_name, :salt_environment_id,
-          :salt_environment_name, :salt_modules, :salt_module_ids
       end
 
       def all_salt_modules

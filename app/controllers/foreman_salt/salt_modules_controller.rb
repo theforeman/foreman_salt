@@ -1,6 +1,7 @@
 module ForemanSalt
   class SaltModulesController < ::ForemanSalt::ApplicationController
     include Foreman::Controller::AutoCompleteSearch
+    include ::ForemanSalt::Concerns::SaltModuleParameters
     include StateImporter
 
     before_action :find_resource, :only => [:edit, :update, :destroy]
@@ -16,7 +17,7 @@ module ForemanSalt
 
     def create
       logger.info("Params: #{params.inspect}")
-      @salt_module = SaltModule.new(params[:foreman_salt_salt_module])
+      @salt_module = SaltModule.new(salt_module_params)
       if @salt_module.save
         process_success
       else
@@ -29,7 +30,7 @@ module ForemanSalt
     end
 
     def update
-      if @salt_module.update_attributes(params[:foreman_salt_salt_module])
+      if @salt_module.update_attributes(salt_module_params)
         notice _('Successfully updated %s.' % @salt_module.to_s)
         redirect_to salt_modules_path
       else
