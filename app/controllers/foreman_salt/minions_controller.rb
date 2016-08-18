@@ -1,6 +1,7 @@
 module ForemanSalt
   class MinionsController < ::ForemanSalt::ApplicationController
     include ::Foreman::Controller::SmartProxyAuth
+    include ::Foreman::Controller::Parameters::Host
 
     before_action :find_resource, :only => [:node, :run]
     add_smart_proxy_filters :node, :features => 'Salt'

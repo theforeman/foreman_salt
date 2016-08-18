@@ -2,6 +2,7 @@ module ForemanSalt
   module Api
     module V2
       class SaltStatesController < ::ForemanSalt::Api::V2::BaseController
+        include ::ForemanSalt::Concerns::SaltModuleParameters
         include StateImporter
 
         before_action :find_resource, :except => [:index, :create, :import]
@@ -35,7 +36,7 @@ module ForemanSalt
         api :POST, '/salt_states', N_('Create a state')
         param_group :state, :as => :create
         def create
-          @salt_state = SaltModule.new(params[:state])
+          @salt_state = SaltModule.new(salt_module_params)
           process_response @salt_state.save
         end
 

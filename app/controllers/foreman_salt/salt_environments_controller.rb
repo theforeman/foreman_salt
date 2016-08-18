@@ -1,6 +1,7 @@
 module ForemanSalt
   class SaltEnvironmentsController < ::ForemanSalt::ApplicationController
     include Foreman::Controller::AutoCompleteSearch
+    include ::ForemanSalt::Concerns::SaltEnvironmentParameters
 
     before_action :find_resource, :only => [:edit, :update, :destroy]
 
@@ -13,8 +14,7 @@ module ForemanSalt
     end
 
     def create
-      logger.info("Params: #{params.inspect}")
-      @salt_environment = SaltEnvironment.new(params[:foreman_salt_salt_environment])
+      @salt_environment = SaltEnvironment.new(salt_environment_params)
       if @salt_environment.save
         process_success
       else
@@ -26,7 +26,7 @@ module ForemanSalt
     end
 
     def update
-      if @salt_environment.update_attributes(params[:foreman_salt_salt_environment])
+      if @salt_environment.update_attributes(salt_environment_params)
         notice _('Successfully updated %s.' % @salt_environment.to_s)
         redirect_to salt_environments_path
       else

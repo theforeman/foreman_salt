@@ -2,6 +2,8 @@ module ForemanSalt
   module Api
     module V2
       class SaltEnvironmentsController < ::ForemanSalt::Api::V2::BaseController
+        include ::ForemanSalt::Concerns::SaltEnvironmentParameters
+
         before_action :find_resource, :except => [:index, :create]
 
         api :GET, '/salt_environments', N_('List all Salt environments')
@@ -24,7 +26,7 @@ module ForemanSalt
         api :POST, '/salt_environments', N_('Create a Salt environment')
         param_group :environment, :as => :create
         def create
-          @salt_environment = SaltEnvironment.new(params[:environment])
+          @salt_environment = SaltEnvironment.new(salt_environment_params)
           process_response @salt_environment.save
         end
 

@@ -4,7 +4,7 @@ module ForemanSalt
   class Engine < ::Rails::Engine
     engine_name 'foreman_salt'
 
-    config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
+    config.autoload_paths += Dir["#{config.root}/app/controllers/foreman_salt/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/overrides"]
