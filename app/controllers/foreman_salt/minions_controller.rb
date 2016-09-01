@@ -6,14 +6,21 @@ module ForemanSalt
     add_smart_proxy_filters :node, :features => 'Salt'
 
     def node
-      enc = {}
+      enc = {'foreman' => {}}
       env = @minion.salt_environment.blank? ? 'base' : @minion.salt_environment.name
-      enc['classes'] = @minion.salt_modules_for_enc
+      enc['foreman']['classes'] = @minion.salt_modules_for_enc
 
       pillars = @minion.info['parameters']
-      enc['parameters'] = Setting[:salt_namespace_pillars] ? { 'foreman' => pillars } : pillars
+      enc['foreman']['parameters'] = Setting[:salt_namespace_pillars] ? { 'foreman' => pillars } : pillars
 
-      enc['environment'] = env
+      enc['foreman']['parameters'].each do |key, value|
+        if (value.is_a? String) and value.start_with?("---\r\n")
+          enc[key] = YAML.load(value)
+          enc['foreman']['parameters'].delete(key)
+        end
+      end
+
+      enc['foreman']['environment'] = env
       respond_to do |format|
         format.html { render :text => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" }
         format.yml  { render :text => enc.to_yaml }
