@@ -69,12 +69,8 @@ module ::ProxyAPI
       raise ProxyException.new(url, e, N_('Unable to delete Salt key for %s'), name)
     end
 
-    def highstate(name, env, states)
-      payload = {
-        :saltenv => env,
-        :states => states
-      }
-      parse(post(JSON.generate(payload), "highstate/#{name}"))
+    def highstate(name, args)
+      parse(post(JSON.generate(args), "highstate/#{name}"))
     rescue => e
       raise ProxyException.new(url, e, N_('Unable to run Salt state.highstate for %s'), name)
     end
