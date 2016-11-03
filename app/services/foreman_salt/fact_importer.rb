@@ -53,7 +53,7 @@ module ForemanSalt
     end
 
     def facts_to_create
-      @facts_to_create ||= facts.keys - db_facts.keys
+      @facts_to_create ||= facts.keys - db_facts.pluck('fact_names.name')
     end
 
     def fact_names
