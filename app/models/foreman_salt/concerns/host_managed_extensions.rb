@@ -11,8 +11,8 @@ module ForemanSalt
         belongs_to :salt_environment, :class_name => 'ForemanSalt::SaltEnvironment'
 
         alias_method_chain :params, :salt_proxy
-        alias_method_chain :set_hostgroup_defaults, :salt_proxy
         alias_method_chain :smart_proxy_ids, :salt_proxy
+        alias_method_chain :inherited_attributes, :salt
         alias_method_chain :configuration?, :salt
 
         scoped_search :in => :salt_modules, :on => :name, :complete_value => true, :rename => :salt_state
@@ -58,10 +58,8 @@ module ForemanSalt
         false
       end
 
-      def set_hostgroup_defaults_with_salt_proxy
-        return unless hostgroup
-        assign_hostgroup_attributes(%w(salt_proxy_id salt_environment_id))
-        set_hostgroup_defaults_without_salt_proxy
+      def inherited_attributes_with_salt
+        inherited_attributes_without_salt + %w(salt_proxy_id salt_environment_id)
       end
 
       def smart_proxy_ids_with_salt_proxy
