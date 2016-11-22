@@ -103,3 +103,7 @@ module ForemanSalt
     end
   end
 end
+
+class ::Host::Managed::Jail < Safemode::Jail
+  allow :salt_environment
+end
