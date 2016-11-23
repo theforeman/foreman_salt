@@ -73,9 +73,9 @@ module ForemanSalt
           @minion      = @minion.becomes(Host::Managed)
           @minion.type = 'Host::Managed'
         end
-        @minion.attributes = params[:host]
+        @minion.attributes = host_params(:host)
       else
-        @minion ||= Host::Managed.new(params[:host])
+        @minion ||= Host::Managed.new(host_params(:host))
       end
 
       @obj = @minion
