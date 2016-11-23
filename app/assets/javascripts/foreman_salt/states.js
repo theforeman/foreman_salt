@@ -20,7 +20,7 @@ function update_salt_states(element) {
     return;
   }
 
-  foreman.tools.showSpinner();
+  tfm.tools.showSpinner();
   $.ajax({
     type: 'put',
     url:  url,
@@ -31,7 +31,7 @@ function update_salt_states(element) {
       multiSelectOnLoad();
     },
     complete: function() {
-      foreman.tools.hideSpinner();
+      tfm.tools.hideSpinner();
     }
   });
 }
