@@ -19,7 +19,7 @@ module ForemanSalt
         button_group(
           if host.try(:salt_proxy)
             link_to_if_authorized(_('Run Salt'), { :controller => :'foreman_salt/minions', :action => :run, :id => host },
-                                  :title => _('Trigger a state.highstate run on a node'))
+                                  :title => _('Trigger a state.highstate run on a node'), :class => 'btn btn-primary')
           end
         )
       )
