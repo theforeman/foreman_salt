@@ -61,9 +61,10 @@ module ForemanSalt
       @raw.each do |resource, result|
         level = if result['changes'].blank? && result['result']
                   :info
-                elsif !result['result']
+                elsif result['result'] == false
                   :err
                 else
+                  # nil mean "unchanged" when running highstate with test=True
                   :notice
                 end
 
@@ -88,6 +89,7 @@ module ForemanSalt
       changed = 0
       restarted = 0
       restarted_failed = 0
+      pending = 0
 
       time = {}
 
@@ -101,6 +103,8 @@ module ForemanSalt
           elsif !result['changes'].blank?
             changed += 1
           end
+        elsif result['result'].nil?
+            pending += 1
         elsif !result['result']
           if resource.match(/^service_/) && result['comment'].include?('restarted')
             restarted_failed += 1
@@ -126,7 +130,7 @@ module ForemanSalt
       changes = { :total => changed + restarted }
 
       resources = { 'total' => @raw.size, 'applied' => changed, 'restarted' => restarted, 'failed' => failed,
-                    'failed_restarts' => restarted_failed, 'skipped' => 0, 'scheduled' => 0 }
+                    'failed_restarts' => restarted_failed, 'skipped' => 0, 'scheduled' => 0, 'pending' => pending }
 
       { :events => events, :resources => resources, :changes => changes, :time => time }
     end
