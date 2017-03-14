@@ -80,8 +80,14 @@ module ForemanSalt
     private
 
     def os_hash
-      (_, major, minor) = /(\d+)\.?(\d+)?\.?(\d+)?/.match(facts[:osrelease]).to_a
-      { :name => facts[:os], :major => major, :minor => minor }
+      name = facts[:os]
+      (_, major, minor, sub) = /(\d+)\.?(\d+)?\.?(\d+)?/.match(facts[:osrelease]).to_a
+      if name == 'CentOS'
+        if sub
+          minor += '.' + sub
+          end
+      end
+      { :name => name, :major => major, :minor => minor }
     end
 
     def macs
