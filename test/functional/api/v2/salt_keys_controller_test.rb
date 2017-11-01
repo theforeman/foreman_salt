@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class ::ForemanSalt::Api::V2::SaltKeysControllerTest < ActionController::TestCase
   setup do
-    @proxy = FactoryGirl.create(:smart_proxy, :with_salt_feature)
+    @proxy = FactoryBot.create(:smart_proxy, :with_salt_feature)
 
     ProxyAPI::Salt.any_instance.stubs(:key_list).returns('saltstack.example.com' => { 'state' => 'unaccepted',
                                                                                       'fingerprint' => '98:c2:63:c1:57:59:bc:bd:f1:ef:5a:38:b2:e9:71:c0' })

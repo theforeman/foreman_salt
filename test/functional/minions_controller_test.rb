@@ -7,10 +7,10 @@ module ForemanSalt
       Setting[:restrict_registered_smart_proxies] = true
       Setting[:require_ssl_smart_proxies] = false
 
-      proxy = FactoryGirl.create :smart_proxy, :with_salt_feature
+      proxy = FactoryBot.create :smart_proxy, :with_salt_feature
       Resolv.any_instance.stubs(:getnames).returns([proxy.to_s])
 
-      host = FactoryGirl.create :host
+      host = FactoryBot.create :host
       get :node, :id => host, :format => 'yml'
       assert_response :success
     end

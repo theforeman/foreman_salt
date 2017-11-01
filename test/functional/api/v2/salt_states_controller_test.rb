@@ -31,7 +31,7 @@ class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestC
 
   context 'importing' do
     setup do
-      @proxy = FactoryGirl.create :smart_proxy, :with_salt_feature
+      @proxy = FactoryBot.create :smart_proxy, :with_salt_feature
       @states = { 'env1' => %w(state1 state2 state3),
                   'env2' => %w(state1 state2) }
 
@@ -57,8 +57,8 @@ class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestC
     end
 
     test 'should limit actions to add' do
-      env   = FactoryGirl.create :salt_environment
-      state = FactoryGirl.create :salt_module, :salt_environments => [env]
+      env   = FactoryBot.create :salt_environment
+      state = FactoryBot.create :salt_module, :salt_environments => [env]
 
       post :import, :smart_proxy_id => @proxy.id, :actions => ['add']
       assert_response :success
@@ -67,7 +67,7 @@ class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestC
     end
 
     test 'should limit actions to remove' do
-      state = FactoryGirl.create :salt_module
+      state = FactoryBot.create :salt_module
       post :import, :smart_proxy_id => @proxy.id, :actions => ['remove']
       assert_response :success
       refute ::ForemanSalt::SaltModule.where(:id => state).first

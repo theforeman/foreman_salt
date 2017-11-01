@@ -4,7 +4,7 @@ require 'integration_test_helper'
 module ForemanSalt
   class SaltKeysTest < ActionDispatch::IntegrationTest
     setup do
-      @proxy = FactoryGirl.create :smart_proxy, :with_salt_feature
+      @proxy = FactoryBot.create :smart_proxy, :with_salt_feature
 
       ::ProxyAPI::Salt.any_instance.stubs(:autosign_list).returns(
         ['foo.example.com']

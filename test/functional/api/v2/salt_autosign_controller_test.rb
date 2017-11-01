@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class ::ForemanSalt::Api::V2::SaltAutosignControllerTest < ActionController::TestCase
   setup do
-    @proxy = FactoryGirl.create(:smart_proxy, :with_salt_feature)
+    @proxy = FactoryBot.create(:smart_proxy, :with_salt_feature)
     ProxyAPI::Salt.any_instance.stubs(:autosign_list).returns((%w(foo bar baz)))
   end
 
