@@ -3,6 +3,30 @@ module ForemanSalt
     module HostManagedExtensions
       extend ActiveSupport::Concern
 
+      module Overrides
+        def configuration
+          super || !!salt_proxy
+        end
+
+        def params
+          params = super
+          params['salt_master'] = salt_master unless salt_master.blank?
+          params
+        end
+
+        def smart_proxy_ids
+          ids = super
+          [salt_proxy, hostgroup.try(:salt_proxy)].compact.each do |proxy|
+            ids << proxy.id
+          end
+          ids
+        end
+
+        def inherited_attributes
+          super + %w(salt_proxy_id salt_environment_id)
+        end
+      end
+
       included do
         has_many :salt_modules, :through => :host_salt_modules, :class_name => '::ForemanSalt::SaltModule'
         has_many :host_salt_modules, :foreign_key => :host_id, :class_name => '::ForemanSalt::HostSaltModule'
@@ -10,10 +34,7 @@ module ForemanSalt
         belongs_to :salt_proxy, :class_name => 'SmartProxy'
         belongs_to :salt_environment, :class_name => 'ForemanSalt::SaltEnvironment'
 
-        alias_method_chain :params, :salt_proxy
-        alias_method_chain :smart_proxy_ids, :salt_proxy
-        alias_method_chain :inherited_attributes, :salt
-        alias_method_chain :configuration?, :salt
+        prepend Overrides
 
         scoped_search :in => :salt_modules, :on => :name, :complete_value => true, :rename => :salt_state
         scoped_search :in => :salt_environment, :on => :name, :complete_value => true, :rename => :salt_environment
@@ -24,16 +45,6 @@ module ForemanSalt
         after_build      :delete_salt_key, :if => ->(host) { host.salt_proxy }
         before_provision :accept_salt_key, :if => ->(host) { host.salt_proxy }
         before_destroy   :delete_salt_key, :if => ->(host) { host.salt_proxy }
-      end
-
-      def configuration_with_salt?
-        configuration_without_salt? || !!salt_proxy
-      end
-
-      def params_with_salt_proxy
-        params = params_without_salt_proxy
-        params['salt_master'] = salt_master unless salt_master.blank?
-        params
       end
 
       def salt_modules_for_enc
@@ -56,18 +67,6 @@ module ForemanSalt
       rescue => e
         errors.add(:base, _('Failed to execute state.highstate: %s') % e)
         false
-      end
-
-      def inherited_attributes_with_salt
-        inherited_attributes_without_salt + %w(salt_proxy_id salt_environment_id)
-      end
-
-      def smart_proxy_ids_with_salt_proxy
-        ids = smart_proxy_ids_without_salt_proxy
-        [salt_proxy, hostgroup.try(:salt_proxy)].compact.each do |proxy|
-          ids << proxy.id
-        end
-        ids
       end
 
       def salt_modules_in_host_environment
