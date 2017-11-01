@@ -4,7 +4,7 @@ require 'integration_test_helper'
 module ForemanSalt
   class SaltEnvironmentTest < ActionDispatch::IntegrationTest
     test 'index page' do
-      FactoryGirl.create_list :salt_environment, 5
+      FactoryBot.create_list :salt_environment, 5
       assert_index_page(salt_environments_path, 'Salt Environment', 'New Salt Environment')
     end
 
@@ -16,7 +16,7 @@ module ForemanSalt
     end
 
     test 'edit page' do
-      salt_environment = FactoryGirl.create :salt_environment
+      salt_environment = FactoryBot.create :salt_environment
       visit salt_environments_path
       click_link salt_environment.name
       fill_in 'foreman_salt_salt_environment_name', :with => 'some_other_name'

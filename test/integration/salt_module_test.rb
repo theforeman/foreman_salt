@@ -12,12 +12,12 @@ module ForemanSalt
       ::ProxyAPI::Salt.any_instance.stubs(:states_list).returns(state_list)
 
       # FIXME #12143
-      FactoryGirl.create(:permission, :name => 'view_salt_environments',
+      FactoryBot.create(:permission, :name => 'view_salt_environments',
                          :resource_type => 'ForemanSalt::SaltEnvironment')
     end
 
     test 'index page' do
-      FactoryGirl.create_list :salt_module, 5
+      FactoryBot.create_list :salt_module, 5
       assert_index_page(salt_modules_path, 'Salt State', 'New Salt State')
     end
 
@@ -29,7 +29,7 @@ module ForemanSalt
     end
 
     test 'edit page' do
-      salt_module = FactoryGirl.create :salt_module
+      salt_module = FactoryBot.create :salt_module
       visit salt_modules_path
       click_link salt_module.name
       fill_in :foreman_salt_salt_module_name, :with => 'some_other_name'
@@ -38,8 +38,8 @@ module ForemanSalt
     end
 
     test 'import states' do
-      proxy = FactoryGirl.create :smart_proxy, :with_salt_feature
-      state = FactoryGirl.create :salt_module, :salt_environments => [FactoryGirl.create(:salt_environment)]
+      proxy = FactoryBot.create :smart_proxy, :with_salt_feature
+      state = FactoryBot.create :salt_module, :salt_environments => [FactoryBot.create(:salt_environment)]
 
       visit salt_modules_path
       click_link "Import from #{proxy.name}"

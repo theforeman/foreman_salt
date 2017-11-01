@@ -4,7 +4,7 @@ require 'integration_test_helper'
 module ForemanSalt
   class SaltKeysTest < ActionDispatch::IntegrationTest
     setup do
-      @proxy = FactoryGirl.create :smart_proxy, :with_salt_feature
+      @proxy = FactoryBot.create :smart_proxy, :with_salt_feature
 
       ::ProxyAPI::Salt.any_instance.stubs(:key_list).returns(
         'saltstack.example.com'    => { 'state' => 'accepted',   'fingerprint' => '98:c2:63:c1:57:59:bc:bd:f1:ef:5a:38:b2:e9:71:c0' },

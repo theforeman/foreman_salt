@@ -9,6 +9,6 @@ def assert_row_button(index_path, link_text, button_text, dropdown = false)
   end
 end
 
-# Add plugin to FactoryGirl's paths
-FactoryGirl.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
-FactoryGirl.reload
+# Add plugin to FactoryBot's paths
+FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
+FactoryBot.reload
