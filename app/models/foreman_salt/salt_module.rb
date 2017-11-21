@@ -1,5 +1,5 @@
 module ForemanSalt
-  class SaltModule < ActiveRecord::Base
+  class SaltModule < ApplicationRecord
     include Authorizable
     extend FriendlyId
     friendly_id :name
