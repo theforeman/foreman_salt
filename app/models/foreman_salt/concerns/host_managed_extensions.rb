@@ -15,9 +15,9 @@ module ForemanSalt
         alias_method_chain :inherited_attributes, :salt
         alias_method_chain :configuration?, :salt
 
-        scoped_search :in => :salt_modules, :on => :name, :complete_value => true, :rename => :salt_state
-        scoped_search :in => :salt_environment, :on => :name, :complete_value => true, :rename => :salt_environment
-        scoped_search :in => :salt_proxy, :on => :name, :complete_value => true, :rename => :saltmaster
+        scoped_search :relation => :salt_modules, :on => :name, :complete_value => true, :rename => :salt_state
+        scoped_search :relation => :salt_environment, :on => :name, :complete_value => true, :rename => :salt_environment
+        scoped_search :relation => :salt_proxy, :on => :name, :complete_value => true, :rename => :saltmaster
 
         validate :salt_modules_in_host_environment
 

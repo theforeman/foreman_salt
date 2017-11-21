@@ -22,9 +22,9 @@ module ForemanSalt
     scope :in_environment, ->(environment) { joins(:salt_environments).where('salt_module_environments.salt_environment_id' => environment) }
 
     scoped_search :on => :name, :complete_value => true
-    scoped_search :in => :salt_environments, :on => :name, :complete_value => true, :rename => :environment
-    scoped_search :in => :hostgroups, :on => :name, :complete_value => true, :rename => :hostgroup
-    scoped_search :in => :hosts, :on => :name, :complete_value => true, :rename => :host
+    scoped_search :relation => :salt_environments, :on => :name, :complete_value => true, :rename => :environment
+    scoped_search :relation => :hostgroups, :on => :name, :complete_value => true, :rename => :hostgroup
+    scoped_search :relation => :hosts, :on => :name, :complete_value => true, :rename => :host
 
     def self.to_hash
       states = {}
