@@ -3,7 +3,7 @@ module ForemanSalt
     def index
       setup
       autosign = @api.autosign_list
-      @autosign = autosign.paginate :page => params[:page], :per_page => Setting::General.entries_per_page
+      @autosign = autosign.paginate :page => params[:page], :per_page => Setting[:entries_per_page]
     end
 
     def new
