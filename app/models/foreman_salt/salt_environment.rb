@@ -13,8 +13,8 @@ module ForemanSalt
     validates :name, :uniqueness => true, :presence => true, :format => { :with => /\A[\w\d\.]+\z/, :message => N_('is alphanumeric and cannot contain spaces') }
 
     scoped_search :on => :name, :complete_value => true
-    scoped_search :in => :hostgroups, :on => :name, :complete_value => true, :rename => :hostgroup
-    scoped_search :in => :hosts, :on => :name, :complete_value => true, :rename => :host
+    scoped_search :relation => :hostgroups, :on => :name, :complete_value => true, :rename => :hostgroup
+    scoped_search :relation => :hosts, :on => :name, :complete_value => true, :rename => :host
 
     def self.humanize_class_name(_name = nil)
       _('Salt environment')
