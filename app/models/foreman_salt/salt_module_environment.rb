@@ -1,5 +1,5 @@
 module ForemanSalt
-  class SaltModuleEnvironment < ActiveRecord::Base
+  class SaltModuleEnvironment < ApplicationRecord
     belongs_to :salt_environment
     belongs_to :salt_module
 
