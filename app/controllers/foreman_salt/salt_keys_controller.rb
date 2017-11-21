@@ -9,7 +9,7 @@ module ForemanSalt
              else
                SmartProxies::SaltKeys.find_by_state @proxy, params[:state].downcase
              end
-      @keys = keys.sort.paginate :page => params[:page], :per_page => Setting::General.entries_per_page
+      @keys = keys.sort.paginate :page => params[:page], :per_page => Setting[:entries_per_page]
     end
 
     def accept
