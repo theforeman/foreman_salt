@@ -2,7 +2,7 @@ class CreateSaltModules < ActiveRecord::Migration
   def self.up
     create_table :salt_modules do |t|
       t.string :name, :default => '', :null => false
-      t.timestamps
+      t.timestamps :null => true
     end
 
     create_table 'hosts_salt_modules', :id => false do |t|

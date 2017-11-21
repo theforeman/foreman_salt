@@ -2,7 +2,7 @@ class CreateSaltEnvironments < ActiveRecord::Migration
   def self.up
     create_table :salt_environments do |t|
       t.string :name, :default => '', :null => false
-      t.timestamps
+      t.timestamps :null => true
     end
 
     add_column :hosts, :salt_environment_id, :integer
