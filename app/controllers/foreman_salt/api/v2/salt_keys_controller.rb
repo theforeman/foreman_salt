@@ -21,7 +21,7 @@ module ForemanSalt
         param :smart_proxy_id, :identifier_dottable, :required => true
         param :state, String, :required => true, :desc => N_('State can be "accepted" or "rejected"')
         def update
-          case params[:key][:state]
+          case params[:salt_key][:state]
           when 'accepted'
             @key.accept
           when 'rejected'
