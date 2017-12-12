@@ -2,6 +2,9 @@ require 'test_plugin_helper'
 
 module ForemanSalt
   class GrainsImporterTest < ActiveSupport::TestCase
+    include FactImporterIsolation
+    allow_transactions_for_any_importer
+
     setup do
       User.current = User.find_by_login 'admin'
       Setting[:create_new_host_when_facts_are_uploaded] = true
