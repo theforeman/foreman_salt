@@ -11,7 +11,7 @@ module ForemanSalt
       Resolv.any_instance.stubs(:getnames).returns([proxy.to_s])
 
       host = FactoryBot.create :host
-      get :node, :id => host, :format => 'yml'
+      get :node, params: { :id => host, :format => 'yml' }
       assert_response :success
     end
   end

@@ -2,20 +2,20 @@ require 'test_plugin_helper'
 
 class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestCase
   test 'should get index' do
-    get :index, {}
+    get :index
     assert_response :success
     assert_template 'api/v2/salt_states/index'
   end
 
   test 'should show state' do
     state = ForemanSalt::SaltModule.create(:name => 'foo.bar.baz')
-    get :show, :id => state.id
+    get :show, params: { :id => state.id }
     assert_response :success
     assert_template 'api/v2/salt_states/show'
   end
 
   test 'should create state' do
-    post :create, :state => { :name => 'unicorn' }
+    post :create, params: { :state => { :name => 'unicorn' } }
     assert_response :success
     assert ForemanSalt::SaltModule.find_by_name('unicorn')
     assert_template 'api/v2/salt_states/create'
@@ -24,7 +24,7 @@ class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestC
   test 'should delete state' do
     state = ForemanSalt::SaltModule.create(:name => 'foo.bar.baz')
     assert_difference('ForemanSalt::SaltModule.count', -1) do
-      delete :destroy, :id => state.id
+      delete :destroy, params: { :id => state.id }
     end
     assert_response :success
   end
@@ -39,7 +39,7 @@ class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestC
     end
 
     test 'should import' do
-      post :import, :smart_proxy_id => @proxy.id
+      post :import, params: { :smart_proxy_id => @proxy.id }
 
       assert_response :success
 
@@ -50,7 +50,7 @@ class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestC
     end
 
     test 'should import only from a given environment' do
-      post :import, :smart_proxy_id => @proxy.id, :salt_environments => ['env2']
+      post :import, params: { :smart_proxy_id => @proxy.id, :salt_environments => ['env2'] }
       assert_response :success
       refute ::ForemanSalt::SaltEnvironment.where(:name => 'env1').first
       assert ::ForemanSalt::SaltEnvironment.where(:name => 'env2').first
@@ -60,7 +60,7 @@ class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestC
       env   = FactoryBot.create :salt_environment
       state = FactoryBot.create :salt_module, :salt_environments => [env]
 
-      post :import, :smart_proxy_id => @proxy.id, :actions => ['add']
+      post :import, params: { :smart_proxy_id => @proxy.id, :actions => ['add'] }
       assert_response :success
       assert ::ForemanSalt::SaltModule.where(:id => state).first
       assert ::ForemanSalt::SaltModule.where(:name => 'state1').first
@@ -68,14 +68,14 @@ class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestC
 
     test 'should limit actions to remove' do
       state = FactoryBot.create :salt_module
-      post :import, :smart_proxy_id => @proxy.id, :actions => ['remove']
+      post :import, params: { :smart_proxy_id => @proxy.id, :actions => ['remove'] }
       assert_response :success
       refute ::ForemanSalt::SaltModule.where(:id => state).first
       refute ::ForemanSalt::SaltModule.where(:name => 'state1').first
     end
 
     test 'dryrun should do nothing' do
-      post :import, :smart_proxy_id => @proxy.id, :dryrun => true
+      post :import, params: { :smart_proxy_id => @proxy.id, :dryrun => true }
       assert_response :success
       refute ::ForemanSalt::SaltModule.all.any?
       refute ::ForemanSalt::SaltEnvironment.all.any?

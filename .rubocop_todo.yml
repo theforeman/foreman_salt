@@ -176,18 +176,6 @@ Rails/HasManyOrHasOneDependent:
     - 'app/models/foreman_salt/salt_environment.rb'
     - 'app/models/foreman_salt/salt_module.rb'
 
-# Offense count: 20
-# Cop supports --auto-correct.
-# Configuration parameters: Include.
-# Include: spec/**/*, test/**/*
-Rails/HttpPositionalArguments:
-  Exclude:
-    - 'test/functional/api/v2/salt_autosign_controller_test.rb'
-    - 'test/functional/api/v2/salt_environments_controller_test.rb'
-    - 'test/functional/api/v2/salt_keys_controller_test.rb'
-    - 'test/functional/api/v2/salt_states_controller_test.rb'
-    - 'test/functional/minions_controller_test.rb'
-
 # Offense count: 2
 # Configuration parameters: Include.
 # Include: app/**/*.rb, config/**/*.rb, db/**/*.rb, lib/**/*.rb
