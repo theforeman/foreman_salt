@@ -1,4 +1,4 @@
-class AddEnvironmentsToModules < ActiveRecord::Migration
+class AddEnvironmentsToModules < ActiveRecord::Migration[4.2]
   def up
     create_table 'salt_module_environments' do |t|
       t.references :salt_module

@@ -1,4 +1,4 @@
-class AddIndexToJoinTables < ActiveRecord::Migration
+class AddIndexToJoinTables < ActiveRecord::Migration[4.2]
   def change
     add_index :host_salt_modules, :host_id
     add_index :host_salt_modules, :salt_module_id

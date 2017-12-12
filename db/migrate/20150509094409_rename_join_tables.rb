@@ -1,4 +1,4 @@
-class RenameJoinTables < ActiveRecord::Migration
+class RenameJoinTables < ActiveRecord::Migration[4.2]
   def up
     rename_table :hosts_salt_modules, :host_salt_modules
     rename_table :hostgroups_salt_modules, :hostgroup_salt_modules

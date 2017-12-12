@@ -1,4 +1,4 @@
-class AddSaltModulesToHostgroups < ActiveRecord::Migration
+class AddSaltModulesToHostgroups < ActiveRecord::Migration[4.2]
   def self.up
     create_table 'hostgroups_salt_modules', :id => false do |t|
       t.column :hostgroup_id, :integer

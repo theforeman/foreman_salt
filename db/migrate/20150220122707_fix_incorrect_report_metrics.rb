@@ -1,4 +1,4 @@
-class FixIncorrectReportMetrics < ActiveRecord::Migration
+class FixIncorrectReportMetrics < ActiveRecord::Migration[4.2]
   def up
     Report.all.each do |report|
       next unless report.metrics && report.metrics['time']

@@ -1,4 +1,4 @@
-class CreateSaltEnvironments < ActiveRecord::Migration
+class CreateSaltEnvironments < ActiveRecord::Migration[4.2]
   def self.up
     create_table :salt_environments do |t|
       t.string :name, :default => '', :null => false

@@ -1,4 +1,4 @@
-class CreateSaltModules < ActiveRecord::Migration
+class CreateSaltModules < ActiveRecord::Migration[4.2]
   def self.up
     create_table :salt_modules do |t|
       t.string :name, :default => '', :null => false
