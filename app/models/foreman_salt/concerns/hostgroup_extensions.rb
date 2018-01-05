@@ -4,8 +4,8 @@ module ForemanSalt
       extend ActiveSupport::Concern
 
       included do
-        has_many :salt_modules, :through => :hostgroup_salt_modules, :class_name => '::ForemanSalt::SaltModule'
         has_many :hostgroup_salt_modules, :class_name => '::ForemanSalt::HostgroupSaltModule'
+        has_many :salt_modules, :through => :hostgroup_salt_modules, :class_name => '::ForemanSalt::SaltModule'
 
         belongs_to :salt_proxy, :class_name => 'SmartProxy'
         belongs_to :salt_environment, :class_name => 'ForemanSalt::SaltEnvironment'

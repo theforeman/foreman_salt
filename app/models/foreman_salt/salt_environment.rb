@@ -7,8 +7,8 @@ module ForemanSalt
     has_many :hosts, :class_name => '::Host::Managed'
     has_many :hostgroups, :class_name => '::Hostgroup'
 
-    has_many :salt_modules, :through => :salt_module_environments, :before_remove => :remove_from_hosts
     has_many :salt_module_environments
+    has_many :salt_modules, :through => :salt_module_environments, :before_remove => :remove_from_hosts
 
     validates :name, :uniqueness => true, :presence => true, :format => { :with => /\A[\w\d\.]+\z/, :message => N_('is alphanumeric and cannot contain spaces') }
 
