@@ -66,7 +66,7 @@ module ForemanSalt
             end
             clean_orphans
           end
-          render :text => states.to_json
+          render :plain => states.to_json
         end
 
         def controller_permission
