@@ -16,12 +16,12 @@ module ForemanSalt
 
       enc['environment'] = env
       respond_to do |format|
-        format.html { render :text => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" }
-        format.yml  { render :text => enc.to_yaml }
+        format.html { render :plain => "<pre>#{ERB::Util.html_escape(enc.to_yaml)}</pre>" }
+        format.yml  { render :plain => enc.to_yaml }
       end
     rescue
       logger.warn "Failed to generate external nodes for #{@minion} with #{$ERROR_INFO}"
-      render(:text => _('Unable to generate output, Check log files\n'), :status => 412) && return
+      render(:plain => _('Unable to generate output, Check log files\n'), :status => 412) && return
     end
 
     def run
