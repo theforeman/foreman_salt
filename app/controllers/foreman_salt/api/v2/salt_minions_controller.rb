@@ -29,7 +29,7 @@ module ForemanSalt
         param_group :minion
         def update
           params[:minion][:salt_module_ids] = params[:minion].delete(:salt_state_ids) if params[:minion]
-          process_response @salt_minion.update_attributes(params[:minion])
+          process_response @salt_minion.update_attributes(params.require(:minion).permit(:salt_proxy_id, :salt_environment_id, :salt_module_ids => []))
         end
 
         def controller_permission
