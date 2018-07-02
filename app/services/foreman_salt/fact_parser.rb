@@ -70,6 +70,10 @@ module ForemanSalt
         end
       end
 
+      interfaces.each do |name, interface|
+        set_additional_attributes(interface, name)
+      end
+
       interfaces
     end
 
