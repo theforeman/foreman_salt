@@ -19,6 +19,7 @@ module ForemanSalt
         param_group :job, :as => :upload
 
         def upload
+          params[:job].permit!
           Rails.logger.info("Processing job #{params[:job][:job_id]} from Salt.")
           case params[:job][:function]
           when 'state.highstate'
