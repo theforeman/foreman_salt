@@ -85,7 +85,7 @@ module ForemanSalt
       if name == 'CentOS'
         if sub
           minor += '.' + sub
-          end
+        end
       end
       { :name => name, :major => major, :minor => minor }
     end
