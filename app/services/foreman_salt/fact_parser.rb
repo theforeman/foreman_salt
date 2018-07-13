@@ -56,17 +56,19 @@ module ForemanSalt
 
       facts.each do |fact, value|
         next unless value && fact.to_s =~ /^ip_interfaces/
-        (_, interface, number) = fact.split(FactName::SEPARATOR)
+        (_, interface_name, _) = fact.split(FactName::SEPARATOR)
 
-        interface_name = if number == '0' || number.nil?
-                           interface
-                         else
-                           "#{interface}.#{number}"
-                         end
-
-        if !interface.blank? && interface != 'lo'
-          interfaces[interface_name] = {} if interfaces[interface_name].blank?
-          interfaces[interface_name].merge!(:ipaddress => value, :macaddress => macs[interface])
+        next if (IPAddr.new('fe80::/10').include?(value) rescue false)
+        
+        if !interface_name.blank? && interface_name != 'lo'
+          interface = interfaces.fetch(interface_name, {})
+          interface[:macaddress] = macs[interface_name]
+          if Net::Validations::validate_ip6(value)
+            interface[:ipaddress6] = value
+          else
+            interface[:ipaddress] = value
+          end
+          interfaces[interface_name] = interface
         end
       end
 
@@ -89,7 +91,7 @@ module ForemanSalt
       if name == 'CentOS'
         if sub
           minor += '.' + sub
-          end
+        end
       end
       { :name => name, :major => major, :minor => minor }
     end
