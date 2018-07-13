@@ -7,6 +7,13 @@
 
 This plug-in adds support for Salt to Foreman.
 
+# Compatibility
+
+| Foreman Version | Plugin Version |
+| --------------- | --------------:|
+| <= 1.16         | 10.0.0         |
+| >= 1.17         | 10.1.0         |
+
 ## Documentation
 
 See the [Foreman Salt manuals](http://theforeman.org/plugins/foreman_salt/) on the Foreman web site.
