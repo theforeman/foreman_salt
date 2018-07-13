@@ -58,6 +58,8 @@ module ForemanSalt
         next unless value && fact.to_s =~ /^ip_interfaces/
         (_, interface_name, _) = fact.split(FactName::SEPARATOR)
 
+        next if (IPAddr.new('fe80::/10').include?(value) rescue false)
+        
         if !interface_name.blank? && interface_name != 'lo'
           interface = interfaces.fetch(interface_name, {})
           interface[:macaddress] = macs[interface_name]
