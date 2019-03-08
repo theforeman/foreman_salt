@@ -65,7 +65,7 @@ module ForemanSalt
                   :err
                 else
                   # nil mean "unchanged" when running highstate with test=True
-                  :notice
+                  :info
                 end
 
         source = Source.find_or_create(resource)

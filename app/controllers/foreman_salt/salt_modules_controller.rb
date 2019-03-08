@@ -31,7 +31,7 @@ module ForemanSalt
 
     def update
       if @salt_module.update_attributes(salt_module_params)
-        notice _('Successfully updated %s.' % @salt_module.to_s)
+        success _('Successfully updated %s.' % @salt_module.to_s)
         redirect_to salt_modules_path
       else
         process_error
@@ -63,14 +63,14 @@ module ForemanSalt
       @deletes = result[:deletes]
 
       if @changes.empty?
-        notice _('No changes found')
+        info _('No changes found')
         redirect_to salt_modules_path
       end
     end
 
     def apply_changes
       if params[:changed].blank?
-        notice _('No changes found')
+        info _('No changes found')
       else
         params[:changed].each do |environment, states|
           next unless states[:add] || states[:remove]
@@ -80,7 +80,7 @@ module ForemanSalt
         end
 
         clean_orphans
-        notice _('Successfully imported')
+        success _('Successfully imported')
       end
       redirect_to salt_modules_path
     end

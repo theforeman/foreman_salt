@@ -26,7 +26,7 @@ module ForemanSalt
 
     def run
       if @minion.saltrun!
-        notice _('Successfully executed, check log files for more details')
+        success _('Successfully executed, check log files for more details')
       else
         error @minion.errors[:base].to_sentence
       end
