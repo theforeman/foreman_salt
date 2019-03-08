@@ -27,7 +27,7 @@ module ForemanSalt
 
     def update
       if @salt_environment.update_attributes(salt_environment_params)
-        notice _('Successfully updated %s.' % @salt_environment.to_s)
+        success _('Successfully updated %s.' % @salt_environment.to_s)
         redirect_to salt_environments_path
       else
         process_error
