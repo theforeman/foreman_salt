@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class SaltModulesTest < ActiveSupport::TestCase
   setup do
-    User.current = User.find_by_login 'admin'
+    User.current = users :admin
   end
 
   test 'salt module has a valid name' do

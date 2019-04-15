@@ -4,7 +4,7 @@ module ForemanSalt
       extend ActiveSupport::Concern
 
       module Overrides
-        def configuration
+        def configuration?
           super || !!salt_proxy
         end
 

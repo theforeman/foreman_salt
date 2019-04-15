@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class SaltKeysTest < ActiveSupport::TestCase
   setup do
-    User.current = User.find_by_login 'admin'
+    User.current = users :admin
 
     # Fix for 1.8.7 OpenStruct http://stackoverflow.com/questions/9079441/populate-select-tag-ruby-rails
     OpenStruct.__send__(:define_method, :id) { @table[:id] }

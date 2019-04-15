@@ -15,7 +15,7 @@ class ::ForemanSalt::Api::V2::SaltKeysControllerTest < ActionController::TestCas
 
   test 'should update keys' do
     ProxyAPI::Salt.any_instance.expects(:key_accept).once.returns(true)
-    put :update, params: { :smart_proxy_id => @proxy.id, :name => 'saltstack.example.com', :key => { :state => 'accepted' } }
+    put :update, params: { :smart_proxy_id => @proxy.id, :name => 'saltstack.example.com', :state => 'accepted' }
     assert_response :success
   end
 

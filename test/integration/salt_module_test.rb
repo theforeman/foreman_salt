@@ -2,18 +2,14 @@ require 'test_plugin_helper'
 require 'integration_test_helper'
 
 module ForemanSalt
-  class SaltModuleTest < ActionDispatch::IntegrationTest
+  class SaltModuleTest < IntegrationTestWithJavascript
     setup do
-      User.current = User.anonymous_admin
+      User.current = users :admin
 
       states = %w(state1 state2 state3 state4)
       state_list = { 'env1' => states, 'env2' => states }
 
       ::ProxyAPI::Salt.any_instance.stubs(:states_list).returns(state_list)
-
-      # FIXME #12143
-      FactoryBot.create(:permission, :name => 'view_salt_environments',
-                         :resource_type => 'ForemanSalt::SaltEnvironment')
     end
 
     test 'index page' do

@@ -6,7 +6,8 @@ module ForemanSalt
     allow_transactions_for_any_importer
 
     setup do
-      User.current = User.find_by_login 'admin'
+      disable_orchestration
+      User.current = users :admin
       Setting[:create_new_host_when_facts_are_uploaded] = true
 
       Operatingsystem.where(:name => 'CentOS', :major => '6', :minor => '5').delete_all
