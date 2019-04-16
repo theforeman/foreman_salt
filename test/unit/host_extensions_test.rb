@@ -45,13 +45,13 @@ module ForemanSalt
       host.salt_proxy = @proxy
       host.salt_modules = [state]
 
-      refute host.save
+      assert_not host.save
       assert host.errors.full_messages.include? 'Salt states must be in the environment of the host'
     end
 
     test '#configuration? considers salt' do
       host = FactoryBot.build(:host)
-      refute host.configuration?
+      assert_not host.configuration?
       host.salt_proxy = @proxy
       assert host.configuration?
     end

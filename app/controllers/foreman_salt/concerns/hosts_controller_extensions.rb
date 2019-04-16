@@ -18,6 +18,7 @@ module ForemanSalt
 
         def load_vars_for_ajax
           return unless @host
+
           @obj                    = @host
           @salt_environment       = @host.salt_environment if @host
           @selected               = @host.salt_modules

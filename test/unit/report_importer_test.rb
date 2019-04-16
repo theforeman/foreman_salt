@@ -12,7 +12,7 @@ module ForemanSalt
     end
 
     test 'importing report creates a host' do
-      refute Host.find_by_name(@host)
+      assert_not Host.find_by_name(@host)
       ForemanSalt::ReportImporter.import(@report)
       assert Host.find_by_name(@host)
     end

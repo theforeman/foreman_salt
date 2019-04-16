@@ -56,14 +56,15 @@ module ForemanSalt
 
       facts.each do |fact, value|
         next unless value && fact.to_s =~ /^ip_interfaces/
-        (_, interface_name, _) = fact.split(FactName::SEPARATOR)
+
+        (_, interface_name) = fact.split(FactName::SEPARATOR)
 
         next if (IPAddr.new('fe80::/10').include?(value) rescue false)
-        
+
         if !interface_name.blank? && interface_name != 'lo'
           interface = interfaces.fetch(interface_name, {})
           interface[:macaddress] = macs[interface_name]
-          if Net::Validations::validate_ip6(value)
+          if Net::Validations.validate_ip6(value)
             interface[:ipaddress6] = value
           else
             interface[:ipaddress] = value
@@ -101,6 +102,7 @@ module ForemanSalt
         @macs = {}
         facts.each do |fact, value|
           next unless value && fact.to_s =~ /^hwaddr_interfaces/
+
           data = fact.split(FactName::SEPARATOR)
           interface = data[1]
           macs[interface] = value

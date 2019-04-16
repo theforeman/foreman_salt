@@ -36,7 +36,7 @@ module ForemanSalt
       end
 
       def inherited_salt_proxy_id
-        read_attribute(:salt_proxy_id) || nested(:salt_proxy_id)
+        self[:salt_proxy_id] || nested(:salt_proxy_id)
       end
 
       def salt_environment
@@ -48,7 +48,7 @@ module ForemanSalt
       end
 
       def inherited_salt_environment_id
-        read_attribute(:salt_environment_id) || nested(:salt_environment_id)
+        self[:salt_environment_id] || nested(:salt_environment_id)
       end
 
       def salt_master
