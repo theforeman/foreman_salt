@@ -19,13 +19,11 @@ Rails.application.routes.draw do
       end
     end
 
-    constraints :id => /[\w\.-]+/ do
-      resources :salt_modules, :controller => 'foreman_salt/salt_modules' do
-        collection do
-          get 'import'
-          get 'auto_complete_search'
-          post 'apply_changes'
-        end
+    resources :salt_modules, :controller => 'foreman_salt/salt_modules' do
+      collection do
+        get 'import'
+        get 'auto_complete_search'
+        post 'apply_changes'
       end
     end
 
