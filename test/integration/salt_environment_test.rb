@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 require 'integration_test_helper'
 
 module ForemanSalt
-  class SaltEnvironmentTest < ActionDispatch::IntegrationTest
+  class SaltEnvironmentTest < IntegrationTestWithJavascript
     test 'index page' do
       FactoryBot.create_list :salt_environment, 5
       assert_index_page(salt_environments_path, 'Salt Environment', 'New Salt Environment')

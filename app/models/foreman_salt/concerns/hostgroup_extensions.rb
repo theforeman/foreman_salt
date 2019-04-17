@@ -28,29 +28,27 @@ module ForemanSalt
       end
 
       def salt_proxy
-        return super unless ancestry.present?
-        SmartProxy.find_by_id(inherited_salt_proxy_id)
+        if ancestry.present?
+          SmartProxy.with_features('Salt').find_by_id(inherited_salt_proxy_id)
+        else
+          super
+        end
       end
 
       def inherited_salt_proxy_id
-        if ancestry.present?
-          self[:salt_proxy_id] || self.class.sort_by_ancestry(ancestors.where('salt_proxy_id is not NULL')).last.try(:salt_proxy_id)
-        else
-          salt_proxy_id
-        end
+        self[:salt_proxy_id] || nested(:salt_proxy_id)
       end
 
       def salt_environment
-        return super unless ancestry.present?
-        ForemanSalt::SaltEnvironment.find_by_id(inherited_salt_environment_id)
+        if ancestry.present?
+          ForemanSalt::SaltEnvironment.find_by_id(inherited_salt_environment_id)
+        else
+          super
+        end
       end
 
       def inherited_salt_environment_id
-        if ancestry.present?
-          self[:salt_environment_id] || self.class.sort_by_ancestry(ancestors.where('salt_environment_id is not NULL')).last.try(:salt_environment_id)
-        else
-          salt_environment_id
-        end
+        self[:salt_environment_id] || nested(:salt_environment_id)
       end
 
       def salt_master

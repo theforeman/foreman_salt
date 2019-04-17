@@ -4,7 +4,7 @@ module ForemanSalt
       extend ActiveSupport::Concern
 
       module Overrides
-        def configuration
+        def configuration?
           super || !!salt_proxy
         end
 
@@ -49,6 +49,7 @@ module ForemanSalt
 
       def salt_modules_for_enc
         return [] unless salt_environment
+
         modules = salt_modules + (hostgroup ? hostgroup.all_salt_modules : [])
         ForemanSalt::SaltModule.in_environment(salt_environment).where(:id => modules).pluck("salt_modules.name").uniq
       end

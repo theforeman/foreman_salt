@@ -3,7 +3,7 @@ require 'test_plugin_helper'
 module ForemanSalt
   class ReportImporterTest < ActiveSupport::TestCase
     setup do
-      User.current = User.find_by_login 'admin'
+      User.current = users :admin
       Setting[:create_new_host_when_facts_are_uploaded] = true
 
       @report = JSON.parse(File.read(File.join(Engine.root, 'test', 'unit', 'highstate.json')))
@@ -12,7 +12,7 @@ module ForemanSalt
     end
 
     test 'importing report creates a host' do
-      refute Host.find_by_name(@host)
+      assert_not Host.find_by_name(@host)
       ForemanSalt::ReportImporter.import(@report)
       assert Host.find_by_name(@host)
     end

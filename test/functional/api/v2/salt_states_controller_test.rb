@@ -52,7 +52,7 @@ class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestC
     test 'should import only from a given environment' do
       post :import, params: { :smart_proxy_id => @proxy.id, :salt_environments => ['env2'] }
       assert_response :success
-      refute ::ForemanSalt::SaltEnvironment.where(:name => 'env1').first
+      assert_not ::ForemanSalt::SaltEnvironment.where(:name => 'env1').first
       assert ::ForemanSalt::SaltEnvironment.where(:name => 'env2').first
     end
 
@@ -70,15 +70,15 @@ class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestC
       state = FactoryBot.create :salt_module
       post :import, params: { :smart_proxy_id => @proxy.id, :actions => ['remove'] }
       assert_response :success
-      refute ::ForemanSalt::SaltModule.where(:id => state).first
-      refute ::ForemanSalt::SaltModule.where(:name => 'state1').first
+      assert_not ::ForemanSalt::SaltModule.where(:id => state).first
+      assert_not ::ForemanSalt::SaltModule.where(:name => 'state1').first
     end
 
     test 'dryrun should do nothing' do
       post :import, params: { :smart_proxy_id => @proxy.id, :dryrun => true }
       assert_response :success
-      refute ::ForemanSalt::SaltModule.all.any?
-      refute ::ForemanSalt::SaltEnvironment.all.any?
+      assert_not ::ForemanSalt::SaltModule.all.any?
+      assert_not ::ForemanSalt::SaltEnvironment.all.any?
     end
   end
 end

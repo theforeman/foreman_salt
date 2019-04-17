@@ -5,6 +5,7 @@ module ForemanSalt
 
     def self.import(raw, proxy_id = nil)
       fail ::Foreman::Exception.new(_('Invalid report')) unless raw.is_a?(Hash)
+
       raw.map do |host, report|
         importer = ForemanSalt::ReportImporter.new(host, report, proxy_id)
         importer.import
@@ -141,6 +142,7 @@ module ForemanSalt
 
       @report = ConfigReport.new(:host => @host, :reported_at => start_time, :status => status, :metrics => metrics)
       return @report unless @report.save
+
       import_log_messages
     end
 

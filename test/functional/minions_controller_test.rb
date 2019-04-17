@@ -3,7 +3,7 @@ require 'test_plugin_helper'
 module ForemanSalt
   class MinionsControllerTest < ActionController::TestCase
     test 'salt smart proxy should get salt external node' do
-      User.current = nil
+      User.current = User.anonymous_admin
       Setting[:restrict_registered_smart_proxies] = true
       Setting[:require_ssl_smart_proxies] = false
 
