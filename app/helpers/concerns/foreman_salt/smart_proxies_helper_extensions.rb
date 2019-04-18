@@ -3,7 +3,7 @@ module ForemanSalt
     extend ActiveSupport::Concern
 
     module Overrides
-      def proxy_actions(proxy, authorizer)
+      def feature_actions(proxy, authorizer)
         actions = super
 
         if proxy.has_feature?('Salt')
