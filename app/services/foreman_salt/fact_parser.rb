@@ -65,9 +65,9 @@ module ForemanSalt
           interface = interfaces.fetch(interface_name, {})
           interface[:macaddress] = macs[interface_name]
           if Net::Validations.validate_ip6(value)
-            interface[:ipaddress6] = value
+            interface[:ipaddress6] = value unless interface.include?(:ipaddress6)
           else
-            interface[:ipaddress] = value
+            interface[:ipaddress] = value unless interface.include?(:ipaddress)
           end
           interfaces[interface_name] = interface
         end
