@@ -1,0 +1,382 @@
+# English translations for foreman_salt package.
+# Copyright (C) 2019 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_salt package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_salt 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-04-25 22:19+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+
+msgid "Accept"
+msgstr ""
+
+msgid "Accepted"
+msgstr ""
+
+msgid "Added"
+msgstr ""
+
+msgid "Array of State ids"
+msgstr ""
+
+msgid "Autosign"
+msgstr ""
+
+msgid "Autosign created for #{params[:id]}"
+msgstr ""
+
+msgid "Autosign deleted for #{params[:id]}"
+msgstr ""
+
+msgid "Autosign entries for %s"
+msgstr ""
+
+msgid "Autosign record"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Check/Uncheck Added"
+msgstr ""
+
+msgid "Check/Uncheck All"
+msgstr ""
+
+msgid "Check/Uncheck Removed"
+msgstr ""
+
+msgid "Could not find salt environment with id %s"
+msgstr ""
+
+msgid "Create a Salt environment"
+msgstr ""
+
+msgid "Create a state"
+msgstr ""
+
+msgid "Create an autosign record"
+msgstr ""
+
+msgid "Delete %s?"
+msgstr ""
+
+msgid "Delete a Salt Key"
+msgstr ""
+
+msgid "Delete an autosign record"
+msgstr ""
+
+msgid "Destroy a Salt environment"
+msgstr ""
+
+msgid "Destroy a state"
+msgstr ""
+
+msgid "Dryrun only"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit Salt Environment %s"
+msgstr ""
+
+msgid "Edit Salt State %s"
+msgstr ""
+
+msgid "Environment"
+msgstr ""
+
+msgid "Environments"
+msgstr ""
+
+msgid "FQDN of host that key belongs to"
+msgstr ""
+
+msgid "Failed to execute state.highstate: %s"
+msgstr ""
+
+msgid "Filter %s"
+msgstr ""
+
+msgid "Fingerprint"
+msgstr ""
+
+msgid "Function"
+msgstr ""
+
+msgid "Host groups"
+msgstr ""
+
+msgid "Host must have an environment in order to set salt states"
+msgstr ""
+
+msgid "Hosts"
+msgstr ""
+
+msgid "ID of Salt Proxy"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Import from %s"
+msgstr ""
+
+msgid "Import states from a salt master"
+msgstr ""
+
+msgid "Invalid report"
+msgstr ""
+
+msgid "JID"
+msgstr ""
+
+msgid "Key Name"
+msgstr ""
+
+msgid "Key accepted for #{key}"
+msgstr ""
+
+msgid "Key deleted for #{key}"
+msgstr ""
+
+msgid "Key rejected for #{key}"
+msgstr ""
+
+msgid "Keys"
+msgstr ""
+
+msgid "Limit to a specific environment"
+msgstr ""
+
+msgid "Limit to a specific environments"
+msgstr ""
+
+msgid "Limit to specific actions: i.e. add, remove"
+msgstr ""
+
+msgid "List all Salt Minions"
+msgstr ""
+
+msgid "List all Salt environments"
+msgstr ""
+
+msgid "List all Salt keys"
+msgstr ""
+
+msgid "List all Salt states"
+msgstr ""
+
+msgid "List all autosign records"
+msgstr ""
+
+msgid "Must specify a Smart Proxy to use"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Name of the Salt state"
+msgstr ""
+
+msgid "Namespace Foreman pillars under 'foreman' key"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
+msgid "New Autosign Entry"
+msgstr ""
+
+msgid "New Salt Environment"
+msgstr ""
+
+msgid "New Salt State"
+msgstr ""
+
+msgid "No Salt master defined - can't continue"
+msgstr ""
+
+msgid "No changes found"
+msgstr ""
+
+msgid "Operation"
+msgstr ""
+
+msgid "Please select a Salt environment first"
+msgstr ""
+
+msgid "Process Highstate Report: #{input[:job_id]}"
+msgstr ""
+
+msgid "Record deleted."
+msgstr ""
+
+msgid "Reject"
+msgstr ""
+
+msgid "Rejected"
+msgstr ""
+
+msgid "Removed"
+msgstr ""
+
+msgid "Result"
+msgstr ""
+
+msgid "Run Salt"
+msgstr ""
+
+msgid "Salt Autosign"
+msgstr ""
+
+msgid "Salt ENC"
+msgstr ""
+
+msgid "Salt Environment"
+msgstr ""
+
+msgid "Salt Environments"
+msgstr ""
+
+msgid "Salt Keys"
+msgstr ""
+
+msgid "Salt Keys on %s"
+msgstr ""
+
+msgid "Salt Master"
+msgstr ""
+
+msgid "Salt Smart Proxy ID"
+msgstr ""
+
+msgid "Salt States"
+msgstr ""
+
+msgid "Salt environment"
+msgstr ""
+
+msgid "Salt environment ID"
+msgstr ""
+
+msgid "Salt external nodes YAML dump"
+msgstr ""
+
+msgid "Salt state"
+msgstr ""
+
+msgid "Salt states must be in the environment of the host"
+msgstr ""
+
+msgid "SaltEnvironment|Name"
+msgstr ""
+
+msgid "SaltModule|Name"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Select the changes you want to realize in Foreman"
+msgstr ""
+
+msgid "Show a Salt environment"
+msgstr ""
+
+msgid "Show a minion"
+msgstr ""
+
+msgid "Show a state"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "State can be \"accepted\" or \"rejected\""
+msgstr ""
+
+msgid "States"
+msgstr ""
+
+msgid "Successfully executed, check log files for more details"
+msgstr ""
+
+msgid "Successfully imported"
+msgstr ""
+
+msgid "Successfully updated %s."
+msgstr ""
+
+msgid "Toggle"
+msgstr ""
+
+msgid "Trigger a state.highstate run on a node"
+msgstr ""
+
+msgid "Unable to accept Salt key for %s"
+msgstr ""
+
+msgid "Unable to delete Salt autosign for %s"
+msgstr ""
+
+msgid "Unable to delete Salt key for %s"
+msgstr ""
+
+msgid "Unable to fetch Salt environments list"
+msgstr ""
+
+msgid "Unable to fetch Salt key list"
+msgstr ""
+
+msgid "Unable to fetch Salt states list"
+msgstr ""
+
+msgid "Unable to fetch autosign list"
+msgstr ""
+
+msgid ""
+"Unable to generate output, Check log files\n"
+msgstr ""
+
+msgid "Unable to reject Salt key for %s"
+msgstr ""
+
+msgid "Unable to run Salt state.highstate for %s"
+msgstr ""
+
+msgid "Unable to set Salt autosign for %s"
+msgstr ""
+
+msgid "Unaccepted"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Update a Salt Key"
+msgstr ""
+
+msgid "Update a minion"
+msgstr ""
+
+msgid "Upload a Job"
+msgstr ""
+
+msgid "is alphanumeric and cannot contain spaces"
+msgstr ""
+
+msgid "must be alphanumeric, can contain periods, dashes, underscores and must not contain spaces"
+msgstr ""

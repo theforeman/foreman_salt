@@ -11,3 +11,5 @@ bundler.d/*.local.rb
 .rvmrc*
 .ruby-version*
 .ruby-gemset*
+locale/*/*.edit.po
+locale/*/*.po.time_stamp
