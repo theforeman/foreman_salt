@@ -21,20 +21,26 @@ module ForemanSalt
 
     test 'child host group inherits salt proxy from child parent' do
       parent = FactoryBot.create :hostgroup
-      child_one = FactoryBot.create :hostgroup, :parent => parent
-      child_one.salt_proxy = @proxy
-      child_one.reload
+      child_one = FactoryBot.create :hostgroup, :parent => parent, :salt_proxy => @proxy
       child_two = FactoryBot.create :hostgroup, :parent => child_one
+      assert_not_nil parent
+      assert_not_nil child_one
+      assert_not_nil child_two
+      assert_not_nil child_one.salt_proxy
+      assert_not_nil child_two.salt_proxy
       assert_equal child_two.salt_proxy, child_one.salt_proxy
     end
 
     test 'child host group inherits salt environment from child parent' do
       environment = FactoryBot.create :salt_environment
       parent = FactoryBot.create :hostgroup
-      child_one = FactoryBot.create :hostgroup, :parent => parent
-      child_one.salt_environment = environment
-      child_one.reload
+      child_one = FactoryBot.create :hostgroup, :parent => parent, :salt_environment => environment
       child_two = FactoryBot.create :hostgroup, :parent => child_one
+      assert_not_nil parent
+      assert_not_nil child_one
+      assert_not_nil child_two
+      assert_not_nil child_one.salt_environment
+      assert_not_nil child_two.salt_environment
       assert_equal child_two.salt_environment, child_one.salt_environment
     end
 
