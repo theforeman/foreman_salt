@@ -53,6 +53,17 @@ Rails.application.routes.draw do
     end
   end
 
+  constraints(:id => /[^\/]+/) do
+    resources :hosts do
+      collection do
+        post 'select_multiple_salt_master'
+        post 'update_multiple_salt_master'
+        post 'select_multiple_salt_environment'
+        post 'update_multiple_salt_environment'
+      end
+    end
+  end
+
   constraints(:smart_proxy_id => /[^\/]+/) do
     resources :smart_proxies, :except => [:show] do
       constraints(:id => /[^\/]+/) do

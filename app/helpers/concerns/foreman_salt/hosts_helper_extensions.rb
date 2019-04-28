@@ -21,6 +21,15 @@ module ForemanSalt
         super(host)
       end
 
+      def multiple_actions
+        actions = super
+        if authorized_for(:controller => :hosts, :action => :edit)
+          actions << [_('Change Salt Master'), select_multiple_salt_master_hosts_path] if SmartProxy.unscoped.authorized.with_features("Salt")
+          actions << [_('Change Salt Environment'), select_multiple_salt_environment_hosts_path] if SmartProxy.unscoped.authorized.with_features("Salt")
+        end
+        actions
+      end
+
       def overview_fields(host)
         fields = super(host)
 

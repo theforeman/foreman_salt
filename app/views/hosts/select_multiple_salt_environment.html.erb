@@ -1,0 +1,8 @@
+<%= render 'selected_hosts', :hosts => @hosts %>
+
+<%= form_for :salt_environment, :url => update_multiple_salt_environment_hosts_path(:host_ids => params[:host_ids]) do |f| %>
+    <%= selectable_f f, :id, [[_("Select salt environment"), "None"]] +
+                        [[_("*Clear environment*"), ""]] +
+                        ForemanSalt::SaltEnvironment.all.map{|e| [e.name, e.id]},{},
+                        :label => _("Salt Environment"), :onchange => "toggle_multiple_ok_button(this)" %>
+<% end %>
