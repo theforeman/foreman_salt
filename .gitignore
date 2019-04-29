@@ -13,3 +13,5 @@ bundler.d/*.local.rb
 .ruby-gemset*
 locale/*/*.edit.po
 locale/*/*.po.time_stamp
+locale/*/*.pox
+locale/*/LC_MESSAGES
