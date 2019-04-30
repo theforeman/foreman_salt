@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Foreman Plug-in for Salt'
   s.description = 'Foreman Plug-in for Salt'
 
-  s.files = Dir['{app,config,db,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
+  s.files = Dir['{app,config,db,lib,locale}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'deface', '< 2.0'
