@@ -5,7 +5,7 @@ module ForemanSalt
     engine_name 'foreman_salt'
 
     config.autoload_paths += Dir["#{config.root}/app/controllers/foreman_salt/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
+    config.autoload_paths += Dir["#{config.root}/app/helpers"]
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/overrides"]
     config.autoload_paths += Dir["#{config.root}/app/services"]
@@ -29,6 +29,10 @@ module ForemanSalt
 
     initializer 'foreman_salt.assets.precompile' do |app|
       app.config.assets.precompile += %w(foreman_salt/states.js)
+    end
+
+    initializer 'foreman_salt.assets.precompile' do |app|
+      app.config.assets.precompile += %w[foreman_salt/Salt.png]
     end
 
     initializer 'foreman_salt.configure_assets', :group => :assets do
