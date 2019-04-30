@@ -21,6 +21,14 @@ module ForemanSalt
       end
     end
 
+    initializer 'foreman_salt.register_gettext',
+                :after => :load_config_initializers do
+      locale_dir = File.join(File.expand_path('../..', __dir__), 'locale')
+      locale_domain = 'foreman_salt'
+
+      Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
+    end
+
     initializer 'foreman_salt.load_app_instance_data' do |app|
       ForemanSalt::Engine.paths['db/migrate'].existent.each do |path|
         app.config.paths['db/migrate'] << path
