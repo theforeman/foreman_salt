@@ -1,0 +1,5 @@
+<%= render 'selected_hosts', :hosts => @hosts %>
+
+<%= form_for :proxy, :url => update_multiple_salt_master_hosts_path(:host_ids => params[:host_ids]) do |f| %>
+  <%= multiple_proxy_select(f, 'Salt') %>
+<% end %>

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# rubocop:disable BlockLength
 Foreman::Plugin.register :foreman_salt do
   requires_foreman '>= 1.19'
 
@@ -66,7 +69,9 @@ Foreman::Plugin.register :foreman_salt do
 
     permission :edit_hosts,
                { :'foreman_salt/api/v2/salt_minions' => [:update],
-                 :'foreman_salt/minions' => [:salt_environment_selected] },
+                 :'foreman_salt/minions' => [:salt_environment_selected],
+                 :hosts => [:select_multiple_salt_master, :update_multiple_salt_master,
+                            :select_multiple_salt_environment, :update_multiple_salt_environment] },
                :resource_type => 'Host'
 
     permission :view_hosts,
@@ -140,3 +145,4 @@ Foreman::Plugin.register :foreman_salt do
     :salt_environment_id, :salt_environment_name, :salt_modules => [],
     :salt_module_ids => []
 end
+# rubocop:enable BlockLength
