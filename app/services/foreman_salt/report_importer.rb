@@ -1,4 +1,5 @@
 module ForemanSalt
+  # rubocop:disable ClassLength
   class ReportImporter
     delegate :logger, :to => :Rails
     attr_reader :report
@@ -9,7 +10,9 @@ module ForemanSalt
       raw.map do |host, report|
         importer = ForemanSalt::ReportImporter.new(host, report, proxy_id)
         importer.import
-        importer.report
+        report = importer.report
+        report.origin = 'Salt'
+        report.save!
       end
     end
 
@@ -165,4 +168,5 @@ module ForemanSalt
       @start_time ||= Time.zone.now
     end
   end
+  # rubocop:enable ClassLength
 end

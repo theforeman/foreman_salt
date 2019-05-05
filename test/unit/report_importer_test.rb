@@ -29,5 +29,13 @@ module ForemanSalt
       assert_equal status['applied'], 9
       assert_equal status['failed'], 3
     end
+
+    test 'report has salt origin and expected content' do
+      ForemanSalt::ReportImporter.import(@report)
+      report = Host.find_by_name(@host).reports.last
+      assert_equal 'Salt', report.origin
+      assert_equal 'pkg_|-postfix_|-postfix_|-installed', report.logs.first.source.value
+      assert_equal 'Package postfix is already installed.', report.logs.first.message.value
+    end
   end
 end
