@@ -7,6 +7,7 @@ module ForemanSalt
       Setting[:create_new_host_when_facts_are_uploaded] = true
 
       @report = JSON.parse(File.read(File.join(Engine.root, 'test', 'unit', 'highstate.json')))
+      @report_pchanges = JSON.parse(File.read(File.join(Engine.root, 'test', 'unit', 'highstate_pchanges.json')))
 
       @host = 'saltclient713.example.com'
     end
@@ -36,6 +37,15 @@ module ForemanSalt
       assert_equal 'Salt', report.origin
       assert_equal 'pkg_|-postfix_|-postfix_|-installed', report.logs.first.source.value
       assert_equal 'Package postfix is already installed.', report.logs.first.message.value
+    end
+
+    test 'report with pchanges has salt origin and expected content' do
+      ForemanSalt::ReportImporter.import(@report_pchanges)
+      report = Host.find_by_name(@host).reports.last
+      status = report.status
+      assert_equal 'Salt', report.origin
+      assert_equal 'file_|-/etc/motd_|-/etc/motd_|-managed', report.logs.first.source.value
+      assert_equal status['pending'], 1
     end
   end
 end
