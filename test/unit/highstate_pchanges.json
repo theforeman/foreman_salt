@@ -1,0 +1,18 @@
+{
+    "saltclient713.example.com": {
+        "file_|-/etc/motd_|-/etc/motd_|-managed": {
+            "comment": "The file /etc/motd is set to be changed",
+            "pchanges": {
+                "diff": "--- \n+++ \n@@ -8,7 +8,7 @@\n Kernel: 4.12.14-23-default\n Memory: 1986 MB\n \n-The server is managed using a configuration management system (saltstack.org).\n+This server is managed using a configuration management system (saltstack.org).\n Changes made to this box directly will likely be over-written by SALT. Instead\n modify server configuration via the configuration management git repository.\n ------------------------------------------------------------------------------\n"
+            },
+            "name": "/etc/motd",
+            "start_time": "19:15:44.510229",
+            "result": null,
+            "duration": 175.936,
+            "__run_num__": 0,
+            "__sls__": "motd",
+            "changes": {},
+            "__id__": "/etc/motd"
+        }
+    }
+}

@@ -89,6 +89,7 @@ module ForemanSalt
       end
     end
 
+    # rubocop:disable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity,Metrics/AbcSize,Metrics/MethodLength
     def calculate_metrics
       success = 0
       failed = 0
@@ -142,6 +143,7 @@ module ForemanSalt
 
       { :events => events, :resources => resources, :changes => changes, :time => time }
     end
+    # rubocop:enable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity,Metrics/AbcSize,Metrics/MethodLength
 
     def process_normal
       metrics = calculate_metrics
