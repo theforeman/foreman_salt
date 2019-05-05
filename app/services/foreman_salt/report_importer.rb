@@ -73,6 +73,8 @@ module ForemanSalt
 
         message = if result['changes']['diff']
                     result['changes']['diff']
+                  elsif !result['pchanges'].blank? && result['pchanges']['diff']
+                    result['pchanges']['diff']
                   elsif !result['comment'].blank?
                     result['comment']
                   else
@@ -103,6 +105,8 @@ module ForemanSalt
             restarted += 1
           elsif !result['changes'].blank?
             changed += 1
+          elsif !result['pchanges'].blank?
+            pending += 1
           end
         elsif result['result'].nil?
             pending += 1
