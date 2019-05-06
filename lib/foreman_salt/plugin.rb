@@ -144,5 +144,14 @@ Foreman::Plugin.register :foreman_salt do
   parameter_filter Host::Managed, :salt_proxy_id, :salt_proxy_name,
     :salt_environment_id, :salt_environment_name, :salt_modules => [],
     :salt_module_ids => []
+
+  if ForemanSalt.with_remote_execution? && Gem::Version.new(ForemanRemoteExecution::VERSION) >= Gem::Version.new('1.2.3')
+    options = {
+      :description => N_("Run Salt state.highstate"),
+      :host_action_button => true
+    }
+
+    RemoteExecutionFeature.register(:foreman_salt_run_state_highstate, N_("Run Salt"), options)
+  end
 end
 # rubocop:enable BlockLength

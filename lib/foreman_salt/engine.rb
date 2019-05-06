@@ -63,4 +63,9 @@ module ForemanSalt
       require 'foreman_salt/extensions'
     end
   end
+
+  # check whether foreman_remote_execution to integrate is available in the system
+  def self.with_remote_execution?
+    RemoteExecutionFeature rescue false
+  end
 end
