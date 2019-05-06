@@ -47,5 +47,13 @@ module ForemanSalt
       assert_equal 'file_|-/etc/motd_|-/etc/motd_|-managed', report.logs.first.source.value
       assert_equal status['pending'], 1
     end
+
+    test 'import returns Array of reports including host and its name' do
+      reports = ForemanSalt::ReportImporter.import(@report)
+      assert_kind_of Array, reports
+      first = reports.first
+      assert_equal 'Salt', first.origin
+      assert_equal @host, first.host.name
+    end
   end
 end

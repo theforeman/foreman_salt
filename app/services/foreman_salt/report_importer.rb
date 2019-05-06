@@ -13,6 +13,7 @@ module ForemanSalt
         report = importer.report
         report.origin = 'Salt'
         report.save!
+        report
       end
     end
 
