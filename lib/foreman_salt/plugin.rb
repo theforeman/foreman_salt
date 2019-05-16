@@ -7,21 +7,22 @@ Foreman::Plugin.register :foreman_salt do
   apipie_documented_controllers ["#{ForemanSalt::Engine.root}/app/controllers/foreman_salt/api/v2/*.rb"]
 
   # Menus
+  divider :top_menu, :parent => :configure_menu, :caption => 'Salt'
   menu :top_menu, :salt_environments,
        :url_hash => { :controller => :'foreman_salt/salt_environments', :action => :index },
        :caption  => 'Environments',
-       :parent   => :configure_menu,
-       :after    => :common_parameters
+       :parent   => :configure_menu
 
   menu :top_menu, :salt_modules,
        :url_hash => { :controller => :'foreman_salt/salt_modules', :action => :index },
        :caption  => 'States',
-       :parent   => :configure_menu,
-       :after    => :common_parameters
+       :parent   => :configure_menu
 
-  divider :top_menu, :parent => :configure_menu,
-                     :caption => 'Salt',
-                     :after   => :common_parameters
+  menu :top_menu, :salt_variables,
+       :url_hash => { :controller => :'foreman_salt/salt_variables', :action => :index },
+       :caption => N_('Variables'),
+       :parent => :configure_menu
+
 
   # Permissions
   security_block :foreman_salt do
@@ -58,6 +59,33 @@ Foreman::Plugin.register :foreman_salt do
                { :'foreman_salt/salt_environments' => [:destroy],
                  :'foreman_salt/api/v2/salt_environments' => [:destroy] },
                :resource_type => 'ForemanSalt::SaltEnvironment'
+
+    permission :view_salt_variables,
+               {
+                 :'foreman_salt/salt_variables' => [:index, :auto_complete_search],
+                 :'foreman_salt/api/v2/salt_variables' => [:index, :show]
+               },
+               :resource_type => 'ForemanSalt::SaltVariable'
+
+    permission :edit_salt_variables,
+               { :'foreman_salt/salt_variables' => [:edit, :update],
+                 :'foreman_salt/api/v2/salt_variables' => [:update],
+                 :'foreman_salt/api/v2/salt_override_values' => [:create, :destroy] },
+               :resource_type => 'ForemanSalt::SaltVariable'
+
+    permission :destroy_salt_variables,
+               {
+                 :'foreman_salt/salt_variables' => [:destroy],
+                 :'foreman_salt/api/v2/salt_variables' => [:destroy]
+               },
+               :resource_type => 'ForemanSalt::SaltVariable'
+
+    permission :create_salt_variables,
+               {
+                 :'foreman_salt/salt_variables' => [:new, :create],
+                 :'foreman_salt/api/v2/salt_variables' => [:create]
+               },
+               :resource_type => 'ForemanSalt::SaltVariable'
 
     permission :create_reports,
                { :'foreman_salt/api/v2/jobs' => [:upload] },
@@ -124,18 +152,18 @@ Foreman::Plugin.register :foreman_salt do
   end
 
   # Roles
-  role 'Salt admin', [:saltrun_hosts, :create_salt_modules,
-                      :view_salt_modules, :edit_salt_modules,
-                      :destroy_salt_modules,
+  role 'Salt admin', [:saltrun_hosts,
+                      :create_salt_modules, :view_salt_modules,
+                      :edit_salt_modules, :destroy_salt_modules,
+                      :import_salt_modules,
                       :view_smart_proxies_salt_keys,
-                      :destroy_smart_proxies_salt_keys,
-                      :edit_smart_proxies_salt_keys,
-                      :create_smart_proxies_salt_autosign,
-                      :view_smart_proxies_salt_autosign,
+                      :edit_smart_proxies_salt_keys, :destroy_smart_proxies_salt_keys,
+                      :create_smart_proxies_salt_autosign, :view_smart_proxies_salt_autosign,
                       :destroy_smart_proxies_salt_autosign,
                       :create_salt_environments, :view_salt_environments,
-                      :edit_salt_environments,
-                      :destroy_salt_environments]
+                      :edit_salt_environments, :destroy_salt_environments,
+                      :create_salt_variables, :view_salt_variables,
+                      :edit_salt_variables, :destroy_salt_variables]
 
 
   # Parameter filters

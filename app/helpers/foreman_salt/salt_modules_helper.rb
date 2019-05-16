@@ -8,6 +8,20 @@ module ForemanSalt
       select_action_button(_('Import'), {}, links)
     end
 
+    def salt_module_select(form, persisted)
+      blank_opt = persisted ? {} : { :include_blank => true }
+      select_items = persisted ? [form.object.salt_module] : SaltModule.order(:name)
+      select_f form,
+               :salt_module_id,
+               select_items,
+               :id,
+               :to_label,
+               blank_opt,
+               :label => _('Salt State'),
+               :disabled => persisted,
+               :required => true
+    end
+
     def colorize(state)
       # Make the state easier to read
       combo = %w(2E9DB9 4D1D59 2C777E 1C4758 591D4B)

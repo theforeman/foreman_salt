@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ForemanSalt
   class SaltModule < ApplicationRecord
     include Authorizable
@@ -10,6 +12,9 @@ module ForemanSalt
 
     has_many :hostgroup_salt_modules, :foreign_key => :salt_module_id
     has_many :hostgroups, :through => :hostgroup_salt_modules
+
+    has_many :salt_variables, :inverse_of => :salt_module,
+                              :dependent => :destroy
 
     has_many :salt_module_environments
     has_many :salt_environments, :through => :salt_module_environments

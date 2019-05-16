@@ -6,7 +6,7 @@ module ForemanSalt
     setup do
       @proxy = FactoryBot.create :smart_proxy, :with_salt_feature
 
-      ::ProxyAPI::Salt.any_instance.stubs(:autosign_list).returns(
+      ProxyAPI::Salt.any_instance.stubs(:autosign_list).returns(
         ['foo.example.com']
       )
     end

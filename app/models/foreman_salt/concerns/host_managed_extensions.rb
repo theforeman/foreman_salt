@@ -47,11 +47,26 @@ module ForemanSalt
         before_destroy   :delete_salt_key, :if => ->(host) { host.salt_proxy }
       end
 
+      def salt_params
+        variables = ForemanSalt::SaltVariable.where(:salt_module_id => all_salt_modules.pluck(:id), :override => true)
+        values = variables.values_hash(self)
+
+        variables.each_with_object({}) do |var, memo|
+          value = values[var]
+          memo[var.key] = value if value
+          memo
+        end
+      end
+
       def salt_modules_for_enc
+        all_salt_modules.collect(&:name).uniq
+      end
+
+      def all_salt_modules
         return [] unless salt_environment
 
         modules = salt_modules + (hostgroup ? hostgroup.all_salt_modules : [])
-        ForemanSalt::SaltModule.in_environment(salt_environment).where(:id => modules).pluck("salt_modules.name").uniq
+        ForemanSalt::SaltModule.in_environment(salt_environment).where(:id => modules)
       end
 
       def salt_master

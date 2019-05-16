@@ -12,6 +12,8 @@ module ForemanSalt
       enc['classes'] = @minion.salt_modules_for_enc
 
       pillars = @minion.info['parameters']
+      pillars.merge!(@minion.salt_params)
+
       enc['parameters'] = Setting[:salt_namespace_pillars] ? { 'foreman' => pillars } : pillars
 
       enc['environment'] = env

@@ -6,6 +6,12 @@ FactoryBot.define do
   factory :salt_environment, :class => 'ForemanSalt::SaltEnvironment' do
     sequence(:name) { |n| "environment#{n}" }
   end
+
+  factory :salt_variable, :class => 'ForemanSalt::SaltVariable' do
+    sequence(:key) { |n| "salt_variable_#{n}" }
+    sequence(:default_value) { |n| "default_value_#{n}" }
+    salt_module
+  end
 end
 
 FactoryBot.modify do
