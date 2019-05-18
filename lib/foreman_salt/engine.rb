@@ -61,6 +61,8 @@ module ForemanSalt
 
     config.to_prepare do
       require 'foreman_salt/extensions'
+
+      RemoteExecutionProvider.register(:Salt, SaltProvider)
     end
   end
 
