@@ -10,14 +10,16 @@ module ForemanSalt
       end
 
       def host_title_actions(host)
-        title_actions(
-          button_group(
-            if host.try(:salt_proxy)
-              link_to_if_authorized(_('Run Salt'), { :controller => :'foreman_salt/minions', :action => :run, :id => host },
-                                    :title => _('Trigger a state.highstate run on a node'), :class => 'btn btn-primary')
-          end
+        unless Setting[:salt_hide_run_salt_button]
+          title_actions(
+            button_group(
+              if host.try(:salt_proxy)
+                link_to_if_authorized(_('Run Salt'), { :controller => :'foreman_salt/minions', :action => :run, :id => host },
+                                      :title => _('Trigger a state.highstate run on a node'), :class => 'btn btn-primary')
+            end
+            )
           )
-        )
+        end
         super(host)
       end
 

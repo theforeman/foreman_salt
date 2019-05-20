@@ -1,0 +1,23 @@
+<%#
+name: Salt Run function - SSH default
+job_category: Salt
+description_format: Run Salt function on host
+provider_type: SSH
+snippet: false
+template_inputs:
+- name: function
+  required: true
+  input_type: user
+  description: "Salt function to run on the host, e.g: \r\n\r\ncmd.run 'df -h'"
+  advanced: false
+- name: test-run
+  required: false
+  input_type: user
+  description: Enables test run
+  options: "no\r\nyes"
+  advanced: true
+kind: job_template
+%>
+
+salt-call <%= input('function') %> \
+<%= ' test=true' if !input('test-run').blank? && input('test-run') == 'yes' -%>

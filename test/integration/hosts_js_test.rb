@@ -16,6 +16,23 @@ module ForemanSalt
         proxy = FactoryBot.create(:smart_proxy, :with_salt_feature)
         salt_environment = FactoryBot.create(:salt_environment)
         @host = FactoryBot.create(:host, :salt_proxy => proxy, :salt_environment => salt_environment)
+        Setting::Salt.load_defaults
+      end
+    end
+
+    describe "hosts details run salt button" do
+      test "verify run salt button availabilty" do
+        Setting[:salt_hide_run_salt_button] = false
+        visit hosts_path
+        click_link @host.fqdn
+        assert page.has_link?("Run Salt")
+      end
+
+      test "verify run salt button absence" do
+        Setting[:salt_hide_run_salt_button] = true
+        visit hosts_path
+        click_link @host.fqdn
+        assert_not page.has_link?("Run Salt")
       end
     end
 
