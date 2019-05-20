@@ -22,10 +22,10 @@ module ForemanSaltCore
     private
 
     def generate_command
-      command = %w(salt cmd.run)
+      command = %w(salt)
       command << @options['name']
+      command << 'state.template_str'
       command << @options['script']
-      command << "runas=#{@options['effective_user']}" if @options['effective_user']
       command
     end
   end
