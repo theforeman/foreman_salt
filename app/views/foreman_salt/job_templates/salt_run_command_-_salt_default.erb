@@ -1,0 +1,19 @@
+<%#
+name: Salt Script Command - Salt default
+job_category: Salt state
+description_format: Run script on a host
+provider_type: Salt
+snippet: false
+template_inputs:
+- name: script
+  required: true
+  input_type: user
+  description: "Run script on a host"
+  advanced: false
+kind: job_template
+%>
+
+"execute script":
+  cmd.run:
+    - name: |
+<%=     indent(8) { input('script') } %>

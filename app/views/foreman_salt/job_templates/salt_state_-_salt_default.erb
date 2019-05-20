@@ -1,0 +1,16 @@
+<%#
+name: Salt State - Salt default
+job_category: Salt state
+description_format: Apply Salt state on a host
+provider_type: Salt
+snippet: false
+template_inputs:
+- name: state
+  required: true
+  input_type: user
+  description: "Salt state to apply on a host"
+  advanced: false
+kind: job_template
+%>
+
+<%= input('state') %>
