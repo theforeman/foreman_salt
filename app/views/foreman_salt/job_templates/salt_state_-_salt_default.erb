@@ -8,8 +8,18 @@ template_inputs:
 - name: state
   required: true
   input_type: user
-  description: "Salt state to apply on a host"
   advanced: false
+  description: |
+    Salt state to apply on a host. For example to install and enable redis one would do
+
+    redis:
+      pkg.installed: []
+      service.running:
+        - enable: True
+        - reload: True
+        - watch:
+          - pkg: redis
+
 kind: job_template
 %>
 
