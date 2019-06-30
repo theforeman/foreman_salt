@@ -84,6 +84,10 @@ module ForemanSalt
       true
     end
 
+    def boot_timestamp
+      Time.zone.now.to_i - facts[:uptime_seconds].to_i
+    end
+
     private
 
     def os_hash
