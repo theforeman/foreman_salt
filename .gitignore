@@ -1,5 +1,6 @@
 *~
 .bundle
+.local
 tmp/
 Gemfile.lock
 bundler.d/*.local.rb
@@ -11,6 +12,7 @@ bundler.d/*.local.rb
 .rvmrc*
 .ruby-version*
 .ruby-gemset*
+*.gem
 locale/*/*.edit.po
 locale/*/*.po.time_stamp
 locale/*/*.pox
