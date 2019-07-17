@@ -3,6 +3,8 @@ inherit_from:
   - .rubocop_todo.yml
 
 AllCops:
+  TargetRubyVersion: 2.3
+  TargetRailsVersion: 5.1
   Include:
     - 'app/views/api/**/*.rabl'
   Exclude:
@@ -14,6 +16,10 @@ Rails:
 
 # Don't enforce documentation
 Style/Documentation:
+  Enabled: false
+
+# Don't enforce frozen string literals
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 # Support both ruby19 and hash_rockets

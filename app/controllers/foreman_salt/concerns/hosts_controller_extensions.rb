@@ -7,7 +7,7 @@ module ForemanSalt
 
       module Overrides
         def process_hostgroup
-          @hostgroup = Hostgroup.find(params[:host][:hostgroup_id]) if params[:host][:hostgroup_id].to_i > 0
+          @hostgroup = Hostgroup.find(params[:host][:hostgroup_id]) if params[:host][:hostgroup_id].to_i.positive?
           return head(:not_found) unless @hostgroup
 
           @salt_modules           = @host.salt_modules if @host

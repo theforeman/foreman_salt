@@ -86,7 +86,7 @@ module ForemanSalt
         begin
           Rails.logger.info("Host #{fqdn} is built, accepting Salt key")
           key = ForemanSalt::SmartProxies::SaltKeys.find(salt_proxy, fqdn)
-          key.accept unless key.nil?
+          key&.accept
         rescue Foreman::Exception => e
           Rails.logger.warn("Unable to accept key for #{fqdn}: #{e}")
         end
@@ -95,7 +95,7 @@ module ForemanSalt
       def delete_salt_key
         begin
           key = ForemanSalt::SmartProxies::SaltKeys.find(salt_proxy, fqdn)
-          key.delete unless key.nil?
+          key&.delete
         rescue Foreman::Exception => e
           Rails.logger.warn("Unable to delete key for #{fqdn}: #{e}")
         end
