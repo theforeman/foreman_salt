@@ -39,7 +39,7 @@ module ForemanSalt
     describe "hosts index salt multiple actions" do
       test 'change salt master action' do
         visit hosts_path
-        page.find('#check_all').trigger('click')
+        check 'check_all'
 
         # Ensure and wait for all hosts to be checked, and that no unchecked hosts remain
         assert page.has_no_selector?('input.host_select_boxes:not(:checked)')
@@ -50,7 +50,7 @@ module ForemanSalt
         assert multiple_actions_div.find('ul').visible?
 
         # Hosts are added to cookie
-        host_ids_on_cookie = JSON.parse(CGI.unescape(page.driver.cookies['_ForemanSelectedhosts'].value))
+        host_ids_on_cookie = JSON.parse(CGI.unescape(get_me_the_cookie('_ForemanSelectedhosts')&.fetch(:value)))
         assert(host_ids_on_cookie.include?(@host.id))
 
         within('#submit_multiple') do
@@ -63,12 +63,12 @@ module ForemanSalt
         # remove hosts cookie on submit
         index_modal.find('.btn-primary').click
         assert_current_path hosts_path
-        assert_empty(page.driver.cookies['_ForemanSelectedhosts'])
+        assert_empty(get_me_the_cookie('_ForemanSelectedhosts'))
       end
 
       test 'change salt environment action' do
         visit hosts_path
-        page.find('#check_all').trigger('click')
+        check 'check_all'
 
         # Ensure and wait for all hosts to be checked, and that no unchecked hosts remain
         assert page.has_no_selector?('input.host_select_boxes:not(:checked)')
@@ -79,7 +79,7 @@ module ForemanSalt
         assert multiple_actions_div.find('ul').visible?
 
         # Hosts are added to cookie
-        host_ids_on_cookie = JSON.parse(CGI.unescape(page.driver.cookies['_ForemanSelectedhosts'].value))
+        host_ids_on_cookie = JSON.parse(CGI.unescape(get_me_the_cookie('_ForemanSelectedhosts')&.fetch(:value)))
         assert(host_ids_on_cookie.include?(@host.id))
 
         within('#submit_multiple') do
@@ -92,7 +92,7 @@ module ForemanSalt
         # remove hosts cookie on submit
         index_modal.find('.btn-primary').click
         assert_current_path hosts_path
-        assert_empty(page.driver.cookies['_ForemanSelectedhosts'])
+        assert_empty(get_me_the_cookie('_ForemanSelectedhosts'))
       end
     end
   end
