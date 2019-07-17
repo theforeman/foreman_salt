@@ -59,7 +59,7 @@ module ForemanSalt
 
       states.each do |state_name|
         state = SaltModule.friendly.find(state_name)
-        state.salt_environments.delete(environment) if state
+        state&.salt_environments&.delete(environment)
       end
     end
 

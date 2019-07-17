@@ -139,11 +139,13 @@ Foreman::Plugin.register :foreman_salt do
 
 
   # Parameter filters
-  parameter_filter Hostgroup, :salt_proxy_id, :salt_proxy_name, :salt_environment_id,
-    :salt_environment_name, :salt_modules => [], :salt_module_ids => []
-  parameter_filter Host::Managed, :salt_proxy_id, :salt_proxy_name,
-    :salt_environment_id, :salt_environment_name, :salt_modules => [],
-    :salt_module_ids => []
+  parameter_filter Hostgroup,
+                   :salt_proxy_id, :salt_proxy_name, :salt_environment_id,
+                   :salt_environment_name, :salt_modules => [], :salt_module_ids => []
+  parameter_filter Host::Managed,
+                   :salt_proxy_id, :salt_proxy_name,
+                   :salt_environment_id, :salt_environment_name, :salt_modules => [],
+                   :salt_module_ids => []
 
   if ForemanSalt.with_remote_execution? && Gem::Version.new(ForemanRemoteExecution::VERSION) >= Gem::Version.new('1.2.3')
     options = {
