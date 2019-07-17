@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'deface', '< 2.0'
   s.add_dependency 'foreman-tasks', '~> 0.8'
+  s.add_development_dependency 'rubocop', '~> 0.54.0'
 end
