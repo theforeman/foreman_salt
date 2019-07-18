@@ -77,7 +77,7 @@ module ForemanSalt
 
         message = if result['changes']['diff']
                     result['changes']['diff']
-                  elsif !result['pchanges'].blank? && result['pchanges']['diff']
+                  elsif !result['pchanges'].blank? && result['pchanges'].include?('diff')
                     result['pchanges']['diff']
                   elsif !result['comment'].blank?
                     result['comment']
