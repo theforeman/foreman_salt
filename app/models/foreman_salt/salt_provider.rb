@@ -14,12 +14,13 @@ module ForemanSalt
       end
 
       def proxy_command_options(template_invocation, host)
-        super(template_invocation, host)
-          .merge({ :name => host.name })
+        super(template_invocation, host).merge(:name => host.name)
       end
 
       def ssh_password(_host); end
+
       def ssh_key_passphrase(_host); end
+
       def sudo_password(_host); end
     end
   end
