@@ -19,18 +19,14 @@ module ForemanSalt
         end
 
         test 'should destroy' do
-          delete :destroy,
-            :params => { :id => @variable.id },
-            :session => set_session_user
+          delete :destroy, :params => { :id => @variable.id }, :session => set_session_user
           assert_response :ok
           assert_not SaltVariable.exists?(@variable.id)
         end
 
         test 'should create' do
           params = { :key => 'test name', :salt_state_id => FactoryBot.create(:salt_module).id }
-          post :create,
-            :params => params,
-            :session => set_session_user
+          post :create, :params => params, :session => set_session_user
           assert_response :success
         end
       end

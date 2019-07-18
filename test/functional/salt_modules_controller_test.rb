@@ -14,9 +14,7 @@ module ForemanSalt
 
     test 'should destroy module' do
       assert_difference('SaltModule.count', -1) do
-        delete :destroy,
-          :params => { :id => @model.id },
-          :session => set_session_user
+        delete :destroy, :params => { :id => @model.id }, :session => set_session_user
       end
       assert_redirected_to salt_modules_url
     end

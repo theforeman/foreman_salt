@@ -17,9 +17,7 @@ module ForemanSalt
 
     test 'should destroy variable' do
       assert_difference('SaltVariable.count', -1) do
-        delete :destroy,
-          :params => { :id => @model.id },
-          :session => set_session_user
+        delete :destroy, :params => { :id => @model.id }, :session => set_session_user
       end
       assert_redirected_to salt_variables_url
     end
@@ -27,9 +25,7 @@ module ForemanSalt
     test 'should create salt variable' do
       params = { :foreman_salt_salt_variable => { :key => 'great name', :salt_module_id => FactoryBot.create(:salt_module).id } }
       assert_difference('SaltVariable.count', 1) do
-        post :create,
-          :params => params,
-          :session => set_session_user
+        post :create, :params => params, :session => set_session_user
       end
       assert_redirected_to salt_variables_url
     end
