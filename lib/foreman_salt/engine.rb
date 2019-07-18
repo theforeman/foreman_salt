@@ -1,4 +1,5 @@
 require 'deface'
+require 'foreman_remote_execution'
 
 module ForemanSalt
   class Engine < ::Rails::Engine
