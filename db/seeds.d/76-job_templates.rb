@@ -4,16 +4,27 @@ organizations = Organization.unscoped.all
 locations = Location.unscoped.all
 if ForemanSalt.with_remote_execution?
   User.as_anonymous_admin do
-    JobTemplate.without_auditing do
-      Dir[File.join("#{ForemanSalt::Engine.root}/app/views/foreman_salt/"\
+    RemoteExecutionFeature.without_auditing do
+      if Rails.env.test? || Foreman.in_rake?
+        # If this file tries to import a template with a REX feature in a SeedsTest,
+        # it will fail - the REX feature isn't registered on SeedsTest because
+        # DatabaseCleaner truncates the db before every test.
+        # During db:seed, we also want to know the feature is registered before
+        # seeding the template
+        # kudos to dLobatog
+        ForemanSalt.register_rex_feature
+      end
+      JobTemplate.without_auditing do
+        Dir[File.join("#{ForemanSalt::Engine.root}/app/views/foreman_salt/"\
                     'job_templates/**/*.erb')].each do |template|
-        sync = !Rails.env.test? && Setting[:remote_execution_sync_templates]
-        template = JobTemplate.import_raw!(File.read(template),
-                                           :default => true,
-                                           :locked => true,
-                                           :update => sync)
-        template.organizations = organizations if SETTINGS[:organizations_enabled] && template.present?
-        template.locations = locations if SETTINGS[:locations_enabled] && template.present?
+          sync = !Rails.env.test? && Setting[:remote_execution_sync_templates]
+          template = JobTemplate.import_raw!(File.read(template),
+                                             :default => true,
+                                             :locked => true,
+                                             :update => sync)
+          template.organizations = organizations if SETTINGS[:organizations_enabled] && template.present?
+          template.locations = locations if SETTINGS[:locations_enabled] && template.present?
+        end
       end
     end
   end
