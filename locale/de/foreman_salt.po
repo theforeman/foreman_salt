@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_salt package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Lukáš Zapletal, 2019
 # Ettore Atalan <atalanttore@googlemail.com>, 2019
@@ -16,13 +16,11 @@
 # Arnold Bechtoldt <mail@arnoldbechtoldt.com>, 2019
 # simon11 <simon.stieger.98@live.de>, 2019
 # Bernhard Suttner <bernhard.suttner@atix.de>, 2019
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_salt 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-25 22:19+0000\n"
 "PO-Revision-Date: 2019-04-29 07:31+0000\n"
 "Last-Translator: Bernhard Suttner <bernhard.suttner@atix.de>, 2019\n"
 "Language-Team: German (https://www.transifex.com/foreman/teams/114/de/)\n"
@@ -32,510 +30,400 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:12
-msgid "JID"
+msgid "*Clear environment*"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:13
-msgid "Function"
-msgstr ""
-
-#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:14
-msgid "Result"
-msgstr "Ergebnis"
-
-#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:18
-msgid "Upload a Job"
-msgstr "Hochladen eines Jobs"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:9
-msgid "List all autosign records"
-msgstr "Alle Autosign-Einträge auflisten"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:15
-msgid "Create an autosign record"
-msgstr "Autosign-Eintrag erstellen"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:17
-#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:25
-msgid "Autosign record"
-msgstr "Autosign-Einträge"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:23
-msgid "Delete an autosign record"
-msgstr "Autosign-Eintrag löschen"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:28
-msgid "Record deleted."
-msgstr "Autosign-Eintrag gelöscht."
-
-#: ../app/controllers/foreman_salt/api/v2/salt_environments_controller.rb:9
-msgid "List all Salt environments"
-msgstr "Alle Salt Umgebungen auflisten"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_environments_controller.rb:15
-msgid "Show a Salt environment"
-msgstr "Salt Umgebung anzeigen"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_environments_controller.rb:26
-msgid "Create a Salt environment"
-msgstr "Salt Umgebung erstellen"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_environments_controller.rb:33
-msgid "Destroy a Salt environment"
-msgstr "Salt Umgebung löschen"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_keys_controller.rb:8
-msgid "List all Salt keys"
-msgstr "Alle Salt Schlüssel auflisten"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_keys_controller.rb:16
-msgid "FQDN of host that key belongs to"
-msgstr "FQDN des Hosts zu welchem der Schlüssel gehört"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_keys_controller.rb:19
-msgid "Update a Salt Key"
-msgstr "Salt Schlüssel bearbeiten"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_keys_controller.rb:22
-msgid "State can be \"accepted\" or \"rejected\""
-msgstr "State kann \"accepted\" oder \"rejected\" sein"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_keys_controller.rb:34
-msgid "Delete a Salt Key"
-msgstr "Salt Schlüssel löschen"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_minions_controller.rb:7
-msgid "List all Salt Minions"
-msgstr "Alle Salt Minions auflisten"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_minions_controller.rb:13
-msgid "Show a minion"
-msgstr "Minion anzeigen"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_minions_controller.rb:21
-msgid "Salt environment ID"
-msgstr "Salt Umgebungskennung"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_minions_controller.rb:22
-msgid "ID of Salt Proxy"
-msgstr "ID des Salt Proxy"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_minions_controller.rb:23
-msgid "Array of State ids"
-msgstr "Array von State IDs"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_minions_controller.rb:27
-msgid "Update a minion"
-msgstr "Minion bearbeiten"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:12
-msgid "List all Salt states"
-msgstr "Alle Salt States auflisten"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:13
-msgid "Limit to a specific environment"
-msgstr "Limitieren auf eine bestimmte Umgebung"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:25
-msgid "Show a state"
-msgstr "Salt State anzeigen"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:32
-msgid "Name of the Salt state"
-msgstr "Name des Salt States"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:36
-msgid "Create a state"
-msgstr "Salt State erstellen"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:43
-msgid "Destroy a state"
-msgstr "Salt State löschen"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:49
-msgid "Import states from a salt master"
-msgstr "Salt States vom Salt Master importieren"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:50
-msgid "Salt Smart Proxy ID"
-msgstr "Salt Smart Proxy ID"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:51
-msgid "Limit to a specific environments"
-msgstr "Limitieren auf bestimmte Umgebungen"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:52
-msgid "Limit to specific actions: i.e. add, remove"
-msgstr "Limitieren auf bestimmte Aktionen, z.B. 'add', 'remove'"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:53
-msgid "Dryrun only"
-msgstr "Nur Probelauf"
-
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:94
-msgid "Could not find salt environment with id %s"
-msgstr "Salt Umgebung mit ID %s konnte nicht gefunden werden"
-
-#: ../app/controllers/foreman_salt/minions_controller.rb:24
-msgid "Unable to generate output, Check log files\\n"
-msgstr "Kann keine Ausgabe erzeugen, Bitte Logdateien prüfen\\n"
-
-#: ../app/controllers/foreman_salt/minions_controller.rb:29
-msgid "Successfully executed, check log files for more details"
-msgstr ""
-"Erfolgreich ausgeführt, für weitere Informationen bitte die Protokolldateien"
-" prüfen"
-
-#: ../app/controllers/foreman_salt/salt_autosign_controller.rb:17
-msgid "Autosign created for #{params[:id]}"
-msgstr "Autosign-Eintrag erstellt für #{params[:id]}"
-
-#: ../app/controllers/foreman_salt/salt_autosign_controller.rb:28
-msgid "Autosign deleted for #{params[:id]}"
-msgstr "Autosign-Eintrag entfernt für #{params[:id]}"
-
-#: ../app/controllers/foreman_salt/salt_environments_controller.rb:30
-#: ../app/controllers/foreman_salt/salt_modules_controller.rb:34
-msgid "Successfully updated %s."
-msgstr "%s wurde aktualisiert."
-
-#: ../app/controllers/foreman_salt/salt_keys_controller.rb:20
-msgid "Key accepted for #{key}"
-msgstr "Schlüssel #{key} akzeptiert"
-
-#: ../app/controllers/foreman_salt/salt_keys_controller.rb:31
-msgid "Key rejected for #{key}"
-msgstr "Schlüssel #{key} zurückgewiesen"
-
-#: ../app/controllers/foreman_salt/salt_keys_controller.rb:42
-msgid "Key deleted for #{key}"
-msgstr "Schlüssel #{key} entfernt"
-
-#: ../app/controllers/foreman_salt/salt_modules_controller.rb:66
-#: ../app/controllers/foreman_salt/salt_modules_controller.rb:73
-msgid "No changes found"
-msgstr "Keine Änderungen festgestellt"
-
-#: ../app/controllers/foreman_salt/salt_modules_controller.rb:83
-msgid "Successfully imported"
-msgstr "Erfolgreich importiert"
-
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:8
-msgid "Salt ENC"
-msgstr "Salt ENC"
-
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:9
-msgid "Salt external nodes YAML dump"
-msgstr "YAML-Ausgabe des externen Salt-Knotens"
-
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:16
-msgid "Run Salt"
-msgstr "Salt starten"
-
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:17
-msgid "Trigger a state.highstate run on a node"
-msgstr "Salt state.highstate Lauf auf einem Knoten auslösen"
-
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:27
-msgid "Salt Master"
-msgstr "Salt Master"
-
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:28
-msgid "Salt Environment"
-msgstr "Salt Umgebung"
-
-#: ../app/helpers/concerns/foreman_salt/smart_proxies_helper_extensions.rb:10
-msgid "Salt Keys"
-msgstr "Salt Schlüssel"
-
-#: ../app/helpers/concerns/foreman_salt/smart_proxies_helper_extensions.rb:11
-msgid "Salt Autosign"
-msgstr "Salt Autosign"
-
-#: ../app/helpers/foreman_salt/salt_keys_helper.rb:4
-msgid "Accepted"
-msgstr "Akzeptiert"
-
-#: ../app/helpers/foreman_salt/salt_keys_helper.rb:4
-msgid "Rejected"
-msgstr "Zurückgewiesen"
-
-#: ../app/helpers/foreman_salt/salt_keys_helper.rb:4
-msgid "Unaccepted"
-msgstr "Abgelehnt"
-
-#: ../app/helpers/foreman_salt/salt_modules_helper.rb:5
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:1
-msgid "Import from %s"
-msgstr "Importieren aus %s"
-
-#: ../app/helpers/foreman_salt/salt_modules_helper.rb:8
-msgid "Import"
-msgstr "Import"
-
-#: ../app/lib/actions/foreman_salt/report_import.rb:22
-msgid "Process Highstate Report: #{input[:job_id]}"
-msgstr "Verarbeite state.highstate Report: #{input[:job_id]}"
-
-#: ../app/lib/proxy_api/salt.rb:11
-msgid "Unable to fetch autosign list"
-msgstr "Autosign Liste konnten nicht abgerufen werden"
-
-#: ../app/lib/proxy_api/salt.rb:17
-msgid "Unable to set Salt autosign for %s"
-msgstr "Salt Autosign für %s konnte nicht festgelegt werden"
-
-#: ../app/lib/proxy_api/salt.rb:25
-msgid "Unable to delete Salt autosign for %s"
-msgstr "Salt Autosign für %s konnte nicht gelöscht werden"
-
-#: ../app/lib/proxy_api/salt.rb:31
-msgid "Unable to fetch Salt environments list"
-msgstr "Salt Umgebungsliste konnten nicht abgerufen werden"
-
-#: ../app/lib/proxy_api/salt.rb:43
-msgid "Unable to fetch Salt states list"
-msgstr "Salt States Liste konnten nicht abgerufen werden"
-
-#: ../app/lib/proxy_api/salt.rb:49
-msgid "Unable to fetch Salt key list"
-msgstr "Salt Schlüssel Liste konnten nicht abgerufen werden"
-
-#: ../app/lib/proxy_api/salt.rb:55
-msgid "Unable to accept Salt key for %s"
-msgstr "Salt Schlüssel für %s konnte nicht akzeptiert werden"
-
-#: ../app/lib/proxy_api/salt.rb:61
-msgid "Unable to reject Salt key for %s"
-msgstr "Salt Schlüssel für %s konnte nicht zurückgewiesen werden"
-
-#: ../app/lib/proxy_api/salt.rb:69
-msgid "Unable to delete Salt key for %s"
-msgstr "Salt Schlüssel für %s konnte nicht gelöscht werden"
-
-#: ../app/lib/proxy_api/salt.rb:75
-msgid "Unable to run Salt state.highstate for %s"
-msgstr "Start von Salt state.highstate für %s fehlgeschlagen"
-
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:63
-msgid "No Salt master defined - can't continue"
-msgstr "Kein Salt Master definiert - kann nicht fortfahren"
-
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:69
-msgid "Failed to execute state.highstate: %s"
-msgstr "Fehler bei der Ausführung von state.highstate: %s"
-
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:77
-msgid "Salt states must be in the environment of the host"
-msgstr "Salt State muss in der Umgebung des Hosts sein"
-
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:79
-msgid "Host must have an environment in order to set salt states"
-msgstr ""
-"Host muss einer Salt Umgebung angehören bevor ein Salt State gesetzt werden "
-"kann"
-
-#: ../app/models/foreman_salt/salt_environment.rb:13
-msgid "is alphanumeric and cannot contain spaces"
-msgstr "ist alphanumerisch und kann keine Leerzeichen enthalten"
-
-#: ../app/models/foreman_salt/salt_environment.rb:20
-msgid "Salt environment"
-msgstr "Salt Umgebung"
-
-#: ../app/models/foreman_salt/salt_module.rb:16
-msgid ""
-"must be alphanumeric, can contain periods, dashes, underscores and must not "
-"contain spaces"
-msgstr ""
-"muss alphanumerisch sein; kann Punkte, Striche, Unterstriche enthalten "
-"jedoch keine Leerzeichen"
-
-#: ../app/models/foreman_salt/salt_module.rb:40
-msgid "Salt state"
-msgstr "Salt State"
-
-#: ../app/models/setting/salt.rb:7
-msgid "Namespace Foreman pillars under 'foreman' key"
-msgstr ""
-
-#: ../app/services/foreman_salt/report_importer.rb:7
-msgid "Invalid report"
-msgstr "Ungültiger Bericht"
-
-#: ../app/services/foreman_salt/smart_proxies/salt_keys.rb:11
-msgid "Must specify a Smart Proxy to use"
-msgstr "Zu verwendender Smart Proxy muss angegeben werden"
-
-#: ../app/views/foreman_salt/salt_autosign/_form.html.erb:4
-#: ../app/views/foreman_salt/salt_autosign/index.html.erb:7
-msgid "Name"
-msgstr "Name"
-
-#: ../app/views/foreman_salt/salt_autosign/_form.html.erb:4
-msgid "Save"
-msgstr "Speichern"
-
-#: ../app/views/foreman_salt/salt_autosign/index.html.erb:1
-msgid "Autosign entries for %s"
-msgstr "Einträge für %s automatisch signieren"
-
-#: ../app/views/foreman_salt/salt_autosign/index.html.erb:3
-msgid "Keys"
-msgstr "Schlüssel"
-
-#: ../app/views/foreman_salt/salt_autosign/index.html.erb:3
-msgid "New"
-msgstr "Neu"
-
-#: ../app/views/foreman_salt/salt_autosign/new.html.erb:1
-msgid "New Autosign Entry"
-msgstr "Neuer Autosign-Eintrag"
-
-#: ../app/views/foreman_salt/salt_environments/_form.html.erb:4
-#: ../app/views/foreman_salt/salt_environments/index.html.erb:1
-msgid "Salt Environments"
-msgstr "Salt Umgebungen"
-
-#: ../app/views/foreman_salt/salt_environments/edit.html.erb:1
-msgid "Edit Salt Environment %s"
-msgstr "Salt Umgebung %s bearbeiten"
-
-#: ../app/views/foreman_salt/salt_environments/index.html.erb:3
-#: ../app/views/foreman_salt/salt_environments/new.html.erb:1
-msgid "New Salt Environment"
-msgstr "Neue Salt Umgebung"
-
-#: ../app/views/foreman_salt/salt_environments/index.html.erb:7
-msgid "SaltEnvironment|Name"
-msgstr ""
-
-#: ../app/views/foreman_salt/salt_environments/index.html.erb:8
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:24
-msgid "States"
-msgstr "States"
-
-#: ../app/views/foreman_salt/salt_environments/index.html.erb:9
-#: ../app/views/foreman_salt/salt_modules/index.html.erb:11
-msgid "Hosts"
-msgstr "Hosts"
-
-#: ../app/views/foreman_salt/salt_environments/index.html.erb:10
-#: ../app/views/foreman_salt/salt_modules/index.html.erb:12
-msgid "Host groups"
-msgstr "Hostgruppen"
-
-#: ../app/views/foreman_salt/salt_environments/index.html.erb:21
-#: ../app/views/foreman_salt/salt_modules/index.html.erb:28
-msgid "Delete %s?"
-msgstr "%s löschen?"
-
-#: ../app/views/foreman_salt/salt_keys/index.erb:1
-msgid "Salt Keys on %s"
-msgstr "Salt Schlüssel auf %s"
-
-#: ../app/views/foreman_salt/salt_keys/index.erb:2
-msgid "Filter %s"
-msgstr "Filter %s"
-
-#: ../app/views/foreman_salt/salt_keys/index.erb:4
-msgid "Autosign"
-msgstr "Automatisch Signieren"
-
-#: ../app/views/foreman_salt/salt_keys/index.erb:8
-msgid "Key Name"
-msgstr "Schlüssel Name"
-
-#: ../app/views/foreman_salt/salt_keys/index.erb:9
-msgid "State"
-msgstr "Status"
-
-#: ../app/views/foreman_salt/salt_keys/index.erb:10
-msgid "Fingerprint"
-msgstr "Fingerabdruck"
-
-#: ../app/views/foreman_salt/salt_keys/index.erb:21
 msgid "Accept"
 msgstr "Akzeptieren"
 
-#: ../app/views/foreman_salt/salt_keys/index.erb:22
-msgid "Reject"
-msgstr "Zurückweisen"
+msgid "Accepted"
+msgstr "Akzeptiert"
 
-#: ../app/views/foreman_salt/salt_modules/_form.html.erb:4
-#: ../app/views/foreman_salt/salt_modules/_host_tab.html.erb:1
-#: ../app/views/foreman_salt/salt_modules/index.html.erb:1
-msgid "Salt States"
-msgstr "Salt States"
+msgid "Action with sub plans"
+msgstr ""
 
-#: ../app/views/foreman_salt/salt_modules/_form.html.erb:5
-#: ../app/views/foreman_salt/salt_modules/_form.html.erb:14
-#: ../app/views/foreman_salt/salt_modules/index.html.erb:10
-msgid "Environments"
-msgstr "Umgebungen"
-
-#: ../app/views/foreman_salt/salt_modules/_host_tab_pane.html.erb:31
-msgid "Please select a Salt environment first"
-msgstr "Bitte zuerst eine Salt Umgebung wählen"
-
-#: ../app/views/foreman_salt/salt_modules/edit.html.erb:1
-msgid "Edit Salt State %s"
-msgstr "Salt State %s bearbeiten"
-
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:5
-msgid "Select the changes you want to realize in Foreman"
-msgstr "Wählen Sie die Änderungen, die Sie in Foreman anwenden möchten"
-
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:8
-msgid "Toggle"
-msgstr "Umschalten"
-
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:9
 msgid "Added"
 msgstr "Hinzugefügt"
 
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:11
-msgid "Check/Uncheck Added"
-msgstr ""
+msgid "Array of State ids"
+msgstr "Array von State IDs"
 
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:12
-msgid "Removed"
-msgstr "Entfernt"
+msgid "Autosign"
+msgstr "Automatisch Signieren"
 
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:14
-msgid "Check/Uncheck Removed"
-msgstr ""
+msgid "Autosign created for #{params[:id]}"
+msgstr "Autosign-Eintrag erstellt für #{params[:id]}"
 
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:21
-msgid "Check/Uncheck All"
-msgstr ""
+msgid "Autosign deleted for #{params[:id]}"
+msgstr "Autosign-Eintrag entfernt für #{params[:id]}"
 
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:22
-msgid "Environment"
-msgstr "Umgebung"
+msgid "Autosign entries for %s"
+msgstr "Einträge für %s automatisch signieren"
 
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:23
-msgid "Operation"
-msgstr "Vorgang"
+msgid "Autosign record"
+msgstr "Autosign-Einträge"
 
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:41
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: ../app/views/foreman_salt/salt_modules/import.html.erb:42
-msgid "Update"
-msgstr "Aktualisieren"
+msgid "Change Salt Environment"
+msgstr ""
 
-#: ../app/views/foreman_salt/salt_modules/index.html.erb:4
-#: ../app/views/foreman_salt/salt_modules/new.html.erb:1
+msgid "Change Salt Master"
+msgstr ""
+
+msgid "Check/Uncheck Added"
+msgstr ""
+
+msgid "Check/Uncheck All"
+msgstr ""
+
+msgid "Check/Uncheck Removed"
+msgstr ""
+
+msgid "Could not find salt environment with id %s"
+msgstr "Salt Umgebung mit ID %s konnte nicht gefunden werden"
+
+msgid "Create a Salt environment"
+msgstr "Salt Umgebung erstellen"
+
+msgid "Create a state"
+msgstr "Salt State erstellen"
+
+msgid "Create an autosign record"
+msgstr "Autosign-Eintrag erstellen"
+
+msgid "Delete %s?"
+msgstr "%s löschen?"
+
+msgid "Delete a Salt Key"
+msgstr "Salt Schlüssel löschen"
+
+msgid "Delete an autosign record"
+msgstr "Autosign-Eintrag löschen"
+
+msgid "Destroy a Salt environment"
+msgstr "Salt Umgebung löschen"
+
+msgid "Destroy a state"
+msgstr "Salt State löschen"
+
+msgid "Dryrun only"
+msgstr "Nur Probelauf"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Edit Salt Environment %s"
+msgstr "Salt Umgebung %s bearbeiten"
+
+msgid "Edit Salt State %s"
+msgstr "Salt State %s bearbeiten"
+
+msgid "Environment"
+msgstr "Umgebung"
+
+msgid "Environments"
+msgstr "Umgebungen"
+
+msgid "FQDN of host that key belongs to"
+msgstr "FQDN des Hosts zu welchem der Schlüssel gehört"
+
+msgid "Failed to execute state.highstate: %s"
+msgstr "Fehler bei der Ausführung von state.highstate: %s"
+
+msgid "Filter %s"
+msgstr "Filter %s"
+
+msgid "Fingerprint"
+msgstr "Fingerabdruck"
+
+msgid "Function"
+msgstr ""
+
+msgid "Hide the Run Salt state.highstate button on the host details page"
+msgstr ""
+
+msgid "Host groups"
+msgstr "Hostgruppen"
+
+msgid "Host must have an environment in order to set salt states"
+msgstr "Host muss einer Salt Umgebung angehören bevor ein Salt State gesetzt werden kann"
+
+msgid "Hosts"
+msgstr "Hosts"
+
+msgid "ID of Salt Proxy"
+msgstr "ID des Salt Proxy"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
+
+msgid "Import from %s"
+msgstr "Importieren aus %s"
+
+msgid "Import states from a salt master"
+msgstr "Salt States vom Salt Master importieren"
+
+msgid "Invalid report"
+msgstr "Ungültiger Bericht"
+
+msgid "JID"
+msgstr ""
+
+msgid "Key Name"
+msgstr "Schlüssel Name"
+
+msgid "Key accepted for #{key}"
+msgstr "Schlüssel #{key} akzeptiert"
+
+msgid "Key deleted for #{key}"
+msgstr "Schlüssel #{key} entfernt"
+
+msgid "Key rejected for #{key}"
+msgstr "Schlüssel #{key} zurückgewiesen"
+
+msgid "Keys"
+msgstr "Schlüssel"
+
+msgid "Limit to a specific environment"
+msgstr "Limitieren auf eine bestimmte Umgebung"
+
+msgid "Limit to a specific environments"
+msgstr "Limitieren auf bestimmte Umgebungen"
+
+msgid "Limit to specific actions: i.e. add, remove"
+msgstr "Limitieren auf bestimmte Aktionen, z.B. 'add', 'remove'"
+
+msgid "List all Salt Minions"
+msgstr "Alle Salt Minions auflisten"
+
+msgid "List all Salt environments"
+msgstr "Alle Salt Umgebungen auflisten"
+
+msgid "List all Salt keys"
+msgstr "Alle Salt Schlüssel auflisten"
+
+msgid "List all Salt states"
+msgstr "Alle Salt States auflisten"
+
+msgid "List all autosign records"
+msgstr "Alle Autosign-Einträge auflisten"
+
+msgid "Must specify a Smart Proxy to use"
+msgstr "Zu verwendender Smart Proxy muss angegeben werden"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Name of the Salt state"
+msgstr "Name des Salt States"
+
+msgid "Namespace Foreman pillars under 'foreman' key"
+msgstr ""
+
+msgid "New"
+msgstr "Neu"
+
+msgid "New Autosign Entry"
+msgstr "Neuer Autosign-Eintrag"
+
+msgid "New Salt Environment"
+msgstr "Neue Salt Umgebung"
+
 msgid "New Salt State"
 msgstr "Neuen Salt State"
 
-#: ../app/views/foreman_salt/salt_modules/index.html.erb:9
+msgid "No Salt master defined - can't continue"
+msgstr "Kein Salt Master definiert - kann nicht fortfahren"
+
+msgid "No changes found"
+msgstr "Keine Änderungen festgestellt"
+
+msgid "No salt environment selected!"
+msgstr ""
+
+msgid "Operation"
+msgstr "Vorgang"
+
+msgid "Please select a Salt environment first"
+msgstr "Bitte zuerst eine Salt Umgebung wählen"
+
+msgid "Process Highstate Report: #{input[:job_id]}"
+msgstr "Verarbeite state.highstate Report: #{input[:job_id]}"
+
+msgid "Record deleted."
+msgstr "Autosign-Eintrag gelöscht."
+
+msgid "Reject"
+msgstr "Zurückweisen"
+
+msgid "Rejected"
+msgstr "Zurückgewiesen"
+
+msgid "Removed"
+msgstr "Entfernt"
+
+msgid "Result"
+msgstr "Ergebnis"
+
+msgid "Run Salt"
+msgstr "Salt starten"
+
+msgid "Run Salt state.highstate"
+msgstr ""
+
+msgid "Salt Autosign"
+msgstr "Salt Autosign"
+
+msgid "Salt ENC"
+msgstr "Salt ENC"
+
+msgid "Salt Environment"
+msgstr "Salt Umgebung"
+
+msgid "Salt Environments"
+msgstr "Salt Umgebungen"
+
+msgid "Salt Keys"
+msgstr "Salt Schlüssel"
+
+msgid "Salt Keys on %s"
+msgstr "Salt Schlüssel auf %s"
+
+msgid "Salt Master"
+msgstr "Salt Master"
+
+msgid "Salt Smart Proxy ID"
+msgstr "Salt Smart Proxy ID"
+
+msgid "Salt States"
+msgstr "Salt States"
+
+msgid "Salt environment"
+msgstr "Salt Umgebung"
+
+msgid "Salt environment ID"
+msgstr "Salt Umgebungskennung"
+
+msgid "Salt external nodes YAML dump"
+msgstr "YAML-Ausgabe des externen Salt-Knotens"
+
+msgid "Salt state"
+msgstr "Salt State"
+
+msgid "Salt states must be in the environment of the host"
+msgstr "Salt State muss in der Umgebung des Hosts sein"
+
+msgid "SaltEnvironment|Name"
+msgstr ""
+
 msgid "SaltModule|Name"
 msgstr ""
 
-#: ../app/views/foreman_salt/salt_modules/index.html.erb:26
-msgid "Edit"
-msgstr "Bearbeiten"
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Select salt environment"
+msgstr ""
+
+msgid "Select the changes you want to realize in Foreman"
+msgstr "Wählen Sie die Änderungen, die Sie in Foreman anwenden möchten"
+
+msgid "Show a Salt environment"
+msgstr "Salt Umgebung anzeigen"
+
+msgid "Show a minion"
+msgstr "Minion anzeigen"
+
+msgid "Show a state"
+msgstr "Salt State anzeigen"
+
+msgid "State"
+msgstr "Status"
+
+msgid "State can be \"accepted\" or \"rejected\""
+msgstr "State kann \"accepted\" oder \"rejected\" sein"
+
+msgid "States"
+msgstr "States"
+
+msgid "Successfully executed, check log files for more details"
+msgstr "Erfolgreich ausgeführt, für weitere Informationen bitte die Protokolldateien prüfen"
+
+msgid "Successfully imported"
+msgstr "Erfolgreich importiert"
+
+msgid "Successfully updated %s."
+msgstr "%s wurde aktualisiert."
+
+msgid "Toggle"
+msgstr "Umschalten"
+
+msgid "Trigger a state.highstate run on a node"
+msgstr "Salt state.highstate Lauf auf einem Knoten auslösen"
+
+msgid "Unable to accept Salt key for %s"
+msgstr "Salt Schlüssel für %s konnte nicht akzeptiert werden"
+
+msgid "Unable to delete Salt autosign for %s"
+msgstr "Salt Autosign für %s konnte nicht gelöscht werden"
+
+msgid "Unable to delete Salt key for %s"
+msgstr "Salt Schlüssel für %s konnte nicht gelöscht werden"
+
+msgid "Unable to fetch Salt environments list"
+msgstr "Salt Umgebungsliste konnten nicht abgerufen werden"
+
+msgid "Unable to fetch Salt key list"
+msgstr "Salt Schlüssel Liste konnten nicht abgerufen werden"
+
+msgid "Unable to fetch Salt states list"
+msgstr "Salt States Liste konnten nicht abgerufen werden"
+
+msgid "Unable to fetch autosign list"
+msgstr "Autosign Liste konnten nicht abgerufen werden"
+
+msgid ""
+"Unable to generate output, Check log files\n"
+msgstr ""
+"Kann keine Ausgabe erzeugen, Bitte Logdateien prüfen\n"
+
+msgid "Unable to reject Salt key for %s"
+msgstr "Salt Schlüssel für %s konnte nicht zurückgewiesen werden"
+
+msgid "Unable to run Salt state.highstate for %s"
+msgstr "Start von Salt state.highstate für %s fehlgeschlagen"
+
+msgid "Unable to set Salt autosign for %s"
+msgstr "Salt Autosign für %s konnte nicht festgelegt werden"
+
+msgid "Unaccepted"
+msgstr "Abgelehnt"
+
+msgid "Update"
+msgstr "Aktualisieren"
+
+msgid "Update a Salt Key"
+msgstr "Salt Schlüssel bearbeiten"
+
+msgid "Update a minion"
+msgstr "Minion bearbeiten"
+
+msgid "Updated hosts: changed salt environment"
+msgstr ""
+
+msgid "Upload a Job"
+msgstr "Hochladen eines Jobs"
+
+msgid "is alphanumeric and cannot contain spaces"
+msgstr "ist alphanumerisch und kann keine Leerzeichen enthalten"
+
+msgid "must be alphanumeric, can contain periods, dashes, underscores and must not contain spaces"
+msgstr "muss alphanumerisch sein; kann Punkte, Striche, Unterstriche enthalten jedoch keine Leerzeichen"
