@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_salt 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-29 18:38+0000\n"
-"PO-Revision-Date: 2019-04-29 18:38+0000\n"
+"POT-Creation-Date: 2019-07-22 19:13+0000\n"
+"PO-Revision-Date: 2019-07-22 19:13+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -163,6 +163,19 @@ msgstr ""
 msgid "Could not find salt environment with id %s"
 msgstr ""
 
+#: ../app/controllers/foreman_salt/concerns/hosts_controller_extensions.rb:44
+#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:38
+msgid "Salt Master"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/concerns/hosts_controller_extensions.rb:54
+msgid "No salt environment selected!"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/concerns/hosts_controller_extensions.rb:68
+msgid "Updated hosts: changed salt environment"
+msgstr ""
+
 #: ../app/controllers/foreman_salt/minions_controller.rb:24
 msgid "Unable to generate output, Check log files\\n"
 msgstr ""
@@ -213,19 +226,25 @@ msgstr ""
 msgid "Salt external nodes YAML dump"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:16
+#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:17
+#: ../lib/foreman_salt/plugin.rb:156
 msgid "Run Salt"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:17
+#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:18
 msgid "Trigger a state.highstate run on a node"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:27
-msgid "Salt Master"
+#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:29
+msgid "Change Salt Master"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:28
+#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:30
+msgid "Change Salt Environment"
+msgstr ""
+
+#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:39
+#: ../app/views/hosts/select_multiple_salt_environment.html.erb:7
 msgid "Salt Environment"
 msgstr ""
 
@@ -340,7 +359,11 @@ msgstr ""
 msgid "Namespace Foreman pillars under 'foreman' key"
 msgstr ""
 
-#: ../app/services/foreman_salt/report_importer.rb:7
+#: ../app/models/setting/salt.rb:8
+msgid "Hide the Run Salt state.highstate button on the host details page"
+msgstr ""
+
+#: ../app/services/foreman_salt/report_importer.rb:8
 msgid "Invalid report"
 msgstr ""
 
@@ -518,6 +541,18 @@ msgstr ""
 
 #: ../app/views/foreman_salt/salt_modules/index.html.erb:26
 msgid "Edit"
+msgstr ""
+
+#: ../app/views/hosts/select_multiple_salt_environment.html.erb:4
+msgid "Select salt environment"
+msgstr ""
+
+#: ../app/views/hosts/select_multiple_salt_environment.html.erb:5
+msgid "*Clear environment*"
+msgstr ""
+
+#: ../lib/foreman_salt/plugin.rb:152
+msgid "Run Salt state.highstate"
 msgstr ""
 
 #: action_names.rb:2
