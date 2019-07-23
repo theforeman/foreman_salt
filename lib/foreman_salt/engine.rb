@@ -1,4 +1,5 @@
 require 'deface'
+require 'foreman_remote_execution'
 
 module ForemanSalt
   class Engine < ::Rails::Engine
@@ -61,11 +62,23 @@ module ForemanSalt
 
     config.to_prepare do
       require 'foreman_salt/extensions'
+
+      RemoteExecutionProvider.register(:Salt, SaltProvider)
+      ForemanSalt.register_rex_feature
     end
   end
 
   # check whether foreman_remote_execution to integrate is available in the system
   def self.with_remote_execution?
     RemoteExecutionFeature rescue false
+  end
+
+  def self.register_rex_feature
+    options = {
+      :description => N_("Run Salt state.highstate"),
+      :host_action_button => true
+    }
+
+    RemoteExecutionFeature.register(:foreman_salt_run_state_highstate, N_("Run Salt"), options)
   end
 end
