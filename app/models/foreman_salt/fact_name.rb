@@ -4,6 +4,10 @@ module ForemanSalt
   # in the fact values table (/fact_values)
   class FactName < ::FactName
     def origin
+      'Salt'
+    end
+
+    def icon_path
       'foreman_salt/Salt'
     end
   end
