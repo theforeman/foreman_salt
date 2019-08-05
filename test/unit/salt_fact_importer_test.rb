@@ -17,7 +17,8 @@ module ForemanSalt
       importer.import!
       imported_fact = FactName.find_by_name('a')
       assert_equal 'a', imported_fact.name
-      assert_equal 'foreman_salt/Salt', imported_fact.origin
+      assert_equal 'Salt', imported_fact.origin
+      assert_equal 'foreman_salt/Salt', imported_fact.icon_path
     end
   end
 end
