@@ -3,6 +3,7 @@ module ForemanSalt
     include Authorizable
     extend FriendlyId
     friendly_id :name
+    include Parameterizable::ByIdName
 
     has_many :host_salt_modules, :foreign_key => :salt_module_id
     has_many :hosts, :through => :host_salt_modules, :class_name => '::Host::Managed'
