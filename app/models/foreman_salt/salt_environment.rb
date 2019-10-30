@@ -3,6 +3,7 @@ module ForemanSalt
     include Authorizable
     extend FriendlyId
     friendly_id :name
+    include Parameterizable::ByIdName
 
     has_many :hosts, :class_name => '::Host::Managed'
     has_many :hostgroups, :class_name => '::Hostgroup'
