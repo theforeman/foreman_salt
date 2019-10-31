@@ -35,7 +35,7 @@ class ::ForemanSalt::Api::V2::SaltStatesControllerTest < ActionController::TestC
       @states = { 'env1' => %w(state1 state2 state3),
                   'env2' => %w(state1 state2) }
 
-      ::ProxyAPI::Salt.any_instance.stubs(:states_list).returns(@states)
+      ProxyAPI::Salt.any_instance.stubs(:states_list).returns(@states)
     end
 
     test 'should import' do

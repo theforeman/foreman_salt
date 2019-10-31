@@ -27,6 +27,13 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :salt_variables, :controller => 'foreman_salt/salt_variables', :except => [:show] do
+      resources :lookup_values, :only => [:index, :create, :update, :destroy]
+      collection do
+        get 'auto_complete_search'
+      end
+    end
+
     scope :api, :path => '/api', :defaults => { :format => 'json' } do
       scope '(:apiv)', :defaults => { :apiv => 'v2' },
                        :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
@@ -49,6 +56,8 @@ Rails.application.routes.draw do
           resources :salt_minions, :only => [:show, :index, :update], :controller => 'foreman_salt/api/v2/salt_minions'
           resources :salt_states, :only => [:show, :index, :create, :destroy], :controller => 'foreman_salt/api/v2/salt_states'
         end
+
+        resources :salt_variables, :only => [:show, :index, :destroy, :update, :create], :controller => 'foreman_salt/api/v2/salt_variables'
       end
     end
   end

@@ -9,7 +9,7 @@ module ForemanSalt
       states = %w(state1 state2 state3 state4)
       state_list = { 'env1' => states, 'env2' => states }
 
-      ::ProxyAPI::Salt.any_instance.stubs(:states_list).returns(state_list)
+      ProxyAPI::Salt.any_instance.stubs(:states_list).returns(state_list)
     end
 
     test 'index page' do

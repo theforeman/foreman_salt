@@ -23,9 +23,17 @@
       <td><%= link_to_if_authorized(salt_module.hosts.count, hash_for_hosts_path(:search => "salt_state = #{salt_module}")) %></td>
       <td><%= link_to_if_authorized(salt_module.hostgroups.count, hash_for_hostgroups_path(:search => "salt_state = #{salt_module}")) %></td>
       <td>
-          <%= action_buttons([display_link_if_authorized(_('Edit'), hash_for_edit_salt_module_path(:id => salt_module).merge(:auth_object => salt_module, :authorizer => authorizer)),
-                             display_delete_if_authorized(hash_for_salt_module_path(:id => salt_module).merge(:auth_object => salt_module, :authorizer => authorizer),
-                            :confirm => _('Delete %s?') % salt_module.name)]) %>
+          <%
+              links = [
+                  link_to(
+                  _('Variables'), salt_variables_path(:search => "salt_module = #{salt_module}")),
+                  display_link_if_authorized(_('Edit'), hash_for_edit_salt_module_path(:id => salt_module).merge(:auth_object => salt_module, :authorizer => authorizer)),
+                  display_delete_if_authorized(hash_for_salt_module_path(:id => salt_module).merge(:auth_object => salt_module, :authorizer => authorizer),
+                                               :confirm => _('Delete %s?') % salt_module.name)
+              ]
+          %>
+          <%= action_buttons(*links) %>
+      </td>
       </td>
     </tr>
   <% end %>

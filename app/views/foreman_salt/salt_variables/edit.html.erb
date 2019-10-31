@@ -1,0 +1,17 @@
+<%= breadcrumbs(
+  :items => [
+    {
+      :caption => _('Salt Variables'),
+      :url => url_for(salt_variables_path)
+    },
+    {
+      :caption => _('Edit %s' % @salt_variable.key)
+    }
+  ],
+  :switchable => false
+) %>
+<% title(_('Edit Salt Variable')) %>
+<%= form_for(@salt_variable, :url => salt_variable_path(:id => @salt_variable.id)) do |f| %>
+    <%= render 'fields', :f => f %>
+    <%= submit_or_cancel f %>
+<% end %>

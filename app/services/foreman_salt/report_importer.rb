@@ -79,7 +79,7 @@ module ForemanSalt
                     result['changes']['diff']
                   elsif !result['pchanges'].blank? && result['pchanges'].include?('diff')
                     result['pchanges']['diff']
-                  elsif !result['comment'].blank?
+                  elsif result['comment'].presence
                     result['comment']
                   else
                     'No message available'
