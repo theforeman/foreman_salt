@@ -165,6 +165,11 @@ Foreman::Plugin.register :foreman_salt do
                       :create_salt_variables, :view_salt_variables,
                       :edit_salt_variables, :destroy_salt_variables]
 
+  role 'Salt viewer', [:view_smart_proxies_salt_keys,
+                       :view_smart_proxies_salt_autosign,
+                       :view_salt_variables,
+                       :view_salt_environments,
+                       :view_salt_modules]
 
   # Parameter filters
   parameter_filter Hostgroup,
