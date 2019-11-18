@@ -7,6 +7,9 @@ module ForemanSalt
         include ::Foreman::Controller::SmartProxyAuth
         add_smart_proxy_filters :upload, :features => 'Salt'
 
+        include ::Foreman::Controller::FilterParameters
+        filter_parameters :job
+
         def_param_group :job do
           param :job, Hash, :required => true, :action_aware => true do
             param :job_id, Integer, :required => true, :desc => N_('JID')
