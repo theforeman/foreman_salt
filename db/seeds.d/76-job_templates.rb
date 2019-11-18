@@ -22,8 +22,8 @@ if ForemanSalt.with_remote_execution?
                                              :default => true,
                                              :locked => true,
                                              :update => sync)
-          template.organizations = organizations if SETTINGS[:organizations_enabled] && template.present?
-          template.locations = locations if SETTINGS[:locations_enabled] && template.present?
+          template.organizations = organizations if template.present?
+          template.locations = locations if template.present?
         end
       end
     end
