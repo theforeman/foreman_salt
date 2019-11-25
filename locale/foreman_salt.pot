@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_salt 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 19:13+0000\n"
-"PO-Revision-Date: 2019-07-22 19:13+0000\n"
+"POT-Creation-Date: 2019-11-25 12:06+0000\n"
+"PO-Revision-Date: 2019-11-25 12:06+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:12
+#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:15
 msgid "JID"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:13
+#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:16
 msgid "Function"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:14
+#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:17
 msgid "Result"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:18
+#: ../app/controllers/foreman_salt/api/v2/jobs_controller.rb:21
 msgid "Upload a Job"
 msgstr ""
 
@@ -163,6 +163,74 @@ msgstr ""
 msgid "Could not find salt environment with id %s"
 msgstr ""
 
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:14
+msgid "Show variable"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:18
+msgid "List Salt variables"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:24
+msgid "Deletes Salt variable"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:33
+msgid "Name of variable"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:34
+msgid "State ID"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:35
+msgid "Default value of variable"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:36
+msgid "When enabled the parameter is hidden in the UI"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:37
+msgid "The order in which values are resolved"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:38
+msgid "Description of variable"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:39
+msgid "Types of validation values"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:40
+msgid "Used to enforce certain values for the parameter values"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:41
+msgid "Types of variable values"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:42
+msgid "Merge all matching values (only array/hash type)"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:43
+msgid "Include default value when merging all matching values"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:44
+msgid "Remove duplicate values (only array type)"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:48
+msgid "Create Salt variable"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:56
+msgid "Updates Salt variable"
+msgstr ""
+
 #: ../app/controllers/foreman_salt/concerns/hosts_controller_extensions.rb:44
 #: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:38
 msgid "Salt Master"
@@ -176,11 +244,11 @@ msgstr ""
 msgid "Updated hosts: changed salt environment"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/minions_controller.rb:24
+#: ../app/controllers/foreman_salt/minions_controller.rb:27
 msgid "Unable to generate output, Check log files\\n"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/minions_controller.rb:29
+#: ../app/controllers/foreman_salt/minions_controller.rb:32
 msgid "Successfully executed, check log files for more details"
 msgstr ""
 
@@ -227,7 +295,7 @@ msgid "Salt external nodes YAML dump"
 msgstr ""
 
 #: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:17
-#: ../lib/foreman_salt/plugin.rb:156
+#: ../lib/foreman_salt/engine.rb:82
 msgid "Run Salt"
 msgstr ""
 
@@ -277,6 +345,10 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
+#: ../app/helpers/foreman_salt/salt_modules_helper.rb:20
+msgid "Salt State"
+msgstr ""
+
 #: ../app/lib/actions/foreman_salt/report_import.rb:22
 msgid "Process Highstate Report: #{input[:job_id]}"
 msgstr ""
@@ -321,45 +393,45 @@ msgstr ""
 msgid "Unable to run Salt state.highstate for %s"
 msgstr ""
 
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:63
+#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:78
 msgid "No Salt master defined - can't continue"
 msgstr ""
 
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:69
+#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:84
 msgid "Failed to execute state.highstate: %s"
 msgstr ""
 
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:77
+#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:92
 msgid "Salt states must be in the environment of the host"
 msgstr ""
 
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:79
+#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:94
 msgid "Host must have an environment in order to set salt states"
 msgstr ""
 
-#: ../app/models/foreman_salt/salt_environment.rb:13
+#: ../app/models/foreman_salt/salt_environment.rb:14
 msgid "is alphanumeric and cannot contain spaces"
 msgstr ""
 
-#: ../app/models/foreman_salt/salt_environment.rb:20
+#: ../app/models/foreman_salt/salt_environment.rb:21
 msgid "Salt environment"
 msgstr ""
 
-#: ../app/models/foreman_salt/salt_module.rb:16
+#: ../app/models/foreman_salt/salt_module.rb:22
 msgid ""
 "must be alphanumeric, can contain periods, dashes, underscores and must not co"
 "ntain spaces"
 msgstr ""
 
-#: ../app/models/foreman_salt/salt_module.rb:40
+#: ../app/models/foreman_salt/salt_module.rb:46
 msgid "Salt state"
 msgstr ""
 
-#: ../app/models/setting/salt.rb:7
+#: ../app/models/setting/salt.rb:4
 msgid "Namespace Foreman pillars under 'foreman' key"
 msgstr ""
 
-#: ../app/models/setting/salt.rb:8
+#: ../app/models/setting/salt.rb:5
 msgid "Hide the Run Salt state.highstate button on the host details page"
 msgstr ""
 
@@ -430,7 +502,8 @@ msgid "Host groups"
 msgstr ""
 
 #: ../app/views/foreman_salt/salt_environments/index.html.erb:21
-#: ../app/views/foreman_salt/salt_modules/index.html.erb:28
+#: ../app/views/foreman_salt/salt_modules/index.html.erb:32
+#: ../app/views/foreman_salt/salt_variables/index.html.erb:36
 msgid "Delete %s?"
 msgstr ""
 
@@ -539,8 +612,141 @@ msgstr ""
 msgid "SaltModule|Name"
 msgstr ""
 
-#: ../app/views/foreman_salt/salt_modules/index.html.erb:26
+#: ../app/views/foreman_salt/salt_modules/index.html.erb:29
+#: ../lib/foreman_salt/plugin.rb:23
+msgid "Variables"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_modules/index.html.erb:30
 msgid "Edit"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:3
+msgid "Salt Variable Details"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:10
+msgid "Default Behavior"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:11
+msgid "Override the default value of the Salt variable."
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:13
+msgid ""
+"Mark the variable to be managed by Foreman. When the Salt State of this variab"
+"le is assigned to a host, the default value will be added as a Salt pillar for"
+" this host. Specify matchers to set a different value for such variable."
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:26
+msgid "Value to use when there is no match."
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:29
+msgid "Hidden Value"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:32
+msgid "Hide all values for this parameter."
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:38
+msgid "Optional Input Validator"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:40
+msgid ""
+"Before including these variables as Salt pillar, Foreman will validate that yo"
+"ur variables comply with the validation."
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:43
+msgid ""
+"If checked, will raise an error if there is no default value and no matcher pr"
+"ovide a value."
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:52
+msgid "Prioritize Attribute Order"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:53
+msgid "Set the order in which values are resolved."
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:54
+msgid "Order"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:55
+msgid ""
+"The order in which matchers keys are processed, first match wins.<br> You may "
+"use multiple attributes as a matcher key, for example, an order of <code>host "
+"group, environment</code> would expect a matcher such as <code>hostgroup = \"we"
+"b servers\", environment = production</code>"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:58
+msgid ""
+"Continue to look for matches after first find (only array/hash type)? Note: me"
+"rging overrides ignores all matchers that are omitted."
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:60
+msgid "Include default value when merging all matching values."
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:63
+msgid "Avoid duplicate values when merging them (only array type)?"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/_fields.erb:67
+msgid "Specify Matchers"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/edit.html.erb:4
+#: ../app/views/foreman_salt/salt_variables/index.html.erb:1
+#: ../app/views/foreman_salt/salt_variables/new.html.erb:4
+msgid "Salt Variables"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/edit.html.erb:8
+msgid "Edit %s"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/edit.html.erb:13
+msgid "Edit Salt Variable"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/index.html.erb:3
+msgid "New Salt Variable"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/index.html.erb:9
+msgid "Variable|Name"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/index.html.erb:10
+msgid "Variable|State"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/index.html.erb:11
+msgid "Type"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/index.html.erb:12
+msgid "Actions"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/index.html.erb:19
+msgid "Overriden"
+msgstr ""
+
+#: ../app/views/foreman_salt/salt_variables/new.html.erb:8
+#: ../app/views/foreman_salt/salt_variables/new.html.erb:13
+msgid "Create Salt Variable"
 msgstr ""
 
 #: ../app/views/hosts/select_multiple_salt_environment.html.erb:4
@@ -551,7 +757,7 @@ msgstr ""
 msgid "*Clear environment*"
 msgstr ""
 
-#: ../lib/foreman_salt/plugin.rb:152
+#: ../lib/foreman_salt/engine.rb:78
 msgid "Run Salt state.highstate"
 msgstr ""
 
@@ -565,4 +771,8 @@ msgstr ""
 
 #: action_names.rb:4
 msgid "Import Puppet classes"
+msgstr ""
+
+#: action_names.rb:5
+msgid "Remote action:"
 msgstr ""
