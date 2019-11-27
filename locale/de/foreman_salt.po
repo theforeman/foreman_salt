@@ -5,17 +5,19 @@
 #
 # Translators:
 # Lukáš Zapletal, 2019
-# Ettore Atalan <atalanttore@googlemail.com>, 2019
-# 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
 # abf90805572190d649c59f7a021d76cb, 2019
 # Michael Moll, 2019
 # Hannes Schaller <admin@cyberkov.at>, 2019
 # Ulrich Habel <rhaen@pkgbox.de>, 2019
 # Arnold Bechtoldt <mail@arnoldbechtoldt.com>, 2019
-# simon11 <simon.stieger.98@live.de>, 2019
-# Bryan Kearney <bryan.kearney@gmail.com>, 2019
-# Crited <Alexander.Stoll@netways.de>, 2019
+# Ettore Atalan <atalanttore@googlemail.com>, 2019
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
 # Wiederoder <stefanwiederoder@googlemail.com>, 2019
+# Bryan Kearney <bryan.kearney@gmail.com>, 2019
+# simon11 <simon.stieger.98@live.de>, 2019
+# Christina Gurski <Gurski_christina@yahoo.de>, 2019
+# Martin Zimmermann <martin.zimmermann@gmx.com>, 2019
+# Crited <Alexander.Stoll@netways.de>, 2019
 # Bernhard Suttner <bernhard.suttner@atix.de>, 2019
 #
 msgid ""
@@ -44,7 +46,7 @@ msgid "Action with sub plans"
 msgstr "Aktion mit Unterplänen"
 
 msgid "Actions"
-msgstr ""
+msgstr "Aktionen"
 
 msgid "Added"
 msgstr "Hinzugefügt"
@@ -68,10 +70,10 @@ msgid "Autosign record"
 msgstr "Autosign-Einträge"
 
 msgid "Avoid duplicate values when merging them (only array type)?"
-msgstr ""
+msgstr "Doppelte Werte bei der Zusammenführung vermeiden (nur Array Typ)?"
 
 msgid "Before including these variables as Salt pillar, Foreman will validate that your variables comply with the validation."
-msgstr ""
+msgstr "Bevor diese Variablen als Salt Pillar vorhanden sind, wird Foreman überprüfen, ob Ihre Variablen mit der Validierung übereinstimmen."
 
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -92,16 +94,16 @@ msgid "Check/Uncheck Removed"
 msgstr "Gelöschte auswählen/abwählen"
 
 msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
-msgstr ""
+msgstr "Nach dem ersten Treffer nach weiterhin nach Treffern suchen (nur Array-/Hash-Typ)? Hinweis: Das Zusammenlegen von Überschreibungen ignoriert alle Prüfwerte, die weggelassen werden."
 
 msgid "Could not find salt environment with id %s"
 msgstr "Salt Umgebung mit ID %s konnte nicht gefunden werden"
 
 msgid "Create Salt Variable"
-msgstr ""
+msgstr "Salt Variable erstellen"
 
 msgid "Create Salt variable"
-msgstr ""
+msgstr "Salt Variable erstellen"
 
 msgid "Create a Salt environment"
 msgstr "Salt Umgebung erstellen"
@@ -113,10 +115,10 @@ msgid "Create an autosign record"
 msgstr "Autosign-Eintrag erstellen"
 
 msgid "Default Behavior"
-msgstr ""
+msgstr "Standardmäßiges Verhalten"
 
 msgid "Default value of variable"
-msgstr ""
+msgstr "Standardwert der Variable"
 
 msgid "Delete %s?"
 msgstr "%s löschen?"
@@ -128,10 +130,10 @@ msgid "Delete an autosign record"
 msgstr "Autosign-Eintrag löschen"
 
 msgid "Deletes Salt variable"
-msgstr ""
+msgstr "Salt Variable löschen"
 
 msgid "Description of variable"
-msgstr ""
+msgstr "Beschreibung der Variable"
 
 msgid "Destroy a Salt environment"
 msgstr "Salt Umgebung löschen"
@@ -146,7 +148,7 @@ msgid "Edit"
 msgstr "Bearbeiten"
 
 msgid "Edit %s"
-msgstr ""
+msgstr "%s bearbeiten"
 
 msgid "Edit Salt Environment %s"
 msgstr "Salt Umgebung %s bearbeiten"
@@ -155,7 +157,7 @@ msgid "Edit Salt State %s"
 msgstr "Salt State %s bearbeiten"
 
 msgid "Edit Salt Variable"
-msgstr ""
+msgstr "Salt Variable bearbeiten"
 
 msgid "Environment"
 msgstr "Umgebung"
@@ -179,10 +181,10 @@ msgid "Function"
 msgstr "Funktion"
 
 msgid "Hidden Value"
-msgstr ""
+msgstr "Verborgener Wert"
 
 msgid "Hide all values for this parameter."
-msgstr ""
+msgstr "Alle Werte für diesen Parameter verbergen."
 
 msgid "Hide the Run Salt state.highstate button on the host details page"
 msgstr "'Salt state.highstate' Button auf der Hoststatus Seite ausblenden"
@@ -200,7 +202,7 @@ msgid "ID of Salt Proxy"
 msgstr "ID des Salt Proxy"
 
 msgid "If checked, will raise an error if there is no default value and no matcher provide a value."
-msgstr ""
+msgstr "Falls aktiviert, wird dies einen Fehler erzeugen, wenn kein Standardwert vorhanden ist und kein Treffer einen Wert vorschlägt."
 
 msgid "Import"
 msgstr "Import"
@@ -218,10 +220,10 @@ msgid "Import states from a salt master"
 msgstr "Salt States vom Salt Master importieren"
 
 msgid "Include default value when merging all matching values"
-msgstr ""
+msgstr "Standardwert einschließen, wenn alle übereinstimmenden Werte zusammengeführt werden"
 
 msgid "Include default value when merging all matching values."
-msgstr ""
+msgstr "Standardwert bei der Zusammenführung aller übereinstimmenden Werte einschließen."
 
 msgid "Invalid report"
 msgstr "Ungültiger Bericht"
@@ -254,7 +256,7 @@ msgid "Limit to specific actions: i.e. add, remove"
 msgstr "Limitieren auf bestimmte Aktionen, z.B. 'add', 'remove'"
 
 msgid "List Salt variables"
-msgstr ""
+msgstr "Alle Salt Variablen auflisten"
 
 msgid "List all Salt Minions"
 msgstr "Alle Salt Minions auflisten"
@@ -272,10 +274,10 @@ msgid "List all autosign records"
 msgstr "Alle Autosign-Einträge auflisten"
 
 msgid "Mark the variable to be managed by Foreman. When the Salt State of this variable is assigned to a host, the default value will be added as a Salt pillar for this host. Specify matchers to set a different value for such variable."
-msgstr ""
+msgstr "Markiert, dass die Variablen von Foreman verwaltet werden sollen. Wenn der Salt State dieser Variable einem Host zugewiesen wird, wird der Standardwert als Salt Pillar für diesen Host hinzugefügt. Geben Sie Matchers an, um einen anderen Wert für eine solche Variable festzulegen."
 
 msgid "Merge all matching values (only array/hash type)"
-msgstr ""
+msgstr "Alle übereinstimmenden Werte (nur vom Typ Array/Hash) zusammenführen"
 
 msgid "Must specify a Smart Proxy to use"
 msgstr "Zu verwendender Smart Proxy muss angegeben werden"
@@ -287,7 +289,7 @@ msgid "Name of the Salt state"
 msgstr "Name des Salt States"
 
 msgid "Name of variable"
-msgstr ""
+msgstr "Name der Variable"
 
 msgid "Namespace Foreman pillars under 'foreman' key"
 msgstr "Nutze 'foreman' Namesbereich für die Foreman Pillar-Daten "
@@ -305,7 +307,7 @@ msgid "New Salt State"
 msgstr "Neuen Salt State"
 
 msgid "New Salt Variable"
-msgstr ""
+msgstr "Neue Salt Variable"
 
 msgid "No Salt master defined - can't continue"
 msgstr "Kein Salt Master definiert - kann nicht fortfahren"
@@ -320,22 +322,22 @@ msgid "Operation"
 msgstr "Vorgang"
 
 msgid "Optional Input Validator"
-msgstr ""
+msgstr "Optionaler Eingabe-Validator"
 
 msgid "Order"
-msgstr ""
+msgstr "Reihenfolge"
 
 msgid "Override the default value of the Salt variable."
-msgstr ""
+msgstr "Überschreibe den Standardwert der Salt Variable."
 
 msgid "Overriden"
-msgstr ""
+msgstr "Überschreiben"
 
 msgid "Please select a Salt environment first"
 msgstr "Bitte zuerst eine Salt Umgebung wählen"
 
 msgid "Prioritize Attribute Order"
-msgstr ""
+msgstr "Priorisiere Eigenschaft-Reihenfolge"
 
 msgid "Process Highstate Report: #{input[:job_id]}"
 msgstr "Verarbeite state.highstate Report: #{input[:job_id]}"
@@ -350,10 +352,10 @@ msgid "Rejected"
 msgstr "Zurückgewiesen"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Entfernte Aktion:"
 
 msgid "Remove duplicate values (only array type)"
-msgstr ""
+msgstr "Duplikate (nur vom Typ Array) entfernen"
 
 msgid "Removed"
 msgstr "Entfernt"
@@ -392,16 +394,16 @@ msgid "Salt Smart Proxy ID"
 msgstr "Salt Smart Proxy ID"
 
 msgid "Salt State"
-msgstr ""
+msgstr "Salt State"
 
 msgid "Salt States"
 msgstr "Salt States"
 
 msgid "Salt Variable Details"
-msgstr ""
+msgstr "Salt Variablen Details"
 
 msgid "Salt Variables"
-msgstr ""
+msgstr "Salt Variablen"
 
 msgid "Salt environment"
 msgstr "Salt Umgebung"
@@ -434,7 +436,7 @@ msgid "Select the changes you want to realize in Foreman"
 msgstr "Wählen Sie die Änderungen, die Sie in Foreman anwenden möchten"
 
 msgid "Set the order in which values are resolved."
-msgstr ""
+msgstr "Reihenfolge festlegen, in der die Werte aufgelöst werden."
 
 msgid "Show a Salt environment"
 msgstr "Salt Umgebung anzeigen"
@@ -446,16 +448,16 @@ msgid "Show a state"
 msgstr "Salt State anzeigen"
 
 msgid "Show variable"
-msgstr ""
+msgstr "Variable anzeigen"
 
 msgid "Specify Matchers"
-msgstr ""
+msgstr "Prüfwert spezifizieren"
 
 msgid "State"
 msgstr "Status"
 
 msgid "State ID"
-msgstr ""
+msgstr "State ID"
 
 msgid "State can be \"accepted\" or \"rejected\""
 msgstr "State kann \"accepted\" oder \"rejected\" sein"
@@ -473,10 +475,10 @@ msgid "Successfully updated %s."
 msgstr "%s wurde aktualisiert."
 
 msgid "The order in which matchers keys are processed, first match wins.<br> You may use multiple attributes as a matcher key, for example, an order of <code>host group, environment</code> would expect a matcher such as <code>hostgroup = \"web servers\", environment = production</code>"
-msgstr ""
+msgstr "Die Reihenfolge, in der Prüfwertschlüssel verarbeitet werden. Die erste Übereinstimmung ist maßgeblich.<br> Sie können mehrere Attribute als Prüfwertschlüssel verwenden. Beispielsweise würde die Reihenfolge <code>host group, environment</code> einen Prüfwert wie etwa <code>hostgroup = \"web servers\", environment = production</code> erwarten."
 
 msgid "The order in which values are resolved"
-msgstr ""
+msgstr "Reihenfolge, in der Werte aufgelöst werden"
 
 msgid "Toggle"
 msgstr "Umschalten"
@@ -485,13 +487,13 @@ msgid "Trigger a state.highstate run on a node"
 msgstr "Salt state.highstate Lauf auf einem Knoten auslösen"
 
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgid "Types of validation values"
-msgstr ""
+msgstr "Typen von Validierungswerten"
 
 msgid "Types of variable values"
-msgstr ""
+msgstr "Typen von Variablenwerten"
 
 msgid "Unable to accept Salt key for %s"
 msgstr "Salt Schlüssel für %s konnte nicht akzeptiert werden"
@@ -544,28 +546,28 @@ msgid "Updated hosts: changed salt environment"
 msgstr "Hosts aktualisiert: Salt Umgebung geändert"
 
 msgid "Updates Salt variable"
-msgstr ""
+msgstr "Salt Variable aktualisieren"
 
 msgid "Upload a Job"
 msgstr "Hochladen eines Jobs"
 
 msgid "Used to enforce certain values for the parameter values"
-msgstr ""
+msgstr "Verwendet, um bestimmte Werte für die Parameterwerte umzusetzen"
 
 msgid "Value to use when there is no match."
-msgstr ""
+msgstr "Zu verwendender Wert, falls es keine Übereinstimmung gibt"
 
 msgid "Variables"
-msgstr ""
+msgstr "Variablen"
 
 msgid "Variable|Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Variable|State"
-msgstr ""
+msgstr "State"
 
 msgid "When enabled the parameter is hidden in the UI"
-msgstr ""
+msgstr "Wenn aktiviert, so ist der Parameter im UI verborgen "
 
 msgid "is alphanumeric and cannot contain spaces"
 msgstr "ist alphanumerisch und kann keine Leerzeichen enthalten"
