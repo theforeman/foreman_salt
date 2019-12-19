@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'deface', '< 2.0'
-  s.add_dependency 'foreman-tasks', '~> 0.8'
+  s.add_dependency 'foreman-tasks', '>= 0.8'
   s.add_dependency 'foreman_remote_execution', '~> 2.0.0'
   s.add_development_dependency 'rubocop', '~> 0.71.0'
 end
