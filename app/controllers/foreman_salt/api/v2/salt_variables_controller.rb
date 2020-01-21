@@ -6,7 +6,6 @@ module ForemanSalt
       # API controller for Salt Variables
       class SaltVariablesController < ::ForemanSalt::Api::V2::BaseController
         include ::ForemanSalt::Concerns::SaltVariableParameters
-        include Foreman::Controller::Parameters::VariableLookupKey
 
         wrap_parameters :salt_variable, :include => salt_variable_params_filter.accessible_attributes(parameter_filter_context) + ['salt_state_id']
         before_action :find_resource, :only => [:show, :destroy, :update]
@@ -58,7 +57,7 @@ module ForemanSalt
         param_group :salt_variable, :as => :update
 
         def update
-          @salt_variable.update!(variable_lookup_key_params)
+          @salt_variable.update!(salt_variable_params)
           render 'foreman_salt/api/v2/salt_variables/show'
         end
 
