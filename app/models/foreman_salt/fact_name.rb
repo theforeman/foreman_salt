@@ -8,7 +8,7 @@ module ForemanSalt
     end
 
     def icon_path
-      'foreman_salt/Salt'
+      'foreman_salt/Salt.png'
     end
   end
 end
