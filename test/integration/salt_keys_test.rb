@@ -22,13 +22,12 @@ module ForemanSalt
       visit smart_proxy_path(@proxy)
       assert page.has_link? "Salt Keys"
       click_link "Salt Keys"
-      assert page.has_content?("Salt Keys on #{@proxy.hostname}"), 'Page title does not appear'
+      assert page.has_title?("Salt Keys on #{@proxy}"), 'Page title does not appear'
     end
 
     test 'index page' do
       visit smart_proxy_salt_keys_path(:smart_proxy_id => @proxy.id)
-      assert find_link('Autosign').visible?, 'Autosign is not visible'
-      assert has_content?("Salt Keys on #{@proxy.hostname}"), 'Page title does not appear'
+      assert has_title?("Salt Keys on #{@proxy}"), 'Page title does not appear'
       assert has_content?('Displaying'), 'Pagination "Display ..." does not appear'
     end
 

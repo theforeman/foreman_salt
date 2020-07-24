@@ -56,23 +56,67 @@ module ForemanSalt
       assert host.configuration?
     end
 
-    context 'key handling' do
+    context 'autosign handling' do
       before do
-        @host = FactoryBot.create(:host, :managed, :build => true)
+        @host = FactoryBot.create(:host, :managed)
         @host.salt_proxy = @proxy
-        @key_stub = stub("key")
-        ForemanSalt::SmartProxies::SaltKeys.expects(:find).at_least_once.with(@host.salt_proxy, @host.fqdn).returns(@key_stub)
+        stub_request(:post, "#{@proxy.url}/salt/autosign_key/asdfasdfasfasdf").
+          to_return(status: 200, body: "", headers: {})
       end
 
-      test 'host key is accepted when host is built' do
-        @key_stub.expects(:accept).at_least_once.returns(true)
-        assert @host.built
-        @host.run_callbacks(:commit) # callbacks don't run with Foreman's transactional fixtures
+      test 'host autosign is created when host is built' do
+        autosign_key = "asdfasdfasfasdf"
+        @host.expects(:generate_provisioning_key).returns(autosign_key)
+        @host.build = true
+        assert @host.save!
+        @host.clear_host_parameters_cache!
+        assert_equal autosign_key, @host.salt_autosign_key
+      end
+    end
+
+    context 'function derive_salt_grains' do
+      before do
+        @host = FactoryBot.create(:host, :managed)
+        @host.salt_proxy = @proxy
       end
 
-      test 'host key is deleted when host is removed' do
-        @key_stub.expects(:delete).at_least_once.returns(true)
-        assert @host.destroy
+      test 'host returns autosign when deriving salt grains' do
+        autosign_key = "asdfasdfasfasdf"
+        expected_hash = { @host.autosign_grain_name => autosign_key }
+        @host.salt_autosign_key = autosign_key
+        assert_equal expected_hash, @host.instance_eval { derive_salt_grains(:use_autosign => true) }
+      end
+
+      test 'host returns empty hash when deriving salt grains without any given' do
+        expected_hash = {}
+        assert_equal expected_hash, @host.instance_eval { derive_salt_grains(:use_autosign => true) }
+      end
+
+      test 'host returns empty hash when deriving salt grains without autosign' do
+        expected_hash = {}
+        assert_equal expected_hash, @host.instance_eval { derive_salt_grains(:use_autosign => false) }
+      end
+
+      test 'host returns host param grains when deriving salt grains' do
+        expected_hash = { "Some key": "Some value", "Another key": "An extraordinary value" }
+        @host.host_params[@host.host_params_grains_name] = expected_hash
+        assert_equal expected_hash, @host.instance_eval { derive_salt_grains(:use_autosign => false) }
+      end
+
+      test 'host returns only host param grains when deriving salt grains' do
+        expected_hash = { "Some key": "Some value", "Another key": "An extraordinary value" }
+        @host.host_params[@host.host_params_grains_name] = expected_hash
+        assert_equal expected_hash, @host.instance_eval { derive_salt_grains(:use_autosign => true) }
+      end
+
+      test 'host returns host param grains plus autosign when deriving salt grains' do
+        autosign_key = "asdfasdfasfasdf"
+        host_param_grains = { "Some key": "Some value",
+                              "Another key": "An extraordinary value" }
+        expected_hash = host_param_grains.merge(@host.autosign_grain_name => autosign_key)
+        @host.salt_autosign_key = autosign_key
+        @host.host_params[@host.host_params_grains_name] = host_param_grains
+        assert_equal expected_hash, @host.instance_eval { derive_salt_grains(:use_autosign => true) }
       end
     end
   end

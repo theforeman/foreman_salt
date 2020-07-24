@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       scope '(:apiv)', :defaults => { :apiv => 'v2' },
                        :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
         match '/jobs/upload' => 'foreman_salt/api/v2/jobs#upload', :via => :post
+        match '/salt_autosign_auth' => 'foreman_salt/api/v2/salt_autosign#auth', :via => :put
 
         constraints(:smart_proxy_id => /[\w\.-]+/, :name => /[\w\.-]+/, :record => /[^\/]+/) do
           match '/salt_keys/:smart_proxy_id' => 'foreman_salt/api/v2/salt_keys#index', :via => :get
