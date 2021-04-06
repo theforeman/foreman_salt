@@ -43,7 +43,7 @@ module ForemanSalt
 
       @host.save(:validate => false)
       @host.reload
-      @host.refresh_statuses
+      @host.refresh_statuses([HostStatus.find_status_by_humanized_name("configuration")])
 
       logger.info("Imported report for #{@host} in #{(Time.zone.now - start_time).round(2)} seconds")
     end
