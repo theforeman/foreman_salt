@@ -43,6 +43,12 @@ module ::ProxyAPI
       raise ProxyException.new(url, e, N_('Unable to fetch Salt states list'))
     end
 
+    def refresh_pillar(name)
+      parse(post('', "refresh_pillar/#{name}"))
+    rescue => e
+      raise ProxyException.new(url, e, N_('Unable to refresh pillar data for %s'), name)
+    end
+
     def key_list
       parse(get('key'))
     rescue => e
