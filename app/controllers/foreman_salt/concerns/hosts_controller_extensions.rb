@@ -63,6 +63,7 @@ module ForemanSalt
         @hosts.each do |host|
           host.salt_environment = ev
           host.save(:validate => false)
+          ProxyAPI::Salt.new(:url => salt_proxy.url).refresh_pillar host.name
         end
 
         success _('Updated hosts: changed salt environment')

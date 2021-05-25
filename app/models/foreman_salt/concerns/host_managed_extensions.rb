@@ -45,6 +45,7 @@ module ForemanSalt
         after_build      :delete_salt_key, :if => ->(host) { host.salt_proxy }
         before_provision :accept_salt_key, :if => ->(host) { host.salt_proxy }
         before_destroy   :delete_salt_key, :if => ->(host) { host.salt_proxy }
+        after_update     :refresh_pillar, :if => ->(host) { host.salt_proxy }
       end
 
       def salt_params
@@ -96,6 +97,21 @@ module ForemanSalt
       end
 
       private
+
+      def refresh_pillar
+        unless salt_proxy.present?
+          errors.add(:base, _("No Salt master defined - can't continue"))
+          logger.warn 'Unable to refresh pillar data, no salt proxies defined'
+          return false
+        end
+        begin
+          Rails.logger.info("Refreshing pillar data of #{fqdn}")
+          ProxyAPI::Salt.new(:url => salt_proxy.url).refresh_pillar name
+        rescue => e
+          errors.add(:base, _('Failed to refresh pillar data: %s') % e)
+          false
+        end
+      end
 
       def accept_salt_key
         begin
