@@ -89,7 +89,7 @@ module ForemanSalt
     def os_hash
       name = facts[:os]
       (_, major, minor, sub) = /(\d+)\.?(\d+)?\.?(\d+)?/.match(facts[:osrelease]).to_a
-      minor = minor.to_s if minor.nil?
+      minor = "" if minor.nil?
       if name == 'CentOS'
         if sub
           minor += '.' + sub
