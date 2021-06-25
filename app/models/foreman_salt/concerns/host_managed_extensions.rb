@@ -42,9 +42,8 @@ module ForemanSalt
 
         validate :salt_modules_in_host_environment
 
-        after_build      :delete_salt_key, :if => ->(host) { host.salt_proxy }
-        before_provision :accept_salt_key, :if => ->(host) { host.salt_proxy }
-        before_destroy   :delete_salt_key, :if => ->(host) { host.salt_proxy }
+        after_build :ensure_salt_autosign, :if => ->(host) { host.salt_proxy }
+        before_destroy :remove_salt_autosign, :if => ->(host) { host.salt_proxy }
       end
 
       def salt_params
@@ -56,6 +55,14 @@ module ForemanSalt
           memo[var.key] = value if value
           memo
         end
+      end
+
+      def host_params_grains_name
+        "salt_grains"
+      end
+
+      def autosign_grain_name
+        "autosign_key"
       end
 
       def salt_modules_for_enc
@@ -97,28 +104,58 @@ module ForemanSalt
 
       private
 
-      def accept_salt_key
-        begin
-          Rails.logger.info("Host #{fqdn} is built, accepting Salt key")
-          key = ForemanSalt::SmartProxies::SaltKeys.find(salt_proxy, fqdn)
-          key&.accept
-        rescue Foreman::Exception => e
-          Rails.logger.warn("Unable to accept key for #{fqdn}: #{e}")
+      def ensure_salt_autosign
+        remove_salt_autosign
+        create_salt_autosign
+      end
+
+      def remove_salt_autosign
+        key = self.salt_autosign_key
+        unless key.nil?
+          Rails.logger.info("Remove salt autosign key for host #{fqdn}")
+          begin
+            api = ProxyAPI::Salt.new(:url => salt_proxy.url)
+            api.autosign_remove_key(key)
+          rescue Foreman::Exception => e
+            Rails.logger.warn("Unable to remove salt autosign for #{fqdn}: #{e}")
+          end
         end
       end
 
-      def delete_salt_key
+      def generate_provisioning_key
+          SecureRandom.hex(10)
+      end
+
+      def create_salt_autosign
         begin
-          key = ForemanSalt::SmartProxies::SaltKeys.find(salt_proxy, fqdn)
-          key&.delete
+          Rails.logger.info("Create salt autosign key for host #{fqdn}")
+          api = ProxyAPI::Salt.new(:url => salt_proxy.url)
+          key = generate_provisioning_key
+          api.autosign_create_key(key)
+          update(:salt_autosign_key => key)
+          update(:salt_status => ForemanSalt::SaltStatus.minion_auth_waiting)
         rescue Foreman::Exception => e
-          Rails.logger.warn("Unable to delete key for #{fqdn}: #{e}")
+          Rails.logger.warn("Unable to create salt autosign for #{fqdn}: #{e}")
         end
+      end
+
+      def derive_salt_grains(use_autosign: False)
+        grains = {}
+        begin
+          Rails.logger.info("Derive Salt Grains from host_params and autosign_key")
+          grains[autosign_grain_name] = salt_autosign_key if use_autosign && !salt_autosign_key.nil?
+          unless host_params[host_params_grains_name].nil?
+            grains.merge!(host_params[host_params_grains_name])
+          end
+        rescue Foreman::Exception => e
+          Rails.logger.warn("Unable to derive Salt Grains: #{e}")
+        end
+        grains
       end
     end
   end
 end
 
 class ::Host::Managed::Jail < Safemode::Jail
-  allow :salt_environment, :salt_master
+  allow :salt_environment, :salt_master, :derive_salt_grains
 end

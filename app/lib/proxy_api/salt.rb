@@ -14,7 +14,7 @@ module ::ProxyAPI
     def autosign_create(name)
       parse(post('', "autosign/#{URI.escape(name)}"))
     rescue => e
-      raise ProxyException.new(url, e, N_('Unable to set Salt autosign for %s'), name)
+      raise ProxyException.new(url, e, N_('Unable to set Salt autosign hostname for %s'), name)
     end
 
     def autosign_remove(name)
@@ -22,7 +22,21 @@ module ::ProxyAPI
     rescue RestClient::ResourceNotFound
       true # entry doesn't exists anyway
     rescue => e
-      raise ProxyException.new(url, e, N_('Unable to delete Salt autosign for %s'), name)
+      raise ProxyException.new(url, e, N_('Unable to delete Salt autosign hostname for %s'), name)
+    end
+
+    def autosign_create_key(key)
+      parse(post('', "autosign_key/#{URI.escape(key)}"))
+    rescue => e
+      raise ProxyException.new(url, e, N_('Unable to create Salt autosign key %s'), key)
+    end
+
+    def autosign_remove_key(key)
+      parse(delete("autosign_key/#{URI.escape(key)}"))
+    rescue RestClient::ResourceNotFound
+      true # entry doesn't exists anyway
+    rescue => e
+      raise ProxyException.new(url, e, N_('Unable to delete Salt autosign key %s'), key)
     end
 
     def environments_list
