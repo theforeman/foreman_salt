@@ -120,5 +120,5 @@ module ForemanSalt
 end
 
 class ::Host::Managed::Jail < Safemode::Jail
-  allow :salt_environment
+  allow :salt_environment, :salt_master
 end
