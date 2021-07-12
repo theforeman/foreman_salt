@@ -102,6 +102,20 @@ module ForemanSalt
         end
       end
 
+      def derive_salt_grains(use_autosign: False)
+        grains = {}
+        begin
+          Rails.logger.info("Derive Salt Grains from host_params and autosign_key")
+          grains[autosign_grain_name] = salt_autosign_key if use_autosign && !salt_autosign_key.nil?
+          unless host_params[host_params_grains_name].nil?
+            grains.merge!(host_params[host_params_grains_name])
+          end
+        rescue Foreman::Exception => e
+          Rails.logger.warn("Unable to derive Salt Grains: #{e}")
+        end
+        grains
+      end
+
       private
 
       def ensure_salt_autosign
@@ -137,20 +151,6 @@ module ForemanSalt
         rescue Foreman::Exception => e
           Rails.logger.warn("Unable to create salt autosign for #{fqdn}: #{e}")
         end
-      end
-
-      def derive_salt_grains(use_autosign: False)
-        grains = {}
-        begin
-          Rails.logger.info("Derive Salt Grains from host_params and autosign_key")
-          grains[autosign_grain_name] = salt_autosign_key if use_autosign && !salt_autosign_key.nil?
-          unless host_params[host_params_grains_name].nil?
-            grains.merge!(host_params[host_params_grains_name])
-          end
-        rescue Foreman::Exception => e
-          Rails.logger.warn("Unable to derive Salt Grains: #{e}")
-        end
-        grains
       end
     end
   end
