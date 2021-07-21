@@ -4,7 +4,8 @@ module ForemanSalt
   class MinionsControllerTest < ActionController::TestCase
     setup do
       User.current = User.anonymous_admin
-      Setting::Salt.load_defaults
+      Setting[:salt_namespace_pillars] = false
+      Setting[:salt_hide_run_salt_button] = ForemanSalt.with_remote_execution?
       Setting[:restrict_registered_smart_proxies] = true
       Setting[:require_ssl_smart_proxies] = false
 
