@@ -1,7 +1,4 @@
 begin
-  ::Foreman::Plugin.fact_importer_registry.register(:foreman_salt, ForemanSalt::FactImporter)
-  ::FactParser.register_fact_parser(:foreman_salt, ForemanSalt::FactParser)
-
   # Helper Extensions
   ::HostsHelper.send :include, ForemanSalt::HostsHelperExtensions
   ::SmartProxiesHelper.send :include, ForemanSalt::SmartProxiesHelperExtensions
