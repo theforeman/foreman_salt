@@ -107,7 +107,8 @@ module ForemanSalt
         begin
           Rails.logger.info("Derive Salt Grains from host_params and autosign_key")
           grains[autosign_grain_name] = salt_autosign_key if use_autosign && !salt_autosign_key.nil?
-          unless host_params[host_params_grains_name].nil?
+          unless host_params[host_params_grains_name].nil? ||
+              host_params[host_params_grains_name].class != Hash
             grains.merge!(host_params[host_params_grains_name])
           end
         rescue Foreman::Exception => e
