@@ -43,7 +43,7 @@ module ForemanSalt
         validate :salt_modules_in_host_environment
 
         after_build :ensure_salt_autosign, :if => ->(host) { host.salt_proxy }
-        before_destroy :remove_salt_autosign, :if => ->(host) { host.salt_proxy }
+        before_destroy :remove_salt_minion, :if => ->(host) { host.salt_proxy }
       end
 
       def salt_params
@@ -122,6 +122,17 @@ module ForemanSalt
       def ensure_salt_autosign
         remove_salt_autosign
         create_salt_autosign
+      end
+
+      def remove_salt_minion
+        remove_salt_autosign
+        remove_salt_key
+      end
+
+      def remove_salt_key
+        Rails.logger.info("Remove salt key for host #{fqdn}")
+        api = ProxyAPI::Salt.new(:url => salt_proxy.url)
+        api.key_delete(name)
       end
 
       def remove_salt_autosign
