@@ -17,6 +17,7 @@ This plug-in adds support for Salt to Foreman.
 | >= 1.22         | 10.3.1         |
 | >= 1.23         | 11.0.1         |
 | >= 1.24         | 13.2.0         |
+| >= 2.5          | 14.0.0         |
 
 ## Documentation
 

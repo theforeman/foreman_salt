@@ -1,3 +1,3 @@
 module ForemanSalt
-  VERSION = '13.2.4'
+  VERSION = '14.0.0'
 end
