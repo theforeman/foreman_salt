@@ -12,7 +12,7 @@ module ForemanSalt
 
       Operatingsystem.where(:name => 'CentOS', :major => '6', :minor => '5').delete_all
 
-      grains = JSON.parse(File.read(File.join(Engine.root, 'test', 'unit', 'grains_centos.json')))
+      grains = JSON.parse(File.read(File.join(Foreman::Application.root, 'test', 'static_fixtures', 'facts', 'grains_centos.json')))
       @imported_host = ::Host::Managed.import_host grains['name'], 'salt'
       @imported_host.import_facts grains['facts'].with_indifferent_access
     end

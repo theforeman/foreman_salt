@@ -10,7 +10,7 @@ attributes :id, :variable, :salt_state, :salt_state_id, :description, :override,
 node do |salt_variable|
   {
     :override_values => partial(
-      'api/v2/override_values/index',
+      'api/v2/override_values/main',
       :object => salt_variable.lookup_values
     )
   }
