@@ -1,0 +1,68 @@
+name: Unit and functional tests
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  RAILS_ENV: test
+  DATABASE_URL: postgresql://postgres:@localhost/test
+  DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: true
+
+jobs:
+  test_ruby:
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITHOUT: journald:development:console:libvirt
+    services:
+      postgres:
+        image: postgres:12.1
+        ports: ['5432:5432']
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    strategy:
+      fail-fast: true
+      matrix:
+        foreman-repo: [theforeman/foreman]
+        foreman-core-branch: [develop]
+        ruby-version: [2.7]
+        node-version: [12]
+    steps:
+      - run: |
+          sudo apt-get update
+          sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{ matrix.foreman-repo }}
+          ref: ${{ matrix.foreman-core-branch }}
+      - uses: actions/checkout@v2
+        with:
+          path: foreman_salt
+      - name: Setup Bundler
+        run: |
+          echo "gem 'foreman_salt', path: './foreman_salt'" > bundler.d/foreman_salt.local.rb
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+      - name: Prepare webpack
+        run: |
+          npm install
+          bundle exec rake webpack:compile
+      - name: Prepare test DB
+        run: |
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+      - name: Run plugin tests
+        run: |
+          bundle exec rake test:foreman_salt
+      - name: Run access permission test
+        run: |
+          bundle exec rake test TEST="test/unit/foreman/access_permissions_test.rb"
+      - name: Upload test.log
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: log
+          path: log/test.log
