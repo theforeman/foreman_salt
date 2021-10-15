@@ -12,6 +12,8 @@ module ForemanSalt
     config.autoload_paths += Dir["#{config.root}/app/services"]
     config.autoload_paths += Dir["#{config.root}/app/lib"]
 
+    config.paths['config/routes.rb'].unshift('config/api_routes.rb')
+
     initializer 'foreman_salt.require_dynflow', :before => 'foreman_tasks.initialize_dynflow' do
       ForemanTasks.dynflow.require!
     end
