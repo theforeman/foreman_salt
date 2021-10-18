@@ -22,7 +22,15 @@ Foreman::Plugin.register :foreman_salt do
     caption: N_('Variables'),
     parent: :configure_menu
 
-  # Permissions
+  # Existing permissions
+  p = Foreman::AccessControl.permission(:edit_hostgroups)
+  p.actions << 'foreman_salt/api/v2/salt_hostgroups/update'
+  p.actions << 'hostgroups/salt_environment_selected'
+
+  p = Foreman::AccessControl.permission(:view_hostgroups)
+  p.actions << 'foreman_salt/api/v2/salt_hostgroups/show'
+
+  # New permissions
   security_block :foreman_salt do
     permission :auth_smart_proxies_salt_autosign,
       { 'foreman_salt/api/v2/salt_autosign': [:auth] },
@@ -108,10 +116,6 @@ Foreman::Plugin.register :foreman_salt do
         'foreman_salt/api/v2/salt_minions': %i[index show] },
       resource_type: 'Host'
 
-    permission :edit_hostgroups,
-      { hostgroups: [:salt_environment_selected] },
-      resource_type: 'Hostgroup'
-
     permission :view_smart_proxies_salt_keys,
       { 'foreman_salt/salt_keys': [:index],
         'foreman_salt/api/v2/salt_keys': [:index] },
@@ -164,13 +168,15 @@ Foreman::Plugin.register :foreman_salt do
                         create_salt_environments view_salt_environments
                         edit_salt_environments destroy_salt_environments
                         create_salt_variables view_salt_variables
-                        edit_salt_variables destroy_salt_variables]
+                        edit_salt_variables destroy_salt_variables
+                        view_hostgroups edit_hostgroups]
 
   role 'Salt viewer', %i[view_smart_proxies_salt_keys
                          view_smart_proxies_salt_autosign
                          view_salt_variables
                          view_salt_environments
-                         view_salt_modules]
+                         view_salt_modules
+                         view_hostgroups]
 
   # Parameter filters
   parameter_filter Hostgroup,

@@ -13,6 +13,9 @@ module ForemanSalt
         scoped_search relation: :salt_modules, on: :name, complete_value: true, rename: :salt_state
         scoped_search relation: :salt_environment, on: :name, complete_value: true, rename: :salt_environment
         scoped_search relation: :salt_proxy, on: :name, complete_value: true, rename: :saltmaster
+
+        validates :salt_proxy, presence: true, unless: -> { salt_proxy_id.blank? }
+        validates :salt_environment, presence: true, unless: -> { salt_environment_id.blank? }
       end
 
       def all_salt_modules

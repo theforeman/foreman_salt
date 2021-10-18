@@ -21,6 +21,7 @@ Rails.application.routes.draw do
           resources :salt_environments, only: %i[show index create destroy], controller: '/foreman_salt/api/v2/salt_environments'
           resources :salt_minions, only: %i[show index update], controller: '/foreman_salt/api/v2/salt_minions'
           resources :salt_states, only: %i[show index create destroy], controller: '/foreman_salt/api/v2/salt_states'
+          resources :hostgroups, only: %i[show update], controller: '/foreman_salt/api/v2/salt_hostgroups'
         end
 
         resources :salt_variables, only: %i[show index destroy update create], controller: '/foreman_salt/api/v2/salt_variables'
