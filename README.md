@@ -21,7 +21,7 @@ This plug-in adds support for Salt to Foreman.
 
 ## Documentation
 
-See the [Foreman Salt manuals](http://theforeman.org/plugins/foreman_salt/) on the Foreman web site.
+[Using Salt for Configuration Management](https://docs.theforeman.org/nightly/Managing_Hosts/index-foreman-el.html#using-salt-for-configuration-management_managing-hosts)
 
 ## Contributing
 
@@ -43,4 +43,3 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
