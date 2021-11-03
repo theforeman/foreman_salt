@@ -3,7 +3,7 @@ require 'foreman_salt/engine'
 begin
   require 'foreman-tasks'
 rescue LoadError
-  puts 'ForemanTasks is not available, async tasks disabled.'
+  Rails.logger.error('ForemanSalt: ForemanTasks is not available, async tasks disabled.')
 end
 
 module ForemanSalt

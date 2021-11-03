@@ -6,7 +6,7 @@ module ForemanSalt
       class_methods do
         def salt_environment_params_filter
           Foreman::ParameterFilter.new(::ForemanSalt::SaltEnvironment).tap do |filter|
-            filter.permit(:name, :salt_modules => [], :salt_module_ids => [])
+            filter.permit(:name, salt_modules: [], salt_module_ids: [])
           end
         end
       end

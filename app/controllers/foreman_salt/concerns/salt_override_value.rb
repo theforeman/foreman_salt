@@ -9,13 +9,13 @@ module ForemanSalt
       class_methods do
         def lookup_value_params_filter
           Foreman::ParameterFilter.new(::LookupValue).tap do |filter|
-            filter.permit :salt_variable_id, :override_value => {}
+            filter.permit :salt_variable_id, override_value: {}
 
             filter.permit_by_context :hidden_value, :host_or_hostgroup, :lookup_key, :lookup_key_id,
-                                     :match, :omit, :value, :nested => true
+              :match, :omit, :value, nested: true
 
-            filter.permit_by_context :id, :_destroy, :ui => false,
-                                     :api => false, :nested => true
+            filter.permit_by_context :id, :_destroy, ui: false,
+                                                     api: false, nested: true
           end
         end
       end

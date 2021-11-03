@@ -15,28 +15,28 @@ module ForemanSalt
       as_admin do
         proxy = FactoryBot.create(:smart_proxy, :with_salt_feature)
         salt_environment = FactoryBot.create(:salt_environment)
-        @host = FactoryBot.create(:host, :salt_proxy => proxy, :salt_environment => salt_environment)
+        @host = FactoryBot.create(:host, salt_proxy: proxy, salt_environment: salt_environment)
         Setting::Salt.load_defaults
       end
     end
 
-    describe "hosts details run salt button" do
-      test "verify run salt button availabilty" do
+    describe 'hosts details run salt button' do
+      test 'verify run salt button availabilty' do
         Setting[:salt_hide_run_salt_button] = false
         visit hosts_path
         click_link @host.fqdn
-        assert page.has_link?("Run Salt")
+        assert page.has_link?('Run Salt')
       end
 
-      test "verify run salt button absence" do
+      test 'verify run salt button absence' do
         Setting[:salt_hide_run_salt_button] = true
         visit hosts_path
         click_link @host.fqdn
-        assert_not page.has_link?("Run Salt")
+        assert_not page.has_link?('Run Salt')
       end
     end
 
-    describe "hosts index salt multiple actions" do
+    describe 'hosts index salt multiple actions' do
       test 'change salt master action' do
         visit hosts_path
         check 'check_all'
@@ -51,13 +51,13 @@ module ForemanSalt
 
         # Hosts are added to cookie
         host_ids_on_cookie = JSON.parse(CGI.unescape(get_me_the_cookie('_ForemanSelectedhosts')&.fetch(:value)))
-        assert(host_ids_on_cookie.include?(@host.id))
+        assert_includes(host_ids_on_cookie, @host.id)
 
         within('#submit_multiple') do
           click_on('Change Salt Master')
         end
 
-        assert index_modal.visible?, "Modal window was shown"
+        assert index_modal.visible?, 'Modal window was shown'
         page.find('#proxy_proxy_id').find("option[value='#{@host.salt_proxy.id}']").select_option
 
         # remove hosts cookie on submit
@@ -80,13 +80,13 @@ module ForemanSalt
 
         # Hosts are added to cookie
         host_ids_on_cookie = JSON.parse(CGI.unescape(get_me_the_cookie('_ForemanSelectedhosts')&.fetch(:value)))
-        assert(host_ids_on_cookie.include?(@host.id))
+        assert_includes(host_ids_on_cookie, @host.id)
 
         within('#submit_multiple') do
           click_on('Change Salt Environment')
         end
 
-        assert index_modal.visible?, "Modal window was shown"
+        assert index_modal.visible?, 'Modal window was shown'
         page.find('#salt_environment_id').find("option[value='#{@host.salt_environment.id}']").select_option
 
         # remove hosts cookie on submit

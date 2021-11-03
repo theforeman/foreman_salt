@@ -5,21 +5,21 @@ module ForemanSalt
     module V2
       class JobsController < ::ForemanSalt::Api::V2::BaseController
         include ::Foreman::Controller::SmartProxyAuth
-        add_smart_proxy_filters :upload, :features => 'Salt'
+        add_smart_proxy_filters :upload, features: 'Salt'
 
         include ::Foreman::Controller::FilterParameters
         filter_parameters :job
 
         def_param_group :job do
-          param :job, Hash, :required => true, :action_aware => true do
-            param :job_id, Integer, :required => true, :desc => N_('JID')
-            param :function, String, :required => true, :desc => N_('Function')
-            param :result, Hash, :required => true, :desc => N_('Result')
+          param :job, Hash, required: true, action_aware: true do
+            param :job_id, Integer, required: true, desc: N_('JID')
+            param :function, String, required: true, desc: N_('Function')
+            param :result, Hash, required: true, desc: N_('Result')
           end
         end
 
         api :POST, '/upload', N_('Upload a Job')
-        param_group :job, :as => :upload
+        param_group :job, as: :upload
 
         def upload
           params[:job].permit!
@@ -27,12 +27,12 @@ module ForemanSalt
           case params[:job][:function]
           when 'state.highstate'
             task = ForemanTasks.async_task(::Actions::ForemanSalt::ReportImport, params[:job], detected_proxy.try(:id))
-            render :json => { :task_id => task.id }
+            render json: { task_id: task.id }
           else
-            render :json => { :message => 'Unsupported function' }, :status => :unprocessable_entity
+            render json: { message: 'Unsupported function' }, status: :unprocessable_entity
           end
         rescue ::Foreman::Exception => e
-          render :json => { :message => e.to_s }, :status => :unprocessable_entity
+          render json: { message: e.to_s }, status: :unprocessable_entity
         end
 
         def resource_class

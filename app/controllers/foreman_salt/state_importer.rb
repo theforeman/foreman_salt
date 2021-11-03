@@ -10,10 +10,10 @@ module ForemanSalt
     end
 
     def fetch_states_from_proxy(proxy, environments = nil)
-      result = { :changes => {},
-                 :deletes => [] }
+      result = { changes: {},
+                 deletes: [] }
 
-      new = ProxyAPI::Salt.new(:url => proxy.url).states_list
+      new = ProxyAPI::Salt.new(url: proxy.url).states_list
       old = SaltModule.to_hash
 
       environments ||= new.keys + old.keys
@@ -30,26 +30,25 @@ module ForemanSalt
           removed = []
         end
 
-        if added.any? || removed.any?
-          result[:changes][environment] = {}
+        next unless added.any? || removed.any?
+        result[:changes][environment] = {}
 
-          unless removed.blank?
-            result[:changes][environment][:remove] = removed
-            result[:deletes] << environment if removed.count == old[environment].count && added.blank?
-          end
-
-          result[:changes][environment][:add] = added unless added.blank?
+        if removed.present?
+          result[:changes][environment][:remove] = removed
+          result[:deletes] << environment if removed.count == old[environment].count && added.blank?
         end
+
+        result[:changes][environment][:add] = added if added.present?
       end
 
       result
     end
 
     def add_to_environment(states, environment)
-      environment = SaltEnvironment.where(:name => environment).first_or_create
+      environment = SaltEnvironment.where(name: environment).first_or_create
 
       states.each do |state_name|
-        state = SaltModule.where(:name => state_name).first_or_create
+        state = SaltModule.where(name: state_name).first_or_create
         state.salt_environments << environment unless state.salt_environments.include? environment
       end
     end

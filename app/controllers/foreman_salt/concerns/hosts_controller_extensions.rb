@@ -2,8 +2,8 @@ module ForemanSalt
   module Concerns
     module HostsControllerExtensions
       extend ActiveSupport::Concern
-      MULTIPLE_EDIT_ACTIONS = %w(select_multiple_salt_environment update_multiple_salt_environment
-                                 select_multiple_salt_master update_multiple_salt_master)
+      MULTIPLE_EDIT_ACTIONS = %w[select_multiple_salt_environment update_multiple_salt_environment
+                                 select_multiple_salt_master update_multiple_salt_master].freeze
 
       module Overrides
         def process_hostgroup
@@ -57,12 +57,12 @@ module ForemanSalt
         end
 
         find_multiple
-        ev = ForemanSalt::SaltEnvironment.find_by_id(id)
+        ev = ForemanSalt::SaltEnvironment.find_by(id: id)
 
         # update the hosts
         @hosts.each do |host|
           host.salt_environment = ev
-          host.save(:validate => false)
+          host.save(validate: false)
         end
 
         success _('Updated hosts: changed salt environment')

@@ -15,37 +15,38 @@ module ForemanSalt
         before_action :setup_proxy
 
         api :GET, '/salt_autosign/:smart_proxy_id', N_('List all autosign records')
-        param :smart_proxy_id, :identifier_dottable, :required => true
+        param :smart_proxy_id, :identifier_dottable, required: true
         def index
           @salt_autosigns = all_autosign
         end
 
         api :POST, '/salt_autosign/:smart_proxy_id', N_('Create an autosign record')
-        param :smart_proxy_id, :identifier_dottable, :required => true
-        param :record, String, :required => true, :desc => N_('Autosign record')
+        param :smart_proxy_id, :identifier_dottable, required: true
+        param :record, String, required: true, desc: N_('Autosign record')
         def create
           @api.autosign_create params[:record]
-          @salt_autosign = { :record => params[:record] }
+          @salt_autosign = { record: params[:record] }
         end
 
         api :DELETE, '/salt_autosign/:smart_proxy_id/:record', N_('Delete an autosign record')
-        param :smart_proxy_id, :identifier_dottable, :required => true
-        param :record, String, :required => true, :desc => N_('Autosign record')
+        param :smart_proxy_id, :identifier_dottable, required: true
+        param :record, String, required: true, desc: N_('Autosign record')
         def destroy
           @api.autosign_remove params[:record]
-          render :json => { root_node_name => _('Record deleted.') }
+          render json: { root_node_name => _('Record deleted.') }
         end
 
-        api :PUT, '/salt_autosign_auth', N_("Set the salt_status as \'successful authentication\' and remove the corresponding autosign key from the Smart Proxy")
-        param :name, String, :required => true
+        api :PUT, '/salt_autosign_auth',
+          N_("Set the salt_status as \'successful authentication\' and remove the corresponding autosign key from the Smart Proxy")
+        param :name, String, required: true
         def auth
           Rails.logger.info("Removing Salt autosign key and update status for host #{@host}")
           @api.autosign_remove_key(@host.salt_autosign_key) unless @host.salt_autosign_key.nil?
-          @host.update(:salt_status => ForemanSalt::SaltStatus.minion_auth_success)
-          render :json => { :message => "Removed autosign key and updated status succesfully" }, :status => 204
+          @host.update(salt_status: ForemanSalt::SaltStatus.minion_auth_success)
+          render json: { message: 'Removed autosign key and updated status succesfully' }, status: :no_content
         rescue ::Foreman::Exception => e
           Rails.logger.warn("Cannot delete autosign key of host (id => #{params[:name]}) state: #{e}")
-          render :json => { :message => e.to_s }, :status => :unprocessable_entity
+          render json: { message: e.to_s }, status: :unprocessable_entity
         end
 
         def metadata_total
@@ -67,7 +68,7 @@ module ForemanSalt
         private
 
         def all_autosign
-          @_autosigns ||= @api.autosign_list.map { |record| OpenStruct.new(:record => record) }
+          @_autosigns ||= @api.autosign_list.map { |record| OpenStruct.new(record: record) }
         end
 
         def find_host
@@ -86,7 +87,7 @@ module ForemanSalt
         end
 
         def setup_proxy
-          @api = ProxyAPI::Salt.new(:url => @proxy.url)
+          @api = ProxyAPI::Salt.new(url: @proxy.url)
         end
       end
     end

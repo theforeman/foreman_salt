@@ -4,9 +4,9 @@ module ForemanSalt
   class HostsControllerExtensionsTest < ActionController::TestCase
     tests ::HostsController
 
-    describe "setting salt master proxy on multiple hosts" do
+    describe 'setting salt master proxy on multiple hosts' do
       before do
-        setup_user "edit"
+        setup_user 'edit'
         as_admin do
           @hosts = FactoryBot.create_list(:host, 2)
           @proxy = FactoryBot.create(:smart_proxy, :with_salt_feature)
@@ -16,22 +16,22 @@ module ForemanSalt
       test 'user without edit permission should not be able to change salt master' do
         @request.env['HTTP_REFERER'] = hosts_path
 
-        params = { :host_ids => @hosts.map(&:id),
-                   :proxy => { :proxy_id => '' } }
+        params = { host_ids: @hosts.map(&:id),
+                   proxy: { proxy_id: '' } }
 
         post :update_multiple_salt_master, params: params,
-          session: set_session_user.merge(:user => users(:one).id)
+                                           session: set_session_user.merge(user: users(:one).id)
         assert_response :forbidden
       end
 
-      test "should change the salt master proxy" do
+      test 'should change the salt master proxy' do
         @request.env['HTTP_REFERER'] = hosts_path
 
-        params = { :host_ids => @hosts.map(&:id),
-                   :proxy => { :proxy_id => @proxy.id } }
+        params = { host_ids: @hosts.map(&:id),
+                   proxy: { proxy_id: @proxy.id } }
 
         post :update_multiple_salt_master, params: params,
-        session: set_session_user.merge(:user => users(:admin).id)
+                                           session: set_session_user.merge(user: users(:admin).id)
 
         assert_empty flash[:error]
 
@@ -42,14 +42,14 @@ module ForemanSalt
         end
       end
 
-      test "should clear the salt master proxy of multiple hosts" do
+      test 'should clear the salt master proxy of multiple hosts' do
         @request.env['HTTP_REFERER'] = hosts_path
 
-        params = { :host_ids => @hosts.map(&:id),
-                   :proxy => { :proxy_id => '' } }
+        params = { host_ids: @hosts.map(&:id),
+                   proxy: { proxy_id: '' } }
 
         post :update_multiple_salt_master, params: params,
-          session: set_session_user.merge(:user => users(:admin).id)
+                                           session: set_session_user.merge(user: users(:admin).id)
 
         assert_empty flash[:error]
 
@@ -61,9 +61,9 @@ module ForemanSalt
       end
     end
 
-    describe "setting salt environment on multiple hosts" do
+    describe 'setting salt environment on multiple hosts' do
       before do
-        setup_user "edit"
+        setup_user 'edit'
         as_admin do
           @hosts = FactoryBot.create_list(:host, 2)
           @proxy = FactoryBot.create(:smart_proxy, :with_salt_feature)
@@ -74,22 +74,22 @@ module ForemanSalt
       test 'user without edit permission should not be able to change salt environment' do
         @request.env['HTTP_REFERER'] = hosts_path
 
-        params = { :host_ids => @hosts.map(&:id),
-                   :salt_environment => { :id => @salt_environment.id } }
+        params = { host_ids: @hosts.map(&:id),
+                   salt_environment: { id: @salt_environment.id } }
 
         post :update_multiple_salt_environment, params: params,
-        session: set_session_user.merge(:user => users(:one).id)
+                                                session: set_session_user.merge(user: users(:one).id)
         assert_response :forbidden
       end
 
-      test "should change the salt environment" do
+      test 'should change the salt environment' do
         @request.env['HTTP_REFERER'] = hosts_path
 
-        params = { :host_ids => @hosts.map(&:id),
-                   :salt_environment => { :id => @salt_environment.id } }
+        params = { host_ids: @hosts.map(&:id),
+                   salt_environment: { id: @salt_environment.id } }
 
         post :update_multiple_salt_environment, params: params,
-        session: set_session_user.merge(:user => users(:admin).id)
+                                                session: set_session_user.merge(user: users(:admin).id)
 
         assert_empty flash[:error]
 
@@ -100,14 +100,14 @@ module ForemanSalt
         end
       end
 
-      test "should clear the salt environment of multiple hosts" do
+      test 'should clear the salt environment of multiple hosts' do
         @request.env['HTTP_REFERER'] = hosts_path
 
-        params = { :host_ids => @hosts.map(&:id),
-                   :salt_environment => { :id => '' } }
+        params = { host_ids: @hosts.map(&:id),
+                   salt_environment: { id: '' } }
 
         post :update_multiple_salt_environment, params: params,
-          session: set_session_user.merge(:user => users(:admin).id)
+                                                session: set_session_user.merge(user: users(:admin).id)
 
         assert_empty flash[:error]
 

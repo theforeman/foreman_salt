@@ -9,4 +9,3 @@ end
 child :salt_environments do
   extends 'foreman_salt/api/v2/salt_environments/base'
 end
-

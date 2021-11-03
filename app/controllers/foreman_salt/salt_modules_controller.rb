@@ -4,11 +4,11 @@ module ForemanSalt
     include ::ForemanSalt::Concerns::SaltModuleParameters
     include StateImporter
 
-    before_action :find_resource, :only => [:edit, :update, :destroy]
-    before_action :find_proxy, :only => :import
+    before_action :find_resource, only: %i[edit update destroy]
+    before_action :find_proxy, only: :import
 
     def index
-      @salt_modules = resource_base.search_for(params[:search], :order => params[:order]).includes(:salt_environments).paginate(:page => params[:page])
+      @salt_modules = resource_base.search_for(params[:search], order: params[:order]).includes(:salt_environments).paginate(page: params[:page])
     end
 
     def new
@@ -30,8 +30,8 @@ module ForemanSalt
     end
 
     def update
-      if @salt_module.update_attributes(salt_module_params)
-        success _('Successfully updated %s.' % @salt_module.to_s)
+      if @salt_module.update(salt_module_params)
+        success _("Successfully updated #{@salt_module}.")
         redirect_to salt_modules_path
       else
         process_error
@@ -62,10 +62,9 @@ module ForemanSalt
       @changes = result[:changes]
       @deletes = result[:deletes]
 
-      if @changes.empty?
-        info _('No changes found')
-        redirect_to salt_modules_path
-      end
+      return unless @changes.empty?
+      info _('No changes found')
+      redirect_to salt_modules_path
     end
 
     def apply_changes
@@ -75,8 +74,8 @@ module ForemanSalt
         params[:changed].each do |environment, states|
           next unless states[:add] || states[:remove]
 
-          add_to_environment(JSON.load(states[:add]), environment) if states[:add]
-          remove_from_environment(JSON.load(states[:remove]), environment) if states[:remove]
+          add_to_environment(JSON.parse(states[:add]), environment) if states[:add]
+          remove_from_environment(JSON.parse(states[:remove]), environment) if states[:remove]
         end
 
         clean_orphans
