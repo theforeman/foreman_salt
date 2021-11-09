@@ -26,6 +26,10 @@ Foreman::Plugin.register :foreman_salt do
 
   # Permissions
   security_block :foreman_salt do
+    permission :auth_smart_proxies_salt_autosign,
+               { :'foreman_salt/api/v2/salt_autosign' => [:auth] },
+               :resource_type => 'SmartProxy'
+
     permission :destroy_smart_proxies_salt_autosign,
                { :'foreman_salt/salt_autosign' => [:destroy],
                  :'foreman_salt/api/v2/salt_autosign' => [:destroy] },
@@ -61,30 +65,29 @@ Foreman::Plugin.register :foreman_salt do
                :resource_type => 'ForemanSalt::SaltEnvironment'
 
     permission :view_salt_variables,
-               {
-                 :'foreman_salt/salt_variables' => [:index, :auto_complete_search],
-                 :'foreman_salt/api/v2/salt_variables' => [:index, :show]
-               },
+               { :'foreman_salt/salt_variables' => [:index, :auto_complete_search],
+                 :'foreman_salt/api/v2/salt_variables' => [:index, :show],
+                 :'lookup_values' => [:index] },
                :resource_type => 'ForemanSalt::SaltVariable'
 
     permission :edit_salt_variables,
                { :'foreman_salt/salt_variables' => [:edit, :update],
                  :'foreman_salt/api/v2/salt_variables' => [:update],
-                 :'foreman_salt/api/v2/salt_override_values' => [:create, :destroy] },
+                 :'lookup_values' => [:update] },
                :resource_type => 'ForemanSalt::SaltVariable'
 
     permission :destroy_salt_variables,
-               {
-                 :'foreman_salt/salt_variables' => [:destroy],
-                 :'foreman_salt/api/v2/salt_variables' => [:destroy]
-               },
+               { :'foreman_salt/salt_variables' => [:destroy],
+                 :'foreman_salt/api/v2/salt_variables' => [:destroy],
+                 :'foreman_salt/api/v2/salt_override_values' => [:destroy],
+                 :'lookup_values' => [:destroy] },
                :resource_type => 'ForemanSalt::SaltVariable'
 
     permission :create_salt_variables,
-               {
-                 :'foreman_salt/salt_variables' => [:new, :create],
-                 :'foreman_salt/api/v2/salt_variables' => [:create]
-               },
+               { :'foreman_salt/salt_variables' => [:new, :create],
+                 :'foreman_salt/api/v2/salt_variables' => [:create],
+                 :'foreman_salt/api/v2/salt_override_values' => [:create],
+                 :'lookup_values' => [:create] },
                :resource_type => 'ForemanSalt::SaltVariable'
 
     permission :create_reports,
@@ -159,7 +162,7 @@ Foreman::Plugin.register :foreman_salt do
                       :view_smart_proxies_salt_keys,
                       :edit_smart_proxies_salt_keys, :destroy_smart_proxies_salt_keys,
                       :create_smart_proxies_salt_autosign, :view_smart_proxies_salt_autosign,
-                      :destroy_smart_proxies_salt_autosign,
+                      :destroy_smart_proxies_salt_autosign, :auth_smart_proxies_salt_autosign,
                       :create_salt_environments, :view_salt_environments,
                       :edit_salt_environments, :destroy_salt_environments,
                       :create_salt_variables, :view_salt_variables,
