@@ -5,8 +5,8 @@ selector_text = "<%= select_f f, :salt_environment_id, ForemanSalt::SaltEnvironm
                                    :'data-host-id' => (@host || @hostgroup).id, :help_inline => :indicator} %>"
 
 Deface::Override.new(
-  :virtual_path => 'hostgroups/_form',
-  :name => 'add_salt_environment_to_hostgroup',
-  :insert_bottom => 'div#primary',
-  :text => selector_text
+  virtual_path: 'hostgroups/_form',
+  name: 'add_salt_environment_to_hostgroup',
+  insert_bottom: 'div#primary',
+  text: selector_text
 )

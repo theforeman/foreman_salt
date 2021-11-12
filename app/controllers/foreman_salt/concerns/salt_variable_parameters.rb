@@ -10,11 +10,11 @@ module ForemanSalt
       class_methods do
         def salt_variable_params_filter
           Foreman::ParameterFilter.new(::ForemanSalt::SaltVariable).tap do |filter|
-            filter.permit :salt_module_id, :salt_modules => [], :salt_module_ids => [],
-                          :salt_module_names => [], :param_classes => [], :param_classes_ids => [],
-                          :param_classes_names => []
-            filter.permit_by_context :required, :nested => true
-            filter.permit_by_context :id, :ui => false, :api => false, :nested => true
+            filter.permit :salt_module_id, salt_modules: [], salt_module_ids: [],
+                                           salt_module_names: [], param_classes: [], param_classes_ids: [],
+                                           param_classes_names: []
+            filter.permit_by_context :required, nested: true
+            filter.permit_by_context :id, ui: false, api: false, nested: true
             add_lookup_key_params_filter(filter)
           end
         end

@@ -3,10 +3,10 @@ module ForemanSalt
     include Foreman::Controller::AutoCompleteSearch
     include ::ForemanSalt::Concerns::SaltEnvironmentParameters
 
-    before_action :find_resource, :only => [:edit, :update, :destroy]
+    before_action :find_resource, only: %i[edit update destroy]
 
     def index
-      @salt_environments = resource_base.search_for(params[:search], :order => params[:order]).paginate(:page => params[:page])
+      @salt_environments = resource_base.search_for(params[:search], order: params[:order]).paginate(page: params[:page])
     end
 
     def new
@@ -26,8 +26,8 @@ module ForemanSalt
     end
 
     def update
-      if @salt_environment.update_attributes(salt_environment_params)
-        success _('Successfully updated %s.' % @salt_environment.to_s)
+      if @salt_environment.update(salt_environment_params)
+        success _("Successfully updated #{@salt_environment}")
         redirect_to salt_environments_path
       else
         process_error

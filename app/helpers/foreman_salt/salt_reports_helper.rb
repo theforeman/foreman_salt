@@ -5,4 +5,3 @@ module ForemanSalt
     end
   end
 end
-

@@ -7,7 +7,7 @@ class SaltKeysTest < ActiveSupport::TestCase
     # Fix for 1.8.7 OpenStruct http://stackoverflow.com/questions/9079441/populate-select-tag-ruby-rails
     OpenStruct.__send__(:define_method, :id) { @table[:id] }
 
-    @proxy = OpenStruct.new(:id => 1, :url => 'http://dummy.example.com:9090')
+    @proxy = OpenStruct.new(id: 1, url: 'http://dummy.example.com:9090')
 
     ProxyAPI::Salt.any_instance.stubs(:key_list).returns(
       'saltstack.example.com' => { 'state' => 'accepted', 'fingerprint' => '98:c2:63:c1:57:59:bc:bd:f1:ef:5a:38:b2:e9:71:c0' },
@@ -38,7 +38,7 @@ class SaltKeysTest < ActiveSupport::TestCase
   end
 
   test 'finds a key by name' do
-    assert_equal ForemanSalt::SmartProxies::SaltKeys.find(@proxy, 'saltstack.example.com').name, 'saltstack.example.com'
+    assert_equal('saltstack.example.com', ForemanSalt::SmartProxies::SaltKeys.find(@proxy, 'saltstack.example.com').name)
   end
 
   test 'find keys by state' do

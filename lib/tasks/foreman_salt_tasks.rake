@@ -1,5 +1,5 @@
 namespace :foreman_salt do
-  task :rubocop do
+  task rubocop: :environment do
     begin
       require 'rubocop/rake_task'
       RuboCop::RakeTask.new(:rubocop_salt) do |task|
@@ -7,7 +7,7 @@ namespace :foreman_salt do
                          "#{ForemanSalt::Engine.root}/lib/**/*.rb",
                          "#{ForemanSalt::Engine.root}/test/**/*.rb"]
       end
-    rescue
+    rescue StandardError
       puts 'Rubocop not loaded.'
     end
 
@@ -29,6 +29,4 @@ end
 Rake::Task[:test].enhance ['test:foreman_salt']
 
 load 'tasks/jenkins.rake'
-if Rake::Task.task_defined?(:'jenkins:unit')
-  Rake::Task['jenkins:unit'].enhance ['test:foreman_salt', 'foreman_salt:rubocop']
-end
+Rake::Task['jenkins:unit'].enhance ['test:foreman_salt', 'foreman_salt:rubocop'] if Rake::Task.task_defined?(:'jenkins:unit')

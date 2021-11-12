@@ -1,11 +1,10 @@
 module ForemanSalt
-  # rubocop:disable ClassLength
   class ReportImporter
-    delegate :logger, :to => :Rails
+    delegate :logger, to: :Rails
     attr_reader :report
 
     def self.import(raw, proxy_id = nil)
-      fail ::Foreman::Exception.new(_('Invalid report')) unless raw.is_a?(Hash)
+      raise ::Foreman::Exception, _('Invalid report') unless raw.is_a?(Hash)
 
       raw.map do |host, report|
         importer = ForemanSalt::ReportImporter.new(host, report, proxy_id)
@@ -41,9 +40,9 @@ module ForemanSalt
         process_normal
       end
 
-      @host.save(:validate => false)
+      @host.save(validate: false)
       @host.reload
-      @host.refresh_statuses([HostStatus.find_status_by_humanized_name("configuration")])
+      @host.refresh_statuses([HostStatus.find_status_by_humanized_name('configuration')])
 
       logger.info("Imported report for #{@host} in #{(Time.zone.now - start_time).round(2)} seconds")
     end
@@ -51,11 +50,11 @@ module ForemanSalt
     private
 
     def find_or_create_host(host)
-      @host ||= Host::Managed.find_by_name(host)
+      @host ||= Host::Managed.find_by(name: host)
 
       unless @host
-        new = Host::Managed.new(:name => host)
-        new.save(:validate => false)
+        new = Host::Managed.new(name: host)
+        new.save(validate: false)
         @host = new
       end
 
@@ -77,7 +76,7 @@ module ForemanSalt
 
         message = if result['changes']['diff']
                     result['changes']['diff']
-                  elsif !result['pchanges'].blank? && result['pchanges'].include?('diff')
+                  elsif result['pchanges'].present? && result['pchanges'].include?('diff')
                     result['pchanges']['diff']
                   elsif result['comment'].presence
                     result['comment']
@@ -86,11 +85,10 @@ module ForemanSalt
                   end
 
         message = Message.find_or_create(message)
-        Log.create(:message_id => message.id, :source_id => source.id, :report => @report, :level => level)
+        Log.create(message_id: message.id, source_id: source.id, report: @report, level: level)
       end
     end
 
-    # rubocop:disable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity,Metrics/AbcSize,Metrics/MethodLength
     def calculate_metrics
       success = 0
       failed = 0
@@ -108,13 +106,13 @@ module ForemanSalt
           success += 1
           if resource.match(/^service_/) && result['comment'].include?('restarted')
             restarted += 1
-          elsif !result['changes'].blank?
+          elsif result['changes'].present?
             changed += 1
-          elsif !result['pchanges'].blank?
+          elsif result['pchanges'].present?
             pending += 1
           end
         elsif result['result'].nil?
-            pending += 1
+          pending += 1
         elsif !result['result']
           if resource.match(/^service_/) && result['comment'].include?('restarted')
             restarted_failed += 1
@@ -124,7 +122,11 @@ module ForemanSalt
         end
 
         duration = if result['duration'].is_a? String
-                     Float(result['duration'].delete(' ms')) rescue nil
+                     begin
+                       Float(result['duration'].delete(' ms'))
+                     rescue StandardError
+                       nil
+                     end
                    else
                      result['duration']
                    end
@@ -134,36 +136,35 @@ module ForemanSalt
         time[resource] = duration || 0
       end
 
-      time[:total] = time.values.compact.inject(&:+) || 0
-      events = { :total => changed + failed + restarted + restarted_failed, :success => success + restarted, :failure => failed + restarted_failed }
+      time[:total] = time.values.compact.sum || 0
+      events = { total: changed + failed + restarted + restarted_failed, success: success + restarted, failure: failed + restarted_failed }
 
-      changes = { :total => changed + restarted }
+      changes = { total: changed + restarted }
 
       resources = { 'total' => @raw.size, 'applied' => changed, 'restarted' => restarted, 'failed' => failed,
                     'failed_restarts' => restarted_failed, 'skipped' => 0, 'scheduled' => 0, 'pending' => pending }
 
-      { :events => events, :resources => resources, :changes => changes, :time => time }
+      { events: events, resources: resources, changes: changes, time: time }
     end
-    # rubocop:enable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity,Metrics/AbcSize,Metrics/MethodLength
 
     def process_normal
       metrics = calculate_metrics
-      status = ConfigReportStatusCalculator.new(:counters => metrics[:resources].slice(*::ConfigReport::METRIC)).calculate
+      status = ConfigReportStatusCalculator.new(counters: metrics[:resources].slice(*::ConfigReport::METRIC)).calculate
 
-      @report = ConfigReport.new(:host => @host, :reported_at => start_time, :status => status, :metrics => metrics)
+      @report = ConfigReport.new(host: @host, reported_at: start_time, status: status, metrics: metrics)
       return @report unless @report.save
 
       import_log_messages
     end
 
     def process_failures
-      status = ConfigReportStatusCalculator.new(:counters => { 'failed' => @raw.size }).calculate
-      @report = ConfigReport.create(:host => @host, :reported_at => Time.zone.now, :status => status, :metrics => {})
+      status = ConfigReportStatusCalculator.new(counters: { 'failed' => @raw.size }).calculate
+      @report = ConfigReport.create(host: @host, reported_at: Time.zone.now, status: status, metrics: {})
 
       source = Source.find_or_create('Salt')
       @raw.each do |failure|
         message = Message.find_or_create(failure)
-        Log.create(:message_id => message.id, :source_id => source.id, :report => @report, :level => :err)
+        Log.create(message_id: message.id, source_id: source.id, report: @report, level: :err)
       end
     end
 
@@ -171,5 +172,4 @@ module ForemanSalt
       @start_time ||= Time.zone.now
     end
   end
-  # rubocop:enable ClassLength
 end

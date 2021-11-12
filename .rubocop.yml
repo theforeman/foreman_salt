@@ -1,38 +1,27 @@
+inherit_gem:
+  theforeman-rubocop:
+    - strictest.yml
+
 # TODO: remove this file by either moving cops here or fixing code
 inherit_from:
   - .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 2.3
-  TargetRailsVersion: 5.1
   Exclude:
     - 'db/schema.rb'
     - 'vendor/**/*'
 
-Rails:
-  Enabled: true
-
-# Don't enforce documentation
-Style/Documentation:
-  Enabled: false
-
-# Don't enforce frozen string literals
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-# Support both ruby19 and hash_rockets
-Style/HashSyntax:
-  Enabled: false
-  SupportedStyles:
-    - ruby19
-    - hash_rockets
-
-Layout/DotPosition:
-  EnforcedStyle: 'trailing'
-
-Metrics/ClassLength:
+Layout/LineLength:
   Exclude:
-    - 'test/**/*'
+    - 'test/**/*.rb'
 
-Style/AndOr:
-  EnforcedStyle: conditionals
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'test/**/*.rb'
+
+Metrics/BlockLength:
+  Max: 45
+  Exclude:
+    - 'config/*routes.rb'
+    - 'lib/foreman_salt/plugin.rb'
+    - 'test/**/*.rb'

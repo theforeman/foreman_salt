@@ -6,7 +6,7 @@ module ForemanSalt
     setup do
       User.current = users :admin
 
-      states = %w(state1 state2 state3 state4)
+      states = %w[state1 state2 state3 state4]
       state_list = { 'env1' => states, 'env2' => states }
 
       ProxyAPI::Salt.any_instance.stubs(:states_list).returns(state_list)
@@ -19,7 +19,7 @@ module ForemanSalt
 
     test 'create new page' do
       assert_new_button(salt_modules_path, 'New Salt State', new_salt_module_path)
-      fill_in 'foreman_salt_salt_module_name', :with => 'common'
+      fill_in 'foreman_salt_salt_module_name', with: 'common'
       assert_submit_button(salt_modules_path)
       assert page.has_link? 'common'
     end
@@ -28,24 +28,24 @@ module ForemanSalt
       salt_module = FactoryBot.create :salt_module
       visit salt_modules_path
       click_link salt_module.name
-      fill_in :foreman_salt_salt_module_name, :with => 'some_other_name'
+      fill_in :foreman_salt_salt_module_name, with: 'some_other_name'
       assert_submit_button(salt_modules_path)
       assert page.has_link? 'some_other_name'
     end
 
     test 'import states' do
       proxy = FactoryBot.create :smart_proxy, :with_salt_feature
-      state = FactoryBot.create :salt_module, :salt_environments => [FactoryBot.create(:salt_environment)]
+      state = FactoryBot.create :salt_module, salt_environments: [FactoryBot.create(:salt_environment)]
 
       visit salt_modules_path
       click_link "Import from #{proxy.name}"
 
-      assert page.has_selector?('td', :text => 'env1'), 'Could not find env1 on importer page'
-      assert page.has_selector?('td', :text => 'Add'), 'Could not find env1 on importer page'
-      assert page.has_selector?('td', :text => 'state1, state2, state3, and state4'), 'Could not find states on importer page'
+      assert page.has_selector?('td', text: 'env1'), 'Could not find env1 on importer page'
+      assert page.has_selector?('td', text: 'Add'), 'Could not find env1 on importer page'
+      assert page.has_selector?('td', text: 'state1, state2, state3, and state4'), 'Could not find states on importer page'
 
-      assert page.has_selector?('td', :text => 'Remove'), 'Could not find remove on importer page'
-      assert page.has_selector?('td', :text => state.name), 'Could not find state to remove'
+      assert page.has_selector?('td', text: 'Remove'), 'Could not find remove on importer page'
+      assert page.has_selector?('td', text: state.name), 'Could not find state to remove'
 
       all('input.state_check').each { |checkbox| check(checkbox[:id]) }
 

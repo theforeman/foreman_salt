@@ -3,23 +3,23 @@ module ForemanSalt
     module V2
       class SaltKeysController < ::ForemanSalt::Api::V2::BaseController
         before_action :find_proxy
-        before_action :find_key, :only => [:update, :destroy]
+        before_action :find_key, only: %i[update destroy]
 
         api :GET, '/salt_keys/:smart_proxy_id', N_('List all Salt keys')
-        param :smart_proxy_id, :identifier_dottable, :required => true
+        param :smart_proxy_id, :identifier_dottable, required: true
         def index
           @salt_keys = all_keys
         end
 
         def_param_group :key do
-          param :smart_proxy_id, :identifier_dottable, :required => true
-          param :name, String, :required => true, :desc => N_('FQDN of host that key belongs to')
+          param :smart_proxy_id, :identifier_dottable, required: true
+          param :name, String, required: true, desc: N_('FQDN of host that key belongs to')
         end
 
         api :PUT, '/salt_keys/:smart_proxy_id/:name', N_('Update a Salt Key')
-        param :name, :identifier_dottable, :required => true
-        param :smart_proxy_id, :identifier_dottable, :required => true
-        param :state, String, :required => true, :desc => N_('State can be "accepted" or "rejected"')
+        param :name, :identifier_dottable, required: true
+        param :smart_proxy_id, :identifier_dottable, required: true
+        param :state, String, required: true, desc: N_('State can be "accepted" or "rejected"')
         def update
           case params[:salt_key][:state]
           when 'accepted'
@@ -32,14 +32,14 @@ module ForemanSalt
         end
 
         api :DELETE, '/salt_keys/:smart_proxy_id/:name', N_('Delete a Salt Key')
-        param_group :key, :as => :destroy
+        param_group :key, as: :destroy
         def destroy
-          if @key.delete
-            message = 'Key successfully deleted.'
-          else
-            message = 'Unable to delete key.'
-          end
-          render :json => { root_node_name => message }
+          message = if @key.delete
+                      'Key successfully deleted.'
+                    else
+                      'Unable to delete key.'
+                    end
+          render json: { root_node_name => message }
         end
 
         def metadata_total

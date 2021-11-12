@@ -6,12 +6,12 @@ module ForemanSalt
     include Foreman::Controller::AutoCompleteSearch
     include ::ForemanSalt::Concerns::SaltVariableParameters
 
-    before_action :find_resource, :only => [:edit, :update, :destroy], :if => proc { params[:id] }
+    before_action :find_resource, only: %i[edit update destroy], if: proc { params[:id] }
 
     def index
       @salt_variables = resource_base.search_for(params[:search],
-                                                 :order => params[:order]).paginate(:page => params[:page],
-                                                 :per_page => params[:per_page])
+        order: params[:order]).paginate(page: params[:page],
+                                        per_page: params[:per_page])
     end
 
     def new
@@ -33,7 +33,8 @@ module ForemanSalt
 
     private
 
-    def default_order; end
+    def default_order
+    end
 
     def resource
       @salt_variable
