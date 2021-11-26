@@ -72,7 +72,7 @@ module ForemanSalt
                   :notice
                 end
 
-        source = Source.find_or_create(resource)
+        source = Source.find_or_create_by(value: resource)
 
         message = if result['changes']['diff']
                     result['changes']['diff']
@@ -84,7 +84,7 @@ module ForemanSalt
                     'No message available'
                   end
 
-        message = Message.find_or_create(message)
+        message = Message.find_or_create_by(value: message)
         Log.create(message_id: message.id, source_id: source.id, report: @report, level: level)
       end
     end
@@ -161,9 +161,9 @@ module ForemanSalt
       status = ConfigReportStatusCalculator.new(counters: { 'failed' => @raw.size }).calculate
       @report = ConfigReport.create(host: @host, reported_at: Time.zone.now, status: status, metrics: {})
 
-      source = Source.find_or_create('Salt')
+      source = Source.find_or_create_by(value: 'Salt')
       @raw.each do |failure|
-        message = Message.find_or_create(failure)
+        message = Message.find_or_create(value: failure)
         Log.create(message_id: message.id, source_id: source.id, report: @report, level: :err)
       end
     end
