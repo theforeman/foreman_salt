@@ -163,7 +163,7 @@ module ForemanSalt
 
       source = Source.find_or_create_by(value: 'Salt')
       @raw.each do |failure|
-        message = Message.find_or_create(value: failure)
+        message = Message.find_or_create_by(value: failure)
         Log.create(message_id: message.id, source_id: source.id, report: @report, level: :err)
       end
     end
