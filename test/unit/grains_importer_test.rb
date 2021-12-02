@@ -14,7 +14,7 @@ module ForemanSalt
 
       grains = JSON.parse(File.read(File.join(Foreman::Application.root, 'test', 'static_fixtures', 'facts', 'grains_centos.json')))
       @imported_host = ::Host::Managed.import_host grains['name'], 'salt'
-      @imported_host.import_facts grains['facts'].with_indifferent_access
+      ::HostFactImporter.new(@imported_host).import_facts grains['facts'].with_indifferent_access
     end
 
     test 'importing salt grains creates a host' do
