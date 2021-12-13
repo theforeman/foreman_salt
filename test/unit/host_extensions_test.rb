@@ -82,6 +82,11 @@ module ForemanSalt
         @host.salt_proxy = @proxy
       end
 
+      test 'host returns empty hash when deriving salt grains with default autosign' do
+        expected_hash = {}
+        assert_equal expected_hash, @host.instance_eval { derive_salt_grains }
+      end
+
       test 'host returns autosign when deriving salt grains' do
         autosign_key = 'asdfasdfasfasdf'
         expected_hash = { @host.autosign_grain_name => autosign_key }
