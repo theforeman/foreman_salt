@@ -102,7 +102,7 @@ module ForemanSalt
         end
       end
 
-      def derive_salt_grains(use_autosign: False)
+      def derive_salt_grains(use_autosign: false)
         grains = {}
         begin
           Rails.logger.info('Derive Salt Grains from host_params and autosign_key')
