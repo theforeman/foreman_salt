@@ -6,7 +6,6 @@ module ForemanSalt
       User.current = User.anonymous_admin
       Setting::Salt.load_defaults
       Setting[:restrict_registered_smart_proxies] = true
-      Setting[:require_ssl_smart_proxies] = false
 
       @proxy = FactoryBot.create(:smart_proxy, :with_salt_feature)
       Resolv.any_instance.stubs(:getnames).returns([@proxy.to_s])
