@@ -20,22 +20,6 @@ module ForemanSalt
       end
     end
 
-    describe 'hosts details run salt button' do
-      test 'verify run salt button availabilty' do
-        Setting[:salt_hide_run_salt_button] = false
-        visit hosts_path
-        click_link @host.fqdn
-        assert page.has_link?('Run Salt')
-      end
-
-      test 'verify run salt button absence' do
-        Setting[:salt_hide_run_salt_button] = true
-        visit hosts_path
-        click_link @host.fqdn
-        assert_not page.has_link?('Run Salt')
-      end
-    end
-
     describe 'hosts index salt multiple actions' do
       test 'change salt master action' do
         visit hosts_path
