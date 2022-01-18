@@ -28,7 +28,6 @@ module ForemanSalt
     test 'index page' do
       visit smart_proxy_salt_keys_path(smart_proxy_id: @proxy.id)
       assert has_title?("Salt Keys on #{@proxy}"), 'Page title does not appear'
-      assert has_content?('Displaying'), 'Pagination "Display ..." does not appear'
     end
 
     test 'has list of keys' do
