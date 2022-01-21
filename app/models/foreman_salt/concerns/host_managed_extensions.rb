@@ -80,18 +80,6 @@ module ForemanSalt
         salt_proxy.to_s
       end
 
-      def saltrun!
-        if salt_proxy.blank?
-          errors.add(:base, _("No Salt master defined - can't continue"))
-          logger.warn 'Unable to execute salt run, no salt proxies defined'
-          return false
-        end
-        ProxyAPI::Salt.new(url: salt_proxy.url).highstate name
-      rescue StandardError => e
-        errors.add(:base, _('Failed to execute state.highstate: %s') % e)
-        false
-      end
-
       def salt_modules_in_host_environment
         return unless salt_modules.any?
 

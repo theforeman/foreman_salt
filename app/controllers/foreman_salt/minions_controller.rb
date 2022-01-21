@@ -3,7 +3,7 @@ module ForemanSalt
     include ::Foreman::Controller::SmartProxyAuth
     include ::Foreman::Controller::Parameters::Host
 
-    before_action :find_resource, only: %i[node run]
+    before_action :find_resource, only: %i[node]
     add_smart_proxy_filters :node, features: 'Salt'
 
     def node
@@ -27,15 +27,6 @@ module ForemanSalt
       render(plain: _('Unable to generate output, Check log files\n'), status: :precondition_failed) && return
     end
 
-    def run
-      if @minion.saltrun!
-        success _('Successfully executed, check log files for more details')
-      else
-        error @minion.errors[:base].to_sentence
-      end
-      redirect_to host_path(@minion)
-    end
-
     def salt_environment_selected
       if params[:host][:salt_environment_id].present?
         @salt_environment = ::ForemanSalt::SaltEnvironment.friendly.find(params[:host][:salt_environment_id])
@@ -48,8 +39,6 @@ module ForemanSalt
 
     def action_permission
       case params[:action]
-      when 'run'
-        :saltrun
       when 'node'
         :view
       when 'salt_environment_selected'
