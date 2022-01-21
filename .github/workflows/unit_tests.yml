@@ -26,7 +26,7 @@ jobs:
         foreman-repo: [theforeman/foreman]
         foreman-core-branch: [develop]
         ruby-version: [2.7]
-        node-version: [12]
+        node-version: [14]
     steps:
       - run: |
           sudo apt-get update
@@ -46,6 +46,11 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
+      - name: Setup Node
+        if: github.event_name != 'push'
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: Prepare webpack
         run: |
           npm install
