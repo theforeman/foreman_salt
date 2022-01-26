@@ -15,8 +15,10 @@ if ForemanSalt.with_remote_execution?
         ForemanSalt.register_rex_feature
       end
       JobTemplate.without_auditing do
-        Dir[File.join("#{ForemanSalt::Engine.root}/app/views/foreman_salt/"\
-                    'job_templates/**/*.erb')].each do |template|
+        templates = Dir[File.join("#{ForemanSalt::Engine.root}/app/views/foreman_salt/"\
+                    'job_templates/**/*.erb')]
+        first = templates.select { |d| File.basename(d).start_with?('salt_run_function') }
+        (first + (templates - first)).each do |template|
           sync = !Rails.env.test? && Setting[:remote_execution_sync_templates]
           template = JobTemplate.import_raw!(File.read(template),
             default: true,
