@@ -108,6 +108,7 @@ module ForemanSalt
       private
 
       def ensure_salt_autosign
+        remove_salt_key
         remove_salt_autosign
         create_salt_autosign
       end
