@@ -4,7 +4,7 @@ module ForemanSalt
   class MinionsControllerTest < ActionController::TestCase
     setup do
       User.current = User.anonymous_admin
-      Setting::Salt.load_defaults
+      Setting.load_defaults
       Setting[:restrict_registered_smart_proxies] = true
 
       @proxy = FactoryBot.create(:smart_proxy, :with_salt_feature)
