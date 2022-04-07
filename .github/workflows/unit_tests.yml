@@ -28,7 +28,8 @@ jobs:
         ruby-version: [2.7]
         node-version: [14]
     steps:
-      - run: |
+      - name: Install build dependencies
+        run: |
           sudo apt-get update
           sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
       - uses: actions/checkout@v2
@@ -51,14 +52,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Prepare webpack
-        run: |
-          npm install
-          bundle exec rake webpack:compile
       - name: Prepare test DB
         run: |
           bundle exec rake db:create
           bundle exec rake db:migrate
+          bundle exec rake db:test:prepare
+      - name: Prepare webpack
+        run: |
+          npm install
+          bundle exec rake webpack:compile
       - name: Run plugin tests
         run: |
           bundle exec rake test:foreman_salt
