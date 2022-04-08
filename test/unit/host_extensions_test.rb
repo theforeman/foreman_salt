@@ -62,6 +62,8 @@ module ForemanSalt
         @host.salt_proxy = @proxy
         stub_request(:post, "#{@proxy.url}/salt/autosign_key/asdfasdfasfasdf")
           .to_return(status: 200, body: '', headers: {})
+        stub_request(:delete, "#{@proxy.url}/salt/key/#{@host.name}")
+          .to_return(status: 200, body: '', headers: {})
       end
 
       test 'host autosign is created when host is built' do
