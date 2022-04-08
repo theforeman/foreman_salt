@@ -3,6 +3,16 @@
 Foreman::Plugin.register :foreman_salt do
   requires_foreman '>= 1.24'
 
+  settings do
+    category(:cfgmgmt, N_('Config Management')) do
+      setting('salt_namespace_pillars',
+        type: :boolean,
+        description: N_("Namespace Foreman pillars under 'foreman' key"),
+        default: false,
+        full_name: N_('Salt namespace pillars'))
+    end
+  end
+
   apipie_documented_controllers ["#{ForemanSalt::Engine.root}/app/controllers/foreman_salt/api/v2/*.rb"]
 
   # Menus

@@ -16,7 +16,7 @@ module ForemanSalt
         proxy = FactoryBot.create(:smart_proxy, :with_salt_feature)
         salt_environment = FactoryBot.create(:salt_environment)
         @host = FactoryBot.create(:host, salt_proxy: proxy, salt_environment: salt_environment)
-        Setting::Salt.load_defaults
+        Setting.load_defaults
       end
     end
 

@@ -18,16 +18,6 @@ module ForemanSalt
       ForemanTasks.dynflow.require!
     end
 
-    initializer 'foreman_salt.load_default_settings', before: :load_config_initializers do
-      if begin
-            Setting.table_exists?
-         rescue StandardError
-           (false)
-          end
-        require_dependency File.expand_path('../../app/models/setting/salt.rb', __dir__)
-      end
-    end
-
     initializer 'foreman_salt.register_gettext',
       after: :load_config_initializers do
       locale_dir = File.join(File.expand_path('../..', __dir__), 'locale')
