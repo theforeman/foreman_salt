@@ -42,6 +42,9 @@ module ForemanSalt
 
         validate :salt_modules_in_host_environment
 
+        # remove minion data in case of a host re-build
+        after_build :remove_salt_minion, if: ->(host) { host.salt_proxy }
+
         after_build :ensure_salt_autosign, if: ->(host) { host.salt_proxy }
         before_destroy :remove_salt_minion, if: ->(host) { host.salt_proxy }
       end
