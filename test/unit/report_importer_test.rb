@@ -8,6 +8,7 @@ module ForemanSalt
 
       @report = JSON.parse(File.read(File.join(Engine.root, 'test', 'unit', 'highstate.json')))
       @report_pchanges = JSON.parse(File.read(File.join(Engine.root, 'test', 'unit', 'highstate_pchanges.json')))
+      @report_unhandled = JSON.parse(File.read(File.join(Engine.root, 'test', 'unit', 'highstate_unhandled.json')))
 
       @host = 'saltclient713.example.com'
     end
@@ -54,6 +55,12 @@ module ForemanSalt
       first = reports.first
       assert_equal 'Salt', first.origin
       assert_equal @host, first.host.name
+    end
+
+    test 'importing report with unhandled highstate' do
+      HostStatus::ConfigurationStatus.any_instance.stubs(:relevant?).returns(true)
+      ForemanSalt::ReportImporter.import(@report_unhandled)
+      assert Host.find_by(name: @host).get_status(HostStatus::ConfigurationStatus).error?
     end
   end
 end

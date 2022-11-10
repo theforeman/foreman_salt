@@ -34,8 +34,8 @@ module ForemanSalt
       @host.salt_proxy_id ||= @proxy_id
       @host.last_report = start_time
 
-      if @raw.is_a? Array
-        process_failures # If Salt sends us only an array, it's a list of fatal failures
+      if [Array, String].member? @raw.class
+        process_failures # If Salt sends us only an array (or string), it's a list of fatal failures
       else
         process_normal
       end
@@ -158,6 +158,7 @@ module ForemanSalt
     end
 
     def process_failures
+      @raw = [@raw] unless @raw.is_a? Array
       status = ConfigReportStatusCalculator.new(counters: { 'failed' => @raw.size }).calculate
       @report = ConfigReport.create(host: @host, reported_at: Time.zone.now, status: status, metrics: {})
 
