@@ -35,6 +35,9 @@ msgstr ""
 msgid "Added"
 msgstr ""
 
+msgid "Array of Salt state IDs"
+msgstr ""
+
 msgid "Array of State ids"
 msgstr ""
 
@@ -69,6 +72,9 @@ msgid "Check/Uncheck All"
 msgstr ""
 
 msgid "Check/Uncheck Removed"
+msgstr ""
+
+msgid "Config Management"
 msgstr ""
 
 msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
@@ -146,9 +152,6 @@ msgstr ""
 msgid "FQDN of host that key belongs to"
 msgstr ""
 
-msgid "Failed to execute state.highstate: %s"
-msgstr ""
-
 msgid "Filter %s"
 msgstr ""
 
@@ -164,9 +167,6 @@ msgstr ""
 msgid "Hide all values for this parameter."
 msgstr ""
 
-msgid "Hide the Run Salt state.highstate button on the host details page"
-msgstr ""
-
 msgid "Host groups"
 msgstr ""
 
@@ -177,6 +177,9 @@ msgid "Hosts"
 msgstr ""
 
 msgid "ID of Salt Proxy"
+msgstr ""
+
+msgid "ID of host group"
 msgstr ""
 
 msgid "If checked, will raise an error if there is no default value and no matcher provide a value."
@@ -278,9 +281,6 @@ msgstr ""
 msgid "New Salt Variable"
 msgstr ""
 
-msgid "No Salt master defined - can't continue"
-msgstr ""
-
 msgid "No changes found"
 msgstr ""
 
@@ -380,6 +380,12 @@ msgstr ""
 msgid "Salt external nodes YAML dump"
 msgstr ""
 
+msgid "Salt master/smart proxy ID"
+msgstr ""
+
+msgid "Salt namespace pillars"
+msgstr ""
+
 msgid "Salt state"
 msgstr ""
 
@@ -404,6 +410,9 @@ msgstr ""
 msgid "Set the order in which values are resolved."
 msgstr ""
 
+msgid "Set the salt_status as \\'successful authentication\\' and remove the corresponding autosign key from the Smart Proxy"
+msgstr ""
+
 msgid "Show a Salt environment"
 msgstr ""
 
@@ -411,6 +420,9 @@ msgid "Show a minion"
 msgstr ""
 
 msgid "Show a state"
+msgstr ""
+
+msgid "Show the Salt parameters of a host group"
 msgstr ""
 
 msgid "Show variable"
@@ -431,13 +443,7 @@ msgstr ""
 msgid "States"
 msgstr ""
 
-msgid "Successfully executed, check log files for more details"
-msgstr ""
-
 msgid "Successfully imported"
-msgstr ""
-
-msgid "Successfully updated %s."
 msgstr ""
 
 msgid "The order in which matchers keys are processed, first match wins.<br> You may use multiple attributes as a matcher key, for example, an order of <code>host group, environment</code> would expect a matcher such as <code>hostgroup = \"web servers\", environment = production</code>"
@@ -447,9 +453,6 @@ msgid "The order in which values are resolved"
 msgstr ""
 
 msgid "Toggle"
-msgstr ""
-
-msgid "Trigger a state.highstate run on a node"
 msgstr ""
 
 msgid "Type"
@@ -464,7 +467,13 @@ msgstr ""
 msgid "Unable to accept Salt key for %s"
 msgstr ""
 
-msgid "Unable to delete Salt autosign for %s"
+msgid "Unable to create Salt autosign key %s"
+msgstr ""
+
+msgid "Unable to delete Salt autosign hostname for %s"
+msgstr ""
+
+msgid "Unable to delete Salt autosign key %s"
 msgstr ""
 
 msgid "Unable to delete Salt key for %s"
@@ -492,7 +501,7 @@ msgstr ""
 msgid "Unable to run Salt state.highstate for %s"
 msgstr ""
 
-msgid "Unable to set Salt autosign for %s"
+msgid "Unable to set Salt autosign hostname for %s"
 msgstr ""
 
 msgid "Unaccepted"
@@ -505,6 +514,9 @@ msgid "Update a Salt Key"
 msgstr ""
 
 msgid "Update a minion"
+msgstr ""
+
+msgid "Update the Salt parameters of a host group"
 msgstr ""
 
 msgid "Updated hosts: changed salt environment"

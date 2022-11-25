@@ -1,0 +1,556 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_salt package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# NorwayFun <temuri.doghonadze@gmail.com>, 2022
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_salt 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-04-29 07:31+0000\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>, 2022\n"
+"Language-Team: Georgian (https://www.transifex.com/foreman/teams/114/ka/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "*Clear environment*"
+msgstr "*გარემოს გასუფთავება*"
+
+msgid "Accept"
+msgstr "დასტური"
+
+msgid "Accepted"
+msgstr "მიღებულია"
+
+msgid "Action with sub plans"
+msgstr "ქმედება ქვე-გეგმებით"
+
+msgid "Actions"
+msgstr "ქმედებები"
+
+msgid "Added"
+msgstr "დამატებულია"
+
+msgid "Array of Salt state IDs"
+msgstr ""
+
+msgid "Array of State ids"
+msgstr "მდგომარეობის ID-ების მასივი"
+
+msgid "Autosign"
+msgstr "ავტომატური ხელმოწერა"
+
+msgid "Autosign entries for %s"
+msgstr "%s-ის ჩანაწერების ავტომატური ხელმოწერა"
+
+msgid "Autosign record"
+msgstr "ჩანაწერის ავტომატური ხელმოწერა"
+
+msgid "Avoid duplicate values when merging them (only array type)?"
+msgstr "ავიცილო შერწყმისას თავიდან დუბლირებული მნიშვნელობები(მხოლოდ მასივის ტიპი)?"
+
+msgid "Before including these variables as Salt pillar, Foreman will validate that your variables comply with the validation."
+msgstr "სანამ ამ ცვლადებს Salt-ის საყრდენად შეიტანთ, Foreman დაადასტურებს, რომ თქვენი ცვლადები შეესაბამება ვალიდაციას."
+
+msgid "Cancel"
+msgstr "გაუქმება"
+
+msgid "Change Salt Environment"
+msgstr "მარილის გარემოს შეცვლა"
+
+msgid "Change Salt Master"
+msgstr "მარილის ძირითადის შეცვლა"
+
+msgid "Check/Uncheck Added"
+msgstr "ჩართ/გამორთ დამატებულია"
+
+msgid "Check/Uncheck All"
+msgstr "ჩართ/გამორთ ყველა"
+
+msgid "Check/Uncheck Removed"
+msgstr "ჩართ/გამორთ წაშლილია"
+
+msgid "Config Management"
+msgstr ""
+
+msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
+msgstr "გავაგრძელოთ შესატყვისების ძებნა პირველი პოვნის შემდეგ (მხოლოდ მასივი/ჰეშის ტიპი)? შენიშვნა: უგულებელყოფის შერწყმა უგულებელყოფს ყველა შესატყვისს, რომელიც გამოტოვებულია."
+
+msgid "Could not find salt environment with id %s"
+msgstr "მარილის გარემო ID-ით %s არ არსებობს"
+
+msgid "Create Salt Variable"
+msgstr "მარილის ცვლადის შექმნა"
+
+msgid "Create Salt variable"
+msgstr "მარილის ცვლადის შექმნა"
+
+msgid "Create a Salt environment"
+msgstr "მარილის გარემოს შექმნა"
+
+msgid "Create a state"
+msgstr "მდგომარეობის შექმნა"
+
+msgid "Create an autosign record"
+msgstr "ავტომატური ხელმოწერის მქონე ჩანაწერის შექმნა"
+
+msgid "Default Behavior"
+msgstr "ნაგულისხმევი ქცევა"
+
+msgid "Default value of variable"
+msgstr "ცვლადის ნაგულისხმები მნიშვნელობა"
+
+msgid "Delete %s?"
+msgstr "წავშალო \"%s\"?"
+
+msgid "Delete a Salt Key"
+msgstr "მარილის გასაღების წაშლა"
+
+msgid "Delete an autosign record"
+msgstr "ავტომატური ხელმოწერის წასლა"
+
+msgid "Deletes Salt variable"
+msgstr "მარილის ცვლადის წაშლა"
+
+msgid "Description of variable"
+msgstr "ცვლადის აღწერა"
+
+msgid "Destroy a Salt environment"
+msgstr "მარილის გარემოს განადგურება"
+
+msgid "Destroy a state"
+msgstr "მდგომარეობის განადგურება"
+
+msgid "Dryrun only"
+msgstr "მხოლოდ სატესტო გაშვება"
+
+msgid "Edit"
+msgstr "ჩასწორება"
+
+msgid "Edit %s"
+msgstr "%s-ის ჩასწორება"
+
+msgid "Edit Salt Environment %s"
+msgstr "მარილის გარემოს ჩასწორება: %s"
+
+msgid "Edit Salt State %s"
+msgstr "მარილის მდგომარეობის ჩასწორება (%s)"
+
+msgid "Edit Salt Variable"
+msgstr "მარილის ცვლადების ჩასწორება"
+
+msgid "Environment"
+msgstr "გარემო"
+
+msgid "Environments"
+msgstr "გარემო"
+
+msgid "FQDN of host that key belongs to"
+msgstr "ჰოსტის FQDN, რომელსაც ეს გასაღები ეკუთვნის"
+
+msgid "Filter %s"
+msgstr "ფილტრი %s"
+
+msgid "Fingerprint"
+msgstr "თითის ანაბეჭდი"
+
+msgid "Function"
+msgstr "ფუნქცია"
+
+msgid "Hidden Value"
+msgstr "დამალული მნიშვნელობა"
+
+msgid "Hide all values for this parameter."
+msgstr "პარამეტრის ყველა მნიშვნელობის დამალვა."
+
+msgid "Host groups"
+msgstr "ჰოსტის ჯგუფები"
+
+msgid "Host must have an environment in order to set salt states"
+msgstr "მარილის მდგომარეობების დასაყენებლად ჰოსტს გარემო უნდა ჰქონდეს"
+
+msgid "Hosts"
+msgstr "ჰოსტები"
+
+msgid "ID of Salt Proxy"
+msgstr "მარილის პროქსის ID"
+
+msgid "ID of host group"
+msgstr ""
+
+msgid "If checked, will raise an error if there is no default value and no matcher provide a value."
+msgstr "თუ მონიშნულია, წარმოიქმნება შეცდომა, თუ არ არის ნაგულისხმევი მნიშვნელობა და არცერთი შესატყვისი არ იძლევა მნიშვნელობას."
+
+msgid "Import"
+msgstr "იმპორტი"
+
+msgid "Import Puppet classes"
+msgstr "Puppet-ის კლასების შემოტანა"
+
+msgid "Import facts"
+msgstr "ფაქტების შემოტანა"
+
+msgid "Import from %s"
+msgstr "%s-დან შემოტანა"
+
+msgid "Import states from a salt master"
+msgstr "მდგომარეობების ძირითადი მარილიდან შემოტანა"
+
+msgid "Include default value when merging all matching values"
+msgstr "ყველა დამთხვეული მნიშვნელობის შერწყმისას ნაგულისხმები მნიშვნელობების გათვალისწნება"
+
+msgid "Include default value when merging all matching values."
+msgstr "ყველა დამთხვეული მნიშვნელობის შერწყმისას ნაგულისხმები მნიშვნელობების გათვალისწინება."
+
+msgid "Invalid report"
+msgstr "არასწორი ანგარიში"
+
+msgid "JID"
+msgstr "JID"
+
+msgid "Key Name"
+msgstr "გასაღებსი სახელი"
+
+msgid "Keys"
+msgstr "გასაღებები"
+
+msgid "Limit to a specific environment"
+msgstr "მითითებული გარემოთი შეზღუდვა"
+
+msgid "Limit to a specific environments"
+msgstr "მითითებული გარემოთი შეზღუდვა"
+
+msgid "Limit to specific actions: i.e. add, remove"
+msgstr "მითითებულ ქმედებებამდე შეზღუდვა. მაგ: დამატება, წაშლა"
+
+msgid "List Salt variables"
+msgstr "მარილის ყველა ცვლადის სია"
+
+msgid "List all Salt Minions"
+msgstr "მარილის ყველა მინიონის ჩვენება"
+
+msgid "List all Salt environments"
+msgstr "მარილის ყველა გარემოს სია"
+
+msgid "List all Salt keys"
+msgstr "მარილიკის ყველა გასაღების სია"
+
+msgid "List all Salt states"
+msgstr "მარილის ყველა მდგომარეობის სია"
+
+msgid "List all autosign records"
+msgstr "ავტომატური ხელმოწერის მქონე ჩანაწერების სია"
+
+msgid "Mark the variable to be managed by Foreman. When the Salt State of this variable is assigned to a host, the default value will be added as a Salt pillar for this host. Specify matchers to set a different value for such variable."
+msgstr "მონიშნეთ ცვლადი, რომელსაც მართავს Foreman. როდესაც ამ ცვლადის მარილის მდგოარეობა მიენიჭება ჰოსტს, ნაგულისხმევი მნიშვნელობა დაემატება როგორც Salt pillar ამ ჰოსტისთვის. მიუთითეთ შესატყვისები ასეთი ცვლადისთვის განსხვავებული მნიშვნელობის დასაყენებლად."
+
+msgid "Merge all matching values (only array/hash type)"
+msgstr "ყველა ერთნაირი მნიშვნელობის შერწყმა (მხოლოდ მასივის/ჰეშის ტიპი)"
+
+msgid "Must specify a Smart Proxy to use"
+msgstr "საჭიროა ჭკვიანი პროქსის მითითება"
+
+msgid "Name"
+msgstr "სახელი"
+
+msgid "Name of the Salt state"
+msgstr "მარილის მდგომარეობის სახელი"
+
+msgid "Name of variable"
+msgstr "ცვლადის სახელი"
+
+msgid "Namespace Foreman pillars under 'foreman' key"
+msgstr "სახელების სივრცე Foreman 'foreman' გასაღებს ეყრდნობა"
+
+msgid "New"
+msgstr "ახალი"
+
+msgid "New Autosign Entry"
+msgstr "ავტომატური ხელმოწერის ახალი ჩანაწერი"
+
+msgid "New Salt Environment"
+msgstr "მარილის ახალი გარემო"
+
+msgid "New Salt State"
+msgstr "მარილის ახალი მდგომარეობა"
+
+msgid "New Salt Variable"
+msgstr "მარილის ახალი ცვლადი"
+
+msgid "No changes found"
+msgstr "ცვლილებების გარეშე"
+
+msgid "No salt environment selected!"
+msgstr "მარილის გარემო ნაპოვნი არაა!"
+
+msgid "Operation"
+msgstr "ოეპრაცია"
+
+msgid "Optional Input Validator"
+msgstr "შეყვანის არასავალდებულო შემოწმება"
+
+msgid "Order"
+msgstr "დალაგება"
+
+msgid "Override the default value of the Salt variable."
+msgstr "მარილის ცვლადის ნაგულისხმები მნიშვნელობის გადაფარვა."
+
+msgid "Overriden"
+msgstr "გადაფარული"
+
+msgid "Please select a Salt environment first"
+msgstr "ჯერ აირჩიეთ მარილის გარემო"
+
+msgid "Prioritize Attribute Order"
+msgstr "ატიბუტების მიმდევრობის პრიორიტეტების მიხედვით დალაგება"
+
+msgid "Record deleted."
+msgstr "ჩანაწერი წაიშალა."
+
+msgid "Reject"
+msgstr "უარყოფა"
+
+msgid "Rejected"
+msgstr "უარყოფილია"
+
+msgid "Remote action:"
+msgstr "დაშორებული ქმედება:"
+
+msgid "Remove duplicate values (only array type)"
+msgstr "დუბლირებული მნიშვნელობების წაშლა (მხოლოდ მასივის ტიპი)"
+
+msgid "Removed"
+msgstr "ამოღებულია"
+
+msgid "Result"
+msgstr "შედეგი"
+
+msgid "Run Salt"
+msgstr "მარილის გაშვება"
+
+msgid "Run Salt state.highstate"
+msgstr "მარილის state.highstate -ის გაშვება"
+
+msgid "Salt Autosign"
+msgstr "მარილის ავტომატური ხელმოწერა"
+
+msgid "Salt ENC"
+msgstr "მარილის ENC"
+
+msgid "Salt Environment"
+msgstr "მარილის გარემო"
+
+msgid "Salt Environments"
+msgstr "მარილის გარემოები"
+
+msgid "Salt Keys"
+msgstr "მარილის გასაღებები"
+
+msgid "Salt Keys on %s"
+msgstr "მარილის გასაღებები %s-ზე"
+
+msgid "Salt Master"
+msgstr "მარილის ძირითადი"
+
+msgid "Salt Smart Proxy ID"
+msgstr "მარილის ჭკვიანი პროქსის ID"
+
+msgid "Salt State"
+msgstr "მარილის მდგომარეობა"
+
+msgid "Salt States"
+msgstr "მარილის მდგომარეობა"
+
+msgid "Salt Variable Details"
+msgstr "მარილის ცვლადის დეტალები"
+
+msgid "Salt Variables"
+msgstr "მარილს ცვლადები"
+
+msgid "Salt environment"
+msgstr "მარილის გარემო"
+
+msgid "Salt environment ID"
+msgstr "მარილის გარემოს ID"
+
+msgid "Salt external nodes YAML dump"
+msgstr "მარილის გარე კვანძების YAML ფაილი"
+
+msgid "Salt master/smart proxy ID"
+msgstr ""
+
+msgid "Salt namespace pillars"
+msgstr ""
+
+msgid "Salt state"
+msgstr "მარილის მდგომარეობა"
+
+msgid "Salt states must be in the environment of the host"
+msgstr "მარილის მდგომარეობები ჰოსტის გარემოში უნდა იყოს"
+
+msgid "SaltEnvironment|Name"
+msgstr "მარილისგარემო|სახელი"
+
+msgid "SaltModule|Name"
+msgstr "მარილისმოდული|ახალი"
+
+msgid "Save"
+msgstr "შენახვა"
+
+msgid "Select salt environment"
+msgstr "აირჩიეთ მარილის გარემო"
+
+msgid "Select the changes you want to realize in Foreman"
+msgstr "აირჩიეთ ცვლილებები, რომლების რეალიზებაც Foreman-ში გნებავთ"
+
+msgid "Set the order in which values are resolved."
+msgstr "მიმდევრობა, რომლითაც მნიშვნელობების ამოხსნა ხდება."
+
+msgid "Set the salt_status as \\'successful authentication\\' and remove the corresponding autosign key from the Smart Proxy"
+msgstr ""
+
+msgid "Show a Salt environment"
+msgstr "მარილის გარემოს ჩვენება"
+
+msgid "Show a minion"
+msgstr "მინიონის ჩვენება"
+
+msgid "Show a state"
+msgstr "მდგომარეობის ჩვენება"
+
+msgid "Show the Salt parameters of a host group"
+msgstr ""
+
+msgid "Show variable"
+msgstr "ცვლადის ჩვენება"
+
+msgid "Specify Matchers"
+msgstr "მიუთითეთ შესატყვისები"
+
+msgid "State"
+msgstr "State"
+
+msgid "State ID"
+msgstr "მდგომარეობის ID"
+
+msgid "State can be \"accepted\" or \"rejected\""
+msgstr "მდგომარეობა შეიძლება იყოს \"თანხმობა\" ან \"უარყოფა\""
+
+msgid "States"
+msgstr "შტატები"
+
+msgid "Successfully imported"
+msgstr "წარმატებით იქნა შემოტანილი"
+
+msgid "The order in which matchers keys are processed, first match wins.<br> You may use multiple attributes as a matcher key, for example, an order of <code>host group, environment</code> would expect a matcher such as <code>hostgroup = \"web servers\", environment = production</code>"
+msgstr "თანმიმდევრობით, რომლითაც შესატყვისების გასაღებები დამუშავდება, პირველი მატჩი იმარჯვებს.<br> თქვენ შეგიძლიათ გამოიყენოთ მრავალი ატრიბუტი, როგორც შესატყვისი გასაღები, მაგალითად, <code>host group, environment</code> მოსალოდნელია შესატყვისი, როგორიცაა <code>hostgroup = \"web servers\", environment = production</code>"
+
+msgid "The order in which values are resolved"
+msgstr "მიმდევრობა, რომლითაც მნიშვნელობების ამოხსნა ხდება"
+
+msgid "Toggle"
+msgstr "გადართვა"
+
+msgid "Type"
+msgstr "ტიპი"
+
+msgid "Types of validation values"
+msgstr "შემოწმების მნიშვნელობის ტიპები"
+
+msgid "Types of variable values"
+msgstr "ცვლადის მნიშვნელობის ტიპები"
+
+msgid "Unable to accept Salt key for %s"
+msgstr "%s-ის მარილის გასაღების დადასტურების შეცდომა"
+
+msgid "Unable to create Salt autosign key %s"
+msgstr ""
+
+msgid "Unable to delete Salt autosign hostname for %s"
+msgstr ""
+
+msgid "Unable to delete Salt autosign key %s"
+msgstr ""
+
+msgid "Unable to delete Salt key for %s"
+msgstr "%s-ის მარილის გასაღების წაშლის შეცდომა"
+
+msgid "Unable to fetch Salt environments list"
+msgstr "მარილის გარემოების გამოთხოვის სეცდომა"
+
+msgid "Unable to fetch Salt key list"
+msgstr "მარილის გასაღების სიის გამოთხოვის შეცდომა"
+
+msgid "Unable to fetch Salt states list"
+msgstr "მარილის მდგომარეობის სიის გამოთხოვის შეცდომა"
+
+msgid "Unable to fetch autosign list"
+msgstr "ავტომატური ხელმოწერის სიის მიღების შეცდომა"
+
+msgid ""
+"Unable to generate output, Check log files\n"
+msgstr ""
+"გამოტანის შეცდომა, შეამოწმეთ ჟურნალი\n"
+
+msgid "Unable to reject Salt key for %s"
+msgstr "%s-ის მარილის გასაღების უარყოფის შეცდომა"
+
+msgid "Unable to run Salt state.highstate for %s"
+msgstr "%s-სთვის მარილის state.highstate -ის დაყენების შეცდომა"
+
+msgid "Unable to set Salt autosign hostname for %s"
+msgstr ""
+
+msgid "Unaccepted"
+msgstr "მიუღებელი"
+
+msgid "Update"
+msgstr "განახლება"
+
+msgid "Update a Salt Key"
+msgstr "მარილის გასაღების განახლება"
+
+msgid "Update a minion"
+msgstr "მინიონის განახლება"
+
+msgid "Update the Salt parameters of a host group"
+msgstr ""
+
+msgid "Updated hosts: changed salt environment"
+msgstr "ჰოსტების განახლება: მარილის გარემო შეიცვალა"
+
+msgid "Updates Salt variable"
+msgstr "მარილის ცვლადის განახლება"
+
+msgid "Upload a Job"
+msgstr "დავალების ატვირთვა"
+
+msgid "Used to enforce certain values for the parameter values"
+msgstr "გამოიყენება ზოგიერთი მნიშვნელობების პარამეტრების მნიშვნელობებად ძალით დასაყენებლად"
+
+msgid "Value to use when there is no match."
+msgstr "მნიშვნელობა, რომელიც გამოიყენება, როცა დამთხვევები არაა."
+
+msgid "Variables"
+msgstr "ცვლადები"
+
+msgid "Variable|Name"
+msgstr "ცვლადი|სახელი"
+
+msgid "Variable|State"
+msgstr "ცვლადი|მდგომარეობა"
+
+msgid "When enabled the parameter is hidden in the UI"
+msgstr "როცა ჩართულია, UI-ში პარმეტრი დამალულია"
+
+msgid "is alphanumeric and cannot contain spaces"
+msgstr "ალფარიცხვულია და არ შეიძლება გამოტოვებებს შეიცავდეს"
+
+msgid "must be alphanumeric, can contain periods, dashes, underscores and must not contain spaces"
+msgstr "უნდა იყოს ალფარიცხვული, შეიძლება შეიცავდეს წერტილებს, ტირეებს და ქვედა ტირეებს. არ შეიძლება შეიცავდეს გამოტოვებებს"
