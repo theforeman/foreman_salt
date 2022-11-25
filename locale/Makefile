@@ -6,8 +6,8 @@
 # make tx-update - download and merge translations from Transifex
 # make clean - clean everything
 #
-DOMAIN = foreman_salt
-VERSION = $(shell ruby -e 'require "rubygems";spec = Gem::Specification::load(Dir.glob("../*.gemspec")[0]);puts spec.version')
+DOMAIN = $(shell ruby -rrubygems -e 'puts Gem::Specification::load(Dir.glob("../*.gemspec")[0]).name')
+VERSION = $(shell ruby -rrubygems -e 'puts Gem::Specification::load(Dir.glob("../*.gemspec")[0]).version')
 POTFILE = $(DOMAIN).pot
 MOFILE = $(DOMAIN).mo
 POFILES = $(shell find . -name '$(DOMAIN).po')
@@ -41,7 +41,10 @@ uniq-po:
 		msguniq $$f -o $$f ; \
 	done
 
-tx-pull: $(EDITFILES)
+tx-new:
+	tx pull --minimum-perc 50 --all
+
+tx-pull: tx-new $(EDITFILES)
 	tx pull -f
 	for f in $(EDITFILES) ; do \
 		sed -i 's/^\("Project-Id-Version: \).*$$/\1$(DOMAIN) $(VERSION)\\n"/' $$f; \
@@ -54,6 +57,7 @@ tx-update: tx-pull
 
 mo-files: $(MOFILES)
 	git add $(POFILES) $(POTFILE) ../locale/*/LC_MESSAGES
+	[[ ! -f locale/action_names.rb ]] || git add locale/action_names.rb
 	git commit -m "i18n - pulling from tx"
 	@echo
 	@echo Changes commited!
