@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_salt 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-11 18:53+0530\n"
-"PO-Revision-Date: 2020-05-11 18:53+0530\n"
+"POT-Creation-Date: 2022-11-25 14:45+0100\n"
+"PO-Revision-Date: 2022-11-25 14:45+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -34,25 +34,31 @@ msgstr ""
 msgid "Upload a Job"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:9
+#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:17
 msgid "List all autosign records"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:15
+#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:23
 msgid "Create an autosign record"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:17
 #: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:25
+#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:33
 msgid "Autosign record"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:23
+#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:31
 msgid "Delete an autosign record"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:28
+#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:36
 msgid "Record deleted."
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_autosign_controller.rb:40
+msgid ""
+"Set the salt_status as \\'successful authentication\\' and remove the correspond"
+"ing autosign key from the Smart Proxy"
 msgstr ""
 
 #: ../app/controllers/foreman_salt/api/v2/salt_environments_controller.rb:9
@@ -69,6 +75,32 @@ msgstr ""
 
 #: ../app/controllers/foreman_salt/api/v2/salt_environments_controller.rb:33
 msgid "Destroy a Salt environment"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_hostgroups_controller.rb:9
+msgid "Show the Salt parameters of a host group"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_hostgroups_controller.rb:10
+#: ../app/controllers/foreman_salt/api/v2/salt_hostgroups_controller.rb:24
+msgid "ID of host group"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_hostgroups_controller.rb:17
+#: ../app/controllers/foreman_salt/api/v2/salt_minions_controller.rb:21
+msgid "Salt environment ID"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_hostgroups_controller.rb:18
+msgid "Salt master/smart proxy ID"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_hostgroups_controller.rb:19
+msgid "Array of Salt state IDs"
+msgstr ""
+
+#: ../app/controllers/foreman_salt/api/v2/salt_hostgroups_controller.rb:23
+msgid "Update the Salt parameters of a host group"
 msgstr ""
 
 #: ../app/controllers/foreman_salt/api/v2/salt_keys_controller.rb:8
@@ -99,10 +131,6 @@ msgstr ""
 msgid "Show a minion"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_minions_controller.rb:21
-msgid "Salt environment ID"
-msgstr ""
-
 #: ../app/controllers/foreman_salt/api/v2/salt_minions_controller.rb:22
 msgid "ID of Salt Proxy"
 msgstr ""
@@ -123,43 +151,43 @@ msgstr ""
 msgid "Limit to a specific environment"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:25
+#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:26
 msgid "Show a state"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:32
+#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:33
 msgid "Name of the Salt state"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:36
+#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:37
 msgid "Create a state"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:43
+#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:44
 msgid "Destroy a state"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:49
+#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:50
 msgid "Import states from a salt master"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:50
+#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:51
 msgid "Salt Smart Proxy ID"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:51
+#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:52
 msgid "Limit to a specific environments"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:52
+#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:53
 msgid "Limit to specific actions: i.e. add, remove"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:53
+#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:54
 msgid "Dryrun only"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:94
+#: ../app/controllers/foreman_salt/api/v2/salt_states_controller.rb:93
 msgid "Could not find salt environment with id %s"
 msgstr ""
 
@@ -167,72 +195,72 @@ msgstr ""
 msgid "Show variable"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:17
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:18
 msgid "List Salt variables"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:23
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:24
 msgid "Deletes Salt variable"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:32
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:33
 msgid "Name of variable"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:33
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:34
 msgid "State ID"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:34
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:35
 msgid "Default value of variable"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:35
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:36
 msgid "When enabled the parameter is hidden in the UI"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:36
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:37
 msgid "The order in which values are resolved"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:37
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:38
 msgid "Description of variable"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:38
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:39
 msgid "Types of validation values"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:39
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:40
 msgid "Used to enforce certain values for the parameter values"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:40
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:41
 msgid "Types of variable values"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:41
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:42
 msgid "Merge all matching values (only array/hash type)"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:42
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:43
 msgid "Include default value when merging all matching values"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:43
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:44
 msgid "Remove duplicate values (only array type)"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:47
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:48
 msgid "Create Salt variable"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:55
+#: ../app/controllers/foreman_salt/api/v2/salt_variables_controller.rb:56
 msgid "Updates Salt variable"
 msgstr ""
 
 #: ../app/controllers/foreman_salt/concerns/hosts_controller_extensions.rb:44
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:38
+#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:28
 msgid "Salt Master"
 msgstr ""
 
@@ -248,50 +276,32 @@ msgstr ""
 msgid "Unable to generate output, Check log files\\n"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/minions_controller.rb:32
-msgid "Successfully executed, check log files for more details"
-msgstr ""
-
-#: ../app/controllers/foreman_salt/salt_environments_controller.rb:30
-#: ../app/controllers/foreman_salt/salt_modules_controller.rb:34
-msgid "Successfully updated %s."
-msgstr ""
-
 #: ../app/controllers/foreman_salt/salt_modules_controller.rb:66
-#: ../app/controllers/foreman_salt/salt_modules_controller.rb:73
+#: ../app/controllers/foreman_salt/salt_modules_controller.rb:72
 msgid "No changes found"
 msgstr ""
 
-#: ../app/controllers/foreman_salt/salt_modules_controller.rb:83
+#: ../app/controllers/foreman_salt/salt_modules_controller.rb:82
 msgid "Successfully imported"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:8
+#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:9
 msgid "Salt ENC"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:9
+#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:10
 msgid "Salt external nodes YAML dump"
 msgstr ""
 
 #: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:17
-#: ../lib/foreman_salt/engine.rb:82
-msgid "Run Salt"
-msgstr ""
-
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:18
-msgid "Trigger a state.highstate run on a node"
-msgstr ""
-
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:29
 msgid "Change Salt Master"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:30
+#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:19
 msgid "Change Salt Environment"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:39
+#: ../app/helpers/concerns/foreman_salt/hosts_helper_extensions.rb:29
 #: ../app/views/hosts/select_multiple_salt_environment.html.erb:7
 msgid "Salt Environment"
 msgstr ""
@@ -334,54 +344,54 @@ msgid "Unable to fetch autosign list"
 msgstr ""
 
 #: ../app/lib/proxy_api/salt.rb:17
-msgid "Unable to set Salt autosign for %s"
+msgid "Unable to set Salt autosign hostname for %s"
 msgstr ""
 
 #: ../app/lib/proxy_api/salt.rb:25
-msgid "Unable to delete Salt autosign for %s"
+msgid "Unable to delete Salt autosign hostname for %s"
 msgstr ""
 
 #: ../app/lib/proxy_api/salt.rb:31
+msgid "Unable to create Salt autosign key %s"
+msgstr ""
+
+#: ../app/lib/proxy_api/salt.rb:39
+msgid "Unable to delete Salt autosign key %s"
+msgstr ""
+
+#: ../app/lib/proxy_api/salt.rb:45
 msgid "Unable to fetch Salt environments list"
 msgstr ""
 
-#: ../app/lib/proxy_api/salt.rb:43
+#: ../app/lib/proxy_api/salt.rb:57
 msgid "Unable to fetch Salt states list"
 msgstr ""
 
-#: ../app/lib/proxy_api/salt.rb:49
+#: ../app/lib/proxy_api/salt.rb:63
 msgid "Unable to fetch Salt key list"
 msgstr ""
 
-#: ../app/lib/proxy_api/salt.rb:55
+#: ../app/lib/proxy_api/salt.rb:69
 msgid "Unable to accept Salt key for %s"
 msgstr ""
 
-#: ../app/lib/proxy_api/salt.rb:61
+#: ../app/lib/proxy_api/salt.rb:75
 msgid "Unable to reject Salt key for %s"
 msgstr ""
 
-#: ../app/lib/proxy_api/salt.rb:69
+#: ../app/lib/proxy_api/salt.rb:83
 msgid "Unable to delete Salt key for %s"
 msgstr ""
 
-#: ../app/lib/proxy_api/salt.rb:75
+#: ../app/lib/proxy_api/salt.rb:89
 msgid "Unable to run Salt state.highstate for %s"
 msgstr ""
 
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:78
-msgid "No Salt master defined - can't continue"
-msgstr ""
-
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:84
-msgid "Failed to execute state.highstate: %s"
-msgstr ""
-
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:92
+#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:87
 msgid "Salt states must be in the environment of the host"
 msgstr ""
 
-#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:94
+#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:89
 msgid "Host must have an environment in order to set salt states"
 msgstr ""
 
@@ -393,29 +403,21 @@ msgstr ""
 msgid "Salt environment"
 msgstr ""
 
-#: ../app/models/foreman_salt/salt_module.rb:22
+#: ../app/models/foreman_salt/salt_module.rb:24
 msgid ""
 "must be alphanumeric, can contain periods, dashes, underscores and must not co"
 "ntain spaces"
 msgstr ""
 
-#: ../app/models/foreman_salt/salt_module.rb:46
+#: ../app/models/foreman_salt/salt_module.rb:48
 msgid "Salt state"
 msgstr ""
 
-#: ../app/models/setting/salt.rb:4
-msgid "Namespace Foreman pillars under 'foreman' key"
-msgstr ""
-
-#: ../app/models/setting/salt.rb:5
-msgid "Hide the Run Salt state.highstate button on the host details page"
-msgstr ""
-
-#: ../app/services/foreman_salt/report_importer.rb:8
+#: ../app/services/foreman_salt/report_importer.rb:7
 msgid "Invalid report"
 msgstr ""
 
-#: ../app/services/foreman_salt/smart_proxies/salt_keys.rb:11
+#: ../app/services/foreman_salt/smart_proxies/salt_keys.rb:12
 msgid "Must specify a Smart Proxy to use"
 msgstr ""
 
@@ -589,7 +591,7 @@ msgid "SaltModule|Name"
 msgstr ""
 
 #: ../app/views/foreman_salt/salt_modules/index.html.erb:29
-#: ../lib/foreman_salt/plugin.rb:23
+#: ../lib/foreman_salt/plugin.rb:32
 msgid "Variables"
 msgstr ""
 
@@ -733,8 +735,24 @@ msgstr ""
 msgid "*Clear environment*"
 msgstr ""
 
-#: ../lib/foreman_salt/engine.rb:78
+#: ../lib/foreman_salt/engine.rb:74
 msgid "Run Salt state.highstate"
+msgstr ""
+
+#: ../lib/foreman_salt/engine.rb:78
+msgid "Run Salt"
+msgstr ""
+
+#: ../lib/foreman_salt/plugin.rb:7
+msgid "Config Management"
+msgstr ""
+
+#: ../lib/foreman_salt/plugin.rb:10
+msgid "Namespace Foreman pillars under 'foreman' key"
+msgstr ""
+
+#: ../lib/foreman_salt/plugin.rb:12
+msgid "Salt namespace pillars"
 msgstr ""
 
 #: action_names.rb:2
@@ -742,13 +760,13 @@ msgid "Remote action:"
 msgstr ""
 
 #: action_names.rb:3
-msgid "Import facts"
+msgid "Import Puppet classes"
 msgstr ""
 
 #: action_names.rb:4
-msgid "Action with sub plans"
+msgid "Import facts"
 msgstr ""
 
 #: action_names.rb:5
-msgid "Import Puppet classes"
+msgid "Action with sub plans"
 msgstr ""

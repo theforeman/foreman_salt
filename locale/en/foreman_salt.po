@@ -34,6 +34,9 @@ msgstr ""
 msgid "Added"
 msgstr "Added"
 
+msgid "Array of Salt state IDs"
+msgstr ""
+
 msgid "Array of State ids"
 msgstr "Array of State ids"
 
@@ -69,6 +72,9 @@ msgstr "Check/Uncheck All"
 
 msgid "Check/Uncheck Removed"
 msgstr "Check/Uncheck Removed"
+
+msgid "Config Management"
+msgstr ""
 
 msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
 msgstr ""
@@ -145,9 +151,6 @@ msgstr "Environments"
 msgid "FQDN of host that key belongs to"
 msgstr "FQDN of host that key belongs to"
 
-msgid "Failed to execute state.highstate: %s"
-msgstr "Failed to execute state.highstate: %s"
-
 msgid "Filter %s"
 msgstr "Filter %s"
 
@@ -163,9 +166,6 @@ msgstr ""
 msgid "Hide all values for this parameter."
 msgstr ""
 
-msgid "Hide the Run Salt state.highstate button on the host details page"
-msgstr ""
-
 msgid "Host groups"
 msgstr "Host groups"
 
@@ -177,6 +177,9 @@ msgstr "Hosts"
 
 msgid "ID of Salt Proxy"
 msgstr "ID of Salt Proxy"
+
+msgid "ID of host group"
+msgstr ""
 
 msgid "If checked, will raise an error if there is no default value and no matcher provide a value."
 msgstr ""
@@ -277,9 +280,6 @@ msgstr "New Salt State"
 msgid "New Salt Variable"
 msgstr ""
 
-msgid "No Salt master defined - can't continue"
-msgstr "No Salt master defined - can't continue"
-
 msgid "No changes found"
 msgstr "No changes found"
 
@@ -379,6 +379,12 @@ msgstr "Salt environment ID"
 msgid "Salt external nodes YAML dump"
 msgstr "Salt external nodes YAML dump"
 
+msgid "Salt master/smart proxy ID"
+msgstr ""
+
+msgid "Salt namespace pillars"
+msgstr ""
+
 msgid "Salt state"
 msgstr "Salt state"
 
@@ -403,6 +409,9 @@ msgstr "Select the changes you want to realize in Foreman"
 msgid "Set the order in which values are resolved."
 msgstr ""
 
+msgid "Set the salt_status as \\'successful authentication\\' and remove the corresponding autosign key from the Smart Proxy"
+msgstr ""
+
 msgid "Show a Salt environment"
 msgstr "Show a Salt environment"
 
@@ -411,6 +420,9 @@ msgstr "Show a minion"
 
 msgid "Show a state"
 msgstr "Show a state"
+
+msgid "Show the Salt parameters of a host group"
+msgstr ""
 
 msgid "Show variable"
 msgstr ""
@@ -430,14 +442,8 @@ msgstr "State can be \"accepted\" or \"rejected\""
 msgid "States"
 msgstr "States"
 
-msgid "Successfully executed, check log files for more details"
-msgstr "Successfully executed, check log files for more details"
-
 msgid "Successfully imported"
 msgstr "Successfully imported"
-
-msgid "Successfully updated %s."
-msgstr "Successfully updated %s."
 
 msgid "The order in which matchers keys are processed, first match wins.<br> You may use multiple attributes as a matcher key, for example, an order of <code>host group, environment</code> would expect a matcher such as <code>hostgroup = \"web servers\", environment = production</code>"
 msgstr ""
@@ -447,9 +453,6 @@ msgstr ""
 
 msgid "Toggle"
 msgstr "Toggle"
-
-msgid "Trigger a state.highstate run on a node"
-msgstr "Trigger a state.highstate run on a node"
 
 msgid "Type"
 msgstr ""
@@ -463,8 +466,14 @@ msgstr ""
 msgid "Unable to accept Salt key for %s"
 msgstr "Unable to accept Salt key for %s"
 
-msgid "Unable to delete Salt autosign for %s"
-msgstr "Unable to delete Salt autosign for %s"
+msgid "Unable to create Salt autosign key %s"
+msgstr ""
+
+msgid "Unable to delete Salt autosign hostname for %s"
+msgstr ""
+
+msgid "Unable to delete Salt autosign key %s"
+msgstr ""
 
 msgid "Unable to delete Salt key for %s"
 msgstr "Unable to delete Salt key for %s"
@@ -492,8 +501,8 @@ msgstr "Unable to reject Salt key for %s"
 msgid "Unable to run Salt state.highstate for %s"
 msgstr "Unable to run Salt state.highstate for %s"
 
-msgid "Unable to set Salt autosign for %s"
-msgstr "Unable to set Salt autosign for %s"
+msgid "Unable to set Salt autosign hostname for %s"
+msgstr ""
 
 msgid "Unaccepted"
 msgstr "Unaccepted"
@@ -506,6 +515,9 @@ msgstr "Update a Salt Key"
 
 msgid "Update a minion"
 msgstr "Update a minion"
+
+msgid "Update the Salt parameters of a host group"
+msgstr ""
 
 msgid "Updated hosts: changed salt environment"
 msgstr ""

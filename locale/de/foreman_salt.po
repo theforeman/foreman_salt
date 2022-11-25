@@ -51,6 +51,9 @@ msgstr "Aktionen"
 msgid "Added"
 msgstr "Hinzugefügt"
 
+msgid "Array of Salt state IDs"
+msgstr ""
+
 msgid "Array of State ids"
 msgstr "Array von State IDs"
 
@@ -86,6 +89,9 @@ msgstr "Alle auswählen/abwählen"
 
 msgid "Check/Uncheck Removed"
 msgstr "Gelöschte auswählen/abwählen"
+
+msgid "Config Management"
+msgstr ""
 
 msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
 msgstr "Nach dem ersten Treffer nach weiterhin nach Treffern suchen (nur Array-/Hash-Typ)? Hinweis: Das Zusammenlegen von Überschreibungen ignoriert alle Prüfwerte, die weggelassen werden."
@@ -162,9 +168,6 @@ msgstr "Umgebungen"
 msgid "FQDN of host that key belongs to"
 msgstr "FQDN des Hosts zu welchem der Schlüssel gehört"
 
-msgid "Failed to execute state.highstate: %s"
-msgstr "Fehler bei der Ausführung von state.highstate: %s"
-
 msgid "Filter %s"
 msgstr "Filter %s"
 
@@ -180,9 +183,6 @@ msgstr "Verborgener Wert"
 msgid "Hide all values for this parameter."
 msgstr "Alle Werte für diesen Parameter verbergen."
 
-msgid "Hide the Run Salt state.highstate button on the host details page"
-msgstr "'Salt state.highstate' Button auf der Hoststatus Seite ausblenden"
-
 msgid "Host groups"
 msgstr "Hostgruppen"
 
@@ -194,6 +194,9 @@ msgstr "Hosts"
 
 msgid "ID of Salt Proxy"
 msgstr "ID des Salt Proxy"
+
+msgid "ID of host group"
+msgstr ""
 
 msgid "If checked, will raise an error if there is no default value and no matcher provide a value."
 msgstr "Falls aktiviert, wird dies einen Fehler erzeugen, wenn kein Standardwert vorhanden ist und kein Treffer einen Wert vorschlägt."
@@ -294,9 +297,6 @@ msgstr "Neuen Salt State"
 msgid "New Salt Variable"
 msgstr "Neue Salt Variable"
 
-msgid "No Salt master defined - can't continue"
-msgstr "Kein Salt Master definiert - kann nicht fortfahren"
-
 msgid "No changes found"
 msgstr "Keine Änderungen festgestellt"
 
@@ -396,6 +396,12 @@ msgstr "Salt Umgebungskennung"
 msgid "Salt external nodes YAML dump"
 msgstr "YAML-Ausgabe des externen Salt-Knotens"
 
+msgid "Salt master/smart proxy ID"
+msgstr ""
+
+msgid "Salt namespace pillars"
+msgstr ""
+
 msgid "Salt state"
 msgstr "Salt State"
 
@@ -420,6 +426,9 @@ msgstr "Wählen Sie die Änderungen, die Sie in Foreman anwenden möchten"
 msgid "Set the order in which values are resolved."
 msgstr "Reihenfolge festlegen, in der die Werte aufgelöst werden."
 
+msgid "Set the salt_status as \\'successful authentication\\' and remove the corresponding autosign key from the Smart Proxy"
+msgstr ""
+
 msgid "Show a Salt environment"
 msgstr "Salt Umgebung anzeigen"
 
@@ -428,6 +437,9 @@ msgstr "Minion anzeigen"
 
 msgid "Show a state"
 msgstr "Salt State anzeigen"
+
+msgid "Show the Salt parameters of a host group"
+msgstr ""
 
 msgid "Show variable"
 msgstr "Variable anzeigen"
@@ -447,14 +459,8 @@ msgstr "State kann \"accepted\" oder \"rejected\" sein"
 msgid "States"
 msgstr "States"
 
-msgid "Successfully executed, check log files for more details"
-msgstr "Erfolgreich ausgeführt, für weitere Informationen bitte die Protokolldateien prüfen"
-
 msgid "Successfully imported"
 msgstr "Erfolgreich importiert"
-
-msgid "Successfully updated %s."
-msgstr "%s wurde aktualisiert."
 
 msgid "The order in which matchers keys are processed, first match wins.<br> You may use multiple attributes as a matcher key, for example, an order of <code>host group, environment</code> would expect a matcher such as <code>hostgroup = \"web servers\", environment = production</code>"
 msgstr "Die Reihenfolge, in der Prüfwertschlüssel verarbeitet werden. Die erste Übereinstimmung ist maßgeblich.<br> Sie können mehrere Attribute als Prüfwertschlüssel verwenden. Beispielsweise würde die Reihenfolge <code>host group, environment</code> einen Prüfwert wie etwa <code>hostgroup = \"web servers\", environment = production</code> erwarten."
@@ -464,9 +470,6 @@ msgstr "Reihenfolge, in der Werte aufgelöst werden"
 
 msgid "Toggle"
 msgstr "Umschalten"
-
-msgid "Trigger a state.highstate run on a node"
-msgstr "Salt state.highstate Lauf auf einem Knoten auslösen"
 
 msgid "Type"
 msgstr "Typ"
@@ -480,8 +483,14 @@ msgstr "Typen von Variablenwerten"
 msgid "Unable to accept Salt key for %s"
 msgstr "Salt Schlüssel für %s konnte nicht akzeptiert werden"
 
-msgid "Unable to delete Salt autosign for %s"
-msgstr "Salt Autosign für %s konnte nicht gelöscht werden"
+msgid "Unable to create Salt autosign key %s"
+msgstr ""
+
+msgid "Unable to delete Salt autosign hostname for %s"
+msgstr ""
+
+msgid "Unable to delete Salt autosign key %s"
+msgstr ""
 
 msgid "Unable to delete Salt key for %s"
 msgstr "Salt Schlüssel für %s konnte nicht gelöscht werden"
@@ -509,8 +518,8 @@ msgstr "Salt Schlüssel für %s konnte nicht zurückgewiesen werden"
 msgid "Unable to run Salt state.highstate for %s"
 msgstr "Start von Salt state.highstate für %s fehlgeschlagen"
 
-msgid "Unable to set Salt autosign for %s"
-msgstr "Salt Autosign für %s konnte nicht festgelegt werden"
+msgid "Unable to set Salt autosign hostname for %s"
+msgstr ""
 
 msgid "Unaccepted"
 msgstr "Abgelehnt"
@@ -523,6 +532,9 @@ msgstr "Salt Schlüssel bearbeiten"
 
 msgid "Update a minion"
 msgstr "Minion bearbeiten"
+
+msgid "Update the Salt parameters of a host group"
+msgstr ""
 
 msgid "Updated hosts: changed salt environment"
 msgstr "Hosts aktualisiert: Salt Umgebung geändert"
