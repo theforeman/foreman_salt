@@ -24,7 +24,7 @@ module ForemanSalt
       end
     rescue StandardError
       logger.warn "Failed to generate external nodes for #{@minion} with #{$ERROR_INFO}"
-      render(plain: _('Unable to generate output, Check log files\n'), status: :precondition_failed) && return
+      render(plain: "#{_('Unable to generate output, Check log files')}\n", status: :precondition_failed) && return
     end
 
     def salt_environment_selected

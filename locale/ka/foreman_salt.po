@@ -493,10 +493,8 @@ msgstr "მარილის მდგომარეობის სიის 
 msgid "Unable to fetch autosign list"
 msgstr "ავტომატური ხელმოწერის სიის მიღების შეცდომა"
 
-msgid ""
-"Unable to generate output, Check log files\n"
-msgstr ""
-"გამოტანის შეცდომა, შეამოწმეთ ჟურნალი\n"
+msgid "Unable to generate output, Check log files"
+msgstr "გამოტანის შეცდომა, შეამოწმეთ ჟურნალი"
 
 msgid "Unable to reject Salt key for %s"
 msgstr "%s-ის მარილის გასაღების უარყოფის შეცდომა"

@@ -507,10 +507,8 @@ msgstr "Salt States Liste konnten nicht abgerufen werden"
 msgid "Unable to fetch autosign list"
 msgstr "Autosign Liste konnten nicht abgerufen werden"
 
-msgid ""
-"Unable to generate output, Check log files\n"
-msgstr ""
-"Kann keine Ausgabe erzeugen, Bitte Logdateien prüfen\n"
+msgid "Unable to generate output, Check log files"
+msgstr "Kann keine Ausgabe erzeugen, Bitte Logdateien prüfen"
 
 msgid "Unable to reject Salt key for %s"
 msgstr "Salt Schlüssel für %s konnte nicht zurückgewiesen werden"

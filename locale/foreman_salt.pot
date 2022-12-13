@@ -273,7 +273,7 @@ msgid "Updated hosts: changed salt environment"
 msgstr ""
 
 #: ../app/controllers/foreman_salt/minions_controller.rb:27
-msgid "Unable to generate output, Check log files\\n"
+msgid "Unable to generate output, Check log files"
 msgstr ""
 
 #: ../app/controllers/foreman_salt/salt_modules_controller.rb:66
