@@ -18,6 +18,8 @@ This plug-in adds support for Salt to Foreman.
 | >= 1.23         | 11.0.1         |
 | >= 1.24         | 13.2.0         |
 | >= 2.5          | 14.0.0         |
+| >= 3.2          | 15.0.0         |
+| >= 3.3          | 15.1.0         |
 
 ## Documentation
 
@@ -29,7 +31,7 @@ Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) 2014 Stephen Benjamin
+Copyright (c) 2022 The Foreman community
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
