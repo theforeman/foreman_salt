@@ -21,7 +21,7 @@ This plug-in adds support for Salt to Foreman.
 
 ## Documentation
 
-[Using Salt for Configuration Management](https://docs.theforeman.org/nightly/Managing_Hosts/index-foreman-el.html#Using_Salt_for_Configuration_Management_managing-hosts)
+[Configuring Hosts Using Salt](https://docs.theforeman.org/nightly/Managing_Configurations_Salt/index-katello.html)
 
 ## Contributing
 
