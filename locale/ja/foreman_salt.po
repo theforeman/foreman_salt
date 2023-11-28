@@ -1,0 +1,559 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_salt package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# e93ed3aa97dec2eb31063731872555fc_1460a05 <71305a0095156d8e18373a5b7cfeb79e_8587>, 2019
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
+# 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2022
+# Amit Upadhye <aupadhye@redhat.com>, 2022
+# Bryan Kearney <bryan.kearney@gmail.com>, 2022
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_salt 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-04-29 07:31+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2022\n"
+"Language-Team: Japanese (https://app.transifex.com/foreman/teams/114/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "*Clear environment*"
+msgstr "*環境をクリア*"
+
+msgid "Accept"
+msgstr "許可"
+
+msgid "Accepted"
+msgstr "許可"
+
+msgid "Action with sub plans"
+msgstr "サブプランによるアクション"
+
+msgid "Actions"
+msgstr "アクション"
+
+msgid "Added"
+msgstr "追加されました"
+
+msgid "Array of Salt state IDs"
+msgstr "Salt 状態 ID の配列"
+
+msgid "Array of State ids"
+msgstr "状態 ID の配列"
+
+msgid "Autosign"
+msgstr "自動署名"
+
+msgid "Autosign entries for %s"
+msgstr "%s の自動署名エントリー"
+
+msgid "Autosign record"
+msgstr "自動署名レコード"
+
+msgid "Avoid duplicate values when merging them (only array type)?"
+msgstr "値をマージするときに重複する値を回避しますか (配列タイプのみ)?"
+
+msgid "Before including these variables as Salt pillar, Foreman will validate that your variables comply with the validation."
+msgstr "Salt ピラーにこの変数を追加する前に、Foreman は変数がバリデーションに準拠していることを確認します。"
+
+msgid "Cancel"
+msgstr "取り消し"
+
+msgid "Change Salt Environment"
+msgstr "Salt 環境の変更"
+
+msgid "Change Salt Master"
+msgstr "Salt マスターの変更"
+
+msgid "Check/Uncheck Added"
+msgstr "追加項目の選択/選択解除"
+
+msgid "Check/Uncheck All"
+msgstr "すべて選択/選択解除"
+
+msgid "Check/Uncheck Removed"
+msgstr "削除項目の選択/選択解除"
+
+msgid "Config Management"
+msgstr "設定管理"
+
+msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
+msgstr "最初の検索後に継続して一致する候補を検索しますか (配列/ハッシュタイプのみ)? 注記: 上書きのマージにより、省略されたすべての Matcher が無視されます。"
+
+msgid "Could not find salt environment with id %s"
+msgstr "ID が %s の環境が見つかりませんでした"
+
+msgid "Create Salt Variable"
+msgstr "Salt 変数の作成"
+
+msgid "Create Salt variable"
+msgstr "Salt 変数の作成"
+
+msgid "Create a Salt environment"
+msgstr "Salt 環境の作成"
+
+msgid "Create a state"
+msgstr "状態の作成"
+
+msgid "Create an autosign record"
+msgstr "自動署名レコードの作成"
+
+msgid "Default Behavior"
+msgstr "デフォルト動作"
+
+msgid "Default value of variable"
+msgstr "変数のデフォルト値"
+
+msgid "Delete %s?"
+msgstr "%s を削除しますか?"
+
+msgid "Delete a Salt Key"
+msgstr "Salt キーの削除"
+
+msgid "Delete an autosign record"
+msgstr "自動署名レコードの削除"
+
+msgid "Deletes Salt variable"
+msgstr "Salt 変数の削除"
+
+msgid "Description of variable"
+msgstr "変数の説明"
+
+msgid "Destroy a Salt environment"
+msgstr "Salt 環境の破棄"
+
+msgid "Destroy a state"
+msgstr "状態の破棄"
+
+msgid "Dryrun only"
+msgstr "ドライランのみ"
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "Edit %s"
+msgstr "%s の編集"
+
+msgid "Edit Salt Environment %s"
+msgstr "Salt 環境の編集 %s"
+
+msgid "Edit Salt State %s"
+msgstr "Salt 状態の編集 %s"
+
+msgid "Edit Salt Variable"
+msgstr "Salt 変数の編集"
+
+msgid "Environment"
+msgstr "環境"
+
+msgid "Environments"
+msgstr "環境"
+
+msgid "FQDN of host that key belongs to"
+msgstr "キーが所属するホストの FQDN"
+
+msgid "Filter %s"
+msgstr "フィルター %s"
+
+msgid "Fingerprint"
+msgstr "フィンガープリント"
+
+msgid "Function"
+msgstr "関数"
+
+msgid "Hidden Value"
+msgstr "非表示の値"
+
+msgid "Hide all values for this parameter."
+msgstr "このパラメーターのすべての値を非表示にします。"
+
+msgid "Host groups"
+msgstr "ホストグループ"
+
+msgid "Host must have an environment in order to set salt states"
+msgstr "salt 状態を設定するには、ホストには環境が必要です。"
+
+msgid "Hosts"
+msgstr "ホスト"
+
+msgid "ID of Salt Proxy"
+msgstr "Salt Proxy の ID"
+
+msgid "ID of host group"
+msgstr "ホストグループの ID"
+
+msgid "If checked, will raise an error if there is no default value and no matcher provide a value."
+msgstr "チェックが付けられていると、デフォルト値がなく Matcher が値を指定しない場合にエラーが出されます。"
+
+msgid "Import"
+msgstr "インポート"
+
+msgid "Import Puppet classes"
+msgstr "Puppet クラスのインポート"
+
+msgid "Import facts"
+msgstr "ファクトのインポート"
+
+msgid "Import from %s"
+msgstr "%s からのインポート"
+
+msgid "Import states from a salt master"
+msgstr "salt マスターからの状態のインポート"
+
+msgid "Include default value when merging all matching values"
+msgstr "一致するすべての値をマージするときにデフォルト値を含めます"
+
+msgid "Include default value when merging all matching values."
+msgstr "一致するすべての値をマージするときにデフォルト値を含めます。"
+
+msgid "Invalid report"
+msgstr "無効なレポート"
+
+msgid "JID"
+msgstr "JID"
+
+msgid "Key Name"
+msgstr "キー名"
+
+msgid "Keys"
+msgstr "キー"
+
+msgid "Limit to a specific environment"
+msgstr "特定の環境に限定する"
+
+msgid "Limit to a specific environments"
+msgstr "特定の環境に限定する"
+
+msgid "Limit to specific actions: i.e. add, remove"
+msgstr "特定のアクションに限定する: 追加、削除など"
+
+msgid "List Salt variables"
+msgstr "Salt 変数の表示"
+
+msgid "List all Salt Minions"
+msgstr "すべての Salt ミニオンの表示"
+
+msgid "List all Salt environments"
+msgstr "すべての Salt 環境の表示"
+
+msgid "List all Salt keys"
+msgstr "すべての Salt キーの表示"
+
+msgid "List all Salt states"
+msgstr "すべての Salt 状態の表示"
+
+msgid "List all autosign records"
+msgstr "すべての自動署名レコードの表示"
+
+msgid "Mark the variable to be managed by Foreman. When the Salt State of this variable is assigned to a host, the default value will be added as a Salt pillar for this host. Specify matchers to set a different value for such variable."
+msgstr "Foreman が管理する変数にマークを付けます。この変数の Salt 状態がホストに割り当てられると、デフォルト値がこのホストの Salt ピラーとして追加されます。このような変数に別の値を設定するには、マッチャーを指定します。"
+
+msgid "Merge all matching values (only array/hash type)"
+msgstr "一致するすべての値のマージ (配列/ハッシュタイプのみ)"
+
+msgid "Must specify a Smart Proxy to use"
+msgstr "使用する Smart Proxy を指定する必要があります"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Name of the Salt state"
+msgstr "Salt の状態名"
+
+msgid "Name of variable"
+msgstr "変数の名前"
+
+msgid "Namespace Foreman pillars under 'foreman' key"
+msgstr "'foreman' キーの namespace Foreman ピラー"
+
+msgid "New"
+msgstr "新規"
+
+msgid "New Autosign Entry"
+msgstr "新規の自動署名エントリー"
+
+msgid "New Salt Environment"
+msgstr "新規 Salt 環境"
+
+msgid "New Salt State"
+msgstr "新規 Salt 状態"
+
+msgid "New Salt Variable"
+msgstr "新しい Salt 変数"
+
+msgid "No changes found"
+msgstr "変更がありません"
+
+msgid "No salt environment selected!"
+msgstr "Salt 環境が選択されていません!"
+
+msgid "Operation"
+msgstr "操作"
+
+msgid "Optional Input Validator"
+msgstr "オプションの入力バリデーター"
+
+msgid "Order"
+msgstr "順序"
+
+msgid "Override the default value of the Salt variable."
+msgstr "Salt 変数のデフォルト値を上書きします。"
+
+msgid "Overriden"
+msgstr "上書き済み"
+
+msgid "Please select a Salt environment first"
+msgstr "まず Salt 環境を選択してください"
+
+msgid "Prioritize Attribute Order"
+msgstr "属性の順序の優先順位付け"
+
+msgid "Record deleted."
+msgstr "レコードが削除されました。"
+
+msgid "Reject"
+msgstr "拒否"
+
+msgid "Rejected"
+msgstr "拒否"
+
+msgid "Remote action:"
+msgstr "リモートアクション:"
+
+msgid "Remove duplicate values (only array type)"
+msgstr "重複する値の削除 (配列タイプのみ)"
+
+msgid "Removed"
+msgstr "削除"
+
+msgid "Result"
+msgstr "結果"
+
+msgid "Run Salt"
+msgstr "Salt の実行"
+
+msgid "Run Salt state.highstate"
+msgstr "Salt state.highstate の実行"
+
+msgid "Salt Autosign"
+msgstr "Salt 自動署名"
+
+msgid "Salt ENC"
+msgstr "salt ENC"
+
+msgid "Salt Environment"
+msgstr "Salt 環境"
+
+msgid "Salt Environments"
+msgstr "Salt 環境"
+
+msgid "Salt Keys"
+msgstr "salt キー"
+
+msgid "Salt Keys on %s"
+msgstr "%s の Salt キー"
+
+msgid "Salt Master"
+msgstr "salt マスター"
+
+msgid "Salt Smart Proxy ID"
+msgstr "Salt Smart Proxy ID"
+
+msgid "Salt State"
+msgstr "salt 状態"
+
+msgid "Salt States"
+msgstr "ソルトの状態"
+
+msgid "Salt Variable Details"
+msgstr "Salt 変数の詳細"
+
+msgid "Salt Variables"
+msgstr "Salt 変数"
+
+msgid "Salt environment"
+msgstr "Salt 環境"
+
+msgid "Salt environment ID"
+msgstr "Salt 環境 ID"
+
+msgid "Salt external nodes YAML dump"
+msgstr "Salt 外部ノード YAML ダンプ"
+
+msgid "Salt master/smart proxy ID"
+msgstr "Salt master/smart proxy ID"
+
+msgid "Salt namespace pillars"
+msgstr "salt namespace ピラー"
+
+msgid "Salt state"
+msgstr "salt 状態"
+
+msgid "Salt states must be in the environment of the host"
+msgstr "ホストの環境には、Salt の状態が必要です。"
+
+msgid "SaltEnvironment|Name"
+msgstr "名前"
+
+msgid "SaltModule|Name"
+msgstr "名前"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Select salt environment"
+msgstr "Salt 環境の選択"
+
+msgid "Select the changes you want to realize in Foreman"
+msgstr "Foreman に適用する変更を選択する"
+
+msgid "Set the order in which values are resolved."
+msgstr "値が解決される順序を設定します。"
+
+msgid "Set the salt_status as \\'successful authentication\\' and remove the corresponding autosign key from the Smart Proxy"
+msgstr "salt_status を \\'successful authentication\\' に設定し、対応する自動署名キーを Smart Proxy から削除します。"
+
+msgid "Show a Salt environment"
+msgstr "Salt 環境の表示"
+
+msgid "Show a minion"
+msgstr "ミニオンの表示"
+
+msgid "Show a state"
+msgstr "状態の表示"
+
+msgid "Show the Salt parameters of a host group"
+msgstr "ホストグループの Salt パラメーターの表示"
+
+msgid "Show variable"
+msgstr "変数を表示します"
+
+msgid "Specify Matchers"
+msgstr "Matcher の指定"
+
+msgid "State"
+msgstr "状態"
+
+msgid "State ID"
+msgstr "状態 ID"
+
+msgid "State can be \"accepted\" or \"rejected\""
+msgstr "状態には「許可」または「拒否」のいずれかを指定できます。"
+
+msgid "States"
+msgstr "状態"
+
+msgid "Successfully imported"
+msgstr "正常にインポートされました"
+
+msgid "The order in which matchers keys are processed, first match wins.<br> You may use multiple attributes as a matcher key, for example, an order of <code>host group, environment</code> would expect a matcher such as <code>hostgroup = \"web servers\", environment = production</code>"
+msgstr "Matcher キーが処理される順序です。先に一致したもの順になります。<br> 複数の属性を Matcher キーとして使用できます。たとえば、<code>host group, environment</code> の順序の場合には、<code>hostgroup = \"web servers\", environment = production</code> のような Matcher が予想されます"
+
+msgid "The order in which values are resolved"
+msgstr "値が解決される順序"
+
+msgid "Toggle"
+msgstr "切り替え"
+
+msgid "Type"
+msgstr "タイプ"
+
+msgid "Types of validation values"
+msgstr "検証値のタイプ"
+
+msgid "Types of variable values"
+msgstr "変数値のタイプ"
+
+msgid "Unable to accept Salt key for %s"
+msgstr "%s の Salt キーを許可できません"
+
+msgid "Unable to create Salt autosign key %s"
+msgstr "%s の Salt 自動署名キーを作成できません"
+
+msgid "Unable to delete Salt autosign hostname for %s"
+msgstr "%s の Salt 自動署名ホスト名を削除できません"
+
+msgid "Unable to delete Salt autosign key %s"
+msgstr "%s の Salt 自動署名キーを削除できません"
+
+msgid "Unable to delete Salt key for %s"
+msgstr "%s の Salt キーを削除できません"
+
+msgid "Unable to fetch Salt environments list"
+msgstr "Salt 環境一覧を取得できません"
+
+msgid "Unable to fetch Salt key list"
+msgstr "Salt キー一覧を取得できません"
+
+msgid "Unable to fetch Salt states list"
+msgstr "Salt 状態一覧を取得できません"
+
+msgid "Unable to fetch autosign list"
+msgstr "自動署名リストを取得できません"
+
+msgid "Unable to generate output, Check log files"
+msgstr "出力を生成できません。ログファイルを確認してください"
+
+msgid "Unable to reject Salt key for %s"
+msgstr "%s の Salt キーを拒否できません"
+
+msgid "Unable to run Salt state.highstate for %s"
+msgstr "%s の Salt state.highstate を実行できません"
+
+msgid "Unable to set Salt autosign hostname for %s"
+msgstr "%s の Salt 自動署名ホスト名を設定できません"
+
+msgid "Unaccepted"
+msgstr "許可待ち"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Update a Salt Key"
+msgstr "Salt キーの更新"
+
+msgid "Update a minion"
+msgstr "ミニオンの更新"
+
+msgid "Update the Salt parameters of a host group"
+msgstr "ホストグループの Salt パラメーターの更新"
+
+msgid "Updated hosts: changed salt environment"
+msgstr "更新済みホスト: 変更済み Salt 環境"
+
+msgid "Updates Salt variable"
+msgstr "Salt 変数の更新"
+
+msgid "Upload a Job"
+msgstr "ジョブのアップロード"
+
+msgid "Used to enforce certain values for the parameter values"
+msgstr "パラメーター値の特定の値を適用するために使用されます"
+
+msgid "Value to use when there is no match."
+msgstr "一致がない場合に使用する値。"
+
+msgid "Variables"
+msgstr "変数"
+
+msgid "Variable|Name"
+msgstr "名前"
+
+msgid "Variable|State"
+msgstr "状態"
+
+msgid "When enabled the parameter is hidden in the UI"
+msgstr "有効な場合はパラメーターは UI で非表示になります"
+
+msgid "is alphanumeric and cannot contain spaces"
+msgstr "英数字を指定し、スペースは指定できません。"
+
+msgid "must be alphanumeric, can contain periods, dashes, underscores and must not contain spaces"
+msgstr "英数字を指定する必要があります。ピリオド、ダッシュ、アンダースコアは指定できますが、スペースは指定できません。"

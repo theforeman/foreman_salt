@@ -1,0 +1,559 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_salt package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
+# tim123, 2019
+# Amit Upadhye <aupadhye@redhat.com>, 2022
+# Bryan Kearney <bryan.kearney@gmail.com>, 2022
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_salt 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-04-29 07:31+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2022\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/foreman/teams/114/zh"
+"_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "*Clear environment*"
+msgstr "*环境清除*"
+
+msgid "Accept"
+msgstr "接受"
+
+msgid "Accepted"
+msgstr "接受"
+
+msgid "Action with sub plans"
+msgstr "有子计划的操作"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "Added"
+msgstr "添加"
+
+msgid "Array of Salt state IDs"
+msgstr "Salt 状态 ID 数组"
+
+msgid "Array of State ids"
+msgstr "State id 数组"
+
+msgid "Autosign"
+msgstr "自动签名"
+
+msgid "Autosign entries for %s"
+msgstr "%s 的自动签名项"
+
+msgid "Autosign record"
+msgstr "自动签名记录"
+
+msgid "Avoid duplicate values when merging them (only array type)?"
+msgstr "合并时是否避免重复值（只适用于阵列类型）？"
+
+msgid "Before including these variables as Salt pillar, Foreman will validate that your variables comply with the validation."
+msgstr "在将这些变量包括作为 Salt pillar 之前，Foreman 将验证您的变量是否符合验证要求。"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Change Salt Environment"
+msgstr "更改 Salt 环境"
+
+msgid "Change Salt Master"
+msgstr "更改 Salt Master"
+
+msgid "Check/Uncheck Added"
+msgstr "选择/取消选择添加"
+
+msgid "Check/Uncheck All"
+msgstr "选择/取消删除所有"
+
+msgid "Check/Uncheck Removed"
+msgstr "选择/取消选择删除"
+
+msgid "Config Management"
+msgstr "配置管理"
+
+msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
+msgstr "要在找到第一个匹配项后继续查找吗（仅阵列/散列类型）？注意：合并覆盖会忽略所有省略的映射器。"
+
+msgid "Could not find salt environment with id %s"
+msgstr "找不到 id 为 %s 的 salt 环境"
+
+msgid "Create Salt Variable"
+msgstr "创建 Salt 变量"
+
+msgid "Create Salt variable"
+msgstr "创建 Salt 变量"
+
+msgid "Create a Salt environment"
+msgstr "创建 Salt 环境"
+
+msgid "Create a state"
+msgstr "创建一个状态"
+
+msgid "Create an autosign record"
+msgstr "创建自动签名记录"
+
+msgid "Default Behavior"
+msgstr "默认行为"
+
+msgid "Default value of variable"
+msgstr "变量的默认值"
+
+msgid "Delete %s?"
+msgstr "刪除 %s?"
+
+msgid "Delete a Salt Key"
+msgstr "删除 Salt 密钥"
+
+msgid "Delete an autosign record"
+msgstr "删除自动签名记录"
+
+msgid "Deletes Salt variable"
+msgstr "删除 Salt 变量"
+
+msgid "Description of variable"
+msgstr "变量描述"
+
+msgid "Destroy a Salt environment"
+msgstr "销毁 salt 环境"
+
+msgid "Destroy a state"
+msgstr "销毁一个状态"
+
+msgid "Dryrun only"
+msgstr "仅进行 Dryrun"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Edit %s"
+msgstr "编辑 %s"
+
+msgid "Edit Salt Environment %s"
+msgstr "编辑 Salt 环境 %s"
+
+msgid "Edit Salt State %s"
+msgstr "编辑 Salt 状态 %s"
+
+msgid "Edit Salt Variable"
+msgstr "编辑 Salt 变量"
+
+msgid "Environment"
+msgstr "环境"
+
+msgid "Environments"
+msgstr "环境"
+
+msgid "FQDN of host that key belongs to"
+msgstr "密钥所属主机的 FQDN"
+
+msgid "Filter %s"
+msgstr "过滤器 %s"
+
+msgid "Fingerprint"
+msgstr "指纹"
+
+msgid "Function"
+msgstr "功能"
+
+msgid "Hidden Value"
+msgstr "隐藏值"
+
+msgid "Hide all values for this parameter."
+msgstr "隐藏这个参数的所有值。"
+
+msgid "Host groups"
+msgstr "主机组"
+
+msgid "Host must have an environment in order to set salt states"
+msgstr "主机必须具有环境才能设置 Salt 状态"
+
+msgid "Hosts"
+msgstr "主机"
+
+msgid "ID of Salt Proxy"
+msgstr "Salt Proxy ID"
+
+msgid "ID of host group"
+msgstr "主机组 ID"
+
+msgid "If checked, will raise an error if there is no default value and no matcher provide a value."
+msgstr "检查后，如果没有默认值，且没有映射程序提供数值，则会创建出错信息。"
+
+msgid "Import"
+msgstr "导入"
+
+msgid "Import Puppet classes"
+msgstr "导入 Puppet 类"
+
+msgid "Import facts"
+msgstr "导入事实"
+
+msgid "Import from %s"
+msgstr "从 %s 导入"
+
+msgid "Import states from a salt master"
+msgstr "从 salt master 中导入状态"
+
+msgid "Include default value when merging all matching values"
+msgstr "合并所有匹配值时包括默认值"
+
+msgid "Include default value when merging all matching values."
+msgstr "合并所有匹配值时包括默认值。"
+
+msgid "Invalid report"
+msgstr "无效报告"
+
+msgid "JID"
+msgstr "JID"
+
+msgid "Key Name"
+msgstr "密钥名称"
+
+msgid "Keys"
+msgstr "密钥"
+
+msgid "Limit to a specific environment"
+msgstr "限制到一个特定的环境"
+
+msgid "Limit to a specific environments"
+msgstr "限制为一个特定的环境"
+
+msgid "Limit to specific actions: i.e. add, remove"
+msgstr "限制为特定操作：如添加、删除"
+
+msgid "List Salt variables"
+msgstr "列出 Salt 变量"
+
+msgid "List all Salt Minions"
+msgstr "列出所有 Salt Minions"
+
+msgid "List all Salt environments"
+msgstr "列出所有 Salt 环境"
+
+msgid "List all Salt keys"
+msgstr "列出所有 Salt 键"
+
+msgid "List all Salt states"
+msgstr "列出所有 Salt 状态"
+
+msgid "List all autosign records"
+msgstr "列出所有 autosign 項目"
+
+msgid "Mark the variable to be managed by Foreman. When the Salt State of this variable is assigned to a host, the default value will be added as a Salt pillar for this host. Specify matchers to set a different value for such variable."
+msgstr "标记由 Foreman 管理的变量。当此变量的 Salt 状态分配给一个主机后，默认值将作为一个 Salt pillar 为这个主机添加。指定匹配器以为该变量设置不同的值。"
+
+msgid "Merge all matching values (only array/hash type)"
+msgstr "合并所有匹配的值（仅用于阵列/哈希类型）"
+
+msgid "Must specify a Smart Proxy to use"
+msgstr "必须指定要使用的智能代理"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Name of the Salt state"
+msgstr "Salt 状态的名称"
+
+msgid "Name of variable"
+msgstr "变量名称"
+
+msgid "Namespace Foreman pillars under 'foreman' key"
+msgstr "'foreman' 密钥下的 Namespace Foreman pillars"
+
+msgid "New"
+msgstr "新"
+
+msgid "New Autosign Entry"
+msgstr "新建自动签名"
+
+msgid "New Salt Environment"
+msgstr "新 Salt 环境"
+
+msgid "New Salt State"
+msgstr "新 Salt 状态"
+
+msgid "New Salt Variable"
+msgstr "新 Salt 变量"
+
+msgid "No changes found"
+msgstr "没有找到修改"
+
+msgid "No salt environment selected!"
+msgstr "没有选择 salt 环境！"
+
+msgid "Operation"
+msgstr "操作"
+
+msgid "Optional Input Validator"
+msgstr "可选的输入验证程序"
+
+msgid "Order"
+msgstr "顺序"
+
+msgid "Override the default value of the Salt variable."
+msgstr "覆盖 Salt 变量的默认值。"
+
+msgid "Overriden"
+msgstr "覆盖"
+
+msgid "Please select a Salt environment first"
+msgstr "请先选择一个 Salt 环境"
+
+msgid "Prioritize Attribute Order"
+msgstr "排列属性优先顺序"
+
+msgid "Record deleted."
+msgstr "删除记录。"
+
+msgid "Reject"
+msgstr "拒绝"
+
+msgid "Rejected"
+msgstr "拒绝"
+
+msgid "Remote action:"
+msgstr "远程操作："
+
+msgid "Remove duplicate values (only array type)"
+msgstr "删除重复值（仅用于阵列类型）"
+
+msgid "Removed"
+msgstr "删除"
+
+msgid "Result"
+msgstr "结果"
+
+msgid "Run Salt"
+msgstr "运行 Salt"
+
+msgid "Run Salt state.highstate"
+msgstr "运行 Salt state.highstate"
+
+msgid "Salt Autosign"
+msgstr "Salt 自动签名"
+
+msgid "Salt ENC"
+msgstr "Salt ENC"
+
+msgid "Salt Environment"
+msgstr "Salt 环境"
+
+msgid "Salt Environments"
+msgstr "Salt 环境"
+
+msgid "Salt Keys"
+msgstr "Salt 密钥"
+
+msgid "Salt Keys on %s"
+msgstr "%s 的 Salt 密钥"
+
+msgid "Salt Master"
+msgstr "Salt Master"
+
+msgid "Salt Smart Proxy ID"
+msgstr "Salt Smart Proxy ID"
+
+msgid "Salt State"
+msgstr "Salt 状态"
+
+msgid "Salt States"
+msgstr "Salt 状态"
+
+msgid "Salt Variable Details"
+msgstr "Salt 变量详请"
+
+msgid "Salt Variables"
+msgstr "Salt 变量"
+
+msgid "Salt environment"
+msgstr "Salt 环境"
+
+msgid "Salt environment ID"
+msgstr "Salt 环境 ID"
+
+msgid "Salt external nodes YAML dump"
+msgstr "Salt 外部节点 YAML 转储"
+
+msgid "Salt master/smart proxy ID"
+msgstr "salt master/smart 代理 ID"
+
+msgid "Salt namespace pillars"
+msgstr "Salt 命名空间 pillars"
+
+msgid "Salt state"
+msgstr "Salt 状态"
+
+msgid "Salt states must be in the environment of the host"
+msgstr "Salt 状态必须位于主机的环境中"
+
+msgid "SaltEnvironment|Name"
+msgstr "SaltEnvironment|Name"
+
+msgid "SaltModule|Name"
+msgstr "SaltModule|Name"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Select salt environment"
+msgstr "选择 Salt 环境"
+
+msgid "Select the changes you want to realize in Foreman"
+msgstr "選擇您希望在 Foreman 中套用的變更"
+
+msgid "Set the order in which values are resolved."
+msgstr "设定用来解析值的顺序。"
+
+msgid "Set the salt_status as \\'successful authentication\\' and remove the corresponding autosign key from the Smart Proxy"
+msgstr "将 salt_status 设置为 \\'successful authentication\\'，并从智能代理中删除对应的自动签名密钥"
+
+msgid "Show a Salt environment"
+msgstr "显示 salt 环境"
+
+msgid "Show a minion"
+msgstr "显示 minion"
+
+msgid "Show a state"
+msgstr "显示状态"
+
+msgid "Show the Salt parameters of a host group"
+msgstr "显示主机组的 Salt 参数"
+
+msgid "Show variable"
+msgstr "显示变量"
+
+msgid "Specify Matchers"
+msgstr "指定匹配器"
+
+msgid "State"
+msgstr "状态"
+
+msgid "State ID"
+msgstr "状态 ID"
+
+msgid "State can be \"accepted\" or \"rejected\""
+msgstr "可以\"被接受\"或\"被拒绝\"的状态"
+
+msgid "States"
+msgstr "状态"
+
+msgid "Successfully imported"
+msgstr "成功导入"
+
+msgid "The order in which matchers keys are processed, first match wins.<br> You may use multiple attributes as a matcher key, for example, an order of <code>host group, environment</code> would expect a matcher such as <code>hostgroup = \"web servers\", environment = production</code>"
+msgstr "处理匹配器键的顺序，第一个会生效。<br>您可以使用多个属性作为匹配器健，例如：<code>host group, environment</code> 会期望一个匹配器，如 <code>hostgroup = \"web servers\", environment = production</code>"
+
+msgid "The order in which values are resolved"
+msgstr "值解析的順序"
+
+msgid "Toggle"
+msgstr "切換"
+
+msgid "Type"
+msgstr "类型"
+
+msgid "Types of validation values"
+msgstr "验证值类型"
+
+msgid "Types of variable values"
+msgstr "变量值类型"
+
+msgid "Unable to accept Salt key for %s"
+msgstr "无法接受 %s 的 Salt 密钥"
+
+msgid "Unable to create Salt autosign key %s"
+msgstr "无法创建 Salt 自动签名密钥 %s"
+
+msgid "Unable to delete Salt autosign hostname for %s"
+msgstr "无法为 %s 删除 Salt 自动签名主机名"
+
+msgid "Unable to delete Salt autosign key %s"
+msgstr "无法删除 Salt 自动签名密钥 %s"
+
+msgid "Unable to delete Salt key for %s"
+msgstr "无法删除 %s 的 Salt 密钥"
+
+msgid "Unable to fetch Salt environments list"
+msgstr "无法获取 Salt 环境列表"
+
+msgid "Unable to fetch Salt key list"
+msgstr "无法获取 Salt 键列表"
+
+msgid "Unable to fetch Salt states list"
+msgstr "无法获取 Salt 状态列表"
+
+msgid "Unable to fetch autosign list"
+msgstr "无法获取自动签名列表"
+
+msgid "Unable to generate output, Check log files"
+msgstr "无法生成输出结果，检查日志文件"
+
+msgid "Unable to reject Salt key for %s"
+msgstr "无法拒绝 %s 的 Salt 密钥"
+
+msgid "Unable to run Salt state.highstate for %s"
+msgstr "无法为 %s 运行 Salt state.highstate"
+
+msgid "Unable to set Salt autosign hostname for %s"
+msgstr "无法为 %s 设置 Salt 自动签名主机名"
+
+msgid "Unaccepted"
+msgstr "未接受"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Update a Salt Key"
+msgstr "更新 Salt 密钥"
+
+msgid "Update a minion"
+msgstr "更新 minion"
+
+msgid "Update the Salt parameters of a host group"
+msgstr "更新主机组的 Salt 参数"
+
+msgid "Updated hosts: changed salt environment"
+msgstr "更新主机：更改的 salt 环境"
+
+msgid "Updates Salt variable"
+msgstr "更新 Salt 变量"
+
+msgid "Upload a Job"
+msgstr "上传作业"
+
+msgid "Used to enforce certain values for the parameter values"
+msgstr "用来在参数中强制使用某些值"
+
+msgid "Value to use when there is no match."
+msgstr "未发现匹配时使用的值。"
+
+msgid "Variables"
+msgstr "变量"
+
+msgid "Variable|Name"
+msgstr "Variable|Name"
+
+msgid "Variable|State"
+msgstr "变量|状态"
+
+msgid "When enabled the parameter is hidden in the UI"
+msgstr "何时将启用的参数隐藏到 UI 中"
+
+msgid "is alphanumeric and cannot contain spaces"
+msgstr "字母数字，不能包含空格"
+
+msgid "must be alphanumeric, can contain periods, dashes, underscores and must not contain spaces"
+msgstr "必须是字母数字，可以包含句点、破折号和下划线，且不得包含空格"
