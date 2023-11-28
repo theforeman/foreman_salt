@@ -14,6 +14,7 @@ POFILES = $(shell find . -name '$(DOMAIN).po')
 MOFILES = $(patsubst %.po,%.mo,$(POFILES))
 POXFILES = $(patsubst %.po,%.pox,$(POFILES))
 EDITFILES = $(patsubst %.po,%.edit.po,$(POFILES))
+JSFILES = $(shell find ../app/assets/javascripts/*/locale -name '$(DOMAIN).js')
 
 %.mo: %.po
 	mkdir -p $(shell dirname $@)/LC_MESSAGES
@@ -41,23 +42,21 @@ uniq-po:
 		msguniq $$f -o $$f ; \
 	done
 
-tx-new:
-	tx pull --minimum-perc 50 --all
-
-tx-pull: tx-new $(EDITFILES)
-	tx pull -f
+tx-pull: $(EDITFILES)
+	cd .. && tx pull -f --all
 	for f in $(EDITFILES) ; do \
 		sed -i 's/^\("Project-Id-Version: \).*$$/\1$(DOMAIN) $(VERSION)\\n"/' $$f; \
 	done
 
 tx-update: tx-pull
 	@echo
-	@echo Run rake plugin:gettext[$(DOMAIN)] from the Foreman installation, then make -C locale mo-files to finish
+	@echo Run rake plugin:gettext[$(DOMAIN)] from the Foreman installation
+	@echo then run rake plugin:po_to_json[$(DOMAIN)] from the Foreman installation
+	@echo then run make -C locale mo-files to finish
 	@echo
 
 mo-files: $(MOFILES)
-	git add $(POFILES) $(POTFILE) ../locale/*/LC_MESSAGES
-	[[ ! -f locale/action_names.rb ]] || git add locale/action_names.rb
+	git add $(POFILES) $(POTFILE) $(JSFILES) ../locale/*/LC_MESSAGES
 	git commit -m "i18n - pulling from tx"
 	@echo
 	@echo Changes commited!
