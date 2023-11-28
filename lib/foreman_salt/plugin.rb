@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Foreman::Plugin.register :foreman_salt do
-  requires_foreman '>= 1.24'
+  requires_foreman '>= 3.7'
+  register_gettext
 
   settings do
     category(:cfgmgmt, N_('Config Management')) do
