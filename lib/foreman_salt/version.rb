@@ -1,3 +1,3 @@
 module ForemanSalt
-  VERSION = '15.2.3'.freeze
+  VERSION = '16.0.0'.freeze
 end
