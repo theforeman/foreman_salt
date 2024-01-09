@@ -18,9 +18,11 @@ module ForemanSalt
 
     test 'salt smart proxy should get salt external node' do
       get :node, params: { id: @host, format: 'yml' }
+
       assert_response :success
 
       res = YAML.safe_load(@response.body)
+
       assert_equal('different', res['parameters']['parameter1'])
     end
 
@@ -28,9 +30,11 @@ module ForemanSalt
       Setting['salt_namespace_pillars'] = true
 
       get :node, params: { id: @host, format: 'yml' }
+
       assert_response :success
 
       res = YAML.safe_load(@response.body)
+
       assert_equal('different', res['parameters']['foreman']['parameter1'])
     end
 
@@ -40,9 +44,11 @@ module ForemanSalt
       @host.salt_modules << var.salt_module
 
       get :node, params: { id: @host, format: 'yml' }
+
       assert_response :success
 
       res = YAML.safe_load(@response.body)
+
       assert_equal res['parameters'][var.key], var.value
     end
 
@@ -52,9 +58,11 @@ module ForemanSalt
       @host.salt_modules << var.salt_module
 
       get :node, params: { id: @host, format: 'yml' }
+
       assert_response :success
 
       res = YAML.safe_load(@response.body)
+
       assert_equal res['parameters']['parameter1'], var.value
     end
 
@@ -70,9 +78,11 @@ module ForemanSalt
       @host.salt_modules << var.salt_module
 
       get :node, params: { id: @host, format: 'yml' }
+
       assert_response :success
 
       res = YAML.safe_load(@response.body)
+
       assert_equal res['parameters']['parameter1'], value2.value
     end
 
@@ -87,9 +97,11 @@ module ForemanSalt
       @host2.salt_modules << var.salt_module
 
       get :node, params: { id: @host2, format: 'yml' }
+
       assert_response :success
 
       res = YAML.safe_load(@response.body)
+
       assert_equal res['parameters']['parameter1'], value2.value
     end
 
@@ -104,9 +116,11 @@ module ForemanSalt
       var.salt_module.salt_environments << @host2.salt_environment
       @host2.salt_modules << var.salt_module
       get :node, params: { id: @host2, format: 'yml' }
+
       assert_response :success
 
       res = YAML.safe_load(@response.body)
+
       assert_equal res['parameters']['parameter1'], var.value
     end
   end

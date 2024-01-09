@@ -13,18 +13,21 @@ module ForemanSalt
 
         test 'should get index' do
           get :index, params: { smart_proxy_id: @proxy.id }
+
           assert_response :success
         end
 
         test 'should update keys' do
           ProxyAPI::Salt.any_instance.expects(:key_accept).once.returns(true)
           put :update, params: { smart_proxy_id: @proxy.id, name: 'saltstack.example.com', state: 'accepted' }
+
           assert_response :success
         end
 
         test 'should delete keys' do
           ProxyAPI::Salt.any_instance.expects(:key_delete).once.returns(true)
           delete :destroy, params: { smart_proxy_id: @proxy.id, name: 'saltstack.example.com' }
+
           assert_response :success
         end
       end
