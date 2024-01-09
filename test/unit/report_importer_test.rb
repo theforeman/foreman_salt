@@ -24,7 +24,7 @@ module ForemanSalt
       HostStatus::ConfigurationStatus.any_instance.stubs(:relevant?).returns(true)
       ForemanSalt::ReportImporter.import(@report)
 
-      assert Host.find_by(name: @host).get_status(HostStatus::ConfigurationStatus).error?
+      assert_predicate Host.find_by(name: @host).get_status(HostStatus::ConfigurationStatus), :error?
     end
 
     test 'importing report has correct status' do
@@ -68,7 +68,7 @@ module ForemanSalt
       HostStatus::ConfigurationStatus.any_instance.stubs(:relevant?).returns(true)
       ForemanSalt::ReportImporter.import(@report_unhandled)
 
-      assert Host.find_by(name: @host).get_status(HostStatus::ConfigurationStatus).error?
+      assert_predicate Host.find_by(name: @host).get_status(HostStatus::ConfigurationStatus), :error?
     end
   end
 end
