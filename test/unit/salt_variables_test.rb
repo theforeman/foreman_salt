@@ -10,14 +10,14 @@ class SaltVariablesTest < ActiveSupport::TestCase
     salt_variable = ForemanSalt::SaltVariable.new(key: 'awesome_key', salt_module_id: @state.id)
 
     assert_valid salt_variable
-    assert salt_variable.salt?
+    assert_predicate salt_variable, :salt?
     assert_equal @state.id, salt_variable.salt_module.id
   end
 
   test 'salt variable is referencing a LookupValue' do
     salt_variable = ForemanSalt::SaltVariable.new(key: 'awesome_key', salt_module_id: @state.id)
 
-    assert salt_variable.lookup_values.count.zero?
+    assert_predicate salt_variable.lookup_values.count, :zero?
     LookupValue.create(value: '[1.2.3.4,2.3.4.5]', match: 'domain =  mydomain.net', lookup_key: salt_variable)
 
     assert_equal(1, salt_variable.lookup_values.count)

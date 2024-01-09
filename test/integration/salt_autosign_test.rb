@@ -27,7 +27,7 @@ module ForemanSalt
     test 'index page' do
       visit smart_proxy_salt_autosign_index_path(smart_proxy_id: @proxy.id)
 
-      assert find_link('Keys').visible?, 'Keys is not visible'
+      assert_predicate find_link('Keys'), :visible?, 'Keys is not visible'
       assert has_title?("Autosign entries for #{@proxy.hostname}"), 'Page title does not appear'
     end
 

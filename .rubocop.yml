@@ -26,8 +26,5 @@ Metrics/BlockLength:
     - 'lib/foreman_salt/plugin.rb'
     - 'test/**/*.rb'
 
-Minitest/AssertPredicate:
-  Enabled: true
-
 Rails/FindEach:
   Enabled: true

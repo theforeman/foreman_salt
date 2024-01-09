@@ -29,10 +29,10 @@ module ForemanSalt
         assert page.has_no_selector?('input.host_select_boxes:not(:checked)')
 
         # Dropdown visible?
-        assert multiple_actions_div.find('.dropdown-toggle').visible?
+        assert_predicate multiple_actions_div.find('.dropdown-toggle'), :visible?
         multiple_actions_div.find('.dropdown-toggle').click
 
-        assert multiple_actions_div.find('ul').visible?
+        assert_predicate multiple_actions_div.find('ul'), :visible?
 
         # Hosts are added to cookie
         host_ids_on_cookie = JSON.parse(CGI.unescape(get_me_the_cookie('_ForemanSelectedhosts')&.fetch(:value)))
@@ -43,7 +43,7 @@ module ForemanSalt
           click_on('Change Salt Master')
         end
 
-        assert index_modal.visible?, 'Modal window was shown'
+        assert_predicate index_modal, :visible?, 'Modal window was shown'
         page.find('#proxy_proxy_id').find("option[value='#{@host.salt_proxy.id}']").select_option
 
         # remove hosts cookie on submit
@@ -61,10 +61,10 @@ module ForemanSalt
         assert page.has_no_selector?('input.host_select_boxes:not(:checked)')
 
         # Dropdown visible?
-        assert multiple_actions_div.find('.dropdown-toggle').visible?
+        assert_predicate multiple_actions_div.find('.dropdown-toggle'), :visible?
         multiple_actions_div.find('.dropdown-toggle').click
 
-        assert multiple_actions_div.find('ul').visible?
+        assert_predicate multiple_actions_div.find('ul'), :visible?
 
         # Hosts are added to cookie
         host_ids_on_cookie = JSON.parse(CGI.unescape(get_me_the_cookie('_ForemanSelectedhosts')&.fetch(:value)))
@@ -75,7 +75,7 @@ module ForemanSalt
           click_on('Change Salt Environment')
         end
 
-        assert index_modal.visible?, 'Modal window was shown'
+        assert_predicate index_modal, :visible?, 'Modal window was shown'
         page.find('#salt_environment_id').find("option[value='#{@host.salt_environment.id}']").select_option
 
         # remove hosts cookie on submit

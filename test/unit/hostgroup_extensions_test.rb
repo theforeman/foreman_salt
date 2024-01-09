@@ -78,7 +78,7 @@ module ForemanSalt
       child_one = FactoryBot.create :hostgroup, parent: parent
       child_two = FactoryBot.create :hostgroup, :with_salt_modules, parent: child_one
 
-      assert child_two.all_salt_modules.any?
+      assert_predicate child_two.all_salt_modules, :any?
     end
   end
 end

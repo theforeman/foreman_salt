@@ -59,7 +59,7 @@ module ForemanSalt
       assert_not host.configuration?
       host.salt_proxy = @proxy
 
-      assert host.configuration?
+      assert_predicate host, :configuration?
     end
 
     context 'autosign handling' do
