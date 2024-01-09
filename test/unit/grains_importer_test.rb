@@ -28,6 +28,7 @@ module ForemanSalt
     test 'nested facts have valid parents' do
       parent = ::FactName.find_by(name: 'cpu_flags')
       children = @imported_host.fact_values.with_fact_parent_id(parent)
+
       assert_not_empty children
       assert_empty children.map(&:fact_name).reject { |fact| fact.name =~ /\Acpu_flags#{FactName::SEPARATOR}[0-9]+/ }
     end
@@ -59,6 +60,7 @@ module ForemanSalt
 
     test 'imported host has additional interface' do
       nic = @imported_host.interfaces.find_by(identifier: 'eth1')
+
       assert_equal('de:ad:be:ef:07:13', nic.mac)
       assert_equal('1.2.3.4', nic.ip)
     end

@@ -6,6 +6,7 @@ module ForemanSalt
       class SaltStatesControllerTest < ActionController::TestCase
         test 'should get index' do
           get :index
+
           assert_response :success
           assert_template 'api/v2/salt_states/index'
         end
@@ -13,12 +14,14 @@ module ForemanSalt
         test 'should show state' do
           state = ForemanSalt::SaltModule.create(name: 'foo.bar.baz')
           get :show, params: { id: state.id }
+
           assert_response :success
           assert_template 'api/v2/salt_states/show'
         end
 
         test 'should create state' do
           post :create, params: { state: { name: 'unicorn' } }
+
           assert_response :success
           assert ForemanSalt::SaltModule.find_by(name: 'unicorn')
           assert_template 'api/v2/salt_states/create'
@@ -48,12 +51,14 @@ module ForemanSalt
 
             @states.each do |env, states|
               environment = ::ForemanSalt::SaltEnvironment.find_by(name: env)
+
               assert_empty environment.salt_modules.map(&:name) - states
             end
           end
 
           test 'should import only from a given environment' do
             post :import, params: { smart_proxy_id: @proxy.id, salt_environments: ['env2'] }
+
             assert_response :success
             assert_not ::ForemanSalt::SaltEnvironment.where(name: 'env1').first
             assert ::ForemanSalt::SaltEnvironment.where(name: 'env2').first
@@ -64,6 +69,7 @@ module ForemanSalt
             state = FactoryBot.create :salt_module, salt_environments: [env]
 
             post :import, params: { smart_proxy_id: @proxy.id, actions: ['add'] }
+
             assert_response :success
             assert ::ForemanSalt::SaltModule.where(id: state).first
             assert ::ForemanSalt::SaltModule.where(name: 'state1').first
@@ -72,6 +78,7 @@ module ForemanSalt
           test 'should limit actions to remove' do
             state = FactoryBot.create :salt_module
             post :import, params: { smart_proxy_id: @proxy.id, actions: ['remove'] }
+
             assert_response :success
             assert_not ::ForemanSalt::SaltModule.where(id: state).first
             assert_not ::ForemanSalt::SaltModule.where(name: 'state1').first
@@ -79,6 +86,7 @@ module ForemanSalt
 
           test 'dryrun should do nothing' do
             post :import, params: { smart_proxy_id: @proxy.id, dryrun: true }
+
             assert_response :success
             assert_not ::ForemanSalt::SaltModule.all.any?
             assert_not ::ForemanSalt::SaltEnvironment.all.any?

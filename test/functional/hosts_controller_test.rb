@@ -21,6 +21,7 @@ module ForemanSalt
 
         post :update_multiple_salt_master, params: params,
                                            session: set_session_user.merge(user: users(:one).id)
+
         assert_response :forbidden
       end
 
@@ -79,6 +80,7 @@ module ForemanSalt
 
         post :update_multiple_salt_environment, params: params,
                                                 session: set_session_user.merge(user: users(:one).id)
+
         assert_response :forbidden
       end
 

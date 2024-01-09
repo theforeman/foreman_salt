@@ -14,12 +14,14 @@ module ForemanSalt
 
     test 'index page' do
       FactoryBot.create_list :salt_module, 5
+
       assert_index_page(salt_modules_path, 'Salt State', 'New Salt State')
     end
 
     test 'create new page' do
       assert_new_button(salt_modules_path, 'New Salt State', new_salt_module_path)
       fill_in 'foreman_salt_salt_module_name', with: 'common'
+
       assert_submit_button(salt_modules_path)
       assert page.has_link? 'common'
     end
@@ -29,6 +31,7 @@ module ForemanSalt
       visit salt_modules_path
       click_link salt_module.name
       fill_in :foreman_salt_salt_module_name, with: 'some_other_name'
+
       assert_submit_button(salt_modules_path)
       assert page.has_link? 'some_other_name'
     end
@@ -50,6 +53,7 @@ module ForemanSalt
       all('input.state_check').each { |checkbox| check(checkbox[:id]) }
 
       click_button 'Update'
+
       assert page.has_link? 'state1'
     end
   end

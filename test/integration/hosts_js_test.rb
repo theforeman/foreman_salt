@@ -31,10 +31,12 @@ module ForemanSalt
         # Dropdown visible?
         assert multiple_actions_div.find('.dropdown-toggle').visible?
         multiple_actions_div.find('.dropdown-toggle').click
+
         assert multiple_actions_div.find('ul').visible?
 
         # Hosts are added to cookie
         host_ids_on_cookie = JSON.parse(CGI.unescape(get_me_the_cookie('_ForemanSelectedhosts')&.fetch(:value)))
+
         assert_includes(host_ids_on_cookie, @host.id)
 
         within('#submit_multiple') do
@@ -46,6 +48,7 @@ module ForemanSalt
 
         # remove hosts cookie on submit
         index_modal.find('.btn-primary').click
+
         assert_current_path hosts_path
         assert_empty(get_me_the_cookie('_ForemanSelectedhosts'))
       end
@@ -60,10 +63,12 @@ module ForemanSalt
         # Dropdown visible?
         assert multiple_actions_div.find('.dropdown-toggle').visible?
         multiple_actions_div.find('.dropdown-toggle').click
+
         assert multiple_actions_div.find('ul').visible?
 
         # Hosts are added to cookie
         host_ids_on_cookie = JSON.parse(CGI.unescape(get_me_the_cookie('_ForemanSelectedhosts')&.fetch(:value)))
+
         assert_includes(host_ids_on_cookie, @host.id)
 
         within('#submit_multiple') do
@@ -75,6 +80,7 @@ module ForemanSalt
 
         # remove hosts cookie on submit
         index_modal.find('.btn-primary').click
+
         assert_current_path hosts_path
         assert_empty(get_me_the_cookie('_ForemanSelectedhosts'))
       end

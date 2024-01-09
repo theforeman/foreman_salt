@@ -13,18 +13,21 @@ module ForemanSalt
 
         test 'should get index' do
           get :index, params: { smart_proxy_id: @proxy.id }
+
           assert_response :success
         end
 
         test 'should create autosign' do
           ProxyAPI::Salt.any_instance.expects(:autosign_create).once.returns(true)
           post :create, params: { smart_proxy_id: @proxy.id, record: 'unicorn.example.com' }
+
           assert_response :success
         end
 
         test 'should delete autosign' do
           ProxyAPI::Salt.any_instance.expects(:autosign_remove).once.returns(true)
           delete :destroy, params: { smart_proxy_id: @proxy.id, record: 'unicorn.example.com' }
+
           assert_response :success
         end
       end

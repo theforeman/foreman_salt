@@ -6,6 +6,7 @@ module ForemanSalt
       class SaltEnvironmentsControllerTest < ActionController::TestCase
         test 'should get index' do
           get :index
+
           assert_response :success
           assert_template 'api/v2/salt_environments/index'
         end
@@ -13,12 +14,14 @@ module ForemanSalt
         test 'should show environment' do
           environment = ForemanSalt::SaltEnvironment.create(name: 'foo')
           get :show, params: { id: environment.id }
+
           assert_response :success
           assert_template 'api/v2/salt_environments/show'
         end
 
         test 'should create environment' do
           post :create, params: { environment: { name: 'unicorn' } }
+
           assert_response :success
           assert ForemanSalt::SaltEnvironment.find_by(name: 'unicorn')
           assert_template 'api/v2/salt_environments/create'
