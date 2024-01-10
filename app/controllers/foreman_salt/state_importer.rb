@@ -63,11 +63,11 @@ module ForemanSalt
     end
 
     def clean_orphans
-      SaltModule.all.each do |state|
+      SaltModule.all.find_each do |state|
         state.destroy if state.salt_environments.empty?
       end
 
-      SaltEnvironment.all.each do |environment|
+      SaltEnvironment.all.find_each do |environment|
         environment.destroy if environment.salt_modules.empty?
       end
     end
