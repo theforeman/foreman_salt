@@ -1,6 +1,6 @@
 class FixIncorrectReportMetrics < ActiveRecord::Migration[4.2]
   def up
-    Report.all.each do |report|
+    Report.all.find_each do |report|
       next unless report.metrics && report.metrics['time']
 
       metrics = report.metrics.dup

@@ -6,7 +6,7 @@ class AddEnvironmentsToModules < ActiveRecord::Migration[4.2]
     end
 
     environments = ForemanSalt::SaltEnvironment.all
-    ForemanSalt::SaltModule.all.each do |state|
+    ForemanSalt::SaltModule.all.find_each do |state|
       state.salt_environments << environments
     end
   end
