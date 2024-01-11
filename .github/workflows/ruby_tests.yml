@@ -1,0 +1,24 @@
+name: Ruby Testing
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  rubocop:
+    name: Rubocop
+    uses: theforeman/actions/.github/workflows/rubocop.yml@v0
+    with:
+      command: bundle exec rubocop 
+  
+  test:
+    name: Ruby
+    needs: rubocop
+    uses: theforeman/actions/.github/workflows/foreman_plugin.yml@v0
+    with:
+      plugin: foreman_salt
