@@ -4,6 +4,7 @@ begin
 rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
+
 begin
   require 'rdoc/task'
 rescue LoadError
@@ -29,6 +30,14 @@ Rake::TestTask.new(:test) do |t|
   t.libs << 'test'
   t.pattern = 'test/**/*_test.rb'
   t.verbose = false
+end
+
+begin
+  require 'rubocop/rake_task'
+rescue LoadError
+  # Test group disabled
+else
+  RuboCop::RakeTask.new
 end
 
 task default: :test
