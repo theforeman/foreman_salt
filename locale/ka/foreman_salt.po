@@ -28,9 +28,6 @@ msgstr "დასტური"
 msgid "Accepted"
 msgstr "მიღებულია"
 
-msgid "Action with sub plans"
-msgstr "ქმედება ქვე-გეგმებით"
-
 msgid "Actions"
 msgstr "ქმედებები"
 
@@ -190,12 +187,6 @@ msgstr "თუ მონიშნულია, წარმოიქმნებ
 msgid "Import"
 msgstr "იმპორტი"
 
-msgid "Import Puppet classes"
-msgstr "Puppet-ის კლასების შემოტანა"
-
-msgid "Import facts"
-msgstr "ფაქტების შემოტანა"
-
 msgid "Import from %s"
 msgstr "%s-დან შემოტანა"
 
@@ -318,9 +309,6 @@ msgstr "უარყოფა"
 
 msgid "Rejected"
 msgstr "უარყოფილია"
-
-msgid "Remote action:"
-msgstr "დაშორებული ქმედება:"
 
 msgid "Remove duplicate values (only array type)"
 msgstr "დუბლირებული მნიშვნელობების წაშლა (მხოლოდ მასივის ტიპი)"
