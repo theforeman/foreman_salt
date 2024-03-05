@@ -9,7 +9,6 @@
 # Amit Upadhye <aupadhye@redhat.com>, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_salt 1.0.0\n"
@@ -32,9 +31,6 @@ msgstr "接受"
 
 msgid "Accepted"
 msgstr "接受"
-
-msgid "Action with sub plans"
-msgstr "有子计划的操作"
 
 msgid "Actions"
 msgstr "操作"
@@ -195,12 +191,6 @@ msgstr "检查后，如果没有默认值，且没有映射程序提供数值，
 msgid "Import"
 msgstr "导入"
 
-msgid "Import Puppet classes"
-msgstr "导入 Puppet 类"
-
-msgid "Import facts"
-msgstr "导入事实"
-
 msgid "Import from %s"
 msgstr "从 %s 导入"
 
@@ -323,9 +313,6 @@ msgstr "拒绝"
 
 msgid "Rejected"
 msgstr "拒绝"
-
-msgid "Remote action:"
-msgstr "远程操作："
 
 msgid "Remove duplicate values (only array type)"
 msgstr "删除重复值（仅用于阵列类型）"

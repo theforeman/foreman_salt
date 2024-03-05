@@ -25,9 +25,6 @@ msgstr "Accept"
 msgid "Accepted"
 msgstr "Accepted"
 
-msgid "Action with sub plans"
-msgstr ""
-
 msgid "Actions"
 msgstr ""
 
@@ -187,12 +184,6 @@ msgstr ""
 msgid "Import"
 msgstr "Import"
 
-msgid "Import Puppet classes"
-msgstr ""
-
-msgid "Import facts"
-msgstr ""
-
 msgid "Import from %s"
 msgstr "Import from %s"
 
@@ -315,9 +306,6 @@ msgstr "Reject"
 
 msgid "Rejected"
 msgstr "Rejected"
-
-msgid "Remote action:"
-msgstr ""
 
 msgid "Remove duplicate values (only array type)"
 msgstr ""
