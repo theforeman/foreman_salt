@@ -1,3 +1,4 @@
+---
 name: Ruby Testing
 on:
   pull_request:
@@ -14,8 +15,8 @@ jobs:
     name: Rubocop
     uses: theforeman/actions/.github/workflows/rubocop.yml@v0
     with:
-      command: bundle exec rubocop 
-  
+      command: bundle exec rubocop
+
   test:
     name: Ruby
     needs: rubocop
