@@ -538,18 +538,6 @@
       ],
       "Salt namespace pillars": [
         ""
-      ],
-      "Remote action:": [
-        ""
-      ],
-      "Import Puppet classes": [
-        ""
-      ],
-      "Import facts": [
-        ""
-      ],
-      "Action with sub plans": [
-        ""
       ]
     }
   }

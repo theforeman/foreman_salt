@@ -42,9 +42,6 @@ msgstr "Akzeptieren"
 msgid "Accepted"
 msgstr "Akzeptiert"
 
-msgid "Action with sub plans"
-msgstr "Aktion mit Unterplänen"
-
 msgid "Actions"
 msgstr "Aktionen"
 
@@ -204,12 +201,6 @@ msgstr "Falls aktiviert, wird dies einen Fehler erzeugen, wenn kein Standardwert
 msgid "Import"
 msgstr "Import"
 
-msgid "Import Puppet classes"
-msgstr "Puppet-Klassen importieren"
-
-msgid "Import facts"
-msgstr "Fakten importieren"
-
 msgid "Import from %s"
 msgstr "Importieren aus %s"
 
@@ -332,9 +323,6 @@ msgstr "Zurückweisen"
 
 msgid "Rejected"
 msgstr "Zurückgewiesen"
-
-msgid "Remote action:"
-msgstr "Entfernte Aktion:"
 
 msgid "Remove duplicate values (only array type)"
 msgstr "Duplikate (nur vom Typ Array) entfernen"

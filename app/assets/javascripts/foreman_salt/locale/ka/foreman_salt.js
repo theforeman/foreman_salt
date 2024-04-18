@@ -538,18 +538,6 @@
       ],
       "Salt namespace pillars": [
         ""
-      ],
-      "Remote action:": [
-        "დაშორებული ქმედება:"
-      ],
-      "Import Puppet classes": [
-        "Puppet-ის კლასების შემოტანა"
-      ],
-      "Import facts": [
-        "ფაქტების შემოტანა"
-      ],
-      "Action with sub plans": [
-        "ქმედება ქვე-გეგმებით"
       ]
     }
   }
