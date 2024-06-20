@@ -49,7 +49,7 @@ module ::ProxyAPI
       states = {}
 
       environments_list.each do |environment|
-        states[environment] = parse(get("environments/#{environment}"))
+        states[environment] = parse(get("environments/#{CGI.escape(environment)}"))
       end
 
       states
