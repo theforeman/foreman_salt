@@ -64,7 +64,7 @@ module ForemanSalt
 
     context 'autosign handling' do
       before do
-        @host = FactoryBot.create(:host, :managed)
+        @host = FactoryBot.create(:host, salt_autosign_key: 'asdfasdfasfasdf')
         @host.salt_proxy = @proxy
         stub_request(:post, "#{@proxy.url}/salt/autosign_key/asdfasdfasfasdf")
           .to_return(status: 200, body: '', headers: {})
@@ -72,10 +72,9 @@ module ForemanSalt
           .to_return(status: 200, body: '', headers: {})
       end
 
-      test 'host autosign is created when host is built' do
+      test 'host autosign is created before host is provisioned' do
         autosign_key = 'asdfasdfasfasdf'
-        @host.expects(:generate_provisioning_key).returns(autosign_key)
-        @host.build = true
+        @host.build = false
 
         assert @host.save!
         @host.clear_host_parameters_cache!
