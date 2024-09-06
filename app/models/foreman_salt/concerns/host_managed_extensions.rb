@@ -42,7 +42,7 @@ module ForemanSalt
 
         validate :salt_modules_in_host_environment
 
-        after_build :ensure_salt_autosign, if: ->(host) { host.salt_proxy }
+        before_provision :ensure_salt_autosign, if: ->(host) { host.salt_proxy }
         before_destroy :remove_salt_minion, if: ->(host) { host.salt_proxy }
       end
 
