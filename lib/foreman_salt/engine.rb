@@ -5,11 +5,6 @@ module ForemanSalt
   class Engine < ::Rails::Engine
     engine_name 'foreman_salt'
 
-    config.autoload_paths += Dir["#{config.root}/app/controllers/foreman_salt/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/helpers"]
-    config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/overrides"]
-    config.autoload_paths += Dir["#{config.root}/app/services"]
     config.autoload_paths += Dir["#{config.root}/app/lib"]
 
     config.paths['config/routes.rb'].unshift('config/api_routes.rb')
@@ -42,12 +37,14 @@ module ForemanSalt
       Apipie.configuration.checksum_path += ['/salt/api/']
     end
 
-    initializer 'foreman_salt.register_plugin', before: :finisher_hook do
-      require 'foreman_salt/plugin'
+    initializer 'foreman_salt.register_plugin', before: :finisher_hook do |app|
+      app.reloader.to_prepare do
+        require_relative 'plugin'
+      end
     end
 
     config.to_prepare do
-      require 'foreman_salt/extensions'
+      require_relative 'extensions'
 
       RemoteExecutionProvider.register(:Salt, SaltProvider)
       ForemanSalt.register_rex_feature
