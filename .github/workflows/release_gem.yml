@@ -1,0 +1,16 @@
+name: Release
+
+on:
+  push:
+    # Pattern matched against refs/tags
+    tags:
+      - '**'
+
+jobs:
+  release:
+    name: Release gem
+    uses: theforeman/actions/.github/workflows/release-gem.yml@v0
+    with:
+      allowed_owner: theforeman
+    secrets:
+      api_key: ${{ secrets.RUBYGEM_API_KEY }}
