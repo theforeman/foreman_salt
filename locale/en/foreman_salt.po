@@ -3,51 +3,49 @@
 # This file is distributed under the same license as the foreman_salt package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_salt 13.2.0\n"
+"Project-Id-Version: foreman_salt 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-04-25 22:19+0000\n"
+"PO-Revision-Date: 2024-09-19 13:05+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 msgid "*Clear environment*"
 msgstr ""
 
 msgid "Accept"
-msgstr "Accept"
+msgstr ""
 
 msgid "Accepted"
-msgstr "Accepted"
-
-msgid "Action with sub plans"
 msgstr ""
 
 msgid "Actions"
 msgstr ""
 
 msgid "Added"
-msgstr "Added"
+msgstr ""
 
 msgid "Array of Salt state IDs"
 msgstr ""
 
 msgid "Array of State ids"
-msgstr "Array of State ids"
+msgstr ""
 
 msgid "Autosign"
-msgstr "Autosign"
+msgstr ""
 
 msgid "Autosign entries for %s"
-msgstr "Autosign entries for %s"
+msgstr ""
 
 msgid "Autosign record"
-msgstr "Autosign record"
+msgstr ""
 
 msgid "Avoid duplicate values when merging them (only array type)?"
 msgstr ""
@@ -56,7 +54,7 @@ msgid "Before including these variables as Salt pillar, Foreman will validate th
 msgstr ""
 
 msgid "Cancel"
-msgstr "Cancel"
+msgstr ""
 
 msgid "Change Salt Environment"
 msgstr ""
@@ -65,13 +63,13 @@ msgid "Change Salt Master"
 msgstr ""
 
 msgid "Check/Uncheck Added"
-msgstr "Check/Uncheck Added"
+msgstr ""
 
 msgid "Check/Uncheck All"
-msgstr "Check/Uncheck All"
+msgstr ""
 
 msgid "Check/Uncheck Removed"
-msgstr "Check/Uncheck Removed"
+msgstr ""
 
 msgid "Config Management"
 msgstr ""
@@ -80,7 +78,7 @@ msgid "Continue to look for matches after first find (only array/hash type)? Not
 msgstr ""
 
 msgid "Could not find salt environment with id %s"
-msgstr "Could not find salt environment with id %s"
+msgstr ""
 
 msgid "Create Salt Variable"
 msgstr ""
@@ -89,13 +87,13 @@ msgid "Create Salt variable"
 msgstr ""
 
 msgid "Create a Salt environment"
-msgstr "Create a Salt environment"
+msgstr ""
 
 msgid "Create a state"
-msgstr "Create a state"
+msgstr ""
 
 msgid "Create an autosign record"
-msgstr "Create an autosign record"
+msgstr ""
 
 msgid "Default Behavior"
 msgstr ""
@@ -104,13 +102,13 @@ msgid "Default value of variable"
 msgstr ""
 
 msgid "Delete %s?"
-msgstr "Delete %s?"
+msgstr ""
 
 msgid "Delete a Salt Key"
-msgstr "Delete a Salt Key"
+msgstr ""
 
 msgid "Delete an autosign record"
-msgstr "Delete an autosign record"
+msgstr ""
 
 msgid "Deletes Salt variable"
 msgstr ""
@@ -119,46 +117,46 @@ msgid "Description of variable"
 msgstr ""
 
 msgid "Destroy a Salt environment"
-msgstr "Destroy a Salt environment"
+msgstr ""
 
 msgid "Destroy a state"
-msgstr "Destroy a state"
+msgstr ""
 
 msgid "Dryrun only"
-msgstr "Dryrun only"
+msgstr ""
 
 msgid "Edit"
-msgstr "Edit"
+msgstr ""
 
 msgid "Edit %s"
 msgstr ""
 
 msgid "Edit Salt Environment %s"
-msgstr "Edit Salt Environment %s"
+msgstr ""
 
 msgid "Edit Salt State %s"
-msgstr "Edit Salt State %s"
+msgstr ""
 
 msgid "Edit Salt Variable"
 msgstr ""
 
 msgid "Environment"
-msgstr "Environment"
+msgstr ""
 
 msgid "Environments"
-msgstr "Environments"
+msgstr ""
 
 msgid "FQDN of host that key belongs to"
-msgstr "FQDN of host that key belongs to"
+msgstr ""
 
 msgid "Filter %s"
-msgstr "Filter %s"
+msgstr ""
 
 msgid "Fingerprint"
-msgstr "Fingerprint"
+msgstr ""
 
 msgid "Function"
-msgstr "Function"
+msgstr ""
 
 msgid "Hidden Value"
 msgstr ""
@@ -167,16 +165,16 @@ msgid "Hide all values for this parameter."
 msgstr ""
 
 msgid "Host groups"
-msgstr "Host groups"
+msgstr ""
 
 msgid "Host must have an environment in order to set salt states"
-msgstr "Host must have an environment in order to set salt states"
+msgstr ""
 
 msgid "Hosts"
-msgstr "Hosts"
+msgstr ""
 
 msgid "ID of Salt Proxy"
-msgstr "ID of Salt Proxy"
+msgstr ""
 
 msgid "ID of host group"
 msgstr ""
@@ -185,19 +183,13 @@ msgid "If checked, will raise an error if there is no default value and no match
 msgstr ""
 
 msgid "Import"
-msgstr "Import"
-
-msgid "Import Puppet classes"
-msgstr ""
-
-msgid "Import facts"
 msgstr ""
 
 msgid "Import from %s"
-msgstr "Import from %s"
+msgstr ""
 
 msgid "Import states from a salt master"
-msgstr "Import states from a salt master"
+msgstr ""
 
 msgid "Include default value when merging all matching values"
 msgstr ""
@@ -206,43 +198,43 @@ msgid "Include default value when merging all matching values."
 msgstr ""
 
 msgid "Invalid report"
-msgstr "Invalid report"
+msgstr ""
 
 msgid "JID"
-msgstr "JID"
+msgstr ""
 
 msgid "Key Name"
-msgstr "Key Name"
+msgstr ""
 
 msgid "Keys"
-msgstr "Keys"
+msgstr ""
 
 msgid "Limit to a specific environment"
-msgstr "Limit to a specific environment"
+msgstr ""
 
 msgid "Limit to a specific environments"
-msgstr "Limit to a specific environments"
+msgstr ""
 
 msgid "Limit to specific actions: i.e. add, remove"
-msgstr "Limit to specific actions: i.e. add, remove"
+msgstr ""
 
 msgid "List Salt variables"
 msgstr ""
 
 msgid "List all Salt Minions"
-msgstr "List all Salt Minions"
+msgstr ""
 
 msgid "List all Salt environments"
-msgstr "List all Salt environments"
+msgstr ""
 
 msgid "List all Salt keys"
-msgstr "List all Salt keys"
+msgstr ""
 
 msgid "List all Salt states"
-msgstr "List all Salt states"
+msgstr ""
 
 msgid "List all autosign records"
-msgstr "List all autosign records"
+msgstr ""
 
 msgid "Mark the variable to be managed by Foreman. When the Salt State of this variable is assigned to a host, the default value will be added as a Salt pillar for this host. Specify matchers to set a different value for such variable."
 msgstr ""
@@ -251,43 +243,43 @@ msgid "Merge all matching values (only array/hash type)"
 msgstr ""
 
 msgid "Must specify a Smart Proxy to use"
-msgstr "Must specify a Smart Proxy to use"
+msgstr ""
 
 msgid "Name"
-msgstr "Name"
+msgstr ""
 
 msgid "Name of the Salt state"
-msgstr "Name of the Salt state"
+msgstr ""
 
 msgid "Name of variable"
 msgstr ""
 
 msgid "Namespace Foreman pillars under 'foreman' key"
-msgstr "Namespace Foreman pillars under 'foreman' key"
+msgstr ""
 
 msgid "New"
-msgstr "New"
+msgstr ""
 
 msgid "New Autosign Entry"
-msgstr "New Autosign Entry"
+msgstr ""
 
 msgid "New Salt Environment"
-msgstr "New Salt Environment"
+msgstr ""
 
 msgid "New Salt State"
-msgstr "New Salt State"
+msgstr ""
 
 msgid "New Salt Variable"
 msgstr ""
 
 msgid "No changes found"
-msgstr "No changes found"
+msgstr ""
 
 msgid "No salt environment selected!"
 msgstr ""
 
 msgid "Operation"
-msgstr "Operation"
+msgstr ""
 
 msgid "Optional Input Validator"
 msgstr ""
@@ -302,67 +294,64 @@ msgid "Overriden"
 msgstr ""
 
 msgid "Please select a Salt environment first"
-msgstr "Please select a Salt environment first"
+msgstr ""
 
 msgid "Prioritize Attribute Order"
 msgstr ""
 
 msgid "Record deleted."
-msgstr "Record deleted."
+msgstr ""
 
 msgid "Reject"
-msgstr "Reject"
+msgstr ""
 
 msgid "Rejected"
-msgstr "Rejected"
-
-msgid "Remote action:"
 msgstr ""
 
 msgid "Remove duplicate values (only array type)"
 msgstr ""
 
 msgid "Removed"
-msgstr "Removed"
+msgstr ""
 
 msgid "Result"
-msgstr "Result"
+msgstr ""
 
 msgid "Run Salt"
-msgstr "Run Salt"
+msgstr ""
 
 msgid "Run Salt state.highstate"
 msgstr ""
 
 msgid "Salt Autosign"
-msgstr "Salt Autosign"
+msgstr ""
 
 msgid "Salt ENC"
-msgstr "Salt ENC"
+msgstr ""
 
 msgid "Salt Environment"
-msgstr "Salt Environment"
+msgstr ""
 
 msgid "Salt Environments"
-msgstr "Salt Environments"
+msgstr ""
 
 msgid "Salt Keys"
-msgstr "Salt Keys"
+msgstr ""
 
 msgid "Salt Keys on %s"
-msgstr "Salt Keys on %s"
+msgstr ""
 
 msgid "Salt Master"
-msgstr "Salt Master"
+msgstr ""
 
 msgid "Salt Smart Proxy ID"
-msgstr "Salt Smart Proxy ID"
+msgstr ""
 
 msgid "Salt State"
 msgstr ""
 
 msgid "Salt States"
-msgstr "Salt States"
+msgstr ""
 
 msgid "Salt Variable Details"
 msgstr ""
@@ -371,13 +360,13 @@ msgid "Salt Variables"
 msgstr ""
 
 msgid "Salt environment"
-msgstr "Salt environment"
+msgstr ""
 
 msgid "Salt environment ID"
-msgstr "Salt environment ID"
+msgstr ""
 
 msgid "Salt external nodes YAML dump"
-msgstr "Salt external nodes YAML dump"
+msgstr ""
 
 msgid "Salt master/smart proxy ID"
 msgstr ""
@@ -386,25 +375,25 @@ msgid "Salt namespace pillars"
 msgstr ""
 
 msgid "Salt state"
-msgstr "Salt state"
+msgstr ""
 
 msgid "Salt states must be in the environment of the host"
-msgstr "Salt states must be in the environment of the host"
+msgstr ""
 
 msgid "SaltEnvironment|Name"
-msgstr "SaltEnvironment|Name"
+msgstr ""
 
 msgid "SaltModule|Name"
-msgstr "SaltModule|Name"
+msgstr ""
 
 msgid "Save"
-msgstr "Save"
+msgstr ""
 
 msgid "Select salt environment"
 msgstr ""
 
 msgid "Select the changes you want to realize in Foreman"
-msgstr "Select the changes you want to realize in Foreman"
+msgstr ""
 
 msgid "Set the order in which values are resolved."
 msgstr ""
@@ -413,13 +402,13 @@ msgid "Set the salt_status as \\'successful authentication\\' and remove the cor
 msgstr ""
 
 msgid "Show a Salt environment"
-msgstr "Show a Salt environment"
+msgstr ""
 
 msgid "Show a minion"
-msgstr "Show a minion"
+msgstr ""
 
 msgid "Show a state"
-msgstr "Show a state"
+msgstr ""
 
 msgid "Show the Salt parameters of a host group"
 msgstr ""
@@ -431,19 +420,19 @@ msgid "Specify Matchers"
 msgstr ""
 
 msgid "State"
-msgstr "State"
+msgstr ""
 
 msgid "State ID"
 msgstr ""
 
 msgid "State can be \"accepted\" or \"rejected\""
-msgstr "State can be \"accepted\" or \"rejected\""
+msgstr ""
 
 msgid "States"
-msgstr "States"
+msgstr ""
 
 msgid "Successfully imported"
-msgstr "Successfully imported"
+msgstr ""
 
 msgid "The order in which matchers keys are processed, first match wins.<br> You may use multiple attributes as a matcher key, for example, an order of <code>host group, environment</code> would expect a matcher such as <code>hostgroup = \"web servers\", environment = production</code>"
 msgstr ""
@@ -452,7 +441,7 @@ msgid "The order in which values are resolved"
 msgstr ""
 
 msgid "Toggle"
-msgstr "Toggle"
+msgstr ""
 
 msgid "Type"
 msgstr ""
@@ -464,7 +453,7 @@ msgid "Types of variable values"
 msgstr ""
 
 msgid "Unable to accept Salt key for %s"
-msgstr "Unable to accept Salt key for %s"
+msgstr ""
 
 msgid "Unable to create Salt autosign key %s"
 msgstr ""
@@ -476,43 +465,43 @@ msgid "Unable to delete Salt autosign key %s"
 msgstr ""
 
 msgid "Unable to delete Salt key for %s"
-msgstr "Unable to delete Salt key for %s"
+msgstr ""
 
 msgid "Unable to fetch Salt environments list"
-msgstr "Unable to fetch Salt environments list"
+msgstr ""
 
 msgid "Unable to fetch Salt key list"
-msgstr "Unable to fetch Salt key list"
+msgstr ""
 
 msgid "Unable to fetch Salt states list"
-msgstr "Unable to fetch Salt states list"
+msgstr ""
 
 msgid "Unable to fetch autosign list"
-msgstr "Unable to fetch autosign list"
+msgstr ""
 
 msgid "Unable to generate output, Check log files"
-msgstr "Unable to generate output, Check log files"
+msgstr ""
 
 msgid "Unable to reject Salt key for %s"
-msgstr "Unable to reject Salt key for %s"
+msgstr ""
 
 msgid "Unable to run Salt state.highstate for %s"
-msgstr "Unable to run Salt state.highstate for %s"
+msgstr ""
 
 msgid "Unable to set Salt autosign hostname for %s"
 msgstr ""
 
 msgid "Unaccepted"
-msgstr "Unaccepted"
+msgstr ""
 
 msgid "Update"
-msgstr "Update"
+msgstr ""
 
 msgid "Update a Salt Key"
-msgstr "Update a Salt Key"
+msgstr ""
 
 msgid "Update a minion"
-msgstr "Update a minion"
+msgstr ""
 
 msgid "Update the Salt parameters of a host group"
 msgstr ""
@@ -524,7 +513,7 @@ msgid "Updates Salt variable"
 msgstr ""
 
 msgid "Upload a Job"
-msgstr "Upload a Job"
+msgstr ""
 
 msgid "Used to enforce certain values for the parameter values"
 msgstr ""
@@ -545,7 +534,7 @@ msgid "When enabled the parameter is hidden in the UI"
 msgstr ""
 
 msgid "is alphanumeric and cannot contain spaces"
-msgstr "is alphanumeric and cannot contain spaces"
+msgstr ""
 
 msgid "must be alphanumeric, can contain periods, dashes, underscores and must not contain spaces"
-msgstr "must be alphanumeric, can contain periods, dashes, underscores and must not contain spaces"
+msgstr ""

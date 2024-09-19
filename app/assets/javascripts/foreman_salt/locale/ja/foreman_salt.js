@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_salt": {
       "": {
-        "Project-Id-Version": "foreman_salt 1.0.0",
+        "Project-Id-Version": "foreman_salt 17.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-04-29 07:31+0000",
         "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2022",
@@ -25,9 +25,6 @@
       ],
       "Accepted": [
         "許可"
-      ],
-      "Action with sub plans": [
-        "サブプランによるアクション"
       ],
       "Actions": [
         "アクション"
@@ -188,12 +185,6 @@
       "Import": [
         "インポート"
       ],
-      "Import Puppet classes": [
-        "Puppet クラスのインポート"
-      ],
-      "Import facts": [
-        "ファクトのインポート"
-      ],
       "Import from %s": [
         "%s からのインポート"
       ],
@@ -316,9 +307,6 @@
       ],
       "Rejected": [
         "拒否"
-      ],
-      "Remote action:": [
-        "リモートアクション:"
       ],
       "Remove duplicate values (only array type)": [
         "重複する値の削除 (配列タイプのみ)"

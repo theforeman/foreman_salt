@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_salt": {
       "": {
-        "Project-Id-Version": "foreman_salt 1.0.0",
+        "Project-Id-Version": "foreman_salt 17.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-04-29 07:31+0000",
         "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2023",
@@ -25,9 +25,6 @@
       ],
       "Accepted": [
         "Accepté"
-      ],
-      "Action with sub plans": [
-        "Action avec sous-plans"
       ],
       "Actions": [
         "Actions"
@@ -188,12 +185,6 @@
       "Import": [
         "Importation"
       ],
-      "Import Puppet classes": [
-        "Importer des classes Puppet"
-      ],
-      "Import facts": [
-        "Importer des faits"
-      ],
       "Import from %s": [
         "Import depuis %s"
       ],
@@ -316,9 +307,6 @@
       ],
       "Rejected": [
         "Rejeté"
-      ],
-      "Remote action:": [
-        "Action distante :"
       ],
       "Remove duplicate values (only array type)": [
         "Supprime les valeurs dupliquées (seulement pour le type tableau)"
