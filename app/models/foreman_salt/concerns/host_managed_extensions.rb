@@ -42,8 +42,8 @@ module ForemanSalt
 
         validate :salt_modules_in_host_environment
 
-        before_provision :ensure_salt_autosign, if: ->(host) { host.salt_proxy }
-        before_destroy :remove_salt_minion, if: ->(host) { host.salt_proxy }
+        after_validation :queue_ensure_salt_autosign, if: ->(host) { host.salt_proxy }
+        before_destroy :queue_remove_salt_minion, if: ->(host) { host.salt_proxy }
       end
 
       def salt_params
@@ -107,10 +107,32 @@ module ForemanSalt
 
       private
 
+      def queue_ensure_salt_autosign
+        return unless new_record? || build_changed?
+
+        generate_salt_autosign_key
+        queue.create(id: "ensure_salt_autosign_#{id}", name: _('Configure Salt Autosign key for %s') % self,
+                     priority: 101, action: [self, :ensure_salt_autosign])
+      end
+
+      def queue_remove_salt_minion
+        queue.create(id: "queue_remove_salt_minion_#{id}", name: _('Remove Salt Minion for %s') % self,
+                     priority: 101, action: [self, :remove_salt_minion])
+      end
+
+      def generate_salt_autosign_key
+        if salt_autosign_key.nil?
+          Rails.logger.info("Generate salt autosign key for #{fqdn}")
+          self.salt_autosign_key = generate_provisioning_key
+        else
+          Rails.logger.info("Use existing salt autosign key for #{fqdn}")
+        end
+        self.salt_status = ForemanSalt::SaltStatus.minion_auth_waiting
+      end
+
       def ensure_salt_autosign
         remove_salt_key
-        remove_salt_autosign
-        create_salt_autosign
+        configure_salt_autosign
       end
 
       def remove_salt_minion
@@ -140,13 +162,11 @@ module ForemanSalt
         SecureRandom.hex(10)
       end
 
-      def create_salt_autosign
-        Rails.logger.info("Create salt autosign key for host #{fqdn}")
+      def configure_salt_autosign
+        Rails.logger.info("Configure salt autosign key for host #{fqdn} on #{salt_proxy.url}")
         api = ProxyAPI::Salt.new(url: salt_proxy.url)
-        key = generate_provisioning_key
+        key = salt_autosign_key
         api.autosign_create_key(key)
-        update(salt_autosign_key: key)
-        update(salt_status: ForemanSalt::SaltStatus.minion_auth_waiting)
       rescue Foreman::Exception => e
         Rails.logger.warn("Unable to create salt autosign for #{fqdn}: #{e}")
       end
