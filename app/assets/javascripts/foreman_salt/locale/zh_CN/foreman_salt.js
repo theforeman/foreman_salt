@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_salt": {
       "": {
-        "Project-Id-Version": "foreman_salt 1.0.0",
+        "Project-Id-Version": "foreman_salt 17.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-04-29 07:31+0000",
         "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2022",
@@ -25,9 +25,6 @@
       ],
       "Accepted": [
         "接受"
-      ],
-      "Action with sub plans": [
-        "有子计划的操作"
       ],
       "Actions": [
         "操作"
@@ -188,12 +185,6 @@
       "Import": [
         "导入"
       ],
-      "Import Puppet classes": [
-        "导入 Puppet 类"
-      ],
-      "Import facts": [
-        "导入事实"
-      ],
       "Import from %s": [
         "从 %s 导入"
       ],
@@ -316,9 +307,6 @@
       ],
       "Rejected": [
         "拒绝"
-      ],
-      "Remote action:": [
-        "远程操作："
       ],
       "Remove duplicate values (only array type)": [
         "删除重复值（仅用于阵列类型）"
