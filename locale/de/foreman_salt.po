@@ -6,27 +6,27 @@
 # Translators:
 # Lukáš Zapletal, 2019
 # abf90805572190d649c59f7a021d76cb, 2019
-# Michael Moll, 2019
 # Hannes Schaller <admin@cyberkov.at>, 2019
-# Ulrich Habel <rhaen@pkgbox.de>, 2019
+# 47388d0d0847859fcc07f8955b27d2a7_d1cb104 <93875580def0fcc1a566b016c3948752_122921>, 2019
 # Arnold Bechtoldt <mail@arnoldbechtoldt.com>, 2019
-# Ettore Atalan <atalanttore@googlemail.com>, 2019
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
 # Wiederoder <stefanwiederoder@googlemail.com>, 2019
 # Bryan Kearney <bryan.kearney@gmail.com>, 2019
-# simon11 <simon.stieger.98@live.de>, 2019
-# Christina Gurski <Gurski_christina@yahoo.de>, 2019
-# Martin Zimmermann <martin.zimmermann@gmx.com>, 2019
+# simon11 <transifex@stieger.co>, 2019
 # Crited <Alexander.Stoll@netways.de>, 2019
 # Bernhard Suttner <bernhard.suttner@atix.de>, 2019
+# Martin Zimmermann <martin.zimmermann@gmx.com>, 2022
+# Christina Gurski <Gurski_christina@yahoo.de>, 2022
+# Ettore Atalan <atalanttore@googlemail.com>, 2023
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_salt 13.2.0\n"
+"Project-Id-Version: foreman_salt 17.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-04-29 07:31+0000\n"
-"Last-Translator: Bernhard Suttner <bernhard.suttner@atix.de>, 2019\n"
-"Language-Team: German (https://www.transifex.com/foreman/teams/114/de/)\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>, 2023\n"
+"Language-Team: German (https://app.transifex.com/foreman/teams/114/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -91,7 +91,7 @@ msgid "Check/Uncheck Removed"
 msgstr "Gelöschte auswählen/abwählen"
 
 msgid "Config Management"
-msgstr ""
+msgstr "Konfigurationsmanagement"
 
 msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
 msgstr "Nach dem ersten Treffer nach weiterhin nach Treffern suchen (nur Array-/Hash-Typ)? Hinweis: Das Zusammenlegen von Überschreibungen ignoriert alle Prüfwerte, die weggelassen werden."
@@ -196,7 +196,7 @@ msgid "ID of Salt Proxy"
 msgstr "ID des Salt Proxy"
 
 msgid "ID of host group"
-msgstr ""
+msgstr "Kennung der Hostgruppe"
 
 msgid "If checked, will raise an error if there is no default value and no matcher provide a value."
 msgstr "Falls aktiviert, wird dies einen Fehler erzeugen, wenn kein Standardwert vorhanden ist und kein Treffer einen Wert vorschlägt."
@@ -508,7 +508,7 @@ msgid "Unable to fetch autosign list"
 msgstr "Autosign Liste konnten nicht abgerufen werden"
 
 msgid "Unable to generate output, Check log files"
-msgstr "Kann keine Ausgabe erzeugen, Bitte Logdateien prüfen"
+msgstr "Kann keine Ausgabe erzeugen. Bitte Logdateien prüfen"
 
 msgid "Unable to reject Salt key for %s"
 msgstr "Salt Schlüssel für %s konnte nicht zurückgewiesen werden"
@@ -541,7 +541,7 @@ msgid "Updates Salt variable"
 msgstr "Salt Variable aktualisieren"
 
 msgid "Upload a Job"
-msgstr "Hochladen eines Jobs"
+msgstr "Hochladen eines Auftrags"
 
 msgid "Used to enforce certain values for the parameter values"
 msgstr "Verwendet, um bestimmte Werte für die Parameterwerte umzusetzen"

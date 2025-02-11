@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_salt": {
       "": {
-        "Project-Id-Version": "foreman_salt 1.0.0",
+        "Project-Id-Version": "foreman_salt 17.0.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-04-29 07:31+0000",
         "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2022",

@@ -4,15 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# NorwayFun <temuri.doghonadze@gmail.com>, 2022
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_salt 1.0.0\n"
+"Project-Id-Version: foreman_salt 17.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-04-29 07:31+0000\n"
-"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>, 2022\n"
-"Language-Team: Georgian (https://www.transifex.com/foreman/teams/114/ka/)\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022\n"
+"Language-Team: Georgian (https://app.transifex.com/foreman/teams/114/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +39,7 @@ msgid "Added"
 msgstr "დამატებულია"
 
 msgid "Array of Salt state IDs"
-msgstr ""
+msgstr "Salt-ის მდგომარეობის ID-ების მასივი"
 
 msgid "Array of State ids"
 msgstr "მდგომარეობის ID-ების მასივი"
@@ -77,7 +78,7 @@ msgid "Check/Uncheck Removed"
 msgstr "ჩართ/გამორთ წაშლილია"
 
 msgid "Config Management"
-msgstr ""
+msgstr "კონფიგურაციის მართვა"
 
 msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
 msgstr "გავაგრძელოთ შესატყვისების ძებნა პირველი პოვნის შემდეგ (მხოლოდ მასივი/ჰეშის ტიპი)? შენიშვნა: უგულებელყოფის შერწყმა უგულებელყოფს ყველა შესატყვისს, რომელიც გამოტოვებულია."
@@ -182,7 +183,7 @@ msgid "ID of Salt Proxy"
 msgstr "მარილის პროქსის ID"
 
 msgid "ID of host group"
-msgstr ""
+msgstr "ჰოსტების ჯგუფის ID"
 
 msgid "If checked, will raise an error if there is no default value and no matcher provide a value."
 msgstr "თუ მონიშნულია, წარმოიქმნება შეცდომა, თუ არ არის ნაგულისხმევი მნიშვნელობა და არცერთი შესატყვისი არ იძლევა მნიშვნელობას."
@@ -383,10 +384,10 @@ msgid "Salt external nodes YAML dump"
 msgstr "მარილის გარე კვანძების YAML ფაილი"
 
 msgid "Salt master/smart proxy ID"
-msgstr ""
+msgstr "Salt-ის მთავარი/ჭკვიანი პროქსის ID"
 
 msgid "Salt namespace pillars"
-msgstr ""
+msgstr "Salt-ის სახელის სივრცის სვეტები"
 
 msgid "Salt state"
 msgstr "მარილის მდგომარეობა"
@@ -413,7 +414,7 @@ msgid "Set the order in which values are resolved."
 msgstr "მიმდევრობა, რომლითაც მნიშვნელობების ამოხსნა ხდება."
 
 msgid "Set the salt_status as \\'successful authentication\\' and remove the corresponding autosign key from the Smart Proxy"
-msgstr ""
+msgstr "დააყენეთ salt_status-ის მნიშვნელობა \\' წარმატებულ ავთენტიკაციაზე\\' და წაშალეთ შესაბამისი ავტომატური ხელმოწერის გასაღები ჭკვიანი პროქსიდან"
 
 msgid "Show a Salt environment"
 msgstr "მარილის გარემოს ჩვენება"
@@ -425,7 +426,7 @@ msgid "Show a state"
 msgstr "მდგომარეობის ჩვენება"
 
 msgid "Show the Salt parameters of a host group"
-msgstr ""
+msgstr "ჰოსტების ჯგუფის Salt პარამეტრის ჩვენება"
 
 msgid "Show variable"
 msgstr "ცვლადის ჩვენება"
@@ -470,13 +471,13 @@ msgid "Unable to accept Salt key for %s"
 msgstr "%s-ის მარილის გასაღების დადასტურების შეცდომა"
 
 msgid "Unable to create Salt autosign key %s"
-msgstr ""
+msgstr "Salt-ის ავტომატური ხელმოწერის გასაღების (%s) შექმნის შეცდომა"
 
 msgid "Unable to delete Salt autosign hostname for %s"
-msgstr ""
+msgstr "%s-სთვის Salt-ის ავტომატური ხელმოწერის ჰოსტი სახელის წაშლის შეცდომა"
 
 msgid "Unable to delete Salt autosign key %s"
-msgstr ""
+msgstr "Salt-ის ავტომატური ხელმოწერის გასაღების (%s) წაშლის შეცდომა"
 
 msgid "Unable to delete Salt key for %s"
 msgstr "%s-ის მარილის გასაღების წაშლის შეცდომა"
@@ -503,7 +504,7 @@ msgid "Unable to run Salt state.highstate for %s"
 msgstr "%s-სთვის მარილის state.highstate -ის დაყენების შეცდომა"
 
 msgid "Unable to set Salt autosign hostname for %s"
-msgstr ""
+msgstr "ავტომატური ხელმოწერის ჰოსტის სახელის დაყენება %s-სთვის შეუძლებელია"
 
 msgid "Unaccepted"
 msgstr "მიუღებელი"
@@ -518,7 +519,7 @@ msgid "Update a minion"
 msgstr "მინიონის განახლება"
 
 msgid "Update the Salt parameters of a host group"
-msgstr ""
+msgstr "ჰოსტების ჯგუფის Salt პარამეტრის განახლება"
 
 msgid "Updated hosts: changed salt environment"
 msgstr "ჰოსტების განახლება: მარილის გარემო შეიცვალა"
