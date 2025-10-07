@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_salt 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-25 14:45+0100\n"
-"PO-Revision-Date: 2022-11-25 14:45+0100\n"
+"POT-Creation-Date: 2025-10-07 14:23+0200\n"
+"PO-Revision-Date: 2025-10-07 14:23+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -395,6 +395,14 @@ msgstr ""
 msgid "Host must have an environment in order to set salt states"
 msgstr ""
 
+#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:114
+msgid "Configure Salt Autosign key for %s"
+msgstr ""
+
+#: ../app/models/foreman_salt/concerns/host_managed_extensions.rb:119
+msgid "Remove Salt Minion for %s"
+msgstr ""
+
 #: ../app/models/foreman_salt/salt_environment.rb:14
 msgid "is alphanumeric and cannot contain spaces"
 msgstr ""
@@ -591,7 +599,7 @@ msgid "SaltModule|Name"
 msgstr ""
 
 #: ../app/views/foreman_salt/salt_modules/index.html.erb:29
-#: ../lib/foreman_salt/plugin.rb:32
+#: ../lib/foreman_salt/plugin.rb:33
 msgid "Variables"
 msgstr ""
 
@@ -735,38 +743,22 @@ msgstr ""
 msgid "*Clear environment*"
 msgstr ""
 
-#: ../lib/foreman_salt/engine.rb:74
+#: ../lib/foreman_salt/engine.rb:63
 msgid "Run Salt state.highstate"
 msgstr ""
 
-#: ../lib/foreman_salt/engine.rb:78
+#: ../lib/foreman_salt/engine.rb:67
 msgid "Run Salt"
 msgstr ""
 
-#: ../lib/foreman_salt/plugin.rb:7
+#: ../lib/foreman_salt/plugin.rb:8
 msgid "Config Management"
 msgstr ""
 
-#: ../lib/foreman_salt/plugin.rb:10
+#: ../lib/foreman_salt/plugin.rb:11
 msgid "Namespace Foreman pillars under 'foreman' key"
 msgstr ""
 
-#: ../lib/foreman_salt/plugin.rb:12
+#: ../lib/foreman_salt/plugin.rb:13
 msgid "Salt namespace pillars"
-msgstr ""
-
-#: action_names.rb:2
-msgid "Remote action:"
-msgstr ""
-
-#: action_names.rb:3
-msgid "Import Puppet classes"
-msgstr ""
-
-#: action_names.rb:4
-msgid "Import facts"
-msgstr ""
-
-#: action_names.rb:5
-msgid "Action with sub plans"
 msgstr ""

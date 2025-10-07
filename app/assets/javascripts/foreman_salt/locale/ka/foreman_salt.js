@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_salt": {
       "": {
-        "Project-Id-Version": "foreman_salt 17.0.1",
+        "Project-Id-Version": "foreman_salt 17.0.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-04-29 07:31+0000",
         "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022",
@@ -25,9 +25,6 @@
       ],
       "Accepted": [
         "მიღებულია"
-      ],
-      "Action with sub plans": [
-        "ქმედება ქვე-გეგმებით"
       ],
       "Actions": [
         "ქმედებები"
@@ -76,6 +73,9 @@
       ],
       "Config Management": [
         "კონფიგურაციის მართვა"
+      ],
+      "Configure Salt Autosign key for %s": [
+        ""
       ],
       "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted.": [
         "გავაგრძელოთ შესატყვისების ძებნა პირველი პოვნის შემდეგ (მხოლოდ მასივი/ჰეშის ტიპი)? შენიშვნა: უგულებელყოფის შერწყმა უგულებელყოფს ყველა შესატყვისს, რომელიც გამოტოვებულია."
@@ -187,12 +187,6 @@
       ],
       "Import": [
         "იმპორტი"
-      ],
-      "Import Puppet classes": [
-        "Puppet-ის კლასების შემოტანა"
-      ],
-      "Import facts": [
-        "ფაქტების შემოტანა"
       ],
       "Import from %s": [
         "%s-დან შემოტანა"
@@ -317,8 +311,8 @@
       "Rejected": [
         "უარყოფილია"
       ],
-      "Remote action:": [
-        "დაშორებული ქმედება:"
+      "Remove Salt Minion for %s": [
+        ""
       ],
       "Remove duplicate values (only array type)": [
         "დუბლირებული მნიშვნელობების წაშლა (მხოლოდ მასივის ტიპი)"

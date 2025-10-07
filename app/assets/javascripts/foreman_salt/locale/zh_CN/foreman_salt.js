@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_salt": {
       "": {
-        "Project-Id-Version": "foreman_salt 17.0.1",
+        "Project-Id-Version": "foreman_salt 17.0.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-04-29 07:31+0000",
         "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2022",
@@ -25,9 +25,6 @@
       ],
       "Accepted": [
         "接受"
-      ],
-      "Action with sub plans": [
-        "有子计划的操作"
       ],
       "Actions": [
         "操作"
@@ -76,6 +73,9 @@
       ],
       "Config Management": [
         "配置管理"
+      ],
+      "Configure Salt Autosign key for %s": [
+        ""
       ],
       "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted.": [
         "要在找到第一个匹配项后继续查找吗（仅阵列/散列类型）？注意：合并覆盖会忽略所有省略的映射器。"
@@ -187,12 +187,6 @@
       ],
       "Import": [
         "导入"
-      ],
-      "Import Puppet classes": [
-        "导入 Puppet 类"
-      ],
-      "Import facts": [
-        "导入事实"
       ],
       "Import from %s": [
         "从 %s 导入"
@@ -317,8 +311,8 @@
       "Rejected": [
         "拒绝"
       ],
-      "Remote action:": [
-        "远程操作："
+      "Remove Salt Minion for %s": [
+        ""
       ],
       "Remove duplicate values (only array type)": [
         "删除重复值（仅用于阵列类型）"
