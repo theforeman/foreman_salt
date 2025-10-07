@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_salt": {
       "": {
-        "Project-Id-Version": "foreman_salt 17.0.1",
+        "Project-Id-Version": "foreman_salt 17.0.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-04-29 07:31+0000",
         "Last-Translator": "Ettore Atalan <atalanttore@googlemail.com>, 2023",
@@ -25,9 +25,6 @@
       ],
       "Accepted": [
         "Akzeptiert"
-      ],
-      "Action with sub plans": [
-        "Aktion mit Unterplänen"
       ],
       "Actions": [
         "Aktionen"
@@ -76,6 +73,9 @@
       ],
       "Config Management": [
         "Konfigurationsmanagement"
+      ],
+      "Configure Salt Autosign key for %s": [
+        ""
       ],
       "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted.": [
         "Nach dem ersten Treffer nach weiterhin nach Treffern suchen (nur Array-/Hash-Typ)? Hinweis: Das Zusammenlegen von Überschreibungen ignoriert alle Prüfwerte, die weggelassen werden."
@@ -187,12 +187,6 @@
       ],
       "Import": [
         "Import"
-      ],
-      "Import Puppet classes": [
-        "Puppet-Klassen importieren"
-      ],
-      "Import facts": [
-        "Fakten importieren"
       ],
       "Import from %s": [
         "Importieren aus %s"
@@ -317,8 +311,8 @@
       "Rejected": [
         "Zurückgewiesen"
       ],
-      "Remote action:": [
-        "Entfernte Aktion:"
+      "Remove Salt Minion for %s": [
+        ""
       ],
       "Remove duplicate values (only array type)": [
         "Duplikate (nur vom Typ Array) entfernen"

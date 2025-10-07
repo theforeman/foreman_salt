@@ -10,10 +10,9 @@
 # Amit Upadhye <aupadhye@redhat.com>, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_salt 17.0.1\n"
+"Project-Id-Version: foreman_salt 17.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-04-29 07:31+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2022\n"
@@ -32,9 +31,6 @@ msgstr "許可"
 
 msgid "Accepted"
 msgstr "許可"
-
-msgid "Action with sub plans"
-msgstr "サブプランによるアクション"
 
 msgid "Actions"
 msgstr "アクション"
@@ -83,6 +79,9 @@ msgstr "削除項目の選択/選択解除"
 
 msgid "Config Management"
 msgstr "設定管理"
+
+msgid "Configure Salt Autosign key for %s"
+msgstr ""
 
 msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
 msgstr "最初の検索後に継続して一致する候補を検索しますか (配列/ハッシュタイプのみ)? 注記: 上書きのマージにより、省略されたすべての Matcher が無視されます。"
@@ -194,12 +193,6 @@ msgstr "チェックが付けられていると、デフォルト値がなく Ma
 
 msgid "Import"
 msgstr "インポート"
-
-msgid "Import Puppet classes"
-msgstr "Puppet クラスのインポート"
-
-msgid "Import facts"
-msgstr "ファクトのインポート"
 
 msgid "Import from %s"
 msgstr "%s からのインポート"
@@ -324,8 +317,8 @@ msgstr "拒否"
 msgid "Rejected"
 msgstr "拒否"
 
-msgid "Remote action:"
-msgstr "リモートアクション:"
+msgid "Remove Salt Minion for %s"
+msgstr ""
 
 msgid "Remove duplicate values (only array type)"
 msgstr "重複する値の削除 (配列タイプのみ)"

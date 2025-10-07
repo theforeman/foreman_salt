@@ -6,10 +6,9 @@
 # Translators:
 # Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_salt 17.0.1\n"
+"Project-Id-Version: foreman_salt 17.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-04-29 07:31+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022\n"
@@ -28,9 +27,6 @@ msgstr "დასტური"
 
 msgid "Accepted"
 msgstr "მიღებულია"
-
-msgid "Action with sub plans"
-msgstr "ქმედება ქვე-გეგმებით"
 
 msgid "Actions"
 msgstr "ქმედებები"
@@ -79,6 +75,9 @@ msgstr "ჩართ/გამორთ წაშლილია"
 
 msgid "Config Management"
 msgstr "კონფიგურაციის მართვა"
+
+msgid "Configure Salt Autosign key for %s"
+msgstr ""
 
 msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
 msgstr "გავაგრძელოთ შესატყვისების ძებნა პირველი პოვნის შემდეგ (მხოლოდ მასივი/ჰეშის ტიპი)? შენიშვნა: უგულებელყოფის შერწყმა უგულებელყოფს ყველა შესატყვისს, რომელიც გამოტოვებულია."
@@ -190,12 +189,6 @@ msgstr "თუ მონიშნულია, წარმოიქმნებ
 
 msgid "Import"
 msgstr "იმპორტი"
-
-msgid "Import Puppet classes"
-msgstr "Puppet-ის კლასების შემოტანა"
-
-msgid "Import facts"
-msgstr "ფაქტების შემოტანა"
 
 msgid "Import from %s"
 msgstr "%s-დან შემოტანა"
@@ -320,8 +313,8 @@ msgstr "უარყოფა"
 msgid "Rejected"
 msgstr "უარყოფილია"
 
-msgid "Remote action:"
-msgstr "დაშორებული ქმედება:"
+msgid "Remove Salt Minion for %s"
+msgstr ""
 
 msgid "Remove duplicate values (only array type)"
 msgstr "დუბლირებული მნიშვნელობების წაშლა (მხოლოდ მასივის ტიპი)"

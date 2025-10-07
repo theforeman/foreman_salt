@@ -9,10 +9,9 @@
 # Amit Upadhye <aupadhye@redhat.com>, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_salt 17.0.1\n"
+"Project-Id-Version: foreman_salt 17.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-04-29 07:31+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2022\n"
@@ -32,9 +31,6 @@ msgstr "接受"
 
 msgid "Accepted"
 msgstr "接受"
-
-msgid "Action with sub plans"
-msgstr "有子计划的操作"
 
 msgid "Actions"
 msgstr "操作"
@@ -83,6 +79,9 @@ msgstr "选择/取消选择删除"
 
 msgid "Config Management"
 msgstr "配置管理"
+
+msgid "Configure Salt Autosign key for %s"
+msgstr ""
 
 msgid "Continue to look for matches after first find (only array/hash type)? Note: merging overrides ignores all matchers that are omitted."
 msgstr "要在找到第一个匹配项后继续查找吗（仅阵列/散列类型）？注意：合并覆盖会忽略所有省略的映射器。"
@@ -194,12 +193,6 @@ msgstr "检查后，如果没有默认值，且没有映射程序提供数值，
 
 msgid "Import"
 msgstr "导入"
-
-msgid "Import Puppet classes"
-msgstr "导入 Puppet 类"
-
-msgid "Import facts"
-msgstr "导入事实"
 
 msgid "Import from %s"
 msgstr "从 %s 导入"
@@ -324,8 +317,8 @@ msgstr "拒绝"
 msgid "Rejected"
 msgstr "拒绝"
 
-msgid "Remote action:"
-msgstr "远程操作："
+msgid "Remove Salt Minion for %s"
+msgstr ""
 
 msgid "Remove duplicate values (only array type)"
 msgstr "删除重复值（仅用于阵列类型）"
