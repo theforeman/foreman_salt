@@ -3,9 +3,9 @@
 [![Code Climate](https://codeclimate.com/github/theforeman/foreman_salt/badges/gpa.svg)](https://codeclimate.com/github/theforeman/foreman_salt)
 [![GPL License](https://img.shields.io/github/license/theforeman/foreman_salt.svg)](https://github.com/theforeman/foreman_salt/blob/master/LICENSE)
 
-# Foreman Salt Plug-in
+# Foreman Salt plugin
 
-This plug-in adds support for Salt to Foreman.
+This plugin adds support for Salt to Foreman.
 
 # Compatibility
 
@@ -18,7 +18,7 @@ This plug-in adds support for Salt to Foreman.
 
 ## Documentation
 
-[Configuring Hosts Using Salt](https://docs.theforeman.org/nightly/Managing_Configurations_Salt/index-katello.html)
+[Configuring hosts by using Salt](https://docs.theforeman.org/nightly/Managing_Configurations_Salt/index-katello.html)
 
 ## Contributing
 
