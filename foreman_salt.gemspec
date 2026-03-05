@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.authors     = ['Stephen Benjamin']
   s.email       = ['stephen@redhat.com']
   s.homepage    = 'https://github.com/theforeman/foreman_salt'
-  s.summary     = 'Foreman Plug-in for Salt'
-  s.description = 'Foreman Plug-in for Salt'
+  s.summary     = 'Foreman plugin for Salt'
+  s.description = 'Foreman plugin for Salt'
 
   s.files = Dir['{app,config,db,lib,locale}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
