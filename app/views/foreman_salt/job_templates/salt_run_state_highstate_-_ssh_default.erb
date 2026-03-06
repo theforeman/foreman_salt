@@ -1,14 +1,14 @@
 <%#
-name: Salt Run state.highstate - SSH default
+name: Salt Run state.highstate - Script default
 job_category: Salt-Call
 description_format: Run Salt state.highstate on host
 feature: foreman_salt_run_state_highstate
-provider_type: SSH
+provider_type: Script
 snippet: false
 foreign_input_sets:
-- template: Salt Run function - SSH default
+- template: Salt Run function - Script default
   exclude: function
 kind: job_template
 %>
 
-<%= render_template('Salt Run function - SSH default', :function => 'state.highstate') %>
+<%= render_template('Salt Run function - Script default', :function => 'state.highstate') %>
